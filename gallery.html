@@ -1,1321 +1,2137 @@
 <!DOCTYPE html>
 <html lang="hi">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Gallery | Delhi Press - Sajad Printer'S</title>
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>
+Gallery | Delhi Press - Sajad Printer'S
+</title>
 
 <meta name="description"
 content="Delhi Press - Sajad Printer'S Gallery - Wedding Cards, Flex Banner, Visiting Cards, Posters and Graphic Designing.">
 
 <style>
 
-/* ================= RESET ================= */
+/* =====================================
+   RESET
+===================================== */
 
 *{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
+margin:0;
+padding:0;
+box-sizing:border-box;
 }
 
 html{
-  scroll-behavior:smooth;
+scroll-behavior:smooth;
 }
 
 body{
-  font-family:Arial,Helvetica,sans-serif;
-  background:#f5f7fb;
-  color:#132238;
-  line-height:1.6;
+font-family:Arial,Helvetica,sans-serif;
+background:#f5f7fb;
+color:#132238;
+line-height:1.6;
 }
 
 a{
-  text-decoration:none;
+text-decoration:none;
 }
 
 
-/* ================= HEADER ================= */
+/* =====================================
+   HEADER
+===================================== */
 
 .header{
-  background:#fff;
-  position:sticky;
-  top:0;
-  z-index:1000;
-  box-shadow:0 4px 20px rgba(0,0,0,.08);
+background:#ffffff;
+position:sticky;
+top:0;
+z-index:9999;
+box-shadow:0 4px 20px rgba(0,0,0,.08);
 }
 
 .navbar{
-  max-width:1150px;
-  margin:auto;
-  padding:12px 20px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
+max-width:1150px;
+margin:auto;
+padding:12px 20px;
+
+display:flex;
+align-items:center;
+justify-content:space-between;
+
+position:relative;
 }
+
 
 .logo-area{
-  display:flex;
-  align-items:center;
-  gap:12px;
+display:flex;
+align-items:center;
+gap:12px;
 }
+
 
 .logo{
-  width:55px;
-  height:55px;
-  border-radius:16px;
-  background:linear-gradient(135deg,#0057b8,#00a7ff);
-  color:white;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  font-size:21px;
-  font-weight:800;
-  box-shadow:0 7px 20px rgba(0,104,200,.25);
+width:55px;
+height:55px;
+
+border-radius:16px;
+
+background:
+linear-gradient(
+135deg,
+#0057b8,
+#00a7ff
+);
+
+color:#ffffff;
+
+display:flex;
+align-items:center;
+justify-content:center;
+
+font-size:21px;
+font-weight:800;
+
+box-shadow:
+0 7px 20px rgba(0,104,200,.25);
 }
+
 
 .logo-text{
-  display:flex;
-  flex-direction:column;
+display:flex;
+flex-direction:column;
 }
+
 
 .logo-text strong{
-  color:#062d58;
-  font-size:20px;
-  line-height:1.1;
+color:#062d58;
+font-size:20px;
+line-height:1.1;
 }
+
 
 .logo-text span{
-  color:#687587;
-  font-size:13px;
+color:#687587;
+font-size:13px;
 }
+
+
+/* =====================================
+   DESKTOP MENU
+===================================== */
 
 .nav-menu{
-  display:flex;
-  align-items:center;
-  gap:27px;
+display:flex;
+align-items:center;
+gap:27px;
 }
+
 
 .nav-menu a{
-  color:#172c47;
-  font-size:15px;
-  font-weight:700;
+color:#172c47;
+font-size:15px;
+font-weight:700;
 }
 
-.nav-menu a:hover,
-.nav-menu .active-link{
-  color:#0075e8;
+
+.nav-menu a:hover{
+color:#0075e8;
 }
+
+
+.nav-menu .active-link{
+color:#0075e8;
+}
+
 
 .nav-whatsapp{
-  background:#00b95c !important;
-  color:white !important;
-  padding:10px 16px;
-  border-radius:10px;
+background:#00b95c !important;
+color:#ffffff !important;
+
+padding:10px 16px;
+
+border-radius:10px;
 }
+
+
+/* =====================================
+   MENU BUTTON
+===================================== */
 
 .menu-btn{
-  display:none;
-  width:44px;
-  height:44px;
-  border:0;
-  border-radius:10px;
-  background:#06366a;
-  color:white;
-  font-size:25px;
-  cursor:pointer;
+
+display:none;
+
+width:48px;
+height:48px;
+
+border:none;
+outline:none;
+
+border-radius:12px;
+
+background:#063b70;
+
+color:#ffffff;
+
+font-size:27px;
+
+font-weight:bold;
+
+cursor:pointer;
+
+align-items:center;
+justify-content:center;
+
+position:relative;
+z-index:10002;
 }
 
 
-/* ================= HERO ================= */
+/* =====================================
+   HERO
+===================================== */
 
 .hero{
-  position:relative;
-  overflow:hidden;
 
-  background:
-  radial-gradient(
-    circle at 85% 20%,
-    rgba(0,174,255,.35),
-    transparent 28%
-  ),
-  radial-gradient(
-    circle at 10% 80%,
-    rgba(0,135,255,.25),
-    transparent 30%
-  ),
-  linear-gradient(
-    135deg,
-    #021b3c,
-    #003b78 55%,
-    #00569c
-  );
+position:relative;
 
-  color:white;
-  padding:85px 20px 100px;
+overflow:hidden;
+
+background:
+
+radial-gradient(
+circle at 85% 20%,
+rgba(0,174,255,.35),
+transparent 28%
+),
+
+radial-gradient(
+circle at 10% 80%,
+rgba(0,135,255,.25),
+transparent 30%
+),
+
+linear-gradient(
+135deg,
+#021b3c,
+#003b78 55%,
+#00569c
+);
+
+color:#ffffff;
+
+padding:85px 20px 100px;
+
 }
+
 
 .hero:before{
-  content:"";
-  position:absolute;
-  width:400px;
-  height:400px;
-  border:1px solid rgba(255,255,255,.09);
-  border-radius:50%;
-  right:-170px;
-  top:-130px;
+
+content:"";
+
+position:absolute;
+
+width:400px;
+height:400px;
+
+border:
+1px solid rgba(255,255,255,.09);
+
+border-radius:50%;
+
+right:-170px;
+top:-130px;
+
 }
+
 
 .hero:after{
-  content:"";
-  position:absolute;
-  width:500px;
-  height:500px;
-  border:1px solid rgba(255,255,255,.08);
-  border-radius:50%;
-  left:-280px;
-  bottom:-300px;
+
+content:"";
+
+position:absolute;
+
+width:500px;
+height:500px;
+
+border:
+1px solid rgba(255,255,255,.08);
+
+border-radius:50%;
+
+left:-280px;
+bottom:-300px;
+
 }
+
 
 .hero-content{
-  max-width:1100px;
-  margin:auto;
-  position:relative;
-  z-index:2;
+
+max-width:1100px;
+
+margin:auto;
+
+position:relative;
+
+z-index:2;
+
 }
+
 
 .hero-badge{
-  display:inline-block;
-  border:1px solid rgba(255,255,255,.25);
-  background:rgba(255,255,255,.08);
-  padding:9px 17px;
-  border-radius:50px;
-  font-size:13px;
-  margin-bottom:25px;
+
+display:inline-block;
+
+border:
+1px solid rgba(255,255,255,.25);
+
+background:
+rgba(255,255,255,.08);
+
+padding:
+9px 17px;
+
+border-radius:
+50px;
+
+font-size:
+13px;
+
+margin-bottom:
+25px;
+
 }
+
 
 .hero h1{
-  font-size:clamp(43px,8vw,72px);
-  line-height:1.02;
-  letter-spacing:-2px;
-  margin-bottom:15px;
+
+font-size:
+clamp(43px,8vw,72px);
+
+line-height:
+1.02;
+
+letter-spacing:
+-2px;
+
+margin-bottom:
+15px;
+
 }
+
 
 .hero h1 span{
-  display:block;
-  color:#55b9ff;
-  font-size:.40em;
-  letter-spacing:4px;
-  margin-top:13px;
+
+display:block;
+
+color:#55b9ff;
+
+font-size:.40em;
+
+letter-spacing:4px;
+
+margin-top:13px;
+
 }
+
 
 .hero p{
-  max-width:670px;
-  font-size:18px;
-  color:#d5e7f8;
-  margin-bottom:30px;
+
+max-width:
+670px;
+
+font-size:
+18px;
+
+color:
+#d5e7f8;
+
+margin-bottom:
+30px;
+
 }
+
+
+/* =====================================
+   BUTTONS
+===================================== */
 
 .hero-buttons{
-  display:flex;
-  flex-wrap:wrap;
-  gap:13px;
+
+display:flex;
+
+flex-wrap:wrap;
+
+gap:13px;
+
 }
+
 
 .btn{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  padding:14px 23px;
-  border-radius:11px;
-  font-weight:800;
-  font-size:15px;
+
+display:inline-flex;
+
+align-items:center;
+
+justify-content:center;
+
+padding:
+14px 23px;
+
+border-radius:
+11px;
+
+font-weight:
+800;
+
+font-size:
+15px;
+
 }
+
 
 .whatsapp-btn{
-  background:#00bf60;
-  color:white;
+
+background:
+#00c85a;
+
+color:
+#ffffff;
+
 }
+
 
 .call-btn{
-  background:white;
-  color:#06366a;
+
+background:
+#ffffff;
+
+color:
+#06366a;
+
 }
+
 
 .direction-btn{
-  background:#087fe7;
-  color:white;
+
+background:
+#087fe7;
+
+color:
+#ffffff;
+
 }
 
 
-/* ================= GALLERY ================= */
+/* =====================================
+   GALLERY
+===================================== */
 
 .gallery-section{
-  max-width:1100px;
-  margin:auto;
-  padding:75px 20px;
+
+max-width:
+1100px;
+
+margin:
+auto;
+
+padding:
+75px 20px;
+
 }
+
 
 .section-heading{
-  text-align:center;
-  max-width:700px;
-  margin:0 auto 42px;
+
+text-align:
+center;
+
+max-width:
+720px;
+
+margin:
+0 auto 42px;
+
 }
+
 
 .section-heading span{
-  color:#0084e9;
-  font-size:13px;
-  font-weight:800;
-  letter-spacing:2px;
+
+color:
+#0084e9;
+
+font-size:
+13px;
+
+font-weight:
+800;
+
+letter-spacing:
+3px;
+
 }
+
 
 .section-heading h2{
-  font-size:35px;
-  color:#092b53;
-  margin:7px 0;
+
+font-size:
+35px;
+
+color:
+#092b53;
+
+margin:
+8px 0;
+
 }
+
 
 .section-heading p{
-  color:#718096;
+
+color:
+#718096;
+
 }
+
 
 .gallery-grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:20px;
+
+display:
+grid;
+
+grid-template-columns:
+repeat(3,1fr);
+
+gap:
+20px;
+
 }
+
 
 .gallery-card{
-  background:white;
-  border:1px solid #e5ebf3;
-  border-radius:20px;
-  overflow:hidden;
-  box-shadow:0 8px 27px rgba(0,0,0,.06);
-  transition:.25s;
+
+background:
+#ffffff;
+
+border:
+1px solid #e5ebf3;
+
+border-radius:
+20px;
+
+overflow:
+hidden;
+
+box-shadow:
+0 8px 27px rgba(0,0,0,.06);
+
+transition:
+.25s;
+
 }
+
 
 .gallery-card:hover{
-  transform:translateY(-6px);
-  box-shadow:0 16px 35px rgba(0,0,0,.11);
+
+transform:
+translateY(-6px);
+
+box-shadow:
+0 16px 35px rgba(0,0,0,.11);
+
 }
+
 
 .gallery-photo{
-  min-height:220px;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  text-align:center;
-  padding:25px;
 
-  background:
-  radial-gradient(
-    circle at top right,
-    rgba(0,142,255,.20),
-    transparent 40%
-  ),
-  linear-gradient(
-    135deg,
-    #e7f3ff,
-    #f8fbff
-  );
+min-height:
+220px;
+
+display:
+flex;
+
+justify-content:
+center;
+
+align-items:
+center;
+
+text-align:
+center;
+
+padding:
+25px;
+
+background:
+
+radial-gradient(
+circle at top right,
+rgba(0,142,255,.20),
+transparent 40%
+),
+
+linear-gradient(
+135deg,
+#e7f3ff,
+#f8fbff
+);
+
 }
+
 
 .gallery-icon{
-  width:78px;
-  height:78px;
-  background:white;
-  margin:0 auto 13px;
-  border-radius:20px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:38px;
-  box-shadow:0 7px 22px rgba(0,80,160,.10);
+
+width:
+78px;
+
+height:
+78px;
+
+background:
+#ffffff;
+
+margin:
+0 auto 13px;
+
+border-radius:
+20px;
+
+display:
+flex;
+
+align-items:
+center;
+
+justify-content:
+center;
+
+font-size:
+38px;
+
+box-shadow:
+0 7px 22px rgba(0,80,160,.10);
+
 }
+
 
 .gallery-photo strong{
-  display:block;
-  color:#073567;
-  font-size:20px;
+
+display:
+block;
+
+color:
+#073567;
+
+font-size:
+20px;
+
 }
+
 
 .gallery-photo small{
-  color:#78879b;
+
+color:
+#78879b;
+
 }
+
 
 .gallery-info{
-  padding:22px;
+
+padding:
+22px;
+
 }
+
 
 .gallery-info h3{
-  color:#092d57;
-  font-size:19px;
-  margin-bottom:6px;
+
+color:
+#092d57;
+
+font-size:
+19px;
+
+margin-bottom:
+6px;
+
 }
+
 
 .gallery-info p{
-  color:#718096;
-  font-size:14px;
-  min-height:45px;
-  margin-bottom:15px;
+
+color:
+#718096;
+
+font-size:
+14px;
+
+margin-bottom:
+15px;
+
 }
+
 
 .gallery-info a{
-  color:#007be5;
-  font-size:14px;
-  font-weight:800;
+
+color:
+#007be5;
+
+font-size:
+14px;
+
+font-weight:
+800;
+
 }
 
 
-/* ================= GALLERY NOTE ================= */
+/* =====================================
+   GALLERY NOTE
+===================================== */
 
 .gallery-note{
-  margin-top:30px;
-  background:#eaf3fb;
-  border-radius:17px;
-  padding:24px;
-  text-align:center;
-  color:#65758a;
+
+margin-top:
+30px;
+
+background:
+#eaf3fb;
+
+border-radius:
+17px;
+
+padding:
+24px;
+
+text-align:
+center;
+
+color:
+#65758a;
+
 }
+
 
 .gallery-note strong{
-  color:#073567;
+
+color:
+#073567;
+
 }
 
 
-/* ================= WHY / INFO ================= */
+/* =====================================
+   INFO SECTION
+===================================== */
 
 .info-section{
-  background:#eaf3fb;
+
+background:
+#eaf3fb;
+
 }
+
 
 .info-inner{
-  max-width:1100px;
-  margin:auto;
-  padding:70px 20px;
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:40px;
-  align-items:center;
+
+max-width:
+1100px;
+
+margin:
+auto;
+
+padding:
+70px 20px;
+
+display:
+grid;
+
+grid-template-columns:
+1fr 1fr;
+
+gap:
+40px;
+
+align-items:
+center;
+
 }
+
 
 .info-left span{
-  color:#007bd7;
-  font-size:13px;
-  font-weight:800;
-  letter-spacing:2px;
+
+color:
+#007bd7;
+
+font-size:
+13px;
+
+font-weight:
+800;
+
+letter-spacing:
+2px;
+
 }
+
 
 .info-left h2{
-  color:#072d58;
-  font-size:35px;
-  line-height:1.2;
-  margin:8px 0 15px;
+
+color:
+#072d58;
+
+font-size:
+35px;
+
+line-height:
+1.2;
+
+margin:
+8px 0 15px;
+
 }
+
 
 .info-left p{
-  color:#66768a;
+
+color:
+#66768a;
+
 }
+
 
 .info-list{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:13px;
+
+display:
+grid;
+
+grid-template-columns:
+1fr 1fr;
+
+gap:
+13px;
+
 }
+
 
 .info-box{
-  background:white;
-  border-radius:14px;
-  padding:18px;
-  box-shadow:0 6px 18px rgba(0,0,0,.05);
+
+background:
+#ffffff;
+
+border-radius:
+14px;
+
+padding:
+18px;
+
+box-shadow:
+0 6px 18px rgba(0,0,0,.05);
+
 }
+
 
 .info-box strong{
-  color:#083363;
-  display:block;
+
+display:
+block;
+
+color:
+#083363;
+
 }
+
 
 .info-box small{
-  color:#728094;
+
+color:
+#728094;
+
 }
 
 
-/* ================= CTA ================= */
+/* =====================================
+   CTA
+===================================== */
 
 .cta{
-  max-width:1060px;
-  margin:70px auto;
-  padding:45px 25px;
-  border-radius:25px;
 
-  background:
-  radial-gradient(
-    circle at right,
-    rgba(0,183,255,.35),
-    transparent 35%
-  ),
-  linear-gradient(
-    135deg,
-    #032652,
-    #00549a
-  );
+max-width:
+1060px;
 
-  color:white;
-  text-align:center;
-  box-shadow:0 15px 40px rgba(0,56,110,.20);
+margin:
+70px auto;
+
+padding:
+45px 25px;
+
+border-radius:
+25px;
+
+background:
+
+radial-gradient(
+circle at right,
+rgba(0,183,255,.35),
+transparent 35%
+),
+
+linear-gradient(
+135deg,
+#032652,
+#00549a
+);
+
+color:
+#ffffff;
+
+text-align:
+center;
+
+box-shadow:
+0 15px 40px rgba(0,56,110,.20);
+
 }
+
 
 .cta h2{
-  font-size:34px;
+
+font-size:
+34px;
+
 }
+
 
 .cta p{
-  color:#d5e8f8;
-  margin:8px 0 22px;
+
+color:
+#d5e8f8;
+
+margin:
+8px 0 22px;
+
 }
+
 
 .cta-buttons{
-  display:flex;
-  justify-content:center;
-  flex-wrap:wrap;
-  gap:12px;
+
+display:
+flex;
+
+justify-content:
+center;
+
+flex-wrap:
+wrap;
+
+gap:
+12px;
+
 }
 
 
-/* ================= FOOTER ================= */
+/* =====================================
+   FOOTER
+===================================== */
 
 .footer{
-  background:#06182c;
-  color:#b7c4d3;
-  padding:55px 20px 20px;
+
+background:
+#06182c;
+
+color:
+#b7c4d3;
+
+padding:
+55px 20px 20px;
+
 }
+
 
 .footer-grid{
-  max-width:1100px;
-  margin:auto;
-  display:grid;
-  grid-template-columns:2fr 1fr 1fr;
-  gap:40px;
+
+max-width:
+1100px;
+
+margin:
+auto;
+
+display:
+grid;
+
+grid-template-columns:
+2fr 1fr 1fr;
+
+gap:
+40px;
+
 }
+
 
 .footer-brand{
-  display:flex;
-  align-items:center;
-  gap:12px;
-  margin-bottom:15px;
+
+display:
+flex;
+
+align-items:
+center;
+
+gap:
+12px;
+
+margin-bottom:
+15px;
+
 }
+
 
 .footer-logo{
-  width:50px;
-  height:50px;
-  background:#0787e8;
-  color:white;
-  border-radius:13px;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  font-weight:bold;
+
+width:
+50px;
+
+height:
+50px;
+
+background:
+#0787e8;
+
+color:
+#ffffff;
+
+border-radius:
+13px;
+
+display:
+flex;
+
+justify-content:
+center;
+
+align-items:
+center;
+
+font-weight:
+bold;
+
 }
+
 
 .footer h2{
-  color:white;
-  font-size:20px;
+
+color:
+#ffffff;
+
+font-size:
+20px;
+
 }
+
 
 .footer h3{
-  color:white;
-  margin-bottom:12px;
+
+color:
+#ffffff;
+
+margin-bottom:
+12px;
+
 }
+
 
 .footer a{
-  display:block;
-  color:#b7c4d3;
-  margin:7px 0;
+
+display:
+block;
+
+color:
+#b7c4d3;
+
+margin:
+7px 0;
+
 }
 
-.footer a:hover{
-  color:white;
-}
 
 .footer-bottom{
-  max-width:1100px;
-  margin:35px auto 0;
-  padding-top:18px;
-  border-top:1px solid #24364a;
-  text-align:center;
-  font-size:13px;
+
+max-width:
+1100px;
+
+margin:
+35px auto 0;
+
+padding-top:
+18px;
+
+border-top:
+1px solid #24364a;
+
+text-align:
+center;
+
+font-size:
+13px;
+
 }
 
 
-/* ================= FLOATING WHATSAPP ================= */
+/* =====================================
+   FLOATING WHATSAPP
+===================================== */
 
 .floating-whatsapp{
-  position:fixed;
-  right:20px;
-  bottom:20px;
-  width:58px;
-  height:58px;
-  border-radius:50%;
-  background:#00bd5b;
-  color:white;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:27px;
-  box-shadow:0 8px 25px rgba(0,0,0,.25);
-  z-index:999;
+
+position:
+fixed;
+
+right:
+18px;
+
+bottom:
+18px;
+
+width:
+58px;
+
+height:
+58px;
+
+border-radius:
+50%;
+
+background:
+#00bd5b;
+
+color:
+#ffffff;
+
+display:
+flex;
+
+align-items:
+center;
+
+justify-content:
+center;
+
+font-size:
+27px;
+
+box-shadow:
+0 8px 25px rgba(0,0,0,.25);
+
+z-index:
+9000;
+
 }
 
 
-/* ================= MOBILE ================= */
+/* =====================================
+   MOBILE
+===================================== */
 
 @media(max-width:768px){
 
-  .navbar{
-    padding:10px 15px;
-  }
 
-  .logo{
-    width:48px;
-    height:48px;
-  }
+.navbar{
 
-  .logo-text strong{
-    font-size:18px;
-  }
+padding:
+10px 15px;
 
-  .menu-btn{
-    display:block;
-  }
-
-  .nav-menu{
-    display:none;
-    position:absolute;
-    top:70px;
-    left:14px;
-    right:14px;
-    background:white;
-    padding:10px;
-    border-radius:15px;
-    box-shadow:0 12px 35px rgba(0,0,0,.18);
-  }
-
-  .nav-menu.active{
-    display:block;
-  }
-
-  .nav-menu a{
-    display:block;
-    padding:12px;
-    border-bottom:1px solid #edf0f4;
-  }
-
-  .nav-whatsapp{
-    text-align:center;
-    margin-top:7px;
-  }
-
-  .hero{
-    padding:65px 18px 80px;
-    text-align:center;
-  }
-
-  .hero h1{
-    font-size:43px;
-  }
-
-  .hero h1 span{
-    font-size:18px;
-    letter-spacing:2px;
-  }
-
-  .hero p{
-    margin-left:auto;
-    margin-right:auto;
-    font-size:16px;
-  }
-
-  .hero-buttons{
-    justify-content:center;
-  }
-
-  .gallery-section{
-    padding:60px 17px;
-  }
-
-  .section-heading h2{
-    font-size:29px;
-  }
-
-  .gallery-grid{
-    grid-template-columns:1fr;
-  }
-
-  .gallery-photo{
-    min-height:190px;
-  }
-
-  .gallery-info p{
-    min-height:auto;
-  }
-
-  .info-inner{
-    grid-template-columns:1fr;
-    padding:60px 18px;
-  }
-
-  .info-left h2{
-    font-size:30px;
-  }
-
-  .cta{
-    margin:45px 15px;
-    padding:38px 18px;
-  }
-
-  .cta h2{
-    font-size:28px;
-  }
-
-  .footer-grid{
-    grid-template-columns:1fr;
-    gap:30px;
-  }
 }
+
+
+.logo{
+
+width:
+48px;
+
+height:
+48px;
+
+}
+
+
+.logo-text strong{
+
+font-size:
+18px;
+
+}
+
+
+.logo-text span{
+
+font-size:
+13px;
+
+}
+
+
+/* MENU BUTTON */
+
+.menu-btn{
+
+display:flex;
+
+}
+
+
+/* MOBILE DROPDOWN */
+
+.nav-menu{
+
+display:none;
+
+position:absolute;
+
+top:76px;
+
+left:14px;
+
+right:14px;
+
+background:#ffffff;
+
+padding:10px;
+
+border-radius:15px;
+
+box-shadow:
+0 15px 40px rgba(0,0,0,.25);
+
+z-index:10001;
+
+}
+
+
+.nav-menu.active{
+
+display:block !important;
+
+}
+
+
+.nav-menu a{
+
+display:block;
+
+width:100%;
+
+padding:
+14px 15px;
+
+color:
+#123154;
+
+font-size:
+16px;
+
+border-bottom:
+1px solid #edf0f4;
+
+}
+
+
+.nav-menu a:last-child{
+
+border-bottom:none;
+
+}
+
+
+.nav-menu .active-link{
+
+background:
+#edf7ff;
+
+color:
+#0075e8;
+
+border-radius:
+8px;
+
+}
+
+
+.nav-whatsapp{
+
+margin-top:
+8px;
+
+background:
+#00b95c !important;
+
+color:
+#ffffff !important;
+
+text-align:
+center;
+
+}
+
+
+/* HERO MOBILE */
+
+.hero{
+
+padding:
+65px 18px 80px;
+
+text-align:
+center;
+
+}
+
+
+.hero h1{
+
+font-size:
+43px;
+
+}
+
+
+.hero h1 span{
+
+font-size:
+18px;
+
+letter-spacing:
+2px;
+
+}
+
+
+.hero p{
+
+font-size:
+16px;
+
+margin-left:
+auto;
+
+margin-right:
+auto;
+
+}
+
+
+.hero-buttons{
+
+justify-content:
+center;
+
+}
+
+
+/* GALLERY MOBILE */
+
+.gallery-section{
+
+padding:
+60px 17px;
+
+}
+
+
+.section-heading h2{
+
+font-size:
+29px;
+
+}
+
+
+.gallery-grid{
+
+grid-template-columns:
+1fr;
+
+}
+
+
+.gallery-photo{
+
+min-height:
+190px;
+
+}
+
+
+/* INFO MOBILE */
+
+.info-inner{
+
+grid-template-columns:
+1fr;
+
+padding:
+60px 18px;
+
+}
+
+
+.info-left h2{
+
+font-size:
+30px;
+
+}
+
+
+/* CTA MOBILE */
+
+.cta{
+
+margin:
+45px 15px;
+
+padding:
+38px 18px;
+
+}
+
+
+.cta h2{
+
+font-size:
+28px;
+
+}
+
+
+/* FOOTER MOBILE */
+
+.footer-grid{
+
+grid-template-columns:
+1fr;
+
+gap:
+30px;
+
+}
+
+}
+
 
 @media(max-width:430px){
 
-  .hero h1{
-    font-size:38px;
-  }
 
-  .hero-buttons,
-  .cta-buttons{
-    flex-direction:column;
-  }
+.hero h1{
 
-  .btn{
-    width:100%;
-  }
+font-size:
+38px;
 
-  .info-list{
-    grid-template-columns:1fr;
-  }
+}
+
+
+.hero-buttons,
+.cta-buttons{
+
+flex-direction:
+column;
+
+}
+
+
+.btn{
+
+width:
+100%;
+
+}
+
+
+.info-list{
+
+grid-template-columns:
+1fr;
+
+}
+
 }
 
 </style>
+
 </head>
 
 
 <body>
 
 
-<!-- ================= HEADER ================= -->
+<!-- =====================================
+     HEADER
+===================================== -->
 
 <header class="header">
 
 <div class="navbar">
 
-  <a href="index.html" class="logo-area">
 
-    <div class="logo">
-      DP
-    </div>
+<a href="index.html"
+class="logo-area">
 
-    <div class="logo-text">
-
-      <strong>DELHI PRESS</strong>
-
-      <span>
-        Sajad Printer'S
-      </span>
-
-    </div>
-
-  </a>
+<div class="logo">
+DP
+</div>
 
 
-  <button
-  class="menu-btn"
-  id="menuBtn"
-  onclick="toggleMenu()"
-  aria-label="Menu">
-  ☰
-  </button>
+<div class="logo-text">
+
+<strong>
+DELHI PRESS
+</strong>
+
+<span>
+Sajad Printer'S
+</span>
+
+</div>
+
+</a>
 
 
-  <nav
-  class="nav-menu"
-  id="navMenu">
+<button
+type="button"
+class="menu-btn"
+id="menuBtn"
+aria-label="Open Menu"
+aria-expanded="false">
 
-    <a href="index.html">
-      Home
-    </a>
+☰
 
-    <a href="services.html">
-      Services
-    </a>
+</button>
 
-    <a href="gallery.html"
-       class="active-link">
-      Gallery
-    </a>
 
-    <a href="about.html">
-      About
-    </a>
+<nav
+class="nav-menu"
+id="navMenu">
 
-    <a href="contact.html">
-      Contact
-    </a>
 
-    <a
-    href="https://wa.me/919304509464"
-    target="_blank"
-    class="nav-whatsapp">
-      WhatsApp
-    </a>
+<a href="index.html">
+Home
+</a>
 
-  </nav>
+
+<a href="services.html">
+Services
+</a>
+
+
+<a href="gallery.html"
+class="active-link">
+
+Gallery
+
+</a>
+
+
+<a href="about.html">
+About
+</a>
+
+
+<a href="contact.html">
+Contact
+</a>
+
+
+<a
+href="https://wa.me/919304509464"
+target="_blank"
+class="nav-whatsapp">
+
+💬 WhatsApp
+
+</a>
+
+
+</nav>
 
 </div>
 
 </header>
 
 
-<!-- ================= HERO ================= -->
+
+<!-- =====================================
+     HERO
+===================================== -->
 
 <section class="hero">
 
 <div class="hero-content">
 
-  <div class="hero-badge">
-    ✦ DELHI PRESS • SAJAD PRINTER'S
-  </div>
+
+<div class="hero-badge">
+
+✦ DELHI PRESS • SAJAD PRINTER'S
+
+</div>
 
 
-  <h1>
+<h1>
 
-    OUR WORK
-    <br>
-    GALLERY
+OUR WORK
+<br>
+GALLERY
 
-    <span>
-      DESIGN • PRINT • CREATE
-    </span>
+<span>
+DESIGN • PRINT • CREATE
+</span>
 
-  </h1>
-
-
-  <p>
-    Wedding Cards, Flex Banner, Visiting Card,
-    Poster, Calendar और Graphic Designing के
-    हमारे printing work को यहाँ देखें।
-  </p>
+</h1>
 
 
-  <div class="hero-buttons">
+<p>
 
-    <a
-    href="https://wa.me/919304509464?text=Namaste%20Delhi%20Press,%20mujhe%20aapke%20printing%20designs%20ke%20baare%20mein%20jankari%20chahiye."
-    target="_blank"
-    class="btn whatsapp-btn">
+Wedding Cards, Flex Banner, Visiting Card,
+Poster, Calendar और Graphic Designing के
+हमारे printing work को यहाँ देखें।
 
-      💬 WhatsApp Enquiry
-
-    </a>
+</p>
 
 
-    <a
-    href="tel:+919304509464"
-    class="btn call-btn">
+<div class="hero-buttons">
 
-      ☎ Call Now
 
-    </a>
+<a
+href="https://wa.me/919304509464?text=Hello%20Delhi%20Press,%20mujhe%20aapke%20printing%20designs%20dekhne%20hain."
+target="_blank"
+class="btn whatsapp-btn">
 
-  </div>
+💬 WhatsApp Enquiry
+
+</a>
+
+
+<a
+href="tel:+919304509464"
+class="btn call-btn">
+
+☎ Call Now
+
+</a>
+
+
+</div>
 
 </div>
 
 </section>
 
 
-<!-- ================= GALLERY ================= -->
+
+<!-- =====================================
+     GALLERY
+===================================== -->
 
 <section class="gallery-section">
 
 
 <div class="section-heading">
 
-  <span>
-    OUR GALLERY
-  </span>
+<span>
+OUR GALLERY
+</span>
 
-  <h2>
-    हमारा Printing & Designing Work
-  </h2>
+<h2>
+हमारा Printing & Designing Work
+</h2>
 
-  <p>
-    अलग-अलग printing और designing services
-    के sample और work categories.
-  </p>
+<p>
+हमारी अलग-अलग printing और designing
+services की categories देखें।
+</p>
 
 </div>
+
 
 
 <div class="gallery-grid">
 
 
-<!-- WEDDING -->
+<!-- WEDDING CARD -->
 
 <div class="gallery-card">
 
-  <div class="gallery-photo">
+<div class="gallery-photo">
 
-    <div>
+<div>
 
-      <div class="gallery-icon">
-        💌
-      </div>
+<div class="gallery-icon">
+💌
+</div>
 
-      <strong>
-        Wedding Card
-      </strong>
+<strong>
+Wedding Card
+</strong>
 
-      <small>
-        Invitation Designs
-      </small>
-
-    </div>
-
-  </div>
-
-
-  <div class="gallery-info">
-
-    <h3>
-      Wedding Card Design
-    </h3>
-
-    <p>
-      Nikah, Shadi, Aqiqah और अन्य invitation
-      cards की designing एवं printing.
-    </p>
-
-    <a href="wedding-card.html">
-      View Designs →
-    </a>
-
-  </div>
+<small>
+Invitation Designs
+</small>
 
 </div>
+
+</div>
+
+
+<div class="gallery-info">
+
+<h3>
+Wedding Card Design
+</h3>
+
+<p>
+Nikah, Shadi, Aqiqah और invitation
+cards की designing एवं printing.
+</p>
+
+<a href="wedding-card.html">
+
+View Designs →
+
+</a>
+
+</div>
+
+</div>
+
 
 
 <!-- FLEX -->
 
 <div class="gallery-card">
 
-  <div class="gallery-photo">
+<div class="gallery-photo">
 
-    <div>
+<div>
 
-      <div class="gallery-icon">
-        🖼️
-      </div>
+<div class="gallery-icon">
+🖼️
+</div>
 
-      <strong>
-        Flex Banner
-      </strong>
+<strong>
+Flex Banner
+</strong>
 
-      <small>
-        Banner Designs
-      </small>
+<small>
+Banner Designs
+</small>
 
-    </div>
-
-  </div>
-
-
-  <div class="gallery-info">
-
-    <h3>
-      Flex Banner Design
-    </h3>
-
-    <p>
-      Wedding, shop, event और business
-      promotion के लिए flex designs.
-    </p>
-
-    <a href="flex-banner.html">
-      View Designs →
-    </a>
-
-  </div>
+</div>
 
 </div>
 
 
-<!-- VISITING -->
+<div class="gallery-info">
+
+<h3>
+Flex Banner Design
+</h3>
+
+<p>
+Wedding, shop, event और business
+promotion के लिए flex banner designs.
+</p>
+
+<a href="flex-banner.html">
+
+View Designs →
+
+</a>
+
+</div>
+
+</div>
+
+
+
+<!-- VISITING CARD -->
 
 <div class="gallery-card">
 
-  <div class="gallery-photo">
+<div class="gallery-photo">
 
-    <div>
+<div>
 
-      <div class="gallery-icon">
-        💳
-      </div>
+<div class="gallery-icon">
+💳
+</div>
 
-      <strong>
-        Visiting Card
-      </strong>
+<strong>
+Visiting Card
+</strong>
 
-      <small>
-        Business Cards
-      </small>
-
-    </div>
-
-  </div>
-
-
-  <div class="gallery-info">
-
-    <h3>
-      Visiting Card
-    </h3>
-
-    <p>
-      Shop, business और professional use के
-      लिए attractive visiting cards.
-    </p>
-
-    <a href="visiting-card.html">
-      View Designs →
-    </a>
-
-  </div>
+<small>
+Business Cards
+</small>
 
 </div>
+
+</div>
+
+
+<div class="gallery-info">
+
+<h3>
+Visiting Card
+</h3>
+
+<p>
+Shop, business और professional use
+के लिए attractive visiting cards.
+</p>
+
+<a href="visiting-card.html">
+
+View Designs →
+
+</a>
+
+</div>
+
+</div>
+
 
 
 <!-- POSTER -->
 
 <div class="gallery-card">
 
-  <div class="gallery-photo">
+<div class="gallery-photo">
 
-    <div>
+<div>
 
-      <div class="gallery-icon">
-        📢
-      </div>
+<div class="gallery-icon">
+📢
+</div>
 
-      <strong>
-        Poster
-      </strong>
+<strong>
+Poster
+</strong>
 
-      <small>
-        Promotional Design
-      </small>
-
-    </div>
-
-  </div>
-
-
-  <div class="gallery-info">
-
-    <h3>
-      Poster Designing
-    </h3>
-
-    <p>
-      Business, event, function और promotional
-      poster designing.
-    </p>
-
-    <a
-    href="https://wa.me/919304509464?text=Mujhe%20Poster%20Design%20karwana%20hai."
-    target="_blank">
-
-      Enquire Now →
-
-    </a>
-
-  </div>
+<small>
+Promotional Design
+</small>
 
 </div>
+
+</div>
+
+
+<div class="gallery-info">
+
+<h3>
+Poster Designing
+</h3>
+
+<p>
+Business, event और promotional
+poster designing.
+</p>
+
+<a
+href="https://wa.me/919304509464?text=Mujhe%20Poster%20Design%20karwana%20hai."
+target="_blank">
+
+Enquire Now →
+
+</a>
+
+</div>
+
+</div>
+
 
 
 <!-- CALENDAR -->
 
 <div class="gallery-card">
 
-  <div class="gallery-photo">
+<div class="gallery-photo">
 
-    <div>
+<div>
 
-      <div class="gallery-icon">
-        📅
-      </div>
+<div class="gallery-icon">
+📅
+</div>
 
-      <strong>
-        Calendar
-      </strong>
+<strong>
+Calendar
+</strong>
 
-      <small>
-        Custom Printing
-      </small>
+<small>
+Custom Printing
+</small>
 
-    </div>
-
-  </div>
-
-
-  <div class="gallery-info">
-
-    <h3>
-      Calendar Printing
-    </h3>
-
-    <p>
-      Business, shop और promotional
-      customised calendar designing.
-    </p>
-
-    <a
-    href="https://wa.me/919304509464?text=Mujhe%20Calendar%20Printing%20karwani%20hai."
-    target="_blank">
-
-      Enquire Now →
-
-    </a>
-
-  </div>
+</div>
 
 </div>
 
 
-<!-- GRAPHIC -->
+<div class="gallery-info">
+
+<h3>
+Calendar Printing
+</h3>
+
+<p>
+Business और promotional
+calendar designing एवं printing.
+</p>
+
+<a
+href="https://wa.me/919304509464?text=Mujhe%20Calendar%20Printing%20karwani%20hai."
+target="_blank">
+
+Enquire Now →
+
+</a>
+
+</div>
+
+</div>
+
+
+
+<!-- GRAPHIC DESIGN -->
 
 <div class="gallery-card">
 
-  <div class="gallery-photo">
+<div class="gallery-photo">
 
-    <div>
+<div>
 
-      <div class="gallery-icon">
-        🎨
-      </div>
+<div class="gallery-icon">
+🎨
+</div>
 
-      <strong>
-        Graphic Design
-      </strong>
+<strong>
+Graphic Design
+</strong>
 
-      <small>
-        Creative Designs
-      </small>
-
-    </div>
-
-  </div>
-
-
-  <div class="gallery-info">
-
-    <h3>
-      Graphic Designing
-    </h3>
-
-    <p>
-      Social media, advertisement और
-      printing के लिए creative graphic designs.
-    </p>
-
-    <a
-    href="https://wa.me/919304509464?text=Mujhe%20Graphic%20Designing%20karwani%20hai."
-    target="_blank">
-
-      Enquire Now →
-
-    </a>
-
-  </div>
+<small>
+Creative Designs
+</small>
 
 </div>
+
+</div>
+
+
+<div class="gallery-info">
+
+<h3>
+Graphic Designing
+</h3>
+
+<p>
+Printing और advertisement के लिए
+professional graphic designs.
+</p>
+
+<a
+href="https://wa.me/919304509464?text=Mujhe%20Graphic%20Designing%20karwani%20hai."
+target="_blank">
+
+Enquire Now →
+
+</a>
+
+</div>
+
+</div>
+
 
 
 <!-- HANDBILL -->
 
 <div class="gallery-card">
 
-  <div class="gallery-photo">
+<div class="gallery-photo">
 
-    <div>
+<div>
 
-      <div class="gallery-icon">
-        📄
-      </div>
+<div class="gallery-icon">
+📄
+</div>
 
-      <strong>
-        Handbill
-      </strong>
+<strong>
+Handbill
+</strong>
 
-      <small>
-        Advertisement
-      </small>
+<small>
+Advertisement
+</small>
 
-    </div>
-
-  </div>
-
-
-  <div class="gallery-info">
-
-    <h3>
-      Handbill Printing
-    </h3>
-
-    <p>
-      Shop और business promotion के लिए
-      professional handbill designing.
-    </p>
-
-    <a
-    href="https://wa.me/919304509464?text=Mujhe%20Handbill%20Printing%20karwani%20hai."
-    target="_blank">
-
-      Enquire Now →
-
-    </a>
-
-  </div>
+</div>
 
 </div>
 
 
-<!-- STAMP -->
+<div class="gallery-info">
+
+<h3>
+Handbill Printing
+</h3>
+
+<p>
+Shop और business promotion के लिए
+handbill designing एवं printing.
+</p>
+
+<a
+href="https://wa.me/919304509464?text=Mujhe%20Handbill%20Printing%20karwani%20hai."
+target="_blank">
+
+Enquire Now →
+
+</a>
+
+</div>
+
+</div>
+
+
+
+<!-- RUBBER STAMP -->
 
 <div class="gallery-card">
 
-  <div class="gallery-photo">
+<div class="gallery-photo">
 
-    <div>
+<div>
 
-      <div class="gallery-icon">
-        🔖
-      </div>
+<div class="gallery-icon">
+🔖
+</div>
 
-      <strong>
-        Rubber Stamp
-      </strong>
+<strong>
+Rubber Stamp
+</strong>
 
-      <small>
-        Custom Stamp
-      </small>
-
-    </div>
-
-  </div>
-
-
-  <div class="gallery-info">
-
-    <h3>
-      Rubber Stamp
-    </h3>
-
-    <p>
-      Shop, office और personal use के
-      लिए custom rubber stamps.
-    </p>
-
-    <a
-    href="https://wa.me/919304509464?text=Mujhe%20Rubber%20Stamp%20banwana%20hai."
-    target="_blank">
-
-      Enquire Now →
-
-    </a>
-
-  </div>
+<small>
+Custom Stamp
+</small>
 
 </div>
+
+</div>
+
+
+<div class="gallery-info">
+
+<h3>
+Rubber Stamp
+</h3>
+
+<p>
+Shop, office और personal use के
+लिए custom rubber stamps.
+</p>
+
+<a
+href="https://wa.me/919304509464?text=Mujhe%20Rubber%20Stamp%20banwana%20hai."
+target="_blank">
+
+Enquire Now →
+
+</a>
+
+</div>
+
+</div>
+
 
 
 <!-- BUSINESS -->
 
 <div class="gallery-card">
 
-  <div class="gallery-photo">
+<div class="gallery-photo">
 
-    <div>
+<div>
 
-      <div class="gallery-icon">
-        🏪
-      </div>
+<div class="gallery-icon">
+🏪
+</div>
 
-      <strong>
-        Business Printing
-      </strong>
+<strong>
+Business Printing
+</strong>
 
-      <small>
-        Complete Solutions
-      </small>
+<small>
+Complete Solutions
+</small>
 
-    </div>
+</div>
 
-  </div>
+</div>
 
 
-  <div class="gallery-info">
+<div class="gallery-info">
 
-    <h3>
-      Business Printing
-    </h3>
+<h3>
+Business Printing
+</h3>
 
-    <p>
-      Shop और business के लिए professional
-      printing एवं designing solutions.
-    </p>
+<p>
+Shop और business के लिए professional
+printing एवं designing solutions.
+</p>
 
-    <a
-    href="https://wa.me/919304509464?text=Mujhe%20Business%20Printing%20ki%20jankari%20chahiye."
-    target="_blank">
+<a
+href="https://wa.me/919304509464?text=Mujhe%20Business%20Printing%20ki%20jankari%20chahiye."
+target="_blank">
 
-      WhatsApp →
+WhatsApp →
 
-    </a>
+</a>
 
-  </div>
+</div>
 
 </div>
 
 
 </div>
+
 
 
 <div class="gallery-note">
 
-  <strong>
-    📸 यहाँ आपकी असली Work Photos लगाई जा सकती हैं।
-  </strong>
+<strong>
 
-  <br>
+📸 यहाँ आपकी Original Work Photos लगाई जा सकती हैं।
 
-  Wedding Card, Flex Banner, Visiting Card आदि की
-  original photos इन sample boxes की जगह लगाई जा सकती हैं।
+</strong>
+
+<br><br>
+
+Wedding Card, Flex Banner, Visiting Card और
+दूसरे printing work की photos बाद में इन
+sample boxes की जगह लगाई जा सकती हैं।
 
 </div>
+
 
 </section>
 
 
-<!-- ================= INFO ================= -->
+
+<!-- =====================================
+     INFO
+===================================== -->
 
 <section class="info-section">
 
@@ -1324,23 +2140,28 @@ a{
 
 <div class="info-left">
 
-  <span>
-    DELHI PRESS
-  </span>
+<span>
+DELHI PRESS
+</span>
 
-  <h2>
-    Design से Printing तक
-    <br>
-    एक ही जगह
-  </h2>
+<h2>
 
-  <p>
-    Customer की जरूरत के अनुसार attractive design,
-    professional presentation और printing service
-    उपलब्ध कराई जाती है।
-  </p>
+Design से Printing तक
+<br>
+एक ही जगह
+
+</h2>
+
+<p>
+
+Customer की जरूरत के अनुसार attractive design,
+professional presentation और printing service
+उपलब्ध है।
+
+</p>
 
 </div>
+
 
 
 <div class="info-list">
@@ -1348,52 +2169,52 @@ a{
 
 <div class="info-box">
 
-  <strong>
-    ✓ Wedding Printing
-  </strong>
+<strong>
+✓ Wedding Printing
+</strong>
 
-  <small>
-    Cards & invitation designs
-  </small>
-
-</div>
-
-
-<div class="info-box">
-
-  <strong>
-    ✓ Business Printing
-  </strong>
-
-  <small>
-    Visiting card, banner & more
-  </small>
+<small>
+Cards & Invitation Designs
+</small>
 
 </div>
 
 
 <div class="info-box">
 
-  <strong>
-    ✓ Graphic Design
-  </strong>
+<strong>
+✓ Business Printing
+</strong>
 
-  <small>
-    Creative & professional design
-  </small>
+<small>
+Visiting Card, Banner & More
+</small>
 
 </div>
 
 
 <div class="info-box">
 
-  <strong>
-    ✓ Easy Support
-  </strong>
+<strong>
+✓ Graphic Design
+</strong>
 
-  <small>
-    Call & WhatsApp support
-  </small>
+<small>
+Creative & Professional
+</small>
+
+</div>
+
+
+<div class="info-box">
+
+<strong>
+✓ Easy Support
+</strong>
+
+<small>
+Call & WhatsApp
+</small>
 
 </div>
 
@@ -1405,17 +2226,20 @@ a{
 </section>
 
 
-<!-- ================= CTA ================= -->
+
+<!-- =====================================
+     CTA
+===================================== -->
 
 <section class="cta">
 
 <h2>
-  ऐसा Design बनवाना है?
+ऐसा Design बनवाना है?
 </h2>
 
 <p>
-  अपना sample, photo या printing requirement
-  WhatsApp पर भेजिए।
+अपना sample, photo या printing requirement
+WhatsApp पर भेजिए।
 </p>
 
 
@@ -1427,7 +2251,7 @@ href="https://wa.me/919304509464?text=Hello%20Delhi%20Press,%20mujhe%20design%20
 target="_blank"
 class="btn whatsapp-btn">
 
-  💬 WhatsApp
+💬 WhatsApp
 
 </a>
 
@@ -1436,7 +2260,7 @@ class="btn whatsapp-btn">
 href="tel:+919304509464"
 class="btn call-btn">
 
-  ☎ 9304509464
+☎ 9304509464
 
 </a>
 
@@ -1446,7 +2270,7 @@ href="https://share.google/9jMXacH4ktehaP96Y"
 target="_blank"
 class="btn direction-btn">
 
-  📍 Get Direction
+📍 Get Direction
 
 </a>
 
@@ -1456,7 +2280,10 @@ class="btn direction-btn">
 </section>
 
 
-<!-- ================= FOOTER ================= -->
+
+<!-- =====================================
+     FOOTER
+===================================== -->
 
 <footer class="footer">
 
@@ -1465,81 +2292,288 @@ class="btn direction-btn">
 
 <div>
 
-  <div class="footer-brand">
+<div class="footer-brand">
 
-    <div class="footer-logo">
-      DP
-    </div>
-
-    <div>
-
-      <h2>
-        DELHI PRESS
-      </h2>
-
-      <p>
-        Sajad Printer'S
-      </p>
-
-    </div>
-
-  </div>
-
-
-  <p>
-    Professional Printing & Graphic Designing Services.
-    Wedding Card, Flex Banner, Visiting Card,
-    Poster, Calendar और बहुत कुछ।
-  </p>
-
+<div class="footer-logo">
+DP
 </div>
 
 
 <div>
 
-  <h3>
-    Quick Links
-  </h3>
+<h2>
+DELHI PRESS
+</h2>
 
-  <a href="index.html">
-    Home
-  </a>
+<p>
+Sajad Printer'S
+</p>
 
-  <a href="services.html">
-    Services
-  </a>
-
-  <a href="gallery.html">
-    Gallery
-  </a>
-
-  <a href="about.html">
-    About Us
-  </a>
-
-  <a href="contact.html">
-    Contact Us
-  </a>
+</div>
 
 </div>
 
 
+<p>
+
+Professional Printing & Graphic Designing Services.
+Wedding Card, Flex Banner, Visiting Card,
+Poster, Calendar और बहुत कुछ।
+
+</p>
+
+</div>
+
+
+
 <div>
 
-  <h3>
-    Contact
-  </h3>
+<h3>
+Quick Links
+</h3>
 
-  <a href="tel:+919304509464">
-    ☎ 9304509464
-  </a>
+<a href="index.html">
+Home
+</a>
 
-  <a
-  href="https://wa.me/919304509464"
-  target="_blank">
+<a href="services.html">
+Services
+</a>
 
-    💬 WhatsApp
+<a href="gallery.html">
+Gallery
+</a>
 
-  </a>
+<a href="about.html">
+About Us
+</a>
 
-  
+<a href="contact.html">
+Contact Us
+</a>
+
+</div>
+
+
+
+<div>
+
+<h3>
+Contact
+</h3>
+
+<a href="tel:+919304509464">
+
+☎ 9304509464
+
+</a>
+
+
+<a
+href="https://wa.me/919304509464"
+target="_blank">
+
+💬 WhatsApp
+
+</a>
+
+
+<a
+href="https://share.google/9jMXacH4ktehaP96Y"
+target="_blank">
+
+📍 Google Maps
+
+</a>
+
+</div>
+
+
+</div>
+
+
+<div class="footer-bottom">
+
+© <span id="year"></span>
+Delhi Press - Sajad Printer'S
+
+<br>
+
+All Rights Reserved.
+
+</div>
+
+</footer>
+
+
+
+<!-- =====================================
+     FLOATING WHATSAPP
+===================================== -->
+
+<a
+href="https://wa.me/919304509464"
+target="_blank"
+class="floating-whatsapp"
+aria-label="WhatsApp">
+
+💬
+
+</a>
+
+
+
+<!-- =====================================
+     JAVASCRIPT
+===================================== -->
+
+<script>
+
+document.addEventListener(
+"DOMContentLoaded",
+function(){
+
+/* MENU ELEMENTS */
+
+const menuBtn =
+document.getElementById("menuBtn");
+
+const navMenu =
+document.getElementById("navMenu");
+
+
+/* HAMBURGER CLICK */
+
+menuBtn.addEventListener(
+"click",
+function(event){
+
+event.preventDefault();
+
+event.stopPropagation();
+
+navMenu.classList.toggle("active");
+
+
+if(
+navMenu.classList.contains("active")
+){
+
+menuBtn.innerHTML="✕";
+
+menuBtn.setAttribute(
+"aria-expanded",
+"true"
+);
+
+}else{
+
+menuBtn.innerHTML="☰";
+
+menuBtn.setAttribute(
+"aria-expanded",
+"false"
+);
+
+}
+
+});
+
+
+/* MENU LINK CLICK */
+
+const menuLinks =
+navMenu.querySelectorAll("a");
+
+
+menuLinks.forEach(
+function(link){
+
+link.addEventListener(
+"click",
+function(){
+
+navMenu.classList.remove("active");
+
+menuBtn.innerHTML="☰";
+
+menuBtn.setAttribute(
+"aria-expanded",
+"false"
+);
+
+});
+
+});
+
+
+/* CLICK OUTSIDE MENU */
+
+document.addEventListener(
+"click",
+function(event){
+
+if(
+!navMenu.contains(event.target)
+&&
+!menuBtn.contains(event.target)
+){
+
+navMenu.classList.remove("active");
+
+menuBtn.innerHTML="☰";
+
+menuBtn.setAttribute(
+"aria-expanded",
+"false"
+);
+
+}
+
+});
+
+
+/* SCREEN RESIZE */
+
+window.addEventListener(
+"resize",
+function(){
+
+if(
+window.innerWidth > 768
+){
+
+navMenu.classList.remove("active");
+
+menuBtn.innerHTML="☰";
+
+menuBtn.setAttribute(
+"aria-expanded",
+"false"
+);
+
+}
+
+});
+
+
+/* CURRENT YEAR */
+
+const year =
+document.getElementById("year");
+
+if(year){
+
+year.textContent =
+new Date().getFullYear();
+
+}
+
+});
+
+</script>
+
+
+</body>
+
+</html>
