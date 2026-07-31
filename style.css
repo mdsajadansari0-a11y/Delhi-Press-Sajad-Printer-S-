@@ -291,14 +291,15 @@ a {
 .btn:hover {
   transform: translateY(-3px);
 }
-.store-btn{
+..store-btn{
   background:#ffb703;
   color:#062d58;
-  box-shadow:0 8px 25px rgba(255,183,3,.28);
+  box-shadow:0 8px 25px rgba(255,183,3,.30);
 }
 
 .store-btn:hover{
-  background:#ffc533;
+  background:#ffc933;
+}
 }
 .whatsapp-btn {
   background: #10a95b;
