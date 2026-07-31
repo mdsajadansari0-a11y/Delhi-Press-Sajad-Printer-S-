@@ -140,4 +140,1005 @@ a{
   background:
     radial-gradient(circle at 85% 20%,rgba(0,174,255,.35),transparent 28%),
     radial-gradient(circle at 10% 80%,rgba(0,135,255,.25),transparent 30%),
-    linear-gradient(135deg
+    linear-gradient(135deg,#021b3c,#003b78 55%,#00569c);
+  color:white;
+  padding:90px 20px 105px;
+}
+
+.hero:before{
+  content:"";
+  position:absolute;
+  width:400px;
+  height:400px;
+  border:1px solid rgba(255,255,255,.09);
+  border-radius:50%;
+  right:-170px;
+  top:-130px;
+}
+
+.hero:after{
+  content:"";
+  position:absolute;
+  width:500px;
+  height:500px;
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:50%;
+  left:-280px;
+  bottom:-300px;
+}
+
+.hero-content{
+  max-width:1100px;
+  margin:auto;
+  position:relative;
+  z-index:2;
+}
+
+.hero-badge{
+  display:inline-block;
+  border:1px solid rgba(255,255,255,.25);
+  background:rgba(255,255,255,.08);
+  backdrop-filter:blur(5px);
+  padding:9px 17px;
+  border-radius:50px;
+  font-size:13px;
+  margin-bottom:25px;
+}
+
+.hero h1{
+  max-width:800px;
+  font-size:clamp(43px,8vw,76px);
+  line-height:1.02;
+  letter-spacing:-2px;
+  margin-bottom:20px;
+}
+
+.hero h1 span{
+  display:block;
+  color:#55b9ff;
+  font-size:.52em;
+  letter-spacing:5px;
+  margin-top:13px;
+}
+
+.hero p{
+  max-width:670px;
+  font-size:19px;
+  color:#d5e7f8;
+  margin-bottom:30px;
+}
+
+.hero-buttons{
+  display:flex;
+  flex-wrap:wrap;
+  gap:13px;
+}
+
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:14px 23px;
+  border-radius:11px;
+  font-weight:800;
+  font-size:15px;
+}
+
+.whatsapp-btn{
+  background:#00bf60;
+  color:white;
+  box-shadow:0 8px 25px rgba(0,191,96,.25);
+}
+
+.call-btn{
+  background:white;
+  color:#06366a;
+}
+
+
+/* ==============================
+   INTRO
+============================== */
+
+.intro-wrap{
+  max-width:1100px;
+  margin:-42px auto 0;
+  padding:0 20px;
+  position:relative;
+  z-index:10;
+}
+
+.intro{
+  background:white;
+  border-radius:20px;
+  padding:27px;
+  box-shadow:0 12px 35px rgba(6,37,71,.13);
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:10px;
+}
+
+.intro-item{
+  padding:12px 18px;
+  text-align:center;
+  border-right:1px solid #e8edf4;
+}
+
+.intro-item:last-child{
+  border-right:none;
+}
+
+.intro-icon{
+  font-size:28px;
+}
+
+.intro h3{
+  color:#06366a;
+  font-size:17px;
+}
+
+.intro p{
+  color:#728094;
+  font-size:13px;
+}
+
+
+/* ==============================
+   SECTION
+============================== */
+
+.section{
+  max-width:1100px;
+  margin:auto;
+  padding:80px 20px;
+}
+
+.section-heading{
+  text-align:center;
+  max-width:700px;
+  margin:0 auto 40px;
+}
+
+.section-heading span{
+  color:#0084e9;
+  font-size:13px;
+  font-weight:800;
+  letter-spacing:2px;
+}
+
+.section-heading h2{
+  font-size:35px;
+  color:#092b53;
+  margin:7px 0;
+}
+
+.section-heading p{
+  color:#718096;
+}
+
+
+/* ==============================
+   SERVICES
+============================== */
+
+.services-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+}
+
+.service-card{
+  background:white;
+  border-radius:18px;
+  padding:27px 22px;
+  border:1px solid #e7edf4;
+  box-shadow:0 7px 25px rgba(0,0,0,.055);
+  transition:.25s;
+}
+
+.service-card:hover{
+  transform:translateY(-5px);
+  box-shadow:0 13px 32px rgba(0,0,0,.10);
+}
+
+.service-icon{
+  width:57px;
+  height:57px;
+  border-radius:15px;
+  background:#eaf5ff;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-size:27px;
+  margin-bottom:18px;
+}
+
+.service-card h3{
+  color:#092d57;
+  margin-bottom:7px;
+  font-size:19px;
+}
+
+.service-card p{
+  color:#718096;
+  font-size:14px;
+}
+
+
+/* ==============================
+   WHY CHOOSE US
+============================== */
+
+.why-section{
+  background:#eaf3fb;
+}
+
+.why-inner{
+  max-width:1100px;
+  margin:auto;
+  padding:75px 20px;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:45px;
+  align-items:center;
+}
+
+.why-left span{
+  color:#007bd7;
+  font-weight:800;
+  font-size:13px;
+  letter-spacing:2px;
+}
+
+.why-left h2{
+  color:#072d58;
+  font-size:36px;
+  line-height:1.2;
+  margin:8px 0 15px;
+}
+
+.why-left p{
+  color:#66768a;
+}
+
+.why-list{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:13px;
+}
+
+.why-box{
+  background:white;
+  border-radius:14px;
+  padding:18px;
+  box-shadow:0 6px 18px rgba(0,0,0,.05);
+}
+
+.why-box strong{
+  display:block;
+  color:#083363;
+  margin-bottom:3px;
+}
+
+.why-box small{
+  color:#728094;
+}
+
+
+/* ==============================
+   CTA
+============================== */
+
+.cta{
+  max-width:1060px;
+  margin:70px auto;
+  padding:45px 25px;
+  border-radius:25px;
+  background:
+    radial-gradient(circle at right,rgba(0,183,255,.35),transparent 35%),
+    linear-gradient(135deg,#032652,#00549a);
+  color:white;
+  text-align:center;
+  box-shadow:0 15px 40px rgba(0,56,110,.20);
+}
+
+.cta h2{
+  font-size:34px;
+}
+
+.cta p{
+  color:#d5e8f8;
+  margin:8px 0 22px;
+}
+
+
+/* ==============================
+   FOOTER
+============================== */
+
+.footer{
+  background:#06182c;
+  color:#b7c4d3;
+  padding:55px 20px 20px;
+}
+
+.footer-grid{
+  max-width:1100px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:2fr 1fr 1fr;
+  gap:40px;
+}
+
+.footer-brand{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  margin-bottom:15px;
+}
+
+.footer-logo{
+  width:50px;
+  height:50px;
+  background:#0787e8;
+  color:white;
+  border-radius:13px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-weight:bold;
+}
+
+.footer h3{
+  color:white;
+  margin-bottom:12px;
+}
+
+.footer h2{
+  color:white;
+  font-size:20px;
+}
+
+.footer a{
+  display:block;
+  color:#b7c4d3;
+  margin:7px 0;
+}
+
+.footer a:hover{
+  color:white;
+}
+
+.footer-bottom{
+  max-width:1100px;
+  margin:35px auto 0;
+  padding-top:18px;
+  border-top:1px solid #24364a;
+  text-align:center;
+  font-size:13px;
+}
+
+
+/* ==============================
+   MOBILE
+============================== */
+
+@media(max-width:768px){
+
+  .navbar{
+    padding:10px 15px;
+  }
+
+  .logo{
+    width:48px;
+    height:48px;
+  }
+
+  .logo-text strong{
+    font-size:18px;
+  }
+
+  .menu-btn{
+    display:block;
+  }
+
+  .nav-menu{
+    display:none;
+    position:absolute;
+    top:70px;
+    left:14px;
+    right:14px;
+    background:white;
+    padding:10px;
+    border-radius:15px;
+    box-shadow:0 12px 35px rgba(0,0,0,.18);
+  }
+
+  .nav-menu.active{
+    display:block;
+  }
+
+  .nav-menu a{
+    display:block;
+    padding:12px;
+    border-bottom:1px solid #edf0f4;
+  }
+
+  .nav-whatsapp{
+    text-align:center;
+    margin-top:7px;
+  }
+
+  .hero{
+    padding:70px 18px 90px;
+    text-align:center;
+  }
+
+  .hero-badge{
+    font-size:11px;
+  }
+
+  .hero h1{
+    font-size:45px;
+  }
+
+  .hero h1 span{
+    font-size:22px;
+    letter-spacing:3px;
+  }
+
+  .hero p{
+    font-size:16px;
+    margin-left:auto;
+    margin-right:auto;
+  }
+
+  .hero-buttons{
+    justify-content:center;
+  }
+
+  .btn{
+    flex:1;
+    min-width:145px;
+  }
+
+  .intro{
+    grid-template-columns:1fr;
+  }
+
+  .intro-item{
+    border-right:none;
+    border-bottom:1px solid #e8edf4;
+  }
+
+  .intro-item:last-child{
+    border-bottom:none;
+  }
+
+  .section{
+    padding:60px 17px;
+  }
+
+  .section-heading h2{
+    font-size:29px;
+  }
+
+  .services-grid{
+    grid-template-columns:1fr;
+  }
+
+  .why-inner{
+    grid-template-columns:1fr;
+    padding:60px 18px;
+  }
+
+  .why-left h2{
+    font-size:30px;
+  }
+
+  .why-list{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .cta{
+    margin:45px 15px;
+    padding:38px 18px;
+  }
+
+  .cta h2{
+    font-size:28px;
+  }
+
+  .footer-grid{
+    grid-template-columns:1fr;
+    gap:30px;
+  }
+}
+
+
+@media(max-width:430px){
+
+  .hero h1{
+    font-size:39px;
+  }
+
+  .hero-buttons{
+    flex-direction:column;
+  }
+
+  .why-list{
+    grid-template-columns:1fr;
+  }
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- ================= HEADER ================= -->
+
+<header class="header">
+
+<div class="navbar">
+
+  <a href="index.html" class="logo-area">
+
+    <div class="logo">DP</div>
+
+    <div class="logo-text">
+      <strong>DELHI PRESS</strong>
+      <span>Sajad Printer'S</span>
+    </div>
+
+  </a>
+
+
+  <button class="menu-btn"
+          id="menuBtn"
+          onclick="toggleMenu()">
+    ☰
+  </button>
+
+
+  <nav class="nav-menu" id="navMenu">
+
+    <a href="index.html">Home</a>
+    <a href="services.html">Services</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+
+    <a href="https://wa.me/919304509464"
+       target="_blank"
+       class="nav-whatsapp">
+      WhatsApp
+    </a>
+
+  </nav>
+
+</div>
+
+</header>
+
+
+<!-- ================= HERO ================= -->
+
+<section class="hero">
+
+<div class="hero-content">
+
+  <div class="hero-badge">
+    ✦ DELHI PRESS • SAJAD PRINTER'S
+  </div>
+
+  <h1>
+    PRINTING THAT
+    <br>
+    MAKES AN IMPACT
+
+    <span>DESIGN • PRINT • CREATE</span>
+  </h1>
+
+
+  <p>
+    Wedding Card, Flex Banner, Visiting Card, Calendar,
+    Poster और Graphic Designing — आपकी सभी printing
+    जरूरतों के लिए professional service एक ही जगह।
+  </p>
+
+
+  <div class="hero-buttons">
+
+    <a href="https://wa.me/919304509464?text=Namaste%20Delhi%20Press,%20mujhe%20printing%20service%20ki%20jankari%20chahiye."
+       target="_blank"
+       class="btn whatsapp-btn">
+       💬 WhatsApp Enquiry
+    </a>
+
+
+    <a href="tel:+919304509464"
+       class="btn call-btn">
+       ☎ Call Now
+    </a>
+
+  </div>
+
+</div>
+
+</section>
+
+
+<!-- ================= QUICK INFO ================= -->
+
+<div class="intro-wrap">
+
+<div class="intro">
+
+  <div class="intro-item">
+
+    <div class="intro-icon">🎨</div>
+
+    <h3>Professional Design</h3>
+
+    <p>
+      साफ-सुथरा और attractive designing
+    </p>
+
+  </div>
+
+
+  <div class="intro-item">
+
+    <div class="intro-icon">🖨️</div>
+
+    <h3>Quality Printing</h3>
+
+    <p>
+      बेहतर quality printing solutions
+    </p>
+
+  </div>
+
+
+  <div class="intro-item">
+
+    <div class="intro-icon">💬</div>
+
+    <h3>Easy Support</h3>
+
+    <p>
+      Call और WhatsApp पर आसान संपर्क
+    </p>
+
+  </div>
+
+</div>
+
+</div>
+
+
+<!-- ================= SERVICES ================= -->
+
+<section class="section">
+
+<div class="section-heading">
+
+  <span>OUR SERVICES</span>
+
+  <h2>हमारी Printing Services</h2>
+
+  <p>
+    शादी कार्ड से लेकर business printing और
+    graphic designing तक सभी जरूरी services।
+  </p>
+
+</div>
+
+
+<div class="services-grid">
+
+
+  <div class="service-card">
+
+    <div class="service-icon">💌</div>
+
+    <h3>Wedding Card</h3>
+
+    <p>
+      शादी, निकाह और अन्य कार्यक्रमों के लिए
+      आकर्षक invitation card designing और printing।
+    </p>
+
+  </div>
+
+
+  <div class="service-card">
+
+    <div class="service-icon">🖼️</div>
+
+    <h3>Flex Banner</h3>
+
+    <p>
+      Shop, event, function और advertisement के लिए
+      professional flex banner designing।
+    </p>
+
+  </div>
+
+
+  <div class="service-card">
+
+    <div class="service-icon">💳</div>
+
+    <h3>Visiting Card</h3>
+
+    <p>
+      Business और personal use के लिए modern
+      visiting card design और printing।
+    </p>
+
+  </div>
+
+
+  <div class="service-card">
+
+    <div class="service-icon">📅</div>
+
+    <h3>Calendar Printing</h3>
+
+    <p>
+      Business, shop और personal use के लिए
+      customised calendar designing।
+    </p>
+
+  </div>
+
+
+  <div class="service-card">
+
+    <div class="service-icon">📢</div>
+
+    <h3>Poster & Handbill</h3>
+
+    <p>
+      Advertisement, event और promotion के लिए
+      poster एवं handbill designing।
+    </p>
+
+  </div>
+
+
+  <div class="service-card">
+
+    <div class="service-icon">✨</div>
+
+    <h3>Graphic Designing</h3>
+
+    <p>
+      Social media, banner, invitation और
+      business promotion के लिए creative designs।
+    </p>
+
+  </div>
+
+</div>
+
+</section>
+
+
+<!-- ================= WHY US ================= -->
+
+<section class="why-section">
+
+<div class="why-inner">
+
+  <div class="why-left">
+
+    <span>WHY CHOOSE US</span>
+
+    <h2>
+      बेहतर Design,<br>
+      बेहतर Printing
+    </h2>
+
+    <p>
+      Delhi Press - Sajad Printer'S में हमारा लक्ष्य
+      customer को professional design, अच्छी presentation
+      और आसान service देना है।
+    </p>
+
+  </div>
+
+
+  <div class="why-list">
+
+    <div class="why-box">
+      <strong>✓ Creative Design</strong>
+      <small>Modern और attractive designs</small>
+    </div>
+
+    <div class="why-box">
+      <strong>✓ Quality Work</strong>
+      <small>Printing पर विशेष ध्यान</small>
+    </div>
+
+    <div class="why-box">
+      <strong>✓ Fast Support</strong>
+      <small>Call और WhatsApp support</small>
+    </div>
+
+    <div class="why-box">
+      <strong>✓ Multiple Services</strong>
+      <small>एक ही जगह कई printing services</small>
+    </div>
+
+  </div>
+
+</div>
+
+</section>
+
+
+<!-- ================= CTA ================= -->
+
+<section class="cta">
+
+  <h2>आपको Printing करवानी है?</h2>
+
+  <p>
+    अपना design, photo या printing requirement
+    हमें WhatsApp पर भेजें।
+  </p>
+
+
+  <div class="hero-buttons"
+       style="justify-content:center;">
+
+    <a href="https://wa.me/919304509464?text=Hello%20Delhi%20Press,%20mujhe%20printing%20karwani%20hai."
+       target="_blank"
+       class="btn whatsapp-btn">
+
+       💬 WhatsApp Now
+
+    </a>
+
+
+    <a href="tel:+919304509464"
+       class="btn call-btn">
+
+       ☎ 9304509464
+
+    </a>
+
+  </div>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer class="footer">
+
+<div class="footer-grid">
+
+
+  <div>
+
+    <div class="footer-brand">
+
+      <div class="footer-logo">
+        DP
+      </div>
+
+      <div>
+        <h2>DELHI PRESS</h2>
+        <p>Sajad Printer'S</p>
+      </div>
+
+    </div>
+
+    <p>
+      Professional Printing & Graphic Designing Services.
+      Wedding Card, Flex Banner, Visiting Card, Poster,
+      Calendar और बहुत कुछ।
+    </p>
+
+  </div>
+
+
+  <div>
+
+    <h3>Quick Links</h3>
+
+    <a href="index.html">Home</a>
+    <a href="services.html">Services</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="about.html">About Us</a>
+    <a href="contact.html">Contact Us</a>
+
+  </div>
+
+
+  <div>
+
+    <h3>Contact</h3>
+
+    <a href="tel:+919304509464">
+      ☎ 9304509464
+    </a>
+
+    <a href="https://wa.me/919304509464"
+       target="_blank">
+      💬 WhatsApp
+    </a>
+
+    <a href="contact.html">
+      📍 Get Direction
+    </a>
+
+  </div>
+
+</div>
+
+
+<div class="footer-bottom">
+
+  © 2026 Delhi Press - Sajad Printer'S
+  <br>
+  All Rights Reserved.
+
+</div>
+
+</footer>
+
+
+<!-- ================= SCRIPT ================= -->
+
+<script>
+
+function toggleMenu(){
+
+  const menu =
+  document.getElementById("navMenu");
+
+  const button =
+  document.getElementById("menuBtn");
+
+  menu.classList.toggle("active");
+
+  if(menu.classList.contains("active")){
+    button.innerHTML = "✕";
+  }else{
+    button.innerHTML = "☰";
+  }
+
+}
+
+
+/* Menu link click होने पर mobile menu बंद */
+
+document
+.querySelectorAll(".nav-menu a")
+.forEach(function(link){
+
+  link.addEventListener("click",function(){
+
+    document
+    .getElementById("navMenu")
+    .classList.remove("active");
+
+    document
+    .getElementById("menuBtn")
+    .innerHTML="☰";
+
+  });
+
+});
+
+</script>
+
+</body>
+</html>
