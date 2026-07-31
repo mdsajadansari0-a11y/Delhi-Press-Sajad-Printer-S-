@@ -1,0 +1,1264 @@
+<!DOCTYPE html>
+<html lang="hi">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>Payment | Delhi Press - Sajad Printer'S</title>
+
+<meta name="description"
+content="Delhi Press - Sajad Printer'S secure UPI payment page.">
+
+<style>
+
+/* =========================
+   BASIC
+========================= */
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family:Arial,Helvetica,sans-serif;
+  background:#f3f6fa;
+  color:#132238;
+  line-height:1.6;
+}
+
+a{
+  text-decoration:none;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.header{
+  background:#ffffff;
+  position:sticky;
+  top:0;
+  z-index:1000;
+  box-shadow:0 4px 20px rgba(0,0,0,.08);
+}
+
+.navbar{
+  max-width:1100px;
+  margin:auto;
+  padding:12px 18px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  position:relative;
+}
+
+.logo-area{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  color:#102d50;
+}
+
+.logo{
+  width:55px;
+  height:55px;
+  border-radius:16px;
+  background:linear-gradient(135deg,#0061c9,#00a7ff);
+  color:white;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:21px;
+  font-weight:800;
+  box-shadow:0 7px 20px rgba(0,104,200,.25);
+}
+
+.logo-text{
+  display:flex;
+  flex-direction:column;
+}
+
+.logo-text strong{
+  color:#062d58;
+  font-size:20px;
+  line-height:1.15;
+}
+
+.logo-text span{
+  color:#718096;
+  font-size:13px;
+}
+
+.back-home{
+  background:#edf6ff;
+  color:#0667be;
+  padding:10px 15px;
+  border-radius:10px;
+  font-size:14px;
+  font-weight:bold;
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+  background:
+  radial-gradient(
+    circle at 85% 20%,
+    rgba(0,174,255,.35),
+    transparent 28%
+  ),
+  linear-gradient(
+    135deg,
+    #021b3c,
+    #003b78 55%,
+    #0064ae
+  );
+
+  color:#ffffff;
+  text-align:center;
+  padding:55px 20px 90px;
+}
+
+.hero-badge{
+  display:inline-block;
+  border:1px solid rgba(255,255,255,.25);
+  background:rgba(255,255,255,.08);
+  padding:8px 16px;
+  border-radius:30px;
+  font-size:12px;
+  margin-bottom:15px;
+}
+
+.hero h1{
+  font-size:clamp(34px,7vw,50px);
+  line-height:1.1;
+  margin-bottom:10px;
+}
+
+.hero h1 span{
+  color:#58c3ff;
+}
+
+.hero p{
+  max-width:600px;
+  margin:auto;
+  color:#d8eaff;
+  font-size:16px;
+}
+
+
+/* =========================
+   PAYMENT CARD
+========================= */
+
+.payment-wrap{
+  max-width:500px;
+  margin:-50px auto 50px;
+  padding:0 15px;
+  position:relative;
+  z-index:5;
+}
+
+.payment-card{
+  background:#ffffff;
+  border-radius:24px;
+  padding:26px;
+  box-shadow:0 18px 55px rgba(0,43,91,.17);
+  border:1px solid #e8eef5;
+}
+
+.secure{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:6px;
+  color:#078b4c;
+  font-size:13px;
+  font-weight:bold;
+  margin-bottom:18px;
+}
+
+.payment-title{
+  text-align:center;
+  margin-bottom:23px;
+}
+
+.payment-title h2{
+  color:#073463;
+  font-size:27px;
+  margin-bottom:3px;
+}
+
+.payment-title p{
+  color:#718096;
+  font-size:14px;
+}
+
+
+/* =========================
+   AMOUNT
+========================= */
+
+.label{
+  display:block;
+  color:#516175;
+  font-size:12px;
+  font-weight:bold;
+  margin-bottom:7px;
+  letter-spacing:.7px;
+}
+
+.amount-box{
+  display:flex;
+  align-items:center;
+  border:2px solid #dce7f1;
+  background:#ffffff;
+  border-radius:14px;
+  overflow:hidden;
+  transition:.2s;
+}
+
+.amount-box:focus-within{
+  border-color:#0783e7;
+  box-shadow:0 0 0 4px rgba(7,131,231,.08);
+}
+
+.rupee{
+  padding-left:17px;
+  color:#123c68;
+  font-size:28px;
+  font-weight:bold;
+}
+
+.amount-box input{
+  width:100%;
+  border:0;
+  outline:0;
+  background:transparent;
+  padding:15px 14px;
+  color:#123c68;
+  font-size:27px;
+  font-weight:bold;
+}
+
+.error{
+  display:none;
+  color:#d92c2c;
+  font-size:12px;
+  margin-top:6px;
+}
+
+
+/* =========================
+   QUICK AMOUNT
+========================= */
+
+.quick-title{
+  color:#718096;
+  font-size:11px;
+  font-weight:bold;
+  margin:18px 0 8px;
+}
+
+.quick-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:7px;
+}
+
+.quick-grid button{
+  border:1px solid #dbe6f0;
+  background:#f6faff;
+  color:#0867b7;
+  padding:10px 3px;
+  border-radius:9px;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+.quick-grid button:active{
+  background:#087fe7;
+  color:#ffffff;
+}
+
+
+/* =========================
+   SUMMARY
+========================= */
+
+.summary{
+  margin-top:20px;
+  background:#f4f8fc;
+  border-radius:13px;
+  padding:14px 15px;
+}
+
+.summary-row{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  font-size:14px;
+}
+
+.summary-row span{
+  color:#68778b;
+}
+
+.summary-row strong{
+  color:#073463;
+  font-size:18px;
+}
+
+
+/* =========================
+   PAY BUTTON
+========================= */
+
+.pay-btn{
+  width:100%;
+  margin-top:16px;
+  border:0;
+  border-radius:13px;
+  padding:16px 10px;
+  background:linear-gradient(135deg,#0788ed,#005caf);
+  color:#ffffff;
+  font-size:17px;
+  font-weight:800;
+  cursor:pointer;
+  box-shadow:0 9px 22px rgba(0,103,199,.23);
+}
+
+.pay-btn:active{
+  transform:scale(.99);
+}
+
+.apps{
+  text-align:center;
+  color:#7b8797;
+  font-size:11px;
+  margin-top:11px;
+}
+
+
+/* =========================
+   DIVIDER
+========================= */
+
+.divider{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  color:#8995a5;
+  font-size:11px;
+  margin:25px 0;
+}
+
+.divider:before,
+.divider:after{
+  content:"";
+  height:1px;
+  background:#e1e7ee;
+  flex:1;
+}
+
+
+/* =========================
+   QR
+========================= */
+
+.qr-box{
+  border:1px solid #e1e8ef;
+  border-radius:19px;
+  padding:20px 14px;
+  text-align:center;
+  background:#ffffff;
+}
+
+.gpay-title{
+  font-size:24px;
+  font-weight:bold;
+  color:#26384d;
+  margin-bottom:5px;
+}
+
+.qr-box h3{
+  color:#073463;
+  font-size:21px;
+  margin-bottom:3px;
+}
+
+.qr-box p{
+  color:#718096;
+  font-size:13px;
+  margin-bottom:15px;
+}
+
+
+/* IMPORTANT QR IMAGE */
+
+.qr-image{
+  width:100%;
+  max-width:320px;
+  height:auto;
+  display:block;
+  margin:0 auto;
+  border-radius:13px;
+  background:#ffffff;
+}
+
+
+/* =========================
+   UPI ID
+========================= */
+
+.upi-id{
+  background:#f3f7fb;
+  border-radius:10px;
+  padding:11px 8px;
+  margin-top:14px;
+  color:#5f7084;
+  font-size:12px;
+  word-break:break-all;
+}
+
+.upi-id strong{
+  display:block;
+  color:#073463;
+  font-size:14px;
+}
+
+
+/* =========================
+   WHATSAPP
+========================= */
+
+.whatsapp-btn{
+  display:block;
+  margin-top:18px;
+  width:100%;
+  padding:15px 10px;
+  text-align:center;
+  border-radius:12px;
+  background:#08b75a;
+  color:#ffffff;
+  font-size:15px;
+  font-weight:bold;
+}
+
+
+/* =========================
+   NOTICE
+========================= */
+
+.notice{
+  margin-top:16px;
+  padding:13px;
+  border-radius:11px;
+  background:#fff8e8;
+  border:1px solid #ffe1a0;
+  color:#765919;
+  font-size:12px;
+}
+
+.notice strong{
+  color:#5c4309;
+}
+
+
+/* =========================
+   SECURITY INFO
+========================= */
+
+.security-grid{
+  max-width:900px;
+  margin:0 auto 60px;
+  padding:0 15px;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:12px;
+}
+
+.security-card{
+  background:#ffffff;
+  border:1px solid #e3eaf1;
+  border-radius:15px;
+  padding:18px 12px;
+  text-align:center;
+  box-shadow:0 5px 20px rgba(0,0,0,.04);
+}
+
+.security-card .icon{
+  font-size:27px;
+  margin-bottom:5px;
+}
+
+.security-card strong{
+  display:block;
+  color:#073463;
+  font-size:14px;
+}
+
+.security-card span{
+  color:#758398;
+  font-size:11px;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer{
+  background:#06182c;
+  color:#b8c5d4;
+  padding:35px 20px 25px;
+  text-align:center;
+}
+
+.footer strong{
+  display:block;
+  color:#ffffff;
+  font-size:18px;
+}
+
+.footer p{
+  margin-top:4px;
+  font-size:12px;
+}
+
+.footer-links{
+  margin-top:15px;
+}
+
+.footer-links a{
+  color:#b8c5d4;
+  margin:0 8px;
+  font-size:12px;
+}
+
+.copyright{
+  border-top:1px solid #24364a;
+  margin-top:20px;
+  padding-top:15px;
+  font-size:11px;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:520px){
+
+  .navbar{
+    padding:10px 14px;
+  }
+
+  .logo{
+    width:48px;
+    height:48px;
+  }
+
+  .logo-text strong{
+    font-size:18px;
+  }
+
+  .back-home{
+    padding:9px 11px;
+    font-size:12px;
+  }
+
+  .hero{
+    padding:45px 17px 80px;
+  }
+
+  .hero h1{
+    font-size:33px;
+  }
+
+  .payment-card{
+    padding:21px 17px;
+  }
+
+  .payment-wrap{
+    margin-top:-43px;
+  }
+
+  .quick-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .security-grid{
+    grid-template-columns:1fr;
+  }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- ================= HEADER ================= -->
+
+<header class="header">
+
+<div class="navbar">
+
+<a href="index.html" class="logo-area">
+
+<div class="logo">
+DP
+</div>
+
+<div class="logo-text">
+
+<strong>
+DELHI PRESS
+</strong>
+
+<span>
+Sajad Printer'S
+</span>
+
+</div>
+
+</a>
+
+
+<a href="index.html"
+class="back-home">
+
+← Home
+
+</a>
+
+</div>
+
+</header>
+
+
+
+<!-- ================= HERO ================= -->
+
+<section class="hero">
+
+<div class="hero-badge">
+
+🔒 UPI PAYMENT
+
+</div>
+
+<h1>
+
+Secure <span>Payment</span>
+
+</h1>
+
+<p>
+
+अपना payment amount डालें और
+UPI App या QR Code से payment करें।
+
+</p>
+
+</section>
+
+
+
+<!-- ================= PAYMENT ================= -->
+
+<div class="payment-wrap">
+
+<div class="payment-card">
+
+
+<div class="secure">
+
+🔒 Secure UPI Payment
+
+</div>
+
+
+<div class="payment-title">
+
+<h2>
+Make Payment
+</h2>
+
+<p>
+Delhi Press - Sajad Printer'S
+</p>
+
+</div>
+
+
+<label class="label">
+
+ENTER PAYMENT AMOUNT
+
+</label>
+
+
+<div class="amount-box">
+
+<span class="rupee">
+₹
+</span>
+
+<input
+type="number"
+id="amount"
+placeholder="0"
+min="1"
+step="0.01"
+inputmode="decimal">
+
+</div>
+
+
+<div
+class="error"
+id="error">
+
+कृपया सही Amount डालें।
+
+</div>
+
+
+
+<!-- QUICK AMOUNT -->
+
+<div class="quick-title">
+
+QUICK AMOUNT
+
+</div>
+
+
+<div class="quick-grid">
+
+<button
+type="button"
+onclick="setAmount(100)">
+
+₹100
+
+</button>
+
+
+<button
+type="button"
+onclick="setAmount(200)">
+
+₹200
+
+</button>
+
+
+<button
+type="button"
+onclick="setAmount(500)">
+
+₹500
+
+</button>
+
+
+<button
+type="button"
+onclick="setAmount(1000)">
+
+₹1000
+
+</button>
+
+</div>
+
+
+
+<!-- SUMMARY -->
+
+<div class="summary">
+
+<div class="summary-row">
+
+<span>
+Total Payable
+</span>
+
+<strong id="total">
+₹0.00
+</strong>
+
+</div>
+
+</div>
+
+
+
+<!-- PAY NOW -->
+
+<button
+type="button"
+class="pay-btn"
+onclick="payNow()">
+
+Pay ₹<span id="payAmount">0.00</span> with UPI
+
+</button>
+
+
+<div class="apps">
+
+Google Pay • PhonePe • Paytm • BHIM • UPI
+
+</div>
+
+
+
+<!-- QR -->
+
+<div class="divider">
+
+OR SCAN & PAY
+
+</div>
+
+
+<div class="qr-box">
+
+
+<div class="gpay-title">
+
+G Pay
+
+</div>
+
+
+<h3>
+
+Scan QR Code
+
+</h3>
+
+
+<p>
+
+किसी भी UPI App से QR Code Scan करें
+
+</p>
+
+
+<!--
+IMPORTANT:
+payment-qr.png same folder mein hona chahiye
+-->
+
+<img
+src="payment-qr.png"
+class="qr-image"
+alt="Delhi Press UPI Payment QR"
+onerror="showQrError()">
+
+
+<div
+id="qrError"
+style="
+display:none;
+color:#d62929;
+background:#fff1f1;
+padding:12px;
+margin-top:10px;
+border-radius:9px;
+font-size:12px;
+">
+
+QR image नहीं मिली।
+GitHub में payment-qr.png file
+payment.html के same folder में रखें।
+
+</div>
+
+
+<div class="upi-id">
+
+UPI ID
+
+<strong>
+9304509464@okbizaxis
+</strong>
+
+</div>
+
+
+</div>
+
+
+
+<!-- WHATSAPP -->
+
+<a
+href="https://wa.me/919304509464"
+target="_blank"
+id="whatsappButton"
+class="whatsapp-btn">
+
+💬 Payment Screenshot WhatsApp करें
+
+</a>
+
+
+
+<!-- NOTICE -->
+
+<div class="notice">
+
+<strong>
+⚠ Payment करने से पहले:
+</strong>
+
+<br>
+
+UPI App में दिखाई देने वाला receiver /
+merchant name जरूर जाँचें।
+
+<br><br>
+
+Payment पूरा होने के बाद screenshot
+WhatsApp पर भेजें।
+
+</div>
+
+
+</div>
+
+</div>
+
+
+
+<!-- ================= SECURITY ================= -->
+
+<div class="security-grid">
+
+
+<div class="security-card">
+
+<div class="icon">
+🔒
+</div>
+
+<strong>
+Secure Payment
+</strong>
+
+<span>
+UPI based payment
+</span>
+
+</div>
+
+
+<div class="security-card">
+
+<div class="icon">
+📱
+</div>
+
+<strong>
+All UPI Apps
+</strong>
+
+<span>
+GPay • PhonePe • Paytm • BHIM
+</span>
+
+</div>
+
+
+<div class="security-card">
+
+<div class="icon">
+💬
+</div>
+
+<strong>
+WhatsApp Support
+</strong>
+
+<span>
+Payment screenshot भेजें
+</span>
+
+</div>
+
+
+</div>
+
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer class="footer">
+
+<strong>
+
+DELHI PRESS
+
+</strong>
+
+<p>
+
+Sajad Printer'S
+
+</p>
+
+
+<div class="footer-links">
+
+<a href="index.html">
+Home
+</a>
+
+<a href="services.html">
+Services
+</a>
+
+<a href="gallery.html">
+Gallery
+</a>
+
+<a href="contact.html">
+Contact
+</a>
+
+</div>
+
+
+<div class="copyright">
+
+© <span id="year"></span>
+Delhi Press - Sajad Printer'S
+
+<br>
+
+All Rights Reserved
+
+</div>
+
+</footer>
+
+
+
+<!-- ================= JAVASCRIPT ================= -->
+
+<script>
+
+const amountInput =
+document.getElementById("amount");
+
+const total =
+document.getElementById("total");
+
+const payAmount =
+document.getElementById("payAmount");
+
+const error =
+document.getElementById("error");
+
+const whatsappButton =
+document.getElementById("whatsappButton");
+
+
+/* UPDATE AMOUNT */
+
+function updateAmount(){
+
+let amount =
+parseFloat(amountInput.value);
+
+
+if(
+isNaN(amount) ||
+amount <= 0
+){
+
+total.innerText =
+"₹0.00";
+
+payAmount.innerText =
+"0.00";
+
+whatsappButton.href =
+"https://wa.me/919304509464";
+
+return;
+
+}
+
+
+total.innerText =
+"₹" + amount.toFixed(2);
+
+
+payAmount.innerText =
+amount.toFixed(2);
+
+
+let message =
+
+"Namaste Delhi Press, maine ₹" +
+
+amount.toFixed(2) +
+
+" ka payment kiya hai. Payment screenshot bhej raha/rahi hoon.";
+
+
+whatsappButton.href =
+
+"https://wa.me/919304509464?text=" +
+
+encodeURIComponent(message);
+
+}
+
+
+
+/* QUICK AMOUNT */
+
+function setAmount(value){
+
+amountInput.value =
+value;
+
+error.style.display =
+"none";
+
+updateAmount();
+
+}
+
+
+
+/* INPUT */
+
+amountInput.addEventListener(
+"input",
+function(){
+
+error.style.display =
+"none";
+
+updateAmount();
+
+});
+
+
+/* UPI PAY */
+
+function payNow(){
+
+let amount =
+parseFloat(amountInput.value);
+
+
+if(
+isNaN(amount) ||
+amount <= 0
+){
+
+error.style.display =
+"block";
+
+amountInput.focus();
+
+return;
+
+}
+
+
+error.style.display =
+"none";
+
+
+const upiId =
+"9304509464@okbizaxis";
+
+
+const merchantName =
+"Sajad Printers";
+
+
+const note =
+"Delhi Press Printing Payment";
+
+
+const upiLink =
+
+"upi://pay?" +
+
+"pa=" +
+encodeURIComponent(upiId) +
+
+"&pn=" +
+encodeURIComponent(merchantName) +
+
+"&am=" +
+encodeURIComponent(amount.toFixed(2)) +
+
+"&cu=INR" +
+
+"&tn=" +
+encodeURIComponent(note);
+
+
+window.location.href =
+upiLink;
+
+}
+
+
+
+/* QR ERROR */
+
+function showQrError(){
+
+document.getElementById(
+"qrError"
+).style.display =
+"block";
+
+}
+
+
+
+/* YEAR */
+
+document.getElementById(
+"year"
+).innerText =
+new Date().getFullYear();
+
+</script>
+
+
+</body>
+
+</html>
