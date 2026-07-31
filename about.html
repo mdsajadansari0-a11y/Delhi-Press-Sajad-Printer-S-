@@ -1,1 +1,497 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Delhi Press - Sajad Printer'S"><title>About | Delhi Press - Sajad Printer'S</title><link rel="stylesheet" href="css/style.css"></head><body><header><div class="container nav"><a class="brand" href="index.html"><div class="logo">DP</div><div><b>DELHI PRESS</b><small>Sajad Printer'S</small></div></a><button class="hamb">☰</button><nav class="menu"><a href="index.html">Home</a><a href="services.html">Services</a><a href="gallery.html">Gallery</a><a href="about.html">About</a><a href="contact.html">Contact</a><a class="wa" target="_blank" href="https://wa.me/919304509464">WhatsApp</a></nav></div></header><section class="pagehead"><div class="container"><h1>About Us</h1><p>Quality Printing • Professional Designing</p></div></section><section class="section"><div class="container"><div class="contactbox"><h2>Delhi Press - Sajad Printer'S</h2><p>हम Wedding Card, Flex Banner, Visiting Card, Calendar, Stamp, Poster, Handbill और Graphic Designing जैसी printing services उपलब्ध कराते हैं। हमारा उद्देश्य साफ-सुथरा design, बेहतर presentation और आसान customer support देना है।</p></div></div></section><footer><div class="container foot"><div><h3>DELHI PRESS</h3><b>Sajad Printer'S</b><p>Professional Printing & Graphic Designing Services</p></div><div><h4>Pages</h4><a href="services.html">Services</a><a href="gallery.html">Gallery</a><a href="contact.html">Contact</a></div><div><h4>Contact</h4><p>9304509464</p><a target="_blank" href="https://share.google/9jMXacH4ktehaP96Y">Google Maps</a></div></div><div class="copy">© <span id="year"></span> Delhi Press - Sajad Printer'S</div></footer><a class="float" target="_blank" href="https://wa.me/919304509464">💬</a><script src="js/script.js"></script></body></html>
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us | Delhi Press - Sajad Printer'S</title>
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    body{
+      font-family:Arial, sans-serif;
+      background:#f5f7fb;
+      color:#172033;
+      line-height:1.6;
+    }
+
+    /* HEADER */
+    header{
+      background:linear-gradient(135deg,#4b116f,#7b1fa2);
+      color:white;
+      padding:14px 18px;
+      box-shadow:0 3px 12px rgba(0,0,0,.18);
+      position:sticky;
+      top:0;
+      z-index:999;
+    }
+
+    .navbar{
+      max-width:1100px;
+      margin:auto;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+
+    .logo{
+      width:48px;
+      height:48px;
+      border-radius:12px;
+      background:#fff;
+      color:#65147d;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      font-size:20px;
+      font-weight:800;
+    }
+
+    .brand h2{
+      font-size:20px;
+      line-height:1.1;
+    }
+
+    .brand small{
+      font-size:12px;
+      opacity:.9;
+    }
+
+    nav{
+      display:flex;
+      gap:20px;
+    }
+
+    nav a{
+      color:#fff;
+      text-decoration:none;
+      font-size:15px;
+      font-weight:600;
+    }
+
+    nav a:hover{
+      color:#ffd54f;
+    }
+
+    .menu-btn{
+      display:none;
+      background:white;
+      color:#5d1477;
+      border:0;
+      border-radius:8px;
+      width:42px;
+      height:42px;
+      font-size:25px;
+      cursor:pointer;
+    }
+
+    /* HERO */
+    .hero{
+      background:linear-gradient(135deg,#531075,#9c27b0);
+      color:white;
+      text-align:center;
+      padding:65px 20px 80px;
+    }
+
+    .hero h1{
+      font-size:42px;
+      margin-bottom:8px;
+    }
+
+    .hero p{
+      font-size:17px;
+      opacity:.92;
+    }
+
+    /* ABOUT CARD */
+    .container{
+      max-width:1000px;
+      margin:-42px auto 35px;
+      padding:0 16px;
+    }
+
+    .about-card{
+      background:white;
+      border-radius:20px;
+      padding:32px;
+      box-shadow:0 10px 35px rgba(0,0,0,.12);
+    }
+
+    .tag{
+      display:inline-block;
+      background:#f1e5f7;
+      color:#70198b;
+      padding:6px 14px;
+      border-radius:30px;
+      font-weight:700;
+      font-size:13px;
+      margin-bottom:15px;
+    }
+
+    .about-card h2{
+      color:#51136c;
+      font-size:29px;
+      margin-bottom:15px;
+    }
+
+    .about-card p{
+      font-size:17px;
+      color:#4a4a4a;
+    }
+
+    /* SERVICES */
+    .section-title{
+      text-align:center;
+      margin:35px 0 20px;
+    }
+
+    .section-title h2{
+      color:#52126d;
+      font-size:28px;
+    }
+
+    .services{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:16px;
+    }
+
+    .service{
+      background:#fff;
+      padding:22px 15px;
+      border-radius:16px;
+      text-align:center;
+      box-shadow:0 5px 20px rgba(0,0,0,.08);
+    }
+
+    .service .icon{
+      font-size:35px;
+      margin-bottom:8px;
+    }
+
+    .service h3{
+      color:#5d1677;
+      font-size:17px;
+      margin-bottom:5px;
+    }
+
+    .service p{
+      font-size:14px;
+      color:#666;
+    }
+
+    /* CONTACT BOX */
+    .contact-box{
+      margin-top:30px;
+      background:linear-gradient(135deg,#4e126b,#8e24aa);
+      border-radius:18px;
+      padding:30px 20px;
+      color:white;
+      text-align:center;
+    }
+
+    .contact-box h2{
+      font-size:26px;
+      margin-bottom:7px;
+    }
+
+    .buttons{
+      margin-top:20px;
+      display:flex;
+      justify-content:center;
+      flex-wrap:wrap;
+      gap:12px;
+    }
+
+    .btn{
+      display:inline-block;
+      padding:12px 20px;
+      border-radius:10px;
+      text-decoration:none;
+      font-weight:700;
+    }
+
+    .call{
+      background:#fff;
+      color:#65147d;
+    }
+
+    .whatsapp{
+      background:#25D366;
+      color:#fff;
+    }
+
+    /* FOOTER */
+    footer{
+      background:#17131d;
+      color:#ddd;
+      padding:32px 18px 20px;
+      margin-top:40px;
+    }
+
+    .footer-inner{
+      max-width:1000px;
+      margin:auto;
+      display:grid;
+      grid-template-columns:2fr 1fr;
+      gap:30px;
+    }
+
+    footer h2,footer h3{
+      color:white;
+      margin-bottom:8px;
+    }
+
+    footer a{
+      color:#ddd;
+      text-decoration:none;
+      display:block;
+      margin:5px 0;
+    }
+
+    .copyright{
+      text-align:center;
+      border-top:1px solid #333;
+      margin-top:25px;
+      padding-top:15px;
+      font-size:13px;
+    }
+
+    /* MOBILE */
+    @media(max-width:768px){
+
+      .menu-btn{
+        display:block;
+      }
+
+      nav{
+        display:none;
+        position:absolute;
+        top:72px;
+        left:15px;
+        right:15px;
+        background:white;
+        padding:10px;
+        border-radius:12px;
+        box-shadow:0 8px 25px rgba(0,0,0,.2);
+      }
+
+      nav.active{
+        display:block;
+      }
+
+      nav a{
+        display:block;
+        color:#4e126b;
+        padding:11px 12px;
+        border-bottom:1px solid #eee;
+      }
+
+      .hero{
+        padding:45px 15px 70px;
+      }
+
+      .hero h1{
+        font-size:34px;
+      }
+
+      .about-card{
+        padding:24px 20px;
+      }
+
+      .about-card h2{
+        font-size:25px;
+      }
+
+      .services{
+        grid-template-columns:repeat(2,1fr);
+      }
+
+      .footer-inner{
+        grid-template-columns:1fr;
+      }
+    }
+
+    @media(max-width:480px){
+      .services{
+        grid-template-columns:1fr;
+      }
+
+      .brand h2{
+        font-size:17px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="navbar">
+
+    <div class="brand">
+      <div class="logo">DP</div>
+
+      <div>
+        <h2>DELHI PRESS</h2>
+        <small>Sajad Printer'S</small>
+      </div>
+    </div>
+
+    <button class="menu-btn" onclick="toggleMenu()">☰</button>
+
+    <nav id="menu">
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+
+  </div>
+</header>
+
+
+<section class="hero">
+  <h1>About Us</h1>
+  <p>Quality Printing • Creative Designing • Trusted Service</p>
+</section>
+
+
+<main class="container">
+
+  <div class="about-card">
+
+    <span class="tag">WELCOME TO DELHI PRESS</span>
+
+    <h2>Delhi Press - Sajad Printer'S</h2>
+
+    <p>
+      हम Wedding Card, Flex Banner, Visiting Card, Calendar,
+      Stamp, Poster, Handbill और Graphic Designing जैसी
+      professional printing services उपलब्ध कराते हैं।
+      हमारा उद्देश्य साफ-सुथरा design, बेहतर presentation
+      और आसान customer support देना है।
+    </p>
+
+  </div>
+
+
+  <div class="section-title">
+    <h2>Our Printing Services</h2>
+    <p>Professional Design & Printing Solutions</p>
+  </div>
+
+
+  <div class="services">
+
+    <div class="service">
+      <div class="icon">💌</div>
+      <h3>Wedding Cards</h3>
+      <p>Beautiful wedding invitation card designing & printing.</p>
+    </div>
+
+    <div class="service">
+      <div class="icon">🖼️</div>
+      <h3>Flex Banner</h3>
+      <p>HD flex banner and professional advertising designs.</p>
+    </div>
+
+    <div class="service">
+      <div class="icon">💳</div>
+      <h3>Visiting Cards</h3>
+      <p>Modern business and professional visiting cards.</p>
+    </div>
+
+    <div class="service">
+      <div class="icon">📅</div>
+      <h3>Calendar</h3>
+      <p>Custom calendar designing and printing services.</p>
+    </div>
+
+    <div class="service">
+      <div class="icon">🎨</div>
+      <h3>Graphic Design</h3>
+      <p>Poster, handbill, banner and social media designing.</p>
+    </div>
+
+    <div class="service">
+      <div class="icon">🖨️</div>
+      <h3>Printing</h3>
+      <p>Fast and quality printing service for your business.</p>
+    </div>
+
+  </div>
+
+
+  <div class="contact-box">
+
+    <h2>Need Printing Service?</h2>
+
+    <p>आज ही Delhi Press - Sajad Printer'S से संपर्क करें।</p>
+
+    <div class="buttons">
+
+      <a class="btn call"
+         href="tel:+919304509464">
+         ☎ Call Now
+      </a>
+
+      <a class="btn whatsapp"
+         href="https://wa.me/919304509464"
+         target="_blank">
+         💬 WhatsApp
+      </a>
+
+    </div>
+
+  </div>
+
+</main>
+
+
+<footer>
+
+  <div class="footer-inner">
+
+    <div>
+      <h2>DELHI PRESS</h2>
+      <h3>Sajad Printer'S</h3>
+      <p>Professional Printing & Graphic Designing Services</p>
+    </div>
+
+    <div>
+      <h3>Quick Links</h3>
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="contact.html">Contact</a>
+    </div>
+
+  </div>
+
+  <div class="copyright">
+    © 2026 Delhi Press - Sajad Printer'S. All Rights Reserved.
+  </div>
+
+</footer>
+
+
+<script>
+function toggleMenu(){
+  document.getElementById("menu").classList.toggle("active");
+}
+</script>
+
+</body>
+</html>
