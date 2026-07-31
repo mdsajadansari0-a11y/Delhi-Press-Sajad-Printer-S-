@@ -1,153 +1,143 @@
 <!DOCTYPE html>
 <html lang="hi">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Printing Services | Delhi Press - Sajad Printer'S</title>
+<title>Delhi Press - Sajad Printer'S | Printing & Graphic Designing</title>
 
-  <meta name="description"
-        content="Delhi Press - Sajad Printer'S printing services - Wedding Card, Flex Banner, Visiting Card, Calendar, Rubber Stamp, Poster and Graphic Designing.">
+<meta name="description"
+content="Delhi Press - Sajad Printer'S - Wedding Card, Flex Banner, Visiting Card, Calendar, Poster, Handbill and Graphic Designing Services.">
 
-  <link rel="stylesheet" href="style.css">
-</head>
+<style>
 
-<body>
+/* ==============================
+   RESET
+============================== */
 
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
 
-<!-- =============== HEADER =============== -->
+html{
+  scroll-behavior:smooth;
+}
 
-<header class="header">
+body{
+  font-family:Arial, Helvetica, sans-serif;
+  background:#f5f7fb;
+  color:#132238;
+  line-height:1.6;
+}
 
-  <div class="container navbar">
-
-    <a href="index.html" class="logo-area">
-
-      <div class="logo">
-        DP
-      </div>
-
-      <div class="logo-text">
-        <strong>DELHI PRESS</strong>
-        <span>Sajad Printer'S</span>
-      </div>
-
-    </a>
-
-
-    <button class="menu-btn"
-            id="menuBtn"
-            aria-label="Menu">
-      ☰
-    </button>
+a{
+  text-decoration:none;
+}
 
 
-    <nav class="nav-menu" id="navMenu">
+/* ==============================
+   HEADER
+============================== */
 
-      <a href="index.html">Home</a>
+.header{
+  background:#ffffff;
+  position:sticky;
+  top:0;
+  z-index:1000;
+  box-shadow:0 4px 20px rgba(0,0,0,.08);
+}
 
-      <a href="services.html">
-        Services
-      </a>
+.navbar{
+  max-width:1150px;
+  margin:auto;
+  padding:12px 20px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
 
-      <a href="gallery.html">
-        Gallery
-      </a>
+.logo-area{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
 
-      <a href="about.html">
-        About
-      </a>
+.logo{
+  width:55px;
+  height:55px;
+  border-radius:16px;
+  background:linear-gradient(135deg,#0057b8,#00a7ff);
+  color:white;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-size:21px;
+  font-weight:800;
+  box-shadow:0 7px 20px rgba(0,104,200,.25);
+}
 
-      <a href="contact.html">
-        Contact
-      </a>
+.logo-text{
+  display:flex;
+  flex-direction:column;
+}
 
-      <a href="https://wa.me/919304509464"
-         target="_blank"
-         class="nav-whatsapp">
-        WhatsApp
-      </a>
+.logo-text strong{
+  color:#062d58;
+  font-size:20px;
+  line-height:1.1;
+}
 
-    </nav>
+.logo-text span{
+  color:#687587;
+  font-size:13px;
+}
 
-  </div>
+.nav-menu{
+  display:flex;
+  align-items:center;
+  gap:27px;
+}
 
-</header>
+.nav-menu a{
+  color:#172c47;
+  font-size:15px;
+  font-weight:700;
+}
 
+.nav-menu a:hover{
+  color:#0075e8;
+}
 
-<!-- =============== PAGE HERO =============== -->
+.nav-whatsapp{
+  background:#00b95c !important;
+  color:white !important;
+  padding:10px 16px;
+  border-radius:10px;
+}
 
-<section class="hero" style="min-height:430px;">
-
-  <div class="container hero-content">
-
-    <div class="hero-badge">
-      ✦ DELHI PRESS • SAJAD PRINTER'S
-    </div>
-
-    <h1 style="font-size:clamp(42px,7vw,70px);">
-      OUR SERVICES
-      <span>Printing & Designing</span>
-    </h1>
-
-    <p>
-      आपकी Printing और Designing जरूरतों के लिए
-      कई professional services एक ही जगह।
-    </p>
-
-    <div class="hero-buttons">
-
-      <a href="https://wa.me/919304509464?text=Namaste%20Delhi%20Press,%20mujhe%20printing%20service%20ke%20baare%20mein%20jankari%20chahiye."
-         target="_blank"
-         class="btn whatsapp-btn">
-        💬 WhatsApp Enquiry
-      </a>
-
-      <a href="tel:+919304509464"
-         class="btn call-btn">
-        ☎ Call Now
-      </a>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- =============== SERVICES =============== -->
-
-<section class="section services">
-
-  <div class="container">
-
-    <div class="section-title">
-
-      <span>WHAT WE DO</span>
-
-      <h2>
-        हमारी Printing Services
-      </h2>
-
-      <p>
-        Wedding Card से लेकर business printing और
-        graphic designing तक कई प्रकार की services उपलब्ध हैं।
-      </p>
-
-    </div>
+.menu-btn{
+  display:none;
+  width:44px;
+  height:44px;
+  border:0;
+  border-radius:10px;
+  background:#06366a;
+  color:white;
+  font-size:25px;
+  cursor:pointer;
+}
 
 
-    <div class="service-grid">
+/* ==============================
+   HERO
+============================== */
 
-
-      <!-- WEDDING CARD -->
-
-      <article class="service-card">
-
-        <div class="service-icon">
-          💌
-        </div>
-
-        <h3>
-          Wedding Card
+.hero{
+  position:relative;
+  overflow:hidden;
+  background:
+    radial-gradient(circle at 85% 20%,rgba(0,174,255,.35),transparent 28%),
+    radial-gradient(circle at 10% 80%,rgba(0,135,255,.25),transparent 30%),
+    linear-gradient(135deg
