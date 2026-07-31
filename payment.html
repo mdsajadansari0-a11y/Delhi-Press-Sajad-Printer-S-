@@ -3,218 +3,392 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#8e16c4">
 
-<title>Sajad Printer - UPI Payment</title>
+<title>Sajad Printer Payment</title>
 
 <style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:Arial, sans-serif;
+* {
+    box-sizing: border-box;
 }
 
-body{
-    min-height:100vh;
-    background:linear-gradient(145deg,#7200a8,#bd00e8);
-    padding:18px 10px;
+body {
+    margin: 0;
+    padding: 15px;
+    font-family: Arial, sans-serif;
+    background: #f3f3f3;
 }
 
-.payment-card{
-    width:100%;
-    max-width:430px;
-    margin:auto;
-    background:#fff;
-    border-radius:24px;
-    overflow:hidden;
-    box-shadow:0 15px 45px rgba(0,0,0,.28);
+.card {
+    width: 100%;
+    max-width: 420px;
+    margin: 10px auto;
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.15);
 }
 
-/* HEADER */
-.header{
-    background:linear-gradient(135deg,#8011b5,#bd00e8);
-    color:#fff;
-    text-align:center;
-    padding:24px 15px;
+.header {
+    background: #8e16c4;
+    color: white;
+    text-align: center;
+    padding: 22px 10px;
 }
 
-.logo{
-    font-size:44px;
-    font-weight:900;
+.header .slice {
+    font-size: 40px;
+    font-weight: bold;
 }
 
-.header h1{
-    font-size:23px;
-    margin-top:7px;
+.header h2 {
+    margin: 8px 0 3px;
 }
 
-.header p{
-    margin-top:5px;
-    font-size:13px;
-    opacity:.9;
+.header p {
+    margin: 0;
+    font-size: 13px;
 }
 
-/* MAIN */
-.content{
-    padding:22px;
+.content {
+    padding: 20px;
 }
 
-.secure-wrap{
-    text-align:center;
+.secure {
+    text-align: center;
+    color: #07863e;
+    font-weight: bold;
+    margin-bottom: 15px;
 }
 
-.secure{
-    display:inline-block;
-    background:#e5f8ec;
-    color:#07883d;
-    padding:8px 16px;
-    border-radius:30px;
-    font-size:13px;
-    font-weight:bold;
+.scan {
+    text-align: center;
 }
 
-.scan-title{
-    text-align:center;
-    font-size:25px;
-    font-weight:bold;
-    color:#222;
-    margin-top:20px;
+.scan h2 {
+    margin: 0;
+    font-size: 25px;
 }
 
-.scan-sub{
-    text-align:center;
-    color:#777;
-    font-size:13px;
-    margin-top:5px;
+.scan p {
+    color: #777;
+    font-size: 13px;
 }
 
-/* QR */
-.qr-box{
-    max-width:310px;
-    margin:18px auto;
-    padding:8px;
-    border:2px solid #eee;
-    border-radius:20px;
-    background:#fff;
-    box-shadow:0 6px 20px rgba(0,0,0,.08);
+/* QR IMAGE */
+
+.qr {
+    text-align: center;
+    margin: 15px 0;
 }
 
-.qr-box img{
-    width:100%;
-    height:auto;
-    display:block;
-    border-radius:12px;
+.qr img {
+    width: 100%;
+    max-width: 300px;
+    border-radius: 12px;
+    border: 1px solid #ddd;
 }
 
 /* DETAILS */
-.details{
-    background:#faf7fc;
-    border:1px solid #eadcf1;
-    border-radius:17px;
-    padding:16px;
-    margin-top:15px;
+
+.details {
+    background: #f9f5fb;
+    padding: 15px;
+    border-radius: 14px;
+    margin-top: 15px;
 }
 
-.label{
-    font-size:11px;
-    color:#888;
-    margin-bottom:4px;
+.small {
+    color: #888;
+    font-size: 11px;
 }
 
-.value{
-    font-size:17px;
-    font-weight:bold;
-    color:#222;
-    margin-bottom:15px;
+.big {
+    font-size: 17px;
+    font-weight: bold;
+    margin: 4px 0 14px;
 }
 
-.upi{
-    color:#9619c7;
+.upi {
+    color: #8e16c4;
 }
 
 /* COPY */
-.copy-btn{
-    width:100%;
-    padding:13px;
-    border:2px solid #9619c7;
-    background:#fff;
-    color:#9619c7;
-    border-radius:12px;
-    font-size:15px;
-    font-weight:bold;
-    cursor:pointer;
+
+.copy {
+    width: 100%;
+    padding: 12px;
+    background: white;
+    border: 2px solid #8e16c4;
+    border-radius: 10px;
+    color: #8e16c4;
+    font-size: 15px;
+    font-weight: bold;
 }
 
-#copyMsg{
-    display:none;
-    color:#07883d;
-    text-align:center;
-    font-size:12px;
-    margin-top:8px;
+/* AMOUNT */
+
+.amount-title {
+    margin-top: 20px;
+    font-size: 13px;
+    font-weight: bold;
 }
 
-/* AMOUNT BOX */
-.amount-section{
-    margin-top:20px;
+.amount {
+    display: flex;
+    align-items: center;
+    margin-top: 8px;
+    border: 2px solid #8e16c4;
+    border-radius: 12px;
+    overflow: hidden;
 }
 
-.amount-label{
-    font-size:13px;
-    color:#555;
-    font-weight:bold;
+.amount span {
+    font-size: 27px;
+    font-weight: bold;
+    padding-left: 15px;
 }
 
-.amount-box{
-    margin-top:8px;
-    display:flex;
-    align-items:center;
-    background:#fff;
-    border:2px solid #9b18c7;
-    border-radius:15px;
-    overflow:hidden;
+.amount input {
+    width: 100%;
+    border: 0;
+    outline: 0;
+    padding: 15px 10px;
+    font-size: 22px;
 }
 
-.rupee{
-    padding-left:17px;
-    font-size:29px;
-    font-weight:bold;
-    color:#222;
+/* QUICK AMOUNT */
+
+.quick {
+    display: flex;
+    gap: 6px;
+    margin-top: 12px;
 }
 
-.amount-box input{
-    width:100%;
-    border:none;
-    outline:none;
-    padding:16px 12px;
-    font-size:22px;
-    font-weight:bold;
-    color:#222;
-    background:transparent;
+.quick button {
+    flex: 1;
+    border: 1px solid #d7b5e6;
+    background: #faf5fc;
+    color: #8e16c4;
+    border-radius: 8px;
+    padding: 9px 2px;
+    font-weight: bold;
 }
 
-.amount-box input::placeholder{
-    color:#aaa;
-    font-size:16px;
+/* PAY */
+
+.pay {
+    width: 100%;
+    border: 0;
+    background: #8e16c4;
+    color: white;
+    border-radius: 12px;
+    padding: 16px;
+    margin-top: 18px;
+    font-size: 18px;
+    font-weight: bold;
 }
 
-/* PAY BUTTON */
-.pay-btn{
-    width:100%;
-    border:none;
-    margin-top:17px;
-    padding:17px;
-    border-radius:14px;
-    background:linear-gradient(135deg,#8113b5,#b900df);
-    color:#fff;
-    font-size:18px;
-    font-weight:bold;
-    cursor:pointer;
-    box-shadow:0 7px 18px rgba(145,20,190,.3);
+.note {
+    margin-top: 15px;
+    background: #fff6df;
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 11px;
+    line-height: 1.5;
+    text-align: center;
+    color: #6d571d;
 }
 
-.pay-btn:active{
-    transform:scale(.98);
+.footer {
+    text-align: center;
+    font-size: 11px;
+    color: #777;
+    padding: 15px;
+    border-top: 1px solid #eee;
 }
 
-.quick
+#message {
+    display: none;
+    text-align: center;
+    color: green;
+    font-size: 12px;
+    margin-top: 7px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+
+    <div class="header">
+        <div class="slice">slice</div>
+        <h2>Sajad Printer</h2>
+        <p>Secure UPI Payment</p>
+    </div>
+
+    <div class="content">
+
+        <div class="secure">
+            ✓ Secure UPI Payment
+        </div>
+
+        <div class="scan">
+            <h2>Scan & Pay</h2>
+            <p>किसी भी UPI App से QR Code Scan करें</p>
+        </div>
+
+        <!-- QR CODE -->
+        <div class="qr">
+            <img src="slice-qr.jpg" alt="UPI QR Code">
+        </div>
+
+        <!-- ACCOUNT DETAILS -->
+
+        <div class="details">
+
+            <div class="small">
+                ACCOUNT HOLDER
+            </div>
+
+            <div class="big">
+                Md Sajad Ansari
+            </div>
+
+            <div class="small">
+                UPI ID
+            </div>
+
+            <div class="big upi">
+                9771131883@slc
+            </div>
+
+            <button class="copy" onclick="copyUPI()">
+                📋 Copy UPI ID
+            </button>
+
+            <div id="message">
+                ✓ UPI ID Copied
+            </div>
+
+        </div>
+
+        <!-- MANUAL AMOUNT -->
+
+        <div class="amount-title">
+            ENTER PAYMENT AMOUNT
+        </div>
+
+        <div class="amount">
+
+            <span>₹</span>
+
+            <input
+                type="number"
+                id="amount"
+                placeholder="Enter Amount"
+                min="1"
+                step="0.01">
+
+        </div>
+
+        <!-- QUICK AMOUNT -->
+
+        <div class="quick">
+
+            <button onclick="setAmount(100)">
+                ₹100
+            </button>
+
+            <button onclick="setAmount(200)">
+                ₹200
+            </button>
+
+            <button onclick="setAmount(500)">
+                ₹500
+            </button>
+
+            <button onclick="setAmount(1000)">
+                ₹1000
+            </button>
+
+        </div>
+
+        <!-- PAYMENT BUTTON -->
+
+        <button class="pay" onclick="payNow()">
+            Pay Now
+        </button>
+
+        <div class="note">
+            Payment करने से पहले UPI App में
+            Receiver Name और Amount जरूर चेक करें।
+        </div>
+
+    </div>
+
+    <div class="footer">
+        🔒 Secure UPI Payment
+        <br><br>
+        <b>Sajad Printer</b>
+    </div>
+
+</div>
+
+
+<script>
+
+function setAmount(value) {
+    document.getElementById("amount").value = value;
+}
+
+
+function copyUPI() {
+
+    var upi = "9771131883@slc";
+
+    if (navigator.clipboard) {
+
+        navigator.clipboard.writeText(upi).then(function() {
+
+            document.getElementById("message").style.display = "block";
+
+            setTimeout(function() {
+                document.getElementById("message").style.display = "none";
+            }, 2000);
+
+        });
+
+    } else {
+
+        alert("UPI ID: " + upi);
+
+    }
+}
+
+
+function payNow() {
+
+    var amount =
+        document.getElementById("amount").value;
+
+    if (amount == "" || Number(amount) <= 0) {
+
+        alert("Please enter payment amount");
+
+        return;
+    }
+
+    var paymentLink =
+        "upi://pay?pa=9771131883%40slc" +
+        "&pn=Md%20Sajad%20Ansari" +
+        "&am=" + encodeURIComponent(amount) +
+        "&cu=INR";
+
+    window.location.href = paymentLink;
+}
+
+</script>
+
+</body>
+</html>
