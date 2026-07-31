@@ -1,18 +1,21 @@
+html
 <!DOCTYPE html>
 <html lang="hi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Delhi Press (Sajjad Printer's) - Printing & Design Services</title>
+    <title>Delhi Press (Sajad Printer's) - Printing & Design Services</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary: #1a365d;
-            --accent: #dd6b20;
-            --whatsapp: #25D366;
-            --bg-light: #f7fafc;
-            --text-dark: #2d3748;
-            --text-light: #718096;
+            --secondary: #2b6cb0;
+            --accent: #d69e2e;
+            --whatsapp: #25d366;
+            --bg-light: #edf2f7;
+            --text-dark: #1a202c;
+            --text-light: #4a5568;
+            --white: #ffffff;
         }
 
         * {
@@ -28,117 +31,36 @@
             line-height: 1.6;
         }
 
-        /* Header */
         header {
-            background-color: var(--primary);
-            color: white;
-            padding: 15px 5%;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-        }
-
-        .logo {
-            font-size: 1.4rem;
-            font-weight: 700;
-            color: #fff;
-            text-decoration: none;
-        }
-
-        .logo span {
-            color: var(--accent);
-        }
-
-        .header-btn {
-            background-color: var(--whatsapp);
-            color: white;
-            padding: 8px 16px;
-            border-radius: 20px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.9rem;
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(135deg, #1a365d 0%, #2b6cb0 100%);
-            color: white;
-            padding: 60px 5% 80px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: var(--white);
+            padding: 2rem 1rem;
             text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
 
-        .hero h1 {
-            font-size: 2.2rem;
-            margin-bottom: 15px;
-            line-height: 1.3;
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            letter-spacing: 1px;
         }
 
-        .hero p {
-            font-size: 1.1rem;
-            opacity: 0.9;
-            max-width: 600px;
-            margin: 0 auto 25px;
+        header p {
+            font-size: 1.2rem;
+            font-weight: 300;
         }
 
-        .hero-btns {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            padding: 12px 25px;
-            border-radius: 8px;
-            font-weight: 600;
-            text-decoration: none;
-            display: inline-block;
-            transition: transform 0.2s;
-        }
-
-        .btn:hover {
-            transform: translateY(-2px);
-        }
-
-        .btn-primary {
-            background-color: var(--accent);
-            color: white;
-        }
-
-        .btn-whatsapp {
-            background-color: var(--whatsapp);
-            color: white;
-        }
-
-        /* Container */
         .container {
-            max-width: 1100px;
-            margin: -40px auto 40px;
-            padding: 0 20px;
-        }
-
-        /* Card Section */
-        .card {
-            background: white;
-            border-radius: 12px;
-            padding: 30px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
-            margin-bottom: 30px;
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
         }
 
         .section-title {
             text-align: center;
-            font-size: 1.6rem;
+            font-size: 2rem;
+            margin-bottom: 2rem;
             color: var(--primary);
-            margin-bottom: 25px;
             position: relative;
         }
 
@@ -147,247 +69,140 @@
             display: block;
             width: 50px;
             height: 3px;
-            background: var(--accent);
-            margin: 8px auto 0;
+            background-color: var(--accent);
+            margin: 10px auto 0;
             border-radius: 2px;
         }
 
-        /* Services Grid */
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
         }
 
-        .service-item {
-            background: #f8fafc;
-            border: 1px solid #e2e8f0;
+        .service-card {
+            background: var(--white);
             border-radius: 8px;
-            padding: 20px;
+            padding: 2rem;
             text-align: center;
-            transition: border-color 0.3s;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
-        .service-item:hover {
-            border-color: var(--accent);
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
         }
 
-        .service-icon {
-            font-size: 2.2rem;
-            margin-bottom: 10px;
-        }
-
-        .service-item h3 {
-            font-size: 1.1rem;
+        .service-card h3 {
+            margin-bottom: 1rem;
             color: var(--primary);
-            margin-bottom: 8px;
+            font-size: 1.5rem;
         }
 
-        .service-item p {
-            font-size: 0.88rem;
+        .service-card p {
             color: var(--text-light);
         }
 
-        /* Order Form */
-        .form-group {
-            margin-bottom: 18px;
-        }
-
-        .form-group label {
-            display: block;
-            font-weight: 600;
-            margin-bottom: 6px;
-            font-size: 0.95rem;
-            color: var(--primary);
-        }
-
-        .form-group input, .form-group select, .form-group textarea {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid #cbd5e0;
-            border-radius: 6px;
-            font-size: 0.95rem;
-            outline: none;
-        }
-
-        .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
-            border-color: var(--accent);
-        }
-
-        .submit-btn {
-            width: 100%;
-            background-color: var(--whatsapp);
-            color: white;
-            border: none;
-            padding: 14px;
-            font-size: 1.05rem;
-            font-weight: 700;
+        .contact-section {
+            background: var(--white);
             border-radius: 8px;
-            cursor: pointer;
-            transition: background 0.3s;
-        }
-
-        .submit-btn:hover {
-            background-color: #1ebc57;
-        }
-
-        /* Location Info */
-        .info-box {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            background: #edf2f7;
-            padding: 20px;
-            border-radius: 8px;
-        }
-
-        .info-item h4 {
-            color: var(--primary);
-            margin-bottom: 5px;
-        }
-
-        .info-item p {
-            font-size: 0.95rem;
-            color: var(--text-dark);
-        }
-
-        footer {
+            padding: 3rem;
             text-align: center;
-            padding: 20px;
-            background: var(--primary);
-            color: white;
-            font-size: 0.9rem;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.05);
         }
 
-        @media (max-width: 600px) {
-            .hero h1 { font-size: 1.7rem; }
-            header { text-align: center; justify-content: center; gap: 10px; }
+        .contact-section h2 {
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 1rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: var(--white);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--secondary);
+            transform: scale(1.05);
+        }
+
+        .btn-whatsapp {
+            background-color: var(--whatsapp);
+            color: var(--white);
+            margin-left: 1rem;
+        }
+
+        .btn-whatsapp:hover {
+            opacity: 0.9;
+            transform: scale(1.05);
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
+            .btn {
+                display: block;
+                margin-left: 0;
+            }
+            .btn-whatsapp {
+                margin-left: 0;
+            }
         }
     </style>
 </head>
 <body>
 
-    <!-- Header -->
     <header>
-        <a href="#" class="logo">दिल्ली प्रेस <span>(साजद प्रिंटर'स)</span></a>
-        <a href="https://wa.me/919304509464" class="header-btn" target="_blank">
-            💬 WhatsApp Order
-        </a>
+        <h1>दिल्ली प्रेस (साजद प्रिंटर्स)</h1>
+        <p>आपकी प्रिंटिंग और ग्राफिक डिज़ाइन की हर ज़रूरत का बेहतरीन हल</p>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <h1>दिल्ली प्रेस (साजद प्रिंटर'स)</h1>
-        <p>Aapki Printing Aur Graphic Design Ki Har Zaroorat Ka Behtareen Hal!</p>
-        <div class="hero-btns">
-            <a href="tel:9304509464" class="btn btn-primary">📞 Call: 9304509464</a>
-            <a href="#order-form" class="btn btn-whatsapp">📝 Direct WhatsApp Order</a>
-        </div>
-    </section>
-
     <div class="container">
-        <!-- Services Section -->
-        <div class="card">
-            <h2 class="section-title">Hamari Services</h2>
-            <div class="services-grid">
-                <div class="service-item">
-                    <div class="service-icon">🎴</div>
-                    <h3>Visiting Cards</h3>
-                    <p>Glossy, Matte aur Metallic Finish Visiting Cards</p>
-                </div>
-                <div class="service-item">
-                    <div class="service-icon">🖼️</div>
-                    <h3>Flex & Banner</h3>
-                    <p>High-Definition Star Flex aur Board Printing</p>
-                </div>
-                <div class="service-item">
-                    <div class="service-icon">💌</div>
-                    <h3>Wedding Cards</h3>
-                    <p>Islamic & Custom Festive Marriage Cards</p>
-                </div>
-                <div class="service-item">
-                    <div class="service-icon">📖</div>
-                    <h3>Bill Books</h3>
-                    <p>Single & Multi-Color Carbonless Receipt Books</p>
-                </div>
+        
+        <h2 class="section-title">हमारी सेवाएँ</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <h3>विज़िटिंग कार्ड्स</h3>
+                <p>ग्लॉसी, मैट या मैटेलिक फिनिश वाले आकर्षित विज़िटिंग कार्ड्स बनवाएँ।</p>
+            </div>
+            <div class="service-card">
+                <h3>फ्लैक्स & बैनर</h3>
+                <p>हाई-डेफिनिशन और स्टार फ्लैक्स के साथ अपने ब्रांड का प्रचार करें।</p>
+            </div>
+            <div class="service-card">
+                <h3>वेडिंग कार्ड्स</h3>
+                <p>इस्लामिक और कस्टम फेस्टिव मैरिज कार्ड्स के लिए संपर्क करें।</p>
+            </div>
+            <div class="service-card">
+                <h3>बिल बुक्स</h3>
+                <p>सिंगल और मल्टी-कलर कॉर्बनलेस रसीद बुक्स तैयार की जाती हैं।</p>
             </div>
         </div>
 
-        <!-- Order Form Section -->
-        <div class="card" id="order-form">
-            <h2 class="section-title">Direct WhatsApp Par Order Karein</h2>
-            <form onsubmit="sendToWhatsApp(event)">
-                <div class="form-group">
-                    <label for="name">Aapka Naam (Name):</label>
-                    <input type="text" id="name" placeholder="Apna naam likhein" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="phone">Mobile Number:</label>
-                    <input type="tel" id="phone" placeholder="Apna mobile number likhein" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="service">Service Chunein (Select Service):</label>
-                    <select id="service" required>
-                        <option value="Visiting Card">Visiting Card Printing</option>
-                        <option value="Flex Banner">Flex / Shop Banner Printing</option>
-                        <option value="Marriage Card">Wedding / Marriage Card</option>
-                        <option value="Bill Book / Pamphlet">Bill Book / Pamphlet</option>
-                        <option value="Other Printing Work">Other Printing Work</option>
-                    </select>
-                </div>
-
-                <div class="form-group">
-                    <label for="details">Order Ki Details / Quantity (Kitna Chahiye):</label>
-                    <textarea id="details" rows="3" placeholder="Maslan: 1000 Pcs Visiting Card ya Flex size 6x3 feet..." required></textarea>
-                </div>
-
-                <button type="submit" class="submit-btn">📲 WhatsApp Par Order Bhejein</button>
-            </form>
+        <div class="contact-section">
+            <h2>संपर्क करें</h2>
+            <p><strong>पता:</strong> ईदगाह मोर, छयातर, फुसबंदी, झारखंड - 815352</p>
+            <p><strong>कॉल / व्हाट्सऐप:</strong> +91 93045 09464</p>
+            <a href="tel:+919304509464" class="btn btn-primary">कॉल करें</a>
+            <a href="https://wa.me/919304509464" class="btn btn-whatsapp">व्हाट्सऐप पर ऑर्डर भेजें</a>
         </div>
 
-        <!-- Location & Contact Info -->
-        <div class="card">
-            <h2 class="section-title">Hamara Pata & Contact</h2>
-            <div class="info-box">
-                <div class="info-item">
-                    <h4>📍 Address:</h4>
-                    <p>Idgah More, Chhaytar, Phukbandi, Jharkhand - 815352</p>
-                </div>
-                <div class="info-item">
-                    <h4>📞 Call / WhatsApp:</h4>
-                    <p>+91 93045 09464</p>
-                </div>
-            </div>
-            <div style="text-align: center; margin-top: 20px;">
-                <a href="https://share.google/86kXn7JWY5U4FCoyw" target="_blank" class="btn btn-primary">🗺️ Google Maps Par Location Dekhein</a>
-            </div>
-        </div>
     </div>
 
-    <footer>
-        <p>&copy; Delhi Press (Sajjad Printer's). All Rights Reserved.</p>
-    </footer>
-
-    <script>
-        function sendToWhatsApp(e) {
-            e.preventDefault();
-            
-            var name = document.getElementById('name').value;
-            var phone = document.getElementById('phone').value;
-            var service = document.getElementById('service').value;
-            var details = document.getElementById('details').value;
-
-            var message = "*Naya Order Request - Delhi Press*%0A%0A" +
-                          "*Naam:* " + encodeURIComponent(name) + "%0A" +
-                          "*Mobile:* " + encodeURIComponent(phone) + "%0A" +
-                          "*Service:* " + encodeURIComponent(service) + "%0A" +
-                          "*Details:* " + encodeURIComponent(details);
-
-            var whatsappURL = "https://wa.me/919304509464?text=" + message;
-            window.open(whatsappURL, '_blank');
-        }
-    </script>
 </body>
 </html>
