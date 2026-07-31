@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Design Store | Delhi Press - Sajad Printer'S</title>
+
+<meta name="description" content="Delhi Press - Sajad Printer'S Online Design Store">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Arial,Helvetica,sans-serif;
+    background:#f5f7fb;
+    color:#142238;
+}
+
+/* HEADER */
+
+.header{
+    background:#fff;
+    box-shadow:0 3px 15px rgba(0,0,0,.08);
+    position:sticky;
+    top:0;
+    z-index:100;
+}
+
+.navbar{
+    max-width:1150px;
+    margin:auto;
+    padding:12px 18px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.brand{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    text-decoration:none;
+}
+
+.logo{
+    width:48px;
+    height:48px;
+    border-radius:13px;
+    background:linear-gradient(135deg,#0057b8,#00a7ff);
+    color:#fff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-weight:800;
+}
+
+.brand-text strong{
+    display:block;
+    color:#06366a;
+    font-size:18px;
+}
+
+.brand-text span{
+    color:#718096;
+    font-size:12px;
+}
+
+.home-btn{
+    text-decoration:none;
+    background:#06366a;
+    color:#fff;
+    padding:10px 16px;
+    border-radius:10px;
+    font-weight:bold;
+    font-size:14px;
+}
+
+/* HERO */
+
+.store-hero{
+    background:
+    radial-gradient(circle at 85% 10%,rgba(0,174,255,.35),transparent 30%),
+    linear-gradient(135deg,#021b3c,#00569c);
+    color:#fff;
+    text-align:center;
+    padding:55px 18px;
+}
+
+.store-hero span{
+    display:inline-block;
+    background:rgba(255,255,255,.12);
+    padding:7px 15px;
+    border-radius:30px;
+    font-size:12px;
+    margin-bottom:12px;
+}
+
+.store-hero h1{
+    font-size:38px;
+    margin-bottom:8px;
+}
+
+.store-hero p{
+    color:#d9eafa;
+    max-width:600px;
+    margin:auto;
+    line-height:1.6;
+}
+
+/* SEARCH */
+
+.search-area{
+    max-width:700px;
+    margin:-23px auto 0;
+    padding:0 16px;
+    position:relative;
+    z-index:5;
+}
+
+.search-box{
+    width:100%;
+    padding:16px 20px;
+    border:none;
+    outline:none;
+    border-radius:14px;
+    font-size:15px;
+    background:#fff;
+    box-shadow:0 8px 25px rgba(0,0,0,.13);
+}
+
+/* STORE */
+
+.store-container{
+    max-width:1150px;
+    margin:auto;
+    padding:55px 18px 80px;
+}
+
+.store-title{
+    margin-bottom:25px;
+}
+
+.store-title h2{
+    color:#073365;
+    font-size:27px;
+}
+
+.store-title p{
+    color:#758398;
+    font-size:14px;
+}
+
+.products{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:20px;
+}
+
+/* PRODUCT CARD */
+
+.product-card{
+    background:#fff;
+    border-radius:17px;
+    overflow:hidden;
+    border:1px solid #e7edf4;
+    box-shadow:0 7px 25px rgba(0,0,0,.07);
+    transition:.25s;
+}
+
+.product-card:hover{
+    transform:translateY(-5px);
+    box-shadow:0 13px 30px rgba(0,0,0,.12);
+}
+
+.product-image{
+    width:100%;
+    aspect-ratio:4/5;
+    background:#edf2f7;
+    overflow:hidden;
+}
+
+.product-image img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+}
+
+.product-info{
+    padding:17px;
+}
+
+.category{
+    color:#0083e7;
+    font-size:11px;
+    font-weight:800;
+    text-transform:uppercase;
+    margin-bottom:5px;
+}
+
+.product-name{
+    font-size:18px;
+    color:#092d57;
+    margin-bottom:7px;
+}
+
+.description{
+    font-size:13px;
+    color:#77869a;
+    line-height:1.5;
+    min-height:39px;
+}
+
+.price{
+    font-size:23px;
+    font-weight:800;
+    color:#06366a;
+    margin:12px 0;
+}
+
+.order-btn{
+    display:block;
+    width:100%;
+    border:none;
+    text-align:center;
+    text-decoration:none;
+    background:#00b95c;
+    color:#fff;
+    padding:12px;
+    border-radius:10px;
+    font-size:14px;
+    font-weight:800;
+}
+
+.order-btn:hover{
+    background:#009e4e;
+}
+
+/* LOADING */
+
+.loading{
+    grid-column:1/-1;
+    text-align:center;
+    padding:50px 20px;
+    color:#68778b;
+    font-size:16px;
+}
+
+.error{
+    grid-column:1/-1;
+    background:#fff0f0;
+    color:#b42318;
+    padding:20px;
+    border-radius:12px;
+    text-align:center;
+}
+
+.empty{
+    grid-column:1/-1;
+    text-align:center;
+    background:#fff;
+    padding:45px 20px;
+    border-radius:15px;
+    color:#718096;
+}
+
+/* FOOTER */
+
+.footer{
+    background:#06182c;
+    color:#b7c4d3;
+    text-align:center;
+    padding:30px 15px;
+}
+
+.footer strong{
+    color:#fff;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:950px){
+    .products{
+        grid-template-columns:repeat(3,1fr);
+    }
+}
+
+@media(max-width:700px){
+    .products{
+        grid-template-columns:repeat(2,1fr);
+        gap:13px;
+    }
+
+    .store-hero h1{
+        font-size:30px;
+    }
+}
+
+@media(max-width:430px){
+
+    .navbar{
+        padding:10px 12px;
+    }
+
+    .logo{
+        width:43px;
+        height:43px;
+    }
+
+    .brand-text strong{
+        font-size:15px;
+    }
+
+    .home-btn{
+        padding:9px 11px;
+        font-size:12px;
+    }
+
+    .store-container{
+        padding-left:12px;
+        padding-right:12px;
+    }
+
+    .products{
+        grid-template-columns:repeat(2,1fr);
+        gap:10px;
+    }
+
+    .product-info{
+        padding:12px;
+    }
+
+    .product-name{
+        font-size:15px;
+    }
+
+    .description{
+        font-size:12px;
+    }
+
+    .price{
+        font-size:19px;
+    }
+
+    .order-btn{
+        font-size:12px;
+        padding:10px 6px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+
+<header class="header">
+
+<div class="navbar">
+
+<a href="index.html" class="brand">
+
+<div class="logo">DP</div>
+
+<div class="brand-text">
+<strong>DELHI PRESS</strong>
+<span>Sajad Printer'S</span>
+</div>
+
+</a>
+
+<a href="index.html" class="home-btn">
+← Home
+</a>
+
+</div>
+
+</header>
+
+
+<!-- HERO -->
+
+<section class="store-hero">
+
+<span>DELHI PRESS • SAJAD PRINTER'S</span>
+
+<h1>🛍️ Design Store</h1>
+
+<p>
+अपना पसंदीदा design चुनें और WhatsApp पर
+सीधे order करें।
+</p>
+
+</section>
+
+
+<!-- SEARCH -->
+
+<div class="search-area">
+
+<input
+type="text"
+id="searchInput"
+class="search-box"
+placeholder="🔍 Design search करें..."
+oninput="searchProducts()"
+>
+
+</div>
+
+
+<!-- PRODUCTS -->
+
+<main class="store-container">
+
+<div class="store-title">
+
+<h2>हमारे Designs</h2>
+
+<p id="productCount">
+Products loading...
+</p>
+
+</div>
+
+<div class="products" id="products">
+
+<div class="loading">
+⏳ Designs loading...
+</div>
+
+</div>
+
+</main>
+
+
+<!-- FOOTER -->
+
+<footer class="footer">
+
+<strong>Delhi Press - Sajad Printer'S</strong>
+
+<br>
+
+Professional Printing & Graphic Designing
+
+<br><br>
+
+© 2026 All Rights Reserved
+
+</footer>
+
+
+<script>
+
+/* ==========================================
+   SUPABASE SETTINGS
+========================================== */
+
+const SUPABASE_URL =
+"https://vgblvfpzpxivwafuatcy.supabase.co";
+
+const SUPABASE_KEY =
+"sb_publishable_u4PJUGojT-BQfg65WaYTFw_Gdx-MLOH";
+
+
+/* ==========================================
+   VARIABLES
+========================================== */
+
+let allProducts = [];
+
+
+/* ==========================================
+   LOAD PRODUCTS
+========================================== */
+
+async function loadProducts(){
+
+const productsBox =
+document.getElementById("products");
+
+try{
+
+const response = await fetch(
+SUPABASE_URL +
+"/rest/v1/products?select=*&order=id.desc",
+{
+headers:{
+"apikey":SUPABASE_KEY,
+"Authorization":"Bearer " + SUPABASE_KEY
+}
+}
+);
+
+if(!response.ok){
+
+const errorText = await response.text();
+
+throw new Error(errorText);
+
+}
+
+allProducts = await response.json();
+
+displayProducts(allProducts);
+
+}
+catch(error){
+
+console.error(error);
+
+productsBox.innerHTML = `
+<div class="error">
+❌ Products load नहीं हो पाए।<br><br>
+Supabase connection या products table की permission check करें।
+</div>
+`;
+
+document.getElementById("productCount")
+.innerText="Connection Error";
+
+}
+
+}
+
+
+/* ==========================================
+   DISPLAY PRODUCTS
+========================================== */
+
+function displayProducts(products){
+
+const productsBox =
+document.getElementById("products");
+
+const count =
+document.getElementById("productCount");
+
+count.innerText =
+products.length + " Design Available";
+
+
+if(products.length === 0){
+
+productsBox.innerHTML = `
+<div class="empty">
+अभी कोई design उपलब्ध नहीं है।
+</div>
+`;
+
+return;
+
+}
+
+
+productsBox.innerHTML =
+products.map(function(product){
+
+const name =
+product.name || "Design";
+
+const price =
+product.price || 0;
+
+const category =
+product.category || "Design";
+
+const description =
+product.description || "";
+
+const image =
+product.image_url || "";
+
+
+/* WHATSAPP MESSAGE */
+
+const message =
+encodeURIComponent(
+"Hello Delhi Press - Sajad Printer'S,%0A%0A" +
+"Mujhe ye design order karna hai:%0A" +
+"Design: " + name + "%0A" +
+"Price: ₹" + price + "%0A" +
+"Category: " + category
+);
+
+
+return `
+
+<div class="product-card"
+data-name="${escapeHtml(name).toLowerCase()}"
+data-category="${escapeHtml(category).toLowerCase()}">
+
+<div class="product-image">
+
+${image
+?
+`<img
+src="${escapeHtml(image)}"
+alt="${escapeHtml(name)}"
+loading="lazy"
+onerror="this.src='https://placehold.co/500x650?text=Design+Image';"
+>`
+:
+`<img
+src="https://placehold.co/500x650?text=Design+Image"
+alt="Design Image"
+>`
+}
+
+</div>
+
+
+<div class="product-info">
+
+<div class="category">
+${escapeHtml(category)}
+</div>
+
+<h3 class="product-name">
+${escapeHtml(name)}
+</h3>
+
+<div class="description">
+${escapeHtml(description)}
+</div>
+
+<div class="price">
+₹${escapeHtml(String(price))}
+</div>
+
+
+<a
+class="order-btn"
+target="_blank"
+href="https://wa.me/919304509464?text=${message}"
+>
+💬 Order on WhatsApp
+</a>
+
+</div>
+
+</div>
+
+`;
+
+}).join("");
+
+}
+
+
+/* ==========================================
+   SEARCH
+========================================== */
+
+function searchProducts(){
+
+const value =
+document
+.getElementById("searchInput")
+.value
+.toLowerCase()
+.trim();
+
+
+if(value === ""){
+
+displayProducts(allProducts);
+
+return;
+
+}
+
+
+const filtered =
+allProducts.filter(function(product){
+
+const name =
+String(product.name || "")
+.toLowerCase();
+
+const category =
+String(product.category || "")
+.toLowerCase();
+
+const description =
+String(product.description || "")
+.toLowerCase();
+
+
+return (
+name.includes(value) ||
+category.includes(value) ||
+description.includes(value)
+);
+
+});
+
+
+displayProducts(filtered);
+
+}
+
+
+/* ==========================================
+   BASIC HTML SAFETY
+========================================== */
+
+function escapeHtml(value){
+
+return String(value)
+
+.replaceAll("&","&amp;")
+.replaceAll("<","&lt;")
+.replaceAll(">","&gt;")
+.replaceAll('"',"&quot;")
+.replaceAll("'","&#039;");
+
+}
+
+
+/* ==========================================
+   START
+========================================== */
+
+loadProducts();
+
+</script>
+
+</body>
+</html>
