@@ -3,733 +3,392 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Sajad Printer'S - Admin Panel</title>
 
 <style>
-*{
-    box-sizing:border-box;
-}
-
-body{
-    margin:0;
-    font-family:Arial,sans-serif;
-    background:#f4f4f7;
-    color:#222;
-}
-
-.header{
-    background:linear-gradient(135deg,#6416a0,#a91ccc);
-    color:white;
-    padding:22px 15px;
-    text-align:center;
-}
-
-.header h1{
-    margin:0;
-    font-size:25px;
-}
-
-.header p{
-    margin:6px 0 0;
-    font-size:13px;
-}
-
-.container{
-    width:100%;
-    max-width:600px;
-    margin:25px auto;
-    padding:0 12px;
-}
-
-.box{
-    background:white;
-    padding:20px;
-    border-radius:18px;
-    box-shadow:0 5px 20px rgba(0,0,0,.10);
-}
-
-.title{
-    text-align:center;
-    font-size:22px;
-    font-weight:bold;
-    margin-bottom:20px;
-}
-
-.form-group{
-    margin-bottom:15px;
-}
-
-.form-group label{
-    display:block;
-    font-size:12px;
-    font-weight:bold;
-    color:#555;
-    margin-bottom:6px;
-}
-
-.form-group input,
-.form-group select,
-.form-group textarea{
-    width:100%;
-    border:1px solid #ccc;
-    border-radius:10px;
-    padding:13px;
-    font-size:15px;
-    outline:none;
-}
-
-.form-group input:focus,
-.form-group select:focus,
-.form-group textarea:focus{
-    border:2px solid #8618b5;
-}
-
-textarea{
-    min-height:90px;
-    resize:vertical;
-}
-
-.preview{
-    display:none;
-    margin-top:12px;
-    text-align:center;
-}
-
-.preview img{
-    max-width:220px;
-    max-height:280px;
-    border-radius:12px;
-    border:1px solid #ddd;
-}
-
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:#f4f6f9;color:#222}
+.header{background:linear-gradient(135deg,#063b70,#0089d9);color:white;padding:22px 15px;text-align:center}
+.header h1{margin:0;font-size:25px}
+.header p{margin:6px 0 0;font-size:13px}
+.container{max-width:650px;margin:25px auto;padding:0 12px}
+.box{background:white;padding:20px;border-radius:18px;box-shadow:0 5px 20px rgba(0,0,0,.10)}
+.title{text-align:center;font-size:23px;font-weight:bold;margin-bottom:20px;color:#073665}
+.form-group{margin-bottom:15px}
+label{display:block;font-size:12px;font-weight:bold;color:#555;margin-bottom:6px}
+input,select,textarea{
+width:100%;border:1px solid #ccc;border-radius:10px;padding:13px;font-size:15px;outline:none}
+input:focus,select:focus,textarea:focus{border:2px solid #0785d1}
+textarea{min-height:80px}
+.preview{text-align:center;margin:12px 0;display:none}
+.preview img{max-width:220px;max-height:280px;border-radius:12px}
 .upload-btn{
-    width:100%;
-    border:0;
-    padding:15px;
-    border-radius:12px;
-    background:#8116ad;
-    color:white;
-    font-size:17px;
-    font-weight:bold;
-    cursor:pointer;
-}
-
+width:100%;border:0;padding:15px;border-radius:12px;background:#087ec1;color:white;
+font-size:17px;font-weight:bold;cursor:pointer}
+.upload-btn:disabled{background:#999}
 .back{
-    display:block;
-    margin-top:12px;
-    text-align:center;
-    padding:13px;
-    border:2px solid #8116ad;
-    color:#8116ad;
-    border-radius:12px;
-    text-decoration:none;
-    font-weight:bold;
-}
-
-.notice{
-    background:#fff6dc;
-    color:#6c571b;
-    padding:12px;
-    border-radius:10px;
-    margin-bottom:18px;
-    font-size:12px;
-    line-height:1.5;
-}
-
-.success{
-    display:none;
-    background:#e7f8ed;
-    color:#087a39;
-    padding:12px;
-    border-radius:10px;
-    margin-top:15px;
-    text-align:center;
-    font-weight:bold;
-}
-
-.design-list{
-    margin-top:25px;
-}
-
-.design-list h2{
-    font-size:18px;
-}
-
+display:block;margin-top:12px;text-align:center;padding:13px;border:2px solid #087ec1;
+color:#087ec1;border-radius:12px;text-decoration:none;font-weight:bold}
+.status{display:none;margin-top:15px;padding:13px;border-radius:10px;text-align:center;font-weight:bold}
+.success{background:#e5f8eb;color:#087a39}
+.error{background:#ffe8e8;color:#b42318}
+.design-list{margin-top:30px}
 .design-item{
-    background:#fafafa;
-    border:1px solid #eee;
-    padding:12px;
-    border-radius:12px;
-    margin-top:10px;
-    display:flex;
-    gap:12px;
-    align-items:center;
-}
-
-.design-item img{
-    width:70px;
-    height:80px;
-    object-fit:cover;
-    border-radius:8px;
-}
-
-.design-info{
-    flex:1;
-}
-
-.design-info b{
-    display:block;
-    margin-bottom:5px;
-}
-
-.delete-btn{
-    border:0;
-    background:#d32f2f;
-    color:white;
-    padding:8px 10px;
-    border-radius:7px;
-}
-
-footer{
-    text-align:center;
-    padding:25px 10px;
-    color:#777;
-    font-size:11px;
-}
+background:#fafafa;border:1px solid #eee;padding:10px;border-radius:12px;margin-top:10px;
+display:flex;gap:10px;align-items:center}
+.design-item img{width:65px;height:80px;object-fit:cover;border-radius:8px;background:#eee}
+.design-info{flex:1;font-size:13px}
+.design-info b{display:block;font-size:14px;margin-bottom:4px}
+.delete-btn{border:0;background:#d32f2f;color:white;padding:9px;border-radius:8px;cursor:pointer}
+footer{text-align:center;padding:25px;color:#777;font-size:11px}
 </style>
 </head>
 
 <body>
 
 <div class="header">
-
-    <h1>🔐 Sajad Printer'S Admin</h1>
-
-    <p>
-        Online Design Store Management
-    </p>
-
+<h1>🔐 Sajad Printer'S Admin</h1>
+<p>Supabase Design Store Management</p>
 </div>
-
 
 <div class="container">
-
 <div class="box">
 
-    <div class="title">
-        Add New Design
-    </div>
+<div class="title">➕ Add New Design</div>
 
+<div class="form-group">
+<label>DESIGN NAME</label>
+<input id="designName" type="text" placeholder="Example: Premium Nikah Card">
+</div>
 
-    <div class="notice">
-        यहाँ से Design Photo, Design Number,
-        Category और Price डाल सकते हैं।
-    </div>
+<div class="form-group">
+<label>CATEGORY</label>
+<select id="category">
+<option>Wedding Card</option>
+<option>Nikah Card</option>
+<option>Muslim Card</option>
+<option>Aqiqah</option>
+<option>Flex Banner</option>
+<option>Visiting Card</option>
+<option>Other</option>
+</select>
+</div>
 
+<div class="form-group">
+<label>PRICE ₹</label>
+<input id="price" type="number" min="0" placeholder="Example: 99">
+</div>
 
-    <div class="form-group">
+<div class="form-group">
+<label>DESCRIPTION</label>
+<textarea id="description" placeholder="Design के बारे में लिखें"></textarea>
+</div>
 
-        <label>
-            DESIGN NAME
-        </label>
+<div class="form-group">
+<label>DESIGN PHOTO</label>
+<input id="designImage" type="file" accept="image/*" onchange="previewImage()">
+</div>
 
-        <input
-            type="text"
-            id="designName"
-            placeholder="Example: Premium Nikah Card">
+<div class="preview" id="previewBox">
+<img id="previewPhoto">
+</div>
 
-    </div>
+<button id="saveBtn" class="upload-btn" onclick="saveDesign()">
+📤 Upload & Add Design
+</button>
 
+<div id="status" class="status"></div>
 
-    <div class="form-group">
+<a class="back" href="store.html">
+← View Design Store
+</a>
 
-        <label>
-            DESIGN NUMBER
-        </label>
-
-        <input
-            type="text"
-            id="designNumber"
-            placeholder="Example: NK-001">
-
-    </div>
-
-
-    <div class="form-group">
-
-        <label>
-            CATEGORY
-        </label>
-
-        <select id="category">
-
-            <option value="Wedding Card">
-                Wedding Card
-            </option>
-
-            <option value="Nikah Card">
-                Nikah Card
-            </option>
-
-            <option value="Aqiqah">
-                Aqiqah
-            </option>
-
-            <option value="Flex Banner">
-                Flex Banner
-            </option>
-
-            <option value="Visiting Card">
-                Visiting Card
-            </option>
-
-            <option value="Other">
-                Other
-            </option>
-
-        </select>
-
-    </div>
-
-
-    <div class="form-group">
-
-        <label>
-            PRICE ₹
-        </label>
-
-        <input
-            type="number"
-            id="price"
-            placeholder="Example: 99"
-            min="0">
-
-    </div>
-
-
-    <div class="form-group">
-
-        <label>
-            DESCRIPTION
-        </label>
-
-        <textarea
-            id="description"
-            placeholder="Design के बारे में लिखें"></textarea>
-
-    </div>
-
-
-    <div class="form-group">
-
-        <label>
-            UPLOAD DESIGN PHOTO
-        </label>
-
-        <input
-            type="file"
-            id="designImage"
-            accept="image/*"
-            onchange="previewImage()">
-
-    </div>
-
-
-    <div class="preview" id="previewBox">
-
-        <img
-            id="previewPhoto"
-            alt="Design Preview">
-
-    </div>
-
-
-    <button
-        class="upload-btn"
-        onclick="saveDesign()">
-
-        + Add Design
-
-    </button>
-
-
-    <div
-        class="success"
-        id="success">
-
-        ✓ Design Saved
-
-    </div>
-
-
-    <a
-        class="back"
-        href="index.html">
-
-        ← View Design Store
-
-    </a>
-
-
-    <div class="design-list">
-
-        <h2>
-            Saved Designs
-        </h2>
-
-        <div id="designList"></div>
-
-    </div>
-
+<div class="design-list">
+<h2>📦 Saved Products</h2>
+<div id="designList">Loading...</div>
 </div>
 
 </div>
+</div>
 
+<footer>Delhi Press - Sajad Printer'S Admin Panel</footer>
 
-<footer>
-    Sajad Printer'S Admin Panel
-</footer>
-
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <script>
+const SUPABASE_URL =
+"https://vgblvfpzpxivwafuatcy.supabase.co";
 
-var selectedImage = "";
+const SUPABASE_KEY =
+"sb_publishable_u4PJUGojT-BQfg65WaYTFw_Gdx-MLOH";
 
+const {createClient}=supabase;
+const db=createClient(SUPABASE_URL,SUPABASE_KEY);
 
-/* IMAGE PREVIEW */
+const BUCKET="design-images";
+
 
 function previewImage(){
 
-    var file =
-    document.getElementById("designImage")
-    .files[0];
+const file=document.getElementById("designImage").files[0];
 
-    if(!file){
-        return;
-    }
+if(!file)return;
 
+document.getElementById("previewPhoto").src=
+URL.createObjectURL(file);
 
-    var reader =
-    new FileReader();
-
-
-    reader.onload = function(e){
-
-        selectedImage =
-        e.target.result;
-
-        document.getElementById(
-            "previewPhoto"
-        ).src = selectedImage;
-
-        document.getElementById(
-            "previewBox"
-        ).style.display = "block";
-
-    };
-
-
-    reader.readAsDataURL(file);
-
+document.getElementById("previewBox").style.display="block";
 }
 
 
-/* SAVE DESIGN */
+function showStatus(message,type){
 
-function saveDesign(){
+const status=document.getElementById("status");
 
-    var name =
-    document.getElementById(
-        "designName"
-    ).value.trim();
-
-
-    var number =
-    document.getElementById(
-        "designNumber"
-    ).value.trim();
-
-
-    var category =
-    document.getElementById(
-        "category"
-    ).value;
-
-
-    var price =
-    document.getElementById(
-        "price"
-    ).value;
-
-
-    var description =
-    document.getElementById(
-        "description"
-    ).value.trim();
-
-
-    if(name === ""){
-
-        alert("Design Name डालें");
-
-        return;
-
-    }
-
-
-    if(number === ""){
-
-        alert("Design Number डालें");
-
-        return;
-
-    }
-
-
-    if(price === ""){
-
-        alert("Price डालें");
-
-        return;
-
-    }
-
-
-    if(selectedImage === ""){
-
-        alert("Design Photo चुनें");
-
-        return;
-
-    }
-
-
-    var design = {
-
-        id: Date.now(),
-
-        name: name,
-
-        number: number,
-
-        category: category,
-
-        price: price,
-
-        description: description,
-
-        image: selectedImage
-
-    };
-
-
-    var designs =
-    JSON.parse(
-        localStorage.getItem(
-            "sajadDesigns"
-        )
-        || "[]"
-    );
-
-
-    designs.unshift(design);
-
-
-    try{
-
-        localStorage.setItem(
-            "sajadDesigns",
-            JSON.stringify(designs)
-        );
-
-    }catch(error){
-
-        alert(
-          "Photo बहुत बड़ी है। छोटी JPG photo upload करें।"
-        );
-
-        return;
-
-    }
-
-
-    document.getElementById(
-        "success"
-    ).style.display = "block";
-
-
-    setTimeout(function(){
-
-        document.getElementById(
-            "success"
-        ).style.display = "none";
-
-    },2500);
-
-
-    clearForm();
-
-    showDesigns();
-
+status.innerHTML=message;
+status.className="status "+type;
+status.style.display="block";
 }
 
 
-/* CLEAR FORM */
+async function saveDesign(){
+
+const name=document.getElementById("designName").value.trim();
+const category=document.getElementById("category").value;
+const price=document.getElementById("price").value;
+const description=document.getElementById("description").value.trim();
+const file=document.getElementById("designImage").files[0];
+
+if(!name){
+alert("Design Name डालें");
+return;
+}
+
+if(price===""){
+alert("Price डालें");
+return;
+}
+
+if(!file){
+alert("Design Photo चुनें");
+return;
+}
+
+const btn=document.getElementById("saveBtn");
+
+btn.disabled=true;
+btn.innerHTML="⏳ Uploading...";
+
+try{
+
+/* UNIQUE FILE NAME */
+
+const extension=
+file.name.split(".").pop().toLowerCase();
+
+const fileName=
+Date.now()+"-"+Math.random().toString(36).substring(2,8)+"."+extension;
+
+
+/* UPLOAD IMAGE */
+
+const {error:uploadError}=
+await db.storage
+.from(BUCKET)
+.upload(fileName,file,{
+cacheControl:"3600",
+upsert:false
+});
+
+if(uploadError){
+throw uploadError;
+}
+
+
+/* PUBLIC URL */
+
+const {data:urlData}=
+db.storage
+.from(BUCKET)
+.getPublicUrl(fileName);
+
+const imageUrl=urlData.publicUrl;
+
+
+/* INSERT PRODUCT */
+
+const {error:insertError}=
+await db
+.from("products")
+.insert([{
+name:name,
+price:Number(price),
+image_url:imageUrl,
+category:category,
+description:description
+}]);
+
+if(insertError){
+
+/* अगर product save fail हो तो uploaded photo हटाने की कोशिश */
+
+await db.storage
+.from(BUCKET)
+.remove([fileName]);
+
+throw insertError;
+}
+
+
+showStatus("✅ Design successfully added!","success");
+
+clearForm();
+
+await loadProducts();
+
+}
+catch(error){
+
+console.error(error);
+
+showStatus(
+"❌ Error: "+(error.message || "Design save नहीं हुआ"),
+"error"
+);
+
+}
+finally{
+
+btn.disabled=false;
+btn.innerHTML="📤 Upload & Add Design";
+
+}
+
+}
+
 
 function clearForm(){
 
-    document.getElementById(
-        "designName"
-    ).value = "";
-
-
-    document.getElementById(
-        "designNumber"
-    ).value = "";
-
-
-    document.getElementById(
-        "price"
-    ).value = "";
-
-
-    document.getElementById(
-        "description"
-    ).value = "";
-
-
-    document.getElementById(
-        "designImage"
-    ).value = "";
-
-
-    document.getElementById(
-        "previewBox"
-    ).style.display = "none";
-
-
-    selectedImage = "";
+document.getElementById("designName").value="";
+document.getElementById("price").value="";
+document.getElementById("description").value="";
+document.getElementById("designImage").value="";
+document.getElementById("previewBox").style.display="none";
 
 }
 
 
-/* SHOW DESIGNS */
+/* LOAD PRODUCTS */
 
-function showDesigns(){
+async function loadProducts(){
 
-    var designs =
-    JSON.parse(
-        localStorage.getItem(
-            "sajadDesigns"
-        )
-        || "[]"
-    );
+const list=document.getElementById("designList");
 
+list.innerHTML="⏳ Loading...";
 
-    var box =
-    document.getElementById(
-        "designList"
-    );
+const {data,error}=
+await db
+.from("products")
+.select("*")
+.order("id",{ascending:false});
 
+if(error){
 
-    if(designs.length === 0){
+list.innerHTML="❌ Products load नहीं हुए";
 
-        box.innerHTML =
-        "<p style='color:#777'>अभी कोई Design Saved नहीं है।</p>";
+console.error(error);
 
-        return;
+return;
+}
 
-    }
+if(!data || data.length===0){
 
+list.innerHTML="<p>अभी कोई Product नहीं है।</p>";
 
-    var html = "";
+return;
+}
 
+list.innerHTML="";
 
-    designs.forEach(function(item){
+data.forEach(product=>{
 
-        html +=
+const item=document.createElement("div");
 
-        '<div class="design-item">' +
+item.className="design-item";
 
-        '<img src="' +
-        item.image +
-        '">' +
+item.innerHTML=`
 
-        '<div class="design-info">' +
+<img src="${escapeHTML(product.image_url || "")}">
 
-        '<b>' +
-        item.name +
-        '</b>' +
+<div class="design-info">
 
-        '<small>' +
-        item.number +
-        ' • ' +
-        item.category +
-        '<br>₹' +
-        item.price +
-        '</small>' +
+<b>${escapeHTML(product.name || "Design")}</b>
 
-        '</div>' +
+${escapeHTML(product.category || "")}
+<br>
 
-        '<button class="delete-btn" onclick="deleteDesign(' +
-        item.id +
-        ')">Delete</button>' +
+<strong>₹${escapeHTML(String(product.price || 0))}</strong>
 
-        '</div>';
+</div>
 
-    });
+<button
+class="delete-btn"
+onclick="deleteProduct(${Number(product.id)})">
 
+🗑 Delete
 
-    box.innerHTML = html;
+</button>
+
+`;
+
+list.appendChild(item);
+
+});
 
 }
 
 
-/* DELETE DESIGN */
+/* DELETE */
 
-function deleteDesign(id){
+async function deleteProduct(id){
 
-    if(
-        !confirm(
-            "यह Design Delete करें?"
-        )
-    ){
-        return;
-    }
+if(!confirm("यह Product Delete करना है?")){
+return;
+}
 
+const {error}=
+await db
+.from("products")
+.delete()
+.eq("id",id);
 
-    var designs =
-    JSON.parse(
-        localStorage.getItem(
-            "sajadDesigns"
-        )
-        || "[]"
-    );
+if(error){
 
+alert("Delete नहीं हुआ: "+error.message);
 
-    designs =
-    designs.filter(
-        function(item){
+return;
+}
 
-            return item.id !== id;
+showStatus("✅ Product Deleted","success");
 
-        }
-    );
-
-
-    localStorage.setItem(
-        "sajadDesigns",
-        JSON.stringify(designs)
-    );
-
-
-    showDesigns();
+loadProducts();
 
 }
 
 
-showDesigns();
+function escapeHTML(value){
+
+return String(value || "")
+.replace(/&/g,"&amp;")
+.replace(/</g,"&lt;")
+.replace(/>/g,"&gt;")
+.replace(/"/g,"&quot;")
+.replace(/'/g,"&#039;");
+
+}
+
+
+loadProducts();
 
 </script>
 
