@@ -576,6 +576,37 @@ function showAll(){
 
 </script>
 
+<!-- SUPABASE -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
+<script>
+const SUPABASE_URL = "https://vgblvfpzpxivwafuatcy.supabase.co";
+const SUPABASE_KEY = "sb_publishable_u4PJUGojT-BQfg65WaYTFw_Gdx-MLOH";
+
+const { createClient } = supabase;
+const db = createClient(SUPABASE_URL, SUPABASE_KEY);
+
+// Supabase connection test
+async function testSupabase() {
+    try {
+        const { data, error } = await db
+            .from("products")
+            .select("*");
+
+        if (error) {
+            console.error("Supabase Error:", error);
+            return;
+        }
+
+        console.log("Supabase Connected ✅");
+        console.log("Products:", data);
+
+    } catch (err) {
+        console.error("Connection Error:", err);
+    }
+}
+
+testSupabase();
+</script>
 </body>
 </html>
