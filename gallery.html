@@ -1,1 +1,700 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Delhi Press - Sajad Printer'S"><title>Gallery | Delhi Press - Sajad Printer'S</title><link rel="stylesheet" href="css/style.css"></head><body><header><div class="container nav"><a class="brand" href="index.html"><div class="logo">DP</div><div><b>DELHI PRESS</b><small>Sajad Printer'S</small></div></a><button class="hamb">☰</button><nav class="menu"><a href="index.html">Home</a><a href="services.html">Services</a><a href="gallery.html">Gallery</a><a href="about.html">About</a><a href="contact.html">Contact</a><a class="wa" target="_blank" href="https://wa.me/919304509464">WhatsApp</a></nav></div></header><section class="pagehead"><div class="container"><h1>Our Work Gallery</h1><p>Wedding Cards • Flex • Visiting Cards • Posters</p></div></section><section class="section"><div class="container"><div class="title"><small>GALLERY</small><h2>अपना काम यहाँ दिखाइए</h2><p>Sample boxes को आपकी actual work photos से replace किया जा सकता है।</p></div><div class="gallery"><div class="sample">Your Work Photo<br>images/ folder</div><div class="sample">Your Work Photo<br>images/ folder</div><div class="sample">Your Work Photo<br>images/ folder</div><div class="sample">Your Work Photo<br>images/ folder</div><div class="sample">Your Work Photo<br>images/ folder</div><div class="sample">Your Work Photo<br>images/ folder</div><div class="sample">Your Work Photo<br>images/ folder</div><div class="sample">Your Work Photo<br>images/ folder</div><div class="sample">Your Work Photo<br>images/ folder</div></div></div></section><footer><div class="container foot"><div><h3>DELHI PRESS</h3><b>Sajad Printer'S</b><p>Professional Printing & Graphic Designing Services</p></div><div><h4>Pages</h4><a href="services.html">Services</a><a href="gallery.html">Gallery</a><a href="contact.html">Contact</a></div><div><h4>Contact</h4><p>9304509464</p><a target="_blank" href="https://share.google/9jMXacH4ktehaP96Y">Google Maps</a></div></div><div class="copy">© <span id="year"></span> Delhi Press - Sajad Printer'S</div></footer><a class="float" target="_blank" href="https://wa.me/919304509464">💬</a><script src="js/script.js"></script></body></html>
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Gallery | Delhi Press - Sajad Printer'S</title>
+
+  <meta name="description"
+        content="Delhi Press - Sajad Printer'S Gallery - Wedding Cards, Flex Banner, Visiting Cards, Posters and Graphic Designing.">
+
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Gallery ke liye extra styling -->
+  <style>
+    .gallery-section {
+      padding: 90px 0;
+      background: #f6f8fc;
+    }
+
+    .gallery-heading {
+      max-width: 720px;
+      margin: 0 auto 45px;
+      text-align: center;
+    }
+
+    .gallery-heading span {
+      color: #147cf3;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 3px;
+    }
+
+    .gallery-heading h2 {
+      margin: 8px 0 12px;
+      color: #10213e;
+      font-size: clamp(32px, 5vw, 46px);
+      line-height: 1.2;
+    }
+
+    .gallery-heading p {
+      color: #748198;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .gallery-card {
+      overflow: hidden;
+      background: #ffffff;
+      border: 1px solid #e5ebf3;
+      border-radius: 20px;
+      box-shadow: 0 10px 35px rgba(16, 47, 91, 0.08);
+      transition: 0.3s;
+    }
+
+    .gallery-card:hover {
+      transform: translateY(-7px);
+      box-shadow: 0 20px 50px rgba(16, 47, 91, 0.14);
+    }
+
+    .gallery-photo {
+      min-height: 240px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 30px;
+      text-align: center;
+      background:
+        radial-gradient(
+          circle at top right,
+          rgba(20,124,243,.18),
+          transparent 35%
+        ),
+        linear-gradient(
+          135deg,
+          #eaf3ff,
+          #f8fbff
+        );
+    }
+
+    .gallery-photo .icon {
+      font-size: 65px;
+      display: block;
+      margin-bottom: 12px;
+    }
+
+    .gallery-photo strong {
+      display: block;
+      color: #10213e;
+      font-size: 20px;
+    }
+
+    .gallery-photo small {
+      color: #748198;
+    }
+
+    .gallery-info {
+      padding: 22px;
+    }
+
+    .gallery-info h3 {
+      color: #10213e;
+      font-size: 19px;
+      margin-bottom: 7px;
+    }
+
+    .gallery-info p {
+      color: #748198;
+      font-size: 13px;
+      margin-bottom: 15px;
+    }
+
+    .gallery-info a {
+      color: #147cf3;
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .gallery-note {
+      margin-top: 35px;
+      padding: 24px;
+      text-align: center;
+      background: white;
+      border: 1px solid #e5ebf3;
+      border-radius: 16px;
+      color: #64748b;
+    }
+
+    .gallery-note strong {
+      color: #10213e;
+    }
+
+    @media (max-width: 850px) {
+      .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 560px) {
+      .gallery-section {
+        padding: 65px 0;
+      }
+
+      .gallery-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .gallery-photo {
+        min-height: 210px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- ================= HEADER ================= -->
+
+<header class="header">
+  <div class="container navbar">
+
+    <a href="index.html" class="logo-area">
+
+      <div class="logo">
+        DP
+      </div>
+
+      <div class="logo-text">
+        <strong>DELHI PRESS</strong>
+        <span>Sajad Printer'S</span>
+      </div>
+
+    </a>
+
+    <button class="menu-btn"
+            id="menuBtn"
+            aria-label="Menu">
+      ☰
+    </button>
+
+    <nav class="nav-menu" id="navMenu">
+
+      <a href="index.html">Home</a>
+
+      <a href="services.html">
+        Services
+      </a>
+
+      <a href="gallery.html">
+        Gallery
+      </a>
+
+      <a href="about.html">
+        About
+      </a>
+
+      <a href="contact.html">
+        Contact
+      </a>
+
+      <a href="https://wa.me/919304509464"
+         target="_blank"
+         class="nav-whatsapp">
+        WhatsApp
+      </a>
+
+    </nav>
+
+  </div>
+</header>
+
+
+<!-- ================= HERO ================= -->
+
+<section class="hero" style="min-height:500px;">
+
+  <div class="container hero-content">
+
+    <div class="hero-badge">
+      ✦ OUR PRINTING WORK
+    </div>
+
+    <h1 style="font-size:clamp(45px,7vw,72px);">
+      WORK GALLERY
+      <span>Delhi Press • Sajad Printer'S</span>
+    </h1>
+
+    <h2>
+      हमारा Printing & Designing Work
+    </h2>
+
+    <p>
+      Wedding Cards • Flex Banner • Visiting Cards •
+      Posters • Handbills • Graphic Designing
+    </p>
+
+    <div class="hero-buttons">
+
+      <a href="https://wa.me/919304509464?text=Namaste%20Delhi%20Press,%20mujhe%20aapke%20printing%20designs%20ke%20baare%20mein%20jankari%20chahiye."
+         target="_blank"
+         class="btn whatsapp-btn">
+        💬 WhatsApp Chat
+      </a>
+
+      <a href="tel:+919304509464"
+         class="btn call-btn">
+        ☎ Call Now
+      </a>
+
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ================= GALLERY ================= -->
+
+<section class="gallery-section">
+
+  <div class="container">
+
+    <div class="gallery-heading">
+
+      <span>OUR GALLERY</span>
+
+      <h2>
+        अपना काम यहाँ दिखाइए
+      </h2>
+
+      <p>
+        Delhi Press - Sajad Printer'S के अलग-अलग
+        printing और designing work की gallery.
+      </p>
+
+    </div>
+
+
+    <div class="gallery-grid">
+
+
+      <!-- CARD 1 -->
+
+      <div class="gallery-card">
+
+        <div class="gallery-photo">
+          <div>
+            <span class="icon">💌</span>
+            <strong>Wedding Card</strong>
+            <small>Your Work Photo</small>
+          </div>
+        </div>
+
+        <div class="gallery-info">
+
+          <h3>Wedding Card Design</h3>
+
+          <p>
+            Nikah, Shadi, Aqiqah और invitation
+            card designing एवं printing.
+          </p>
+
+          <a href="wedding-card.html">
+            View Details →
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <!-- CARD 2 -->
+
+      <div class="gallery-card">
+
+        <div class="gallery-photo">
+          <div>
+            <span class="icon">🖼️</span>
+            <strong>Flex Banner</strong>
+            <small>Your Work Photo</small>
+          </div>
+        </div>
+
+        <div class="gallery-info">
+
+          <h3>Flex Banner Design</h3>
+
+          <p>
+            Wedding, shop, event और business
+            promotion flex designs.
+          </p>
+
+          <a href="flex-banner.html">
+            View Details →
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <!-- CARD 3 -->
+
+      <div class="gallery-card">
+
+        <div class="gallery-photo">
+          <div>
+            <span class="icon">💳</span>
+            <strong>Visiting Card</strong>
+            <small>Your Work Photo</small>
+          </div>
+        </div>
+
+        <div class="gallery-info">
+
+          <h3>Visiting Card</h3>
+
+          <p>
+            Professional business और shop
+            visiting card designs.
+          </p>
+
+          <a href="visiting-card.html">
+            View Details →
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <!-- CARD 4 -->
+
+      <div class="gallery-card">
+
+        <div class="gallery-photo">
+          <div>
+            <span class="icon">📢</span>
+            <strong>Poster</strong>
+            <small>Your Work Photo</small>
+          </div>
+        </div>
+
+        <div class="gallery-info">
+
+          <h3>Poster Designing</h3>
+
+          <p>
+            Business, event और promotional
+            poster designing.
+          </p>
+
+          <a href="https://wa.me/919304509464?text=Mujhe%20Poster%20Design%20karwana%20hai."
+             target="_blank">
+            Enquire Now →
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <!-- CARD 5 -->
+
+      <div class="gallery-card">
+
+        <div class="gallery-photo">
+          <div>
+            <span class="icon">📅</span>
+            <strong>Calendar</strong>
+            <small>Your Work Photo</small>
+          </div>
+        </div>
+
+        <div class="gallery-info">
+
+          <h3>Calendar Printing</h3>
+
+          <p>
+            Business और promotional calendar
+            designing एवं printing.
+          </p>
+
+          <a href="https://wa.me/919304509464?text=Mujhe%20Calendar%20Printing%20karwani%20hai."
+             target="_blank">
+            Enquire Now →
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <!-- CARD 6 -->
+
+      <div class="gallery-card">
+
+        <div class="gallery-photo">
+          <div>
+            <span class="icon">🎨</span>
+            <strong>Graphic Design</strong>
+            <small>Your Work Photo</small>
+          </div>
+        </div>
+
+        <div class="gallery-info">
+
+          <h3>Graphic Designing</h3>
+
+          <p>
+            Attractive promotional और
+            printing graphic designs.
+          </p>
+
+          <a href="https://wa.me/919304509464?text=Mujhe%20Graphic%20Designing%20karwani%20hai."
+             target="_blank">
+            Enquire Now →
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <!-- CARD 7 -->
+
+      <div class="gallery-card">
+
+        <div class="gallery-photo">
+          <div>
+            <span class="icon">📄</span>
+            <strong>Handbill</strong>
+            <small>Your Work Photo</small>
+          </div>
+        </div>
+
+        <div class="gallery-info">
+
+          <h3>Handbill Printing</h3>
+
+          <p>
+            Shop और business promotion के लिए
+            handbill designing.
+          </p>
+
+          <a href="https://wa.me/919304509464?text=Mujhe%20Handbill%20Printing%20karwani%20hai."
+             target="_blank">
+            Enquire Now →
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <!-- CARD 8 -->
+
+      <div class="gallery-card">
+
+        <div class="gallery-photo">
+          <div>
+            <span class="icon">🔖</span>
+            <strong>Rubber Stamp</strong>
+            <small>Your Work Photo</small>
+          </div>
+        </div>
+
+        <div class="gallery-info">
+
+          <h3>Rubber Stamp</h3>
+
+          <p>
+            Shop, office और personal use के
+            custom rubber stamps.
+          </p>
+
+          <a href="https://wa.me/919304509464?text=Mujhe%20Rubber%20Stamp%20banwana%20hai."
+             target="_blank">
+            Enquire Now →
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <!-- CARD 9 -->
+
+      <div class="gallery-card">
+
+        <div class="gallery-photo">
+          <div>
+            <span class="icon">🏪</span>
+            <strong>Business Printing</strong>
+            <small>Your Work Photo</small>
+          </div>
+        </div>
+
+        <div class="gallery-info">
+
+          <h3>Business Printing</h3>
+
+          <p>
+            Shop और business के लिए professional
+            printing एवं designing.
+          </p>
+
+          <a href="https://wa.me/919304509464"
+             target="_blank">
+            WhatsApp →
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="gallery-note">
+
+      <strong>अपनी असली Photos भी यहाँ लगा सकते हैं।</strong>
+      Wedding Card, Flex Banner और Visiting Card की photos
+      बाद में इन sample boxes की जगह लगाई जा सकती हैं।
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ================= CTA ================= -->
+
+<section class="cta">
+
+  <div class="container cta-content">
+
+    <span>
+      PRINTING & DESIGNING
+    </span>
+
+    <h2>
+      ऐसा Design बनवाना है?
+    </h2>
+
+    <p>
+      WhatsApp पर अपनी जरूरत या sample भेजिए।
+    </p>
+
+    <div class="hero-buttons">
+
+      <a href="https://wa.me/919304509464"
+         target="_blank"
+         class="btn whatsapp-btn">
+        💬 WhatsApp
+      </a>
+
+      <a href="tel:+919304509464"
+         class="btn call-btn">
+        ☎ 9304509464
+      </a>
+
+      <a href="https://share.google/9jMXacH4ktehaP96Y"
+         target="_blank"
+         class="btn direction-btn">
+        📍 Get Direction
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+  <div class="container footer-grid">
+
+    <div class="footer-about">
+
+      <h3>DELHI PRESS</h3>
+
+      <strong>Sajad Printer'S</strong>
+
+      <p>
+        Professional Printing &
+        Graphic Designing Services
+      </p>
+
+    </div>
+
+
+    <div>
+
+      <h4>Quick Links</h4>
+
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="about.html">About Us</a>
+      <a href="contact.html">Contact</a>
+
+    </div>
+
+
+    <div>
+
+      <h4>Contact Us</h4>
+
+      <a href="tel:+919304509464">
+        ☎ 9304509464
+      </a>
+
+      <a href="https://wa.me/919304509464"
+         target="_blank">
+        💬 WhatsApp Chat
+      </a>
+
+      <a href="https://share.google/9jMXacH4ktehaP96Y"
+         target="_blank">
+        📍 Google Maps
+      </a>
+
+    </div>
+
+  </div>
+
+
+  <div class="copyright">
+
+    © <span id="year"></span>
+    Delhi Press - Sajad Printer'S.
+    All Rights Reserved.
+
+  </div>
+
+</footer>
+
+
+<!-- FLOATING WHATSAPP -->
+
+<a href="https://wa.me/919304509464"
+   target="_blank"
+   class="floating-whatsapp"
+   aria-label="WhatsApp">
+  💬
+</a>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
