@@ -1,481 +1,1466 @@
 <!DOCTYPE html>
 <html lang="hi">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Services | Delhi Press - Sajad Printer'S</title>
+<title>Services | Delhi Press - Sajad Printer'S</title>
 
-  <meta name="description"
-        content="Delhi Press - Sajad Printer'S - Wedding Card, Flex Banner, Visiting Card, Calendar, Rubber Stamp, Poster, Handbill and Graphic Designing Services.">
+<meta name="description"
+content="Delhi Press - Sajad Printer'S - Wedding Card, Flex Banner, Visiting Card, Calendar, Poster, Handbill, Rubber Stamp and Graphic Designing Services.">
 
-  <!-- IMPORTANT: style.css root folder mein hai -->
-  <link rel="stylesheet" href="style.css">
+<style>
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family:Arial,Helvetica,sans-serif;
+  background:#f5f7fb;
+  color:#132238;
+  line-height:1.6;
+}
+
+a{
+  text-decoration:none;
+}
+
+/* HEADER */
+
+.header{
+  background:#fff;
+  position:sticky;
+  top:0;
+  z-index:1000;
+  box-shadow:0 4px 20px rgba(0,0,0,.08);
+}
+
+.navbar{
+  max-width:1150px;
+  margin:auto;
+  padding:12px 20px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.logo-area{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+.logo{
+  width:55px;
+  height:55px;
+  border-radius:16px;
+  background:linear-gradient(135deg,#0057b8,#00a7ff);
+  color:#fff;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-size:21px;
+  font-weight:800;
+  box-shadow:0 7px 20px rgba(0,104,200,.25);
+}
+
+.logo-text{
+  display:flex;
+  flex-direction:column;
+}
+
+.logo-text strong{
+  color:#062d58;
+  font-size:20px;
+  line-height:1.1;
+}
+
+.logo-text span{
+  color:#687587;
+  font-size:13px;
+}
+
+.nav-menu{
+  display:flex;
+  align-items:center;
+  gap:27px;
+}
+
+.nav-menu a{
+  color:#172c47;
+  font-size:15px;
+  font-weight:700;
+}
+
+.nav-menu a:hover,
+.nav-menu .active-link{
+  color:#0075e8;
+}
+
+.nav-whatsapp{
+  background:#00b95c !important;
+  color:#fff !important;
+  padding:10px 16px;
+  border-radius:10px;
+}
+
+.menu-btn{
+  display:none;
+  width:44px;
+  height:44px;
+  border:0;
+  border-radius:10px;
+  background:#06366a;
+  color:#fff;
+  font-size:25px;
+  cursor:pointer;
+}
+
+/* HERO */
+
+.hero{
+  position:relative;
+  overflow:hidden;
+  background:
+    radial-gradient(circle at 85% 20%,rgba(0,174,255,.35),transparent 28%),
+    radial-gradient(circle at 10% 80%,rgba(0,135,255,.25),transparent 30%),
+    linear-gradient(135deg,#021b3c,#003b78 55%,#00569c);
+  color:#fff;
+  padding:85px 20px 100px;
+}
+
+.hero:before{
+  content:"";
+  position:absolute;
+  width:400px;
+  height:400px;
+  border:1px solid rgba(255,255,255,.09);
+  border-radius:50%;
+  right:-170px;
+  top:-130px;
+}
+
+.hero:after{
+  content:"";
+  position:absolute;
+  width:500px;
+  height:500px;
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:50%;
+  left:-280px;
+  bottom:-300px;
+}
+
+.hero-content{
+  max-width:1100px;
+  margin:auto;
+  position:relative;
+  z-index:2;
+}
+
+.hero-badge{
+  display:inline-block;
+  border:1px solid rgba(255,255,255,.25);
+  background:rgba(255,255,255,.08);
+  padding:9px 17px;
+  border-radius:50px;
+  font-size:13px;
+  margin-bottom:25px;
+}
+
+.hero h1{
+  font-size:clamp(43px,8vw,72px);
+  line-height:1.02;
+  letter-spacing:-2px;
+  margin-bottom:15px;
+}
+
+.hero h1 span{
+  display:block;
+  color:#55b9ff;
+  font-size:.40em;
+  letter-spacing:4px;
+  margin-top:13px;
+}
+
+.hero p{
+  max-width:670px;
+  font-size:18px;
+  color:#d5e7f8;
+  margin-bottom:30px;
+}
+
+.hero-buttons{
+  display:flex;
+  flex-wrap:wrap;
+  gap:13px;
+}
+
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:14px 23px;
+  border-radius:11px;
+  font-weight:800;
+  font-size:15px;
+}
+
+.whatsapp-btn{
+  background:#00bf60;
+  color:#fff;
+}
+
+.call-btn{
+  background:#fff;
+  color:#06366a;
+}
+
+.direction-btn{
+  background:#087fe7;
+  color:#fff;
+}
+
+/* SERVICE SECTION */
+
+.services{
+  max-width:1100px;
+  margin:auto;
+  padding:75px 20px;
+}
+
+.section-heading{
+  text-align:center;
+  max-width:720px;
+  margin:0 auto 42px;
+}
+
+.section-heading span{
+  color:#0084e9;
+  font-size:13px;
+  font-weight:800;
+  letter-spacing:2px;
+}
+
+.section-heading h2{
+  font-size:35px;
+  color:#092b53;
+  margin:7px 0;
+}
+
+.section-heading p{
+  color:#718096;
+}
+
+/* SERVICE CARDS */
+
+.service-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+}
+
+.service-card{
+  background:#fff;
+  border:1px solid #e5ebf3;
+  border-radius:20px;
+  padding:27px 22px;
+  box-shadow:0 8px 27px rgba(0,0,0,.06);
+  transition:.25s;
+  display:flex;
+  flex-direction:column;
+}
+
+.service-card:hover{
+  transform:translateY(-6px);
+  box-shadow:0 16px 35px rgba(0,0,0,.11);
+}
+
+.service-icon{
+  width:66px;
+  height:66px;
+  border-radius:18px;
+  background:linear-gradient(135deg,#e2f2ff,#f6fbff);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:32px;
+  margin-bottom:18px;
+}
+
+.service-card h3{
+  color:#092d57;
+  font-size:20px;
+  margin-bottom:7px;
+}
+
+.service-card p{
+  color:#718096;
+  font-size:14px;
+  margin-bottom:17px;
+  flex:1;
+}
+
+.service-card ul{
+  list-style:none;
+  margin-bottom:20px;
+}
+
+.service-card li{
+  color:#52657c;
+  font-size:13px;
+  padding:4px 0;
+}
+
+.service-card li:before{
+  content:"✓";
+  color:#0084e9;
+  font-weight:bold;
+  margin-right:7px;
+}
+
+.service-link{
+  display:inline-block;
+  color:#007be5;
+  font-size:14px;
+  font-weight:800;
+}
+
+/* SPECIAL BOX */
+
+.special{
+  background:#eaf3fb;
+}
+
+.special-inner{
+  max-width:1100px;
+  margin:auto;
+  padding:70px 20px;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:40px;
+  align-items:center;
+}
+
+.special-left span{
+  color:#007bd7;
+  font-size:13px;
+  font-weight:800;
+  letter-spacing:2px;
+}
+
+.special-left h2{
+  color:#072d58;
+  font-size:35px;
+  line-height:1.2;
+  margin:8px 0 15px;
+}
+
+.special-left p{
+  color:#66768a;
+}
+
+.special-list{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:13px;
+}
+
+.special-box{
+  background:#fff;
+  border-radius:14px;
+  padding:18px;
+  box-shadow:0 6px 18px rgba(0,0,0,.05);
+}
+
+.special-box strong{
+  display:block;
+  color:#083363;
+}
+
+.special-box small{
+  color:#728094;
+}
+
+/* PROCESS */
+
+.process{
+  max-width:1100px;
+  margin:auto;
+  padding:75px 20px;
+}
+
+.process-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:15px;
+}
+
+.process-card{
+  background:#fff;
+  border:1px solid #e5ebf3;
+  padding:22px 18px;
+  border-radius:17px;
+  text-align:center;
+  box-shadow:0 6px 20px rgba(0,0,0,.05);
+}
+
+.number{
+  width:45px;
+  height:45px;
+  margin:0 auto 12px;
+  border-radius:50%;
+  background:#087fe7;
+  color:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:bold;
+}
+
+.process-card h3{
+  color:#092d57;
+  font-size:17px;
+}
+
+.process-card p{
+  color:#718096;
+  font-size:13px;
+  margin-top:5px;
+}
+
+/* CTA */
+
+.cta{
+  max-width:1060px;
+  margin:30px auto 70px;
+  padding:45px 25px;
+  border-radius:25px;
+  background:
+    radial-gradient(circle at right,rgba(0,183,255,.35),transparent 35%),
+    linear-gradient(135deg,#032652,#00549a);
+  color:#fff;
+  text-align:center;
+  box-shadow:0 15px 40px rgba(0,56,110,.20);
+}
+
+.cta h2{
+  font-size:34px;
+}
+
+.cta p{
+  color:#d5e8f8;
+  margin:8px 0 22px;
+}
+
+.cta-buttons{
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:12px;
+}
+
+/* FOOTER */
+
+.footer{
+  background:#06182c;
+  color:#b7c4d3;
+  padding:55px 20px 20px;
+}
+
+.footer-grid{
+  max-width:1100px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:2fr 1fr 1fr;
+  gap:40px;
+}
+
+.footer-brand{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  margin-bottom:15px;
+}
+
+.footer-logo{
+  width:50px;
+  height:50px;
+  background:#0787e8;
+  color:#fff;
+  border-radius:13px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-weight:bold;
+}
+
+.footer h2{
+  color:#fff;
+  font-size:20px;
+}
+
+.footer h3{
+  color:#fff;
+  margin-bottom:12px;
+}
+
+.footer a{
+  display:block;
+  color:#b7c4d3;
+  margin:7px 0;
+}
+
+.footer a:hover{
+  color:#fff;
+}
+
+.footer-bottom{
+  max-width:1100px;
+  margin:35px auto 0;
+  padding-top:18px;
+  border-top:1px solid #24364a;
+  text-align:center;
+  font-size:13px;
+}
+
+/* FLOATING WHATSAPP */
+
+.floating-whatsapp{
+  position:fixed;
+  right:20px;
+  bottom:20px;
+  width:58px;
+  height:58px;
+  border-radius:50%;
+  background:#00bd5b;
+  color:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:27px;
+  box-shadow:0 8px 25px rgba(0,0,0,.25);
+  z-index:999;
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+  .navbar{
+    padding:10px 15px;
+  }
+
+  .logo{
+    width:48px;
+    height:48px;
+  }
+
+  .logo-text strong{
+    font-size:18px;
+  }
+
+  .menu-btn{
+    display:block;
+  }
+
+  .nav-menu{
+    display:none;
+    position:absolute;
+    top:70px;
+    left:14px;
+    right:14px;
+    background:#fff;
+    padding:10px;
+    border-radius:15px;
+    box-shadow:0 12px 35px rgba(0,0,0,.18);
+  }
+
+  .nav-menu.active{
+    display:block;
+  }
+
+  .nav-menu a{
+    display:block;
+    padding:12px;
+    border-bottom:1px solid #edf0f4;
+  }
+
+  .nav-whatsapp{
+    text-align:center;
+    margin-top:7px;
+  }
+
+  .hero{
+    padding:65px 18px 80px;
+    text-align:center;
+  }
+
+  .hero h1{
+    font-size:43px;
+  }
+
+  .hero h1 span{
+    font-size:18px;
+    letter-spacing:2px;
+  }
+
+  .hero p{
+    font-size:16px;
+    margin-left:auto;
+    margin-right:auto;
+  }
+
+  .hero-buttons{
+    justify-content:center;
+  }
+
+  .services,
+  .process{
+    padding:60px 17px;
+  }
+
+  .section-heading h2{
+    font-size:29px;
+  }
+
+  .service-grid{
+    grid-template-columns:1fr;
+  }
+
+  .special-inner{
+    grid-template-columns:1fr;
+    padding:60px 18px;
+  }
+
+  .special-left h2{
+    font-size:30px;
+  }
+
+  .process-grid{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .cta{
+    margin:20px 15px 45px;
+    padding:38px 18px;
+  }
+
+  .cta h2{
+    font-size:28px;
+  }
+
+  .footer-grid{
+    grid-template-columns:1fr;
+    gap:30px;
+  }
+}
+
+@media(max-width:430px){
+
+  .hero h1{
+    font-size:38px;
+  }
+
+  .hero-buttons,
+  .cta-buttons{
+    flex-direction:column;
+  }
+
+  .btn{
+    width:100%;
+  }
+
+  .special-list,
+  .process-grid{
+    grid-template-columns:1fr;
+  }
+}
+
+</style>
 </head>
 
 <body>
 
-<!-- ================= HEADER ================= -->
+<!-- HEADER -->
 
 <header class="header">
-  <div class="container navbar">
 
-    <a href="index.html" class="logo-area">
-      <div class="logo">DP</div>
+<div class="navbar">
 
-      <div class="logo-text">
-        <strong>DELHI PRESS</strong>
-        <span>Sajad Printer'S</span>
-      </div>
-    </a>
+<a href="index.html" class="logo-area">
 
-    <button class="menu-btn" id="menuBtn" aria-label="Menu">
-      ☰
-    </button>
+<div class="logo">DP</div>
 
-    <nav class="nav-menu" id="navMenu">
-      <a href="index.html">Home</a>
-      <a href="services.html">Services</a>
-      <a href="gallery.html">Gallery</a>
-      <a href="about.html">About</a>
-      <a href="contact.html">Contact</a>
+<div class="logo-text">
+<strong>DELHI PRESS</strong>
+<span>Sajad Printer'S</span>
+</div>
 
-      <a href="https://wa.me/919304509464"
-         target="_blank"
-         class="nav-whatsapp">
-        WhatsApp
-      </a>
-    </nav>
+</a>
 
-  </div>
+<button
+class="menu-btn"
+id="menuBtn"
+onclick="toggleMenu()"
+aria-label="Menu">
+☰
+</button>
+
+<nav class="nav-menu" id="navMenu">
+
+<a href="index.html">Home</a>
+
+<a href="services.html" class="active-link">
+Services
+</a>
+
+<a href="gallery.html">
+Gallery
+</a>
+
+<a href="about.html">
+About
+</a>
+
+<a href="contact.html">
+Contact
+</a>
+
+<a href="https://wa.me/919304509464"
+target="_blank"
+class="nav-whatsapp">
+WhatsApp
+</a>
+
+</nav>
+
+</div>
+
 </header>
 
 
-<!-- ================= HERO ================= -->
+<!-- HERO -->
 
-<section class="hero" style="min-height:500px;">
+<section class="hero">
 
-  <div class="container hero-content">
+<div class="hero-content">
 
-    <div class="hero-badge">
-      ✦ Professional Printing & Designing
-    </div>
+<div class="hero-badge">
+✦ DELHI PRESS • SAJAD PRINTER'S
+</div>
 
-    <h1 style="font-size:clamp(45px,7vw,72px);">
-      OUR SERVICES
-      <span>Delhi Press • Sajad Printer'S</span>
-    </h1>
+<h1>
+OUR
+<br>
+SERVICES
 
-    <h2>
-      आपकी Printing जरूरत, हमारी Professional Service
-    </h2>
+<span>
+DESIGN • PRINT • CREATE
+</span>
 
-    <p>
-      Wedding Card • Flex Banner • Visiting Card • Calendar •
-      Rubber Stamp • Poster • Handbill • Graphic Designing
-    </p>
+</h1>
 
-    <div class="hero-buttons">
+<p>
+Wedding Card से लेकर Flex Banner, Visiting Card,
+Calendar, Poster और Graphic Designing तक —
+आपकी printing जरूरतों के लिए professional services.
+</p>
 
-      <a href="https://wa.me/919304509464?text=Namaste%20Delhi%20Press,%20mujhe%20printing%20karwani%20hai."
-         target="_blank"
-         class="btn whatsapp-btn">
-        💬 WhatsApp Chat
-      </a>
+<div class="hero-buttons">
 
-      <a href="tel:+919304509464"
-         class="btn call-btn">
-        ☎ Call Now
-      </a>
+<a
+href="https://wa.me/919304509464?text=Namaste%20Delhi%20Press,%20mujhe%20printing%20service%20ki%20jankari%20chahiye."
+target="_blank"
+class="btn whatsapp-btn">
 
-      <a href="https://share.google/9jMXacH4ktehaP96Y"
-         target="_blank"
-         class="btn direction-btn">
-        📍 Get Direction
-      </a>
+💬 WhatsApp Enquiry
 
-    </div>
+</a>
 
-  </div>
+<a
+href="tel:+919304509464"
+class="btn call-btn">
+
+☎ Call Now
+
+</a>
+
+</div>
+
+</div>
+
 </section>
 
 
-<!-- ================= SERVICES ================= -->
+<!-- SERVICES -->
 
-<section class="section services">
+<section class="services">
 
-  <div class="container">
+<div class="section-heading">
 
-    <div class="section-title">
-      <span>OUR SERVICES</span>
+<span>WHAT WE DO</span>
 
-      <h2>Professional Printing Services</h2>
+<h2>
+हमारी Printing Services
+</h2>
 
-      <p>
-        Designing से final printing तक कई प्रकार की services
-        एक ही जगह उपलब्ध हैं।
-      </p>
-    </div>
+<p>
+Designing से लेकर final printing तक कई प्रकार की
+professional services एक ही जगह।
+</p>
 
-
-    <div class="service-grid">
-
-      <!-- Wedding Card -->
-
-      <article class="service-card">
-        <div class="service-icon">💌</div>
-
-        <h3>Wedding Cards</h3>
-
-        <p>
-          Nikah, Shadi, Aqiqah, Khatna और अन्य invitation
-          cards की designing एवं printing.
-        </p>
-
-        <a href="wedding-card.html">
-          View Details →
-        </a>
-      </article>
+</div>
 
 
-      <!-- Flex Banner -->
-
-      <article class="service-card">
-        <div class="service-icon">🖼️</div>
-
-        <h3>Flex Banner</h3>
-
-        <p>
-          Shop, wedding, event और business promotion
-          के लिए professional flex banner designing.
-        </p>
-
-        <a href="flex-banner.html">
-          View Details →
-        </a>
-      </article>
+<div class="service-grid">
 
 
-      <!-- Visiting Card -->
+<!-- 1 -->
 
-      <article class="service-card">
-        <div class="service-icon">💳</div>
+<div class="service-card">
 
-        <h3>Visiting Cards</h3>
+<div class="service-icon">
+💌
+</div>
 
-        <p>
-          Shop, office और business के लिए attractive
-          professional visiting card design और printing.
-        </p>
+<h3>
+Wedding Card
+</h3>
 
-        <a href="visiting-card.html">
-          View Details →
-        </a>
-      </article>
+<p>
+शादी, निकाह, अकीका और अन्य कार्यक्रमों के लिए
+attractive invitation card designing एवं printing.
+</p>
 
+<ul>
+<li>Nikah Card</li>
+<li>Wedding Invitation</li>
+<li>Aqiqah Card</li>
+<li>Custom Design</li>
+</ul>
 
-      <!-- Calendar -->
+<a href="wedding-card.html"
+class="service-link">
+View Wedding Cards →
+</a>
 
-      <article class="service-card">
-        <div class="service-icon">📅</div>
-
-        <h3>Calendar Printing</h3>
-
-        <p>
-          Business, shop और promotional use के लिए
-          calendar designing एवं printing.
-        </p>
-
-        <a href="https://wa.me/919304509464?text=Namaste%20Delhi%20Press,%20mujhe%20Calendar%20Printing%20karwani%20hai."
-           target="_blank">
-          WhatsApp Enquiry →
-        </a>
-      </article>
+</div>
 
 
-      <!-- Rubber Stamp -->
+<!-- 2 -->
 
-      <article class="service-card">
-        <div class="service-icon">🔖</div>
+<div class="service-card">
 
-        <h3>Rubber Stamp</h3>
+<div class="service-icon">
+🖼️
+</div>
 
-        <p>
-          Shop, office, school और personal use के लिए
-          custom rubber stamp.
-        </p>
+<h3>
+Flex Banner
+</h3>
 
-        <a href="https://wa.me/919304509464?text=Namaste%20Delhi%20Press,%20mujhe%20Rubber%20Stamp%20banwana%20hai."
-           target="_blank">
-          WhatsApp Enquiry →
-        </a>
-      </article>
+<p>
+Shop, wedding, event, political, religious और
+business promotion के लिए professional flex designs.
+</p>
 
+<ul>
+<li>Shop Banner</li>
+<li>Wedding Flex</li>
+<li>Event Banner</li>
+<li>Custom Size</li>
+</ul>
 
-      <!-- Poster -->
+<a href="flex-banner.html"
+class="service-link">
+View Flex Designs →
+</a>
 
-      <article class="service-card">
-        <div class="service-icon">📢</div>
-
-        <h3>Poster Printing</h3>
-
-        <p>
-          Business promotion, event, announcement और
-          advertisement के लिए poster designing.
-        </p>
-
-        <a href="https://wa.me/919304509464?text=Namaste%20Delhi%20Press,%20mujhe%20Poster%20Printing%20karwani%20hai."
-           target="_blank">
-          WhatsApp Enquiry →
-        </a>
-      </article>
+</div>
 
 
-      <!-- Handbill -->
+<!-- 3 -->
 
-      <article class="service-card">
-        <div class="service-icon">📄</div>
+<div class="service-card">
 
-        <h3>Handbill Printing</h3>
+<div class="service-icon">
+💳
+</div>
 
-        <p>
-          Shop, business और प्रचार के लिए handbill
-          designing और printing service.
-        </p>
+<h3>
+Visiting Card
+</h3>
 
-        <a href="https://wa.me/919304509464?text=Namaste%20Delhi%20Press,%20mujhe%20Handbill%20Printing%20karwani%20hai."
-           target="_blank">
-          WhatsApp Enquiry →
-        </a>
-      </article>
+<p>
+Business, shop और professional use के लिए
+modern visiting card designing और printing.
+</p>
 
+<ul>
+<li>Business Card</li>
+<li>Shop Card</li>
+<li>Professional Design</li>
+<li>Custom Layout</li>
+</ul>
 
-      <!-- Graphic Design -->
+<a href="visiting-card.html"
+class="service-link">
+View Visiting Cards →
+</a>
 
-      <article class="service-card">
-        <div class="service-icon">🎨</div>
-
-        <h3>Graphic Designing</h3>
-
-        <p>
-          Banner, poster, cards और promotional material
-          के लिए professional graphic designing.
-        </p>
-
-        <a href="gallery.html">
-          View Gallery →
-        </a>
-      </article>
+</div>
 
 
-      <!-- Business Printing -->
+<!-- 4 -->
 
-      <article class="service-card">
-        <div class="service-icon">🏪</div>
+<div class="service-card">
 
-        <h3>Business Printing</h3>
+<div class="service-icon">
+📅
+</div>
 
-        <p>
-          आपके shop और business के लिए कई प्रकार की
-          printing एवं designing services.
-        </p>
+<h3>
+Calendar Printing
+</h3>
 
-        <a href="https://wa.me/919304509464?text=Namaste%20Delhi%20Press,%20mujhe%20Business%20Printing%20ke%20baare%20mein%20jankari%20chahiye."
-           target="_blank">
-          Enquire Now →
-        </a>
-      </article>
+<p>
+Shop, business, organisation और personal use के
+लिए customised calendar designing.
+</p>
 
-    </div>
+<ul>
+<li>Business Calendar</li>
+<li>Photo Calendar</li>
+<li>Promotional Calendar</li>
+<li>Custom Design</li>
+</ul>
 
-  </div>
+<a
+href="https://wa.me/919304509464?text=Mujhe%20Calendar%20Printing%20karwani%20hai."
+target="_blank"
+class="service-link">
+
+Enquire Now →
+
+</a>
+
+</div>
+
+
+<!-- 5 -->
+
+<div class="service-card">
+
+<div class="service-icon">
+📢
+</div>
+
+<h3>
+Poster Designing
+</h3>
+
+<p>
+Business promotion, event, programme और
+advertisement के लिए attractive poster designs.
+</p>
+
+<ul>
+<li>Business Poster</li>
+<li>Event Poster</li>
+<li>Social Media Poster</li>
+<li>Advertisement Design</li>
+</ul>
+
+<a
+href="https://wa.me/919304509464?text=Mujhe%20Poster%20Design%20karwana%20hai."
+target="_blank"
+class="service-link">
+
+Enquire Now →
+
+</a>
+
+</div>
+
+
+<!-- 6 -->
+
+<div class="service-card">
+
+<div class="service-icon">
+📄
+</div>
+
+<h3>
+Handbill Printing
+</h3>
+
+<p>
+Shop, offer, business और advertisement के लिए
+professional handbill designing और printing.
+</p>
+
+<ul>
+<li>Shop Promotion</li>
+<li>Business Advertisement</li>
+<li>Offer Handbill</li>
+<li>Custom Design</li>
+</ul>
+
+<a
+href="https://wa.me/919304509464?text=Mujhe%20Handbill%20Printing%20karwani%20hai."
+target="_blank"
+class="service-link">
+
+Enquire Now →
+
+</a>
+
+</div>
+
+
+<!-- 7 -->
+
+<div class="service-card">
+
+<div class="service-icon">
+🔖
+</div>
+
+<h3>
+Rubber Stamp
+</h3>
+
+<p>
+Shop, office, organisation और personal use के लिए
+custom rubber stamp service.
+</p>
+
+<ul>
+<li>Name Stamp</li>
+<li>Office Stamp</li>
+<li>Business Stamp</li>
+<li>Custom Stamp</li>
+</ul>
+
+<a
+href="https://wa.me/919304509464?text=Mujhe%20Rubber%20Stamp%20banwana%20hai."
+target="_blank"
+class="service-link">
+
+Enquire Now →
+
+</a>
+
+</div>
+
+
+<!-- 8 -->
+
+<div class="service-card">
+
+<div class="service-icon">
+🎨
+</div>
+
+<h3>
+Graphic Designing
+</h3>
+
+<p>
+Printing, advertisement और social media के लिए
+creative एवं professional graphic designing.
+</p>
+
+<ul>
+<li>Banner Design</li>
+<li>Poster Design</li>
+<li>Invitation Design</li>
+<li>Social Media Design</li>
+</ul>
+
+<a
+href="https://wa.me/919304509464?text=Mujhe%20Graphic%20Designing%20karwani%20hai."
+target="_blank"
+class="service-link">
+
+Enquire Now →
+
+</a>
+
+</div>
+
+
+<!-- 9 -->
+
+<div class="service-card">
+
+<div class="service-icon">
+🏪
+</div>
+
+<h3>
+Business Printing
+</h3>
+
+<p>
+Shop और business की daily printing और
+advertisement requirements के लिए solutions.
+</p>
+
+<ul>
+<li>Business Material</li>
+<li>Promotion Design</li>
+<li>Shop Printing</li>
+<li>Custom Work</li>
+</ul>
+
+<a
+href="https://wa.me/919304509464?text=Mujhe%20Business%20Printing%20ki%20jankari%20chahiye."
+target="_blank"
+class="service-link">
+
+WhatsApp Enquiry →
+
+</a>
+
+</div>
+
+</div>
+
 </section>
 
 
-<!-- ================= WHY CHOOSE US ================= -->
+<!-- SPECIAL -->
 
-<section class="why-section">
+<section class="special">
 
-  <div class="container why-grid">
+<div class="special-inner">
 
-    <div class="why-content">
+<div class="special-left">
 
-      <span class="mini-title">
-        DELHI PRESS
-      </span>
+<span>
+DELHI PRESS
+</span>
 
-      <h2>
-        Quality Printing.<br>
-        Professional Designing.
-      </h2>
+<h2>
+हर जरूरत के लिए
+<br>
+Printing Solution
+</h2>
 
-      <p>
-        Delhi Press - Sajad Printer'S में आपकी अलग-अलग
-        printing जरूरतों के लिए designing और printing
-        services उपलब्ध हैं।
-      </p>
+<p>
+छोटे personal design से लेकर shop और business
+printing तक customer की जरूरत के अनुसार
+designing और printing service उपलब्ध है।
+</p>
 
-      <a href="https://wa.me/919304509464"
-         target="_blank"
-         class="btn whatsapp-btn">
-        💬 WhatsApp पर संपर्क करें
-      </a>
-
-    </div>
+</div>
 
 
-    <div class="why-card">
+<div class="special-list">
 
-      <h3>Why Choose Us?</h3>
+<div class="special-box">
+<strong>✓ Creative Design</strong>
+<small>Modern & attractive designs</small>
+</div>
 
-      <div class="why-item">
-        <div class="check">✓</div>
-        <div>
-          <strong>Professional Designing</strong>
-          <span>आकर्षक और साफ-सुथरा design</span>
-        </div>
-      </div>
+<div class="special-box">
+<strong>✓ Quality Printing</strong>
+<small>Professional presentation</small>
+</div>
 
-      <div class="why-item">
-        <div class="check">✓</div>
-        <div>
-          <strong>Quality Printing</strong>
-          <span>बेहतर printing presentation</span>
-        </div>
-      </div>
+<div class="special-box">
+<strong>✓ Custom Work</strong>
+<small>आपकी जरूरत के अनुसार</small>
+</div>
 
-      <div class="why-item">
-        <div class="check">✓</div>
-        <div>
-          <strong>Multiple Services</strong>
-          <span>कई printing services एक ही जगह</span>
-        </div>
-      </div>
+<div class="special-box">
+<strong>✓ Easy Support</strong>
+<small>Call & WhatsApp support</small>
+</div>
 
-      <div class="why-item">
-        <div class="check">✓</div>
-        <div>
-          <strong>Easy Contact</strong>
-          <span>WhatsApp और Call support</span>
-        </div>
-      </div>
+</div>
 
-    </div>
+</div>
 
-  </div>
 </section>
 
 
-<!-- ================= CTA ================= -->
+<!-- PROCESS -->
+
+<section class="process">
+
+<div class="section-heading">
+
+<span>
+HOW TO ORDER
+</span>
+
+<h2>
+काम कैसे करवाएं?
+</h2>
+
+<p>
+Printing enquiry करना बहुत आसान है।
+</p>
+
+</div>
+
+
+<div class="process-grid">
+
+<div class="process-card">
+
+<div class="number">1</div>
+
+<h3>WhatsApp करें</h3>
+
+<p>
+अपनी requirement हमें WhatsApp पर भेजें।
+</p>
+
+</div>
+
+
+<div class="process-card">
+
+<div class="number">2</div>
+
+<h3>Details भेजें</h3>
+
+<p>
+Name, size, text, photo और sample भेजें।
+</p>
+
+</div>
+
+
+<div class="process-card">
+
+<div class="number">3</div>
+
+<h3>Design तैयार</h3>
+
+<p>
+आपकी जरूरत के अनुसार design तैयार किया जाएगा।
+</p>
+
+</div>
+
+
+<div class="process-card">
+
+<div class="number">4</div>
+
+<h3>Printing</h3>
+
+<p>
+Final approval के बाद printing process किया जाएगा।
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- CTA -->
 
 <section class="cta">
 
-  <div class="container cta-content">
+<h2>
+Printing या Designing करवानी है?
+</h2>
 
-    <span>DELHI PRESS • SAJAD PRINTER'S</span>
+<p>
+अपनी requirement या sample WhatsApp पर भेजिए।
+</p>
 
-    <h2>Printing का काम है?</h2>
 
-    <p>
-      अपनी जरूरत WhatsApp पर भेजिए या सीधे Call कीजिए।
-    </p>
+<div class="cta-buttons">
 
-    <div class="hero-buttons">
+<a
+href="https://wa.me/919304509464?text=Hello%20Delhi%20Press,%20mujhe%20printing%20karwani%20hai."
+target="_blank"
+class="btn whatsapp-btn">
 
-      <a href="https://wa.me/919304509464"
-         target="_blank"
-         class="btn whatsapp-btn">
-        💬 WhatsApp Chat
-      </a>
+💬 WhatsApp Now
 
-      <a href="tel:+919304509464"
-         class="btn call-btn">
-        ☎ 9304509464
-      </a>
+</a>
 
-      <a href="https://share.google/9jMXacH4ktehaP96Y"
-         target="_blank"
-         class="btn direction-btn">
-        📍 Google Maps
-      </a>
 
-    </div>
+<a
+href="tel:+919304509464"
+class="btn call-btn">
 
-  </div>
+☎ 9304509464
+
+</a>
+
+
+<a
+href="https://share.google/9jMXacH4ktehaP96Y"
+target="_blank"
+class="btn direction-btn">
+
+📍 Get Direction
+
+</a>
+
+</div>
+
 </section>
 
 
-<!-- ================= FOOTER ================= -->
+<!-- FOOTER -->
 
-<footer>
+<footer class="footer">
 
-  <div class="container footer-grid">
+<div class="footer-grid">
 
-    <div class="footer-about">
-      <h3>DELHI PRESS</h3>
+<div>
 
-      <strong>Sajad Printer'S</strong>
+<div class="footer-brand">
 
-      <p>
-        Professional Printing &
-        Graphic Designing Services
-      </p>
-    </div>
+<div class="footer-logo">
+DP
+</div>
 
+<div>
+<h2>DELHI PRESS</h2>
+<p>Sajad Printer'S</p>
+</div>
 
-    <div>
-      <h4>Quick Links</h4>
+</div>
 
-      <a href="index.html">Home</a>
-      <a href="services.html">Services</a>
-      <a href="gallery.html">Gallery</a>
-      <a href="about.html">About Us</a>
-      <a href="contact.html">Contact</a>
-    </div>
+<p>
+Professional Printing & Graphic Designing Services.
+Wedding Card, Flex Banner, Visiting Card,
+Poster, Calendar और बहुत कुछ।
+</p>
 
-
-    <div>
-      <h4>Contact Us</h4>
-
-      <a href="tel:+919304509464">
-        ☎ 9304509464
-      </a>
-
-      <a href="https://wa.me/919304509464"
-         target="_blank">
-        💬 WhatsApp Chat
-      </a>
-
-      <a href="https://share.google/9jMXacH4ktehaP96Y"
-         target="_blank">
-        📍 Google Maps
-      </a>
-    </div>
-
-  </div>
+</div>
 
 
-  <div class="copyright">
-    © <span id="year"></span>
-    Delhi Press - Sajad Printer'S.
-    All Rights Reserved.
-  </div>
+<div>
+
+<h3>Quick Links</h3>
+
+<a href="index.html">Home</a>
+<a href="services.html">Services</a>
+<a href="gallery.html">Gallery</a>
+<a href="about.html">About Us</a>
+<a href="contact.html">Contact Us</a>
+
+</div>
+
+
+<div>
+
+<h3>Contact</h3>
+
+<a href="tel:+919304509464">
+☎ 9304509464
+</a>
+
+<a
+href="https://wa.me/919304509464"
+target="_blank">
+💬 WhatsApp
+</a>
+
+<a
+href="https://share.google/9jMXacH4ktehaP96Y"
+target="_blank">
+📍 Google Maps
+</a>
+
+</div>
+
+</div>
+
+
+<div class="footer-bottom">
+
+© <span id="year"></span>
+Delhi Press - Sajad Printer'S
+
+<br>
+
+All Rights Reserved.
+
+</div>
 
 </footer>
 
 
-<!-- ================= FLOATING WHATSAPP ================= -->
+<!-- FLOATING WHATSAPP -->
 
-<a href="https://wa.me/919304509464"
-   target="_blank"
-   class="floating-whatsapp"
-   aria-label="WhatsApp">
-  💬
+<a
+href="https://wa.me/919304509464"
+target="_blank"
+class="floating-whatsapp"
+aria-label="WhatsApp">
+
+💬
+
 </a>
 
 
-<!-- IMPORTANT: script.js root folder mein hai -->
-<script src="script.js"></script>
+<script>
+
+function toggleMenu(){
+
+  const menu =
+  document.getElementById("navMenu");
+
+  const button =
+  document.getElementById("menuBtn");
+
+  menu.classList.toggle("active");
+
+  if(menu.classList.contains("active")){
+    button.innerHTML="✕";
+  }else{
+    button.innerHTML="☰";
+  }
+
+}
+
+
+document
+.querySelectorAll(".nav-menu a")
+.forEach(function(link){
+
+  link.addEventListener("click",function(){
+
+    document
+    .getElementById("navMenu")
+    .classList.remove("active");
+
+    document
+    .getElementById("menuBtn")
+    .innerHTML="☰";
+
+  });
+
+});
+
+
+document.getElementById("year").textContent =
+new Date().getFullYear();
+
+</script>
 
 </body>
 </html>
