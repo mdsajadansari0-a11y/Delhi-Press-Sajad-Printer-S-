@@ -3,145 +3,251 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sajad Printer's - Design Store</title>
+    <title>Delhi Press - Sajad Printer's</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        /* Hide scrollbar for category menu */
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        /* Beautiful Gradient Backgrounds */
+        .bg-hero-pattern { background: linear-gradient(135deg, #4f46e5 0%, #d946ef 50%, #f43f5e 100%); }
+        .bg-about-pattern { background: linear-gradient(to right, #fdfbfb 0%, #ebedee 100%); }
     </style>
 </head>
 <body class="bg-gray-50 font-sans text-gray-800">
 
-    <!-- Top Navbar (Home Left, Login Right) -->
-    <nav class="bg-white shadow-sm py-3 px-4 md:px-6 flex justify-between items-center sticky top-0 z-50">
-        
-        <!-- Left Side: Home Button -->
-        <a href="index.html" class="bg-gray-100 text-gray-700 px-4 py-2 rounded-lg text-sm font-bold hover:bg-gray-200 transition flex items-center gap-2">
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
-            Home
+    <!-- Top Navbar -->
+    <nav class="bg-white shadow-md py-3 px-4 md:px-6 flex justify-between items-center sticky top-0 z-40 border-b-4 border-fuchsia-500">
+        <a href="#" class="flex items-center gap-2">
+            <div class="w-10 h-10 bg-gradient-to-br from-fuchsia-600 to-indigo-600 text-white rounded-lg flex items-center justify-center font-black text-xl shadow-lg">DP</div>
+            <div>
+                <h1 class="font-extrabold text-gray-900 leading-none text-lg">DELHI PRESS</h1>
+                <p class="text-[10px] text-fuchsia-600 font-bold uppercase tracking-wider">Sajad Printer's</p>
+            </div>
         </a>
-
-        <!-- Right Side: Login Button -->
-        <a href="login.html" class="bg-blue-600 text-white px-5 py-2 rounded-lg text-sm font-bold hover:bg-blue-700 shadow-md transition flex items-center gap-2">
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"></path></svg>
-            Login
-        </a>
+        <div class="flex gap-3">
+            <a href="#store" class="hidden md:block text-gray-600 hover:text-fuchsia-600 font-bold px-3 py-2">Store</a>
+            <a href="#about" class="hidden md:block text-gray-600 hover:text-fuchsia-600 font-bold px-3 py-2">About</a>
+            <a href="#location" class="hidden md:block text-gray-600 hover:text-fuchsia-600 font-bold px-3 py-2">Location</a>
+            <a href="login.html" class="bg-indigo-600 text-white px-5 py-2 rounded-xl text-sm font-bold hover:bg-indigo-700 shadow-md transition">Admin Login</a>
+        </div>
     </nav>
 
-    <!-- Main Store Content -->
-    <main class="max-w-6xl mx-auto px-4 py-10">
-        
-        <!-- BIG Header Section -->
-        <div class="text-center mb-10">
-            <span class="bg-blue-100 text-blue-800 text-xs px-4 py-1.5 rounded-full font-bold tracking-widest mb-4 inline-block uppercase">Delhi Press • Sajad Printer's</span>
-            <h1 class="text-4xl md:text-6xl font-extrabold text-gray-900 mb-4 tracking-tight">
-                🛍️ Design Store
-            </h1>
-            <p class="text-gray-500 max-w-lg mx-auto text-sm md:text-base">Apna pasandida design chunein aur sidhe WhatsApp par order karein.</p>
-        </div>
+    <!-- Colorful Hero Section -->
+    <div class="bg-hero-pattern pt-16 pb-24 px-4 text-center relative z-10 shadow-inner">
+        <span class="bg-white/20 text-white text-xs px-5 py-1.5 rounded-full font-bold tracking-widest mb-6 inline-block uppercase backdrop-blur-sm border border-white/30">Premium Printing Services</span>
+        <h2 class="text-4xl md:text-6xl font-extrabold text-white mb-4 tracking-tight drop-shadow-lg">
+            Welcome to <span class="text-yellow-300">Design Store</span>
+        </h2>
+        <p class="text-indigo-100 max-w-2xl mx-auto text-sm md:text-lg font-medium drop-shadow-md">
+            Wedding Cards, Flex, Banners, and Custom Printing. Apna design chunein aur ghar bethe order karein!
+        </p>
+    </div>
 
+    <!-- Store Section -->
+    <main id="store" class="max-w-6xl mx-auto px-4 py-12 -mt-10 relative z-20">
+        
         <!-- Search Bar -->
-        <div class="max-w-3xl mx-auto mb-6">
-            <div class="bg-white p-2 rounded-2xl shadow-sm border border-gray-200 flex items-center">
-                <svg class="w-6 h-6 text-gray-400 ml-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
-                <input type="text" id="searchInput" placeholder="Design search karein (jaise: Wedding, Poster)..." class="w-full px-4 py-3 outline-none text-gray-700 bg-transparent md:text-lg" onkeyup="searchProducts()">
+        <div class="max-w-3xl mx-auto mb-8">
+            <div class="bg-white p-2 rounded-2xl shadow-xl border border-gray-100 flex items-center ring-4 ring-indigo-50">
+                <svg class="w-6 h-6 text-fuchsia-400 ml-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                <input type="text" id="searchInput" placeholder="Design search karein (jaise: Wedding, Poster)..." class="w-full px-4 py-3 outline-none text-gray-700 bg-transparent md:text-lg font-medium" onkeyup="searchProducts()">
             </div>
         </div>
 
-        <!-- Categories Menu (Scrollable) -->
-        <div class="max-w-4xl mx-auto flex gap-2 overflow-x-auto no-scrollbar justify-start md:justify-center pb-6 px-1 mb-6" id="categoryMenu">
-            <button onclick="filterCategory('All')" class="category-btn active px-6 py-2.5 rounded-full text-sm font-bold whitespace-nowrap bg-blue-600 text-white shadow-md transition-all">All Designs</button>
-            <button onclick="filterCategory('Muslim wedding card design')" class="category-btn px-6 py-2.5 rounded-full text-sm font-semibold whitespace-nowrap bg-white text-gray-600 border border-gray-200 hover:bg-gray-50 transition-all">Muslim Wedding Card</button>
-            <button onclick="filterCategory('Hindu Card Design')" class="category-btn px-6 py-2.5 rounded-full text-sm font-semibold whitespace-nowrap bg-white text-gray-600 border border-gray-200 hover:bg-gray-50 transition-all">Hindu Card</button>
-            <button onclick="filterCategory('Nikah Nama')" class="category-btn px-6 py-2.5 rounded-full text-sm font-semibold whitespace-nowrap bg-white text-gray-600 border border-gray-200 hover:bg-gray-50 transition-all">Nikah Nama</button>
-            <button onclick="filterCategory('Visiting card')" class="category-btn px-6 py-2.5 rounded-full text-sm font-semibold whitespace-nowrap bg-white text-gray-600 border border-gray-200 hover:bg-gray-50 transition-all">Visiting Card</button>
-            <button onclick="filterCategory('Poster')" class="category-btn px-6 py-2.5 rounded-full text-sm font-semibold whitespace-nowrap bg-white text-gray-600 border border-gray-200 hover:bg-gray-50 transition-all">Poster</button>
+        <!-- Categories Menu -->
+        <div class="max-w-4xl mx-auto flex gap-3 overflow-x-auto no-scrollbar justify-start md:justify-center pb-6 px-1 mb-8" id="categoryMenu">
+            <button onclick="filterCategory('All')" class="category-btn active px-6 py-2.5 rounded-full text-sm font-bold whitespace-nowrap bg-gradient-to-r from-fuchsia-600 to-indigo-600 text-white shadow-lg transition-all transform hover:scale-105">All Designs</button>
+            <button onclick="filterCategory('Muslim wedding card design')" class="category-btn px-6 py-2.5 rounded-full text-sm font-bold whitespace-nowrap bg-white text-gray-700 border border-gray-200 hover:bg-fuchsia-50 hover:text-fuchsia-600 shadow-sm transition-all">Muslim Wedding Card</button>
+            <button onclick="filterCategory('Hindu Card Design')" class="category-btn px-6 py-2.5 rounded-full text-sm font-bold whitespace-nowrap bg-white text-gray-700 border border-gray-200 hover:bg-fuchsia-50 hover:text-fuchsia-600 shadow-sm transition-all">Hindu Card</button>
+            <button onclick="filterCategory('Nikah Nama')" class="category-btn px-6 py-2.5 rounded-full text-sm font-bold whitespace-nowrap bg-white text-gray-700 border border-gray-200 hover:bg-fuchsia-50 hover:text-fuchsia-600 shadow-sm transition-all">Nikah Nama</button>
+            <button onclick="filterCategory('Visiting card')" class="category-btn px-6 py-2.5 rounded-full text-sm font-bold whitespace-nowrap bg-white text-gray-700 border border-gray-200 hover:bg-fuchsia-50 hover:text-fuchsia-600 shadow-sm transition-all">Visiting Card</button>
         </div>
 
-        <!-- Products List Header -->
-        <div class="mb-6 flex justify-between items-end border-b border-gray-200 pb-3">
-            <h3 class="text-xl md:text-2xl font-bold text-gray-800">Hamare Designs</h3>
-            <span id="productCount" class="text-sm font-medium text-gray-500 bg-gray-200 px-3 py-1 rounded-full">Loading...</span>
-        </div>
-
-        <!-- Product Cards Grid -->
+        <!-- Products Grid -->
         <div id="productsGrid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6 min-h-[40vh]">
-            <!-- Loading Message -->
-            <div class="col-span-full flex flex-col items-center justify-center py-20 text-gray-400">
-                <svg class="animate-spin h-10 w-10 mb-4 text-blue-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>
-                <p class="font-medium">Fetching designs from database...</p>
+            <div class="col-span-full flex flex-col items-center justify-center py-20 text-fuchsia-500">
+                <p class="font-bold text-xl animate-pulse">Designs load ho rahe hain...</p>
             </div>
         </div>
     </main>
 
+    <!-- About Us Section -->
+    <section id="about" class="bg-white py-16 px-4 border-y border-gray-200 mt-10">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-3xl font-extrabold text-gray-900 mb-6"><span class="text-fuchsia-600">Humare Baare Mein</span> (About Us)</h2>
+            <p class="text-gray-600 text-lg leading-relaxed mb-8">
+                <strong>Delhi Press (Sajad Printer's)</strong> aapke sabhi printing needs ke liye ek bharosemand naam hai. Hum pichle kai saalon se behtareen quality ke Wedding Cards, Flex Banners, Visiting Cards, aur Posters design aur print kar rahe hain. Hamara maqsad aapke special moments ko apni printing se aur bhi khoobsurat banana hai.
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+                <div class="p-6 bg-fuchsia-50 rounded-2xl">
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">🏆 Best Quality</h3>
+                    <p class="text-gray-600 text-sm">Premium paper aur high-quality ink ka istemaal.</p>
+                </div>
+                <div class="p-6 bg-indigo-50 rounded-2xl">
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">⚡ Fast Delivery</h3>
+                    <p class="text-gray-600 text-sm">Aapka order waqt par taiyar aur deliver kiya jata hai.</p>
+                </div>
+                <div class="p-6 bg-pink-50 rounded-2xl">
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">💰 Best Price</h3>
+                    <p class="text-gray-600 text-sm">Market mein sabse badiya aur affordable rates.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Location & Contact Section -->
+    <section id="location" class="py-16 px-4 bg-gray-50">
+        <div class="max-w-5xl mx-auto flex flex-col md:flex-row gap-10 bg-white p-4 md:p-8 rounded-3xl shadow-xl border border-gray-100">
+            <div class="md:w-1/2 flex flex-col justify-center">
+                <h2 class="text-3xl font-extrabold text-gray-900 mb-4">Hamara <span class="text-indigo-600">Location</span></h2>
+                <p class="text-gray-600 mb-6">Apne orders lene ya designs dekhne ke liye aap hamari dukan par bhi aa sakte hain.</p>
+                
+                <div class="flex items-start gap-4 mb-4">
+                    <div class="bg-indigo-100 p-3 rounded-full text-indigo-600">📍</div>
+                    <div>
+                        <h4 class="font-bold text-gray-900">Address</h4>
+                        <p class="text-gray-600 text-sm">Delhi Press, Sajad Printer's, [Aapka Pura Pata Yahan Likhye, City, Pincode]</p>
+                    </div>
+                </div>
+                <div class="flex items-start gap-4">
+                    <div class="bg-fuchsia-100 p-3 rounded-full text-fuchsia-600">📞</div>
+                    <div>
+                        <h4 class="font-bold text-gray-900">Contact</h4>
+                        <p class="text-gray-600 text-sm">+91-9876543210 (Mon-Sat, 10 AM to 8 PM)</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Google Map -->
+            <div class="md:w-1/2 rounded-2xl overflow-hidden shadow-md h-64 md:h-80">
+                <!-- Niche wali link ko apne dukan ke real Google Map link se badal sakte hain -->
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3502.5647573024823!2d77.227321!3d28.612925!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cfd332612a84d%3A0x6e9f9024f2249dfb!2sIndia%20Gate!5e0!3m2!1sen!2sin!4v1689230000000!5m2!1sen!2sin" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+    </section>
+
     <!-- Footer -->
-    <footer class="bg-gray-900 text-center py-8 border-t-4 border-blue-600 mt-10">
-        <h4 class="text-white font-bold text-lg mb-1">Delhi Press - Sajad Printer's</h4>
+    <footer class="bg-gray-900 text-center py-10 border-t-4 border-indigo-600">
+        <h4 class="text-white font-black text-2xl mb-2">DELHI PRESS</h4>
+        <p class="text-fuchsia-400 font-bold mb-4">Sajad Printer's</p>
         <p class="text-gray-400 text-sm">Professional Printing & Graphic Designing</p>
-        <p class="text-gray-500 text-xs mt-4">© 2026 All Rights Reserved</p>
+        <p class="text-gray-600 text-xs mt-6">© 2026 All Rights Reserved.</p>
     </footer>
 
-    <!-- Database Connection Javascript -->
+    <!-- ========================================== -->
+    <!-- CHECKOUT MODAL (CUSTOMER FORM & PAYMENT) -->
+    <!-- ========================================== -->
+    <div id="checkoutModal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 hidden flex justify-center items-center p-4">
+        <div class="bg-white w-full max-w-md rounded-3xl overflow-hidden shadow-2xl transform transition-all">
+            <!-- Modal Header -->
+            <div class="bg-gradient-to-r from-indigo-600 to-fuchsia-600 p-4 text-white flex justify-between items-center">
+                <h3 class="font-bold text-lg">🛍️ Complete Your Order</h3>
+                <button onclick="closeCheckout()" class="text-white bg-white/20 hover:bg-white/40 p-1.5 rounded-full transition">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                </button>
+            </div>
+            
+            <!-- Order Details -->
+            <div class="p-5 bg-gray-50 border-b border-gray-200 flex gap-4 items-center">
+                <img id="checkoutImg" src="" class="w-16 h-16 object-cover rounded-xl shadow-sm">
+                <div>
+                    <h4 id="checkoutName" class="font-bold text-gray-900 leading-tight">Product Name</h4>
+                    <p id="checkoutPrice" class="text-lg font-black text-fuchsia-600 mt-1">₹0</p>
+                </div>
+            </div>
+
+            <!-- Customer Form -->
+            <div class="p-5 space-y-4">
+                <div>
+                    <label class="block text-xs font-bold text-gray-700 uppercase tracking-wide mb-1">Aapka Naam (Name) <span class="text-red-500">*</span></label>
+                    <input type="text" id="custName" class="w-full bg-gray-50 border border-gray-300 px-4 py-2.5 rounded-xl outline-none focus:ring-2 focus:ring-fuchsia-500 font-medium" placeholder="Ex: Rahul Kumar">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-gray-700 uppercase tracking-wide mb-1">Mobile Number <span class="text-red-500">*</span></label>
+                    <input type="number" id="custPhone" class="w-full bg-gray-50 border border-gray-300 px-4 py-2.5 rounded-xl outline-none focus:ring-2 focus:ring-fuchsia-500 font-medium" placeholder="Ex: 9876543210">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-gray-700 uppercase tracking-wide mb-1">Delivery Address (Pata) <span class="text-red-500">*</span></label>
+                    <textarea id="custAddress" rows="2" class="w-full bg-gray-50 border border-gray-300 px-4 py-2 rounded-xl outline-none focus:ring-2 focus:ring-fuchsia-500 font-medium" placeholder="Pura pata likhein..."></textarea>
+                </div>
+            </div>
+
+            <!-- Payment & Submit Buttons -->
+            <div class="p-5 bg-gray-50 flex flex-col gap-3">
+                <p class="text-center text-xs text-gray-500 font-medium mb-1">Form bharne ke baad Payment option chunein:</p>
+                
+                <!-- UPI Payment Button -->
+                <button onclick="payViaUPI()" class="w-full bg-blue-600 text-white py-3 rounded-xl font-bold shadow-md hover:bg-blue-700 transition flex items-center justify-center gap-2">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg>
+                    Pay via UPI (GPay/PhonePe)
+                </button>
+                
+                <!-- Send to WhatsApp Button -->
+                <button onclick="submitOrderWhatsApp()" class="w-full bg-[#25D366] text-white py-3 rounded-xl font-bold shadow-md hover:bg-[#1ebe57] transition flex items-center justify-center gap-2">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 00-.57-.015c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347"/></svg>
+                    Send Order on WhatsApp
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
     <script>
-        // Supabase configuration
+        // --- ⚙️ SETTINGS ZONE ---
         const SUPABASE_URL = 'https://vgblvfpzpxivwafuatcy.supabase.co';
         const API_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZnYmx2ZnB6cHhpdndhZnVhdGN5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODU1MjA0MzQsImV4cCI6MjEwMTA5NjQzNH0.YX7aVMsiP5Lj9c29QE1qifjNo_CRiS7nQ1_VMC4hL-c';
         const TABLE_NAME = 'products'; 
         
-        // WhatsApp Number Configuration (Apna number dalein)
-        const WHATSAPP_NUMBER = '919304509464'; 
+        const WHATSAPP_NUMBER = '919304509464'; // Aapka WhatsApp
+        const UPI_ID = '9771131883@ybl'; // 🚨 Apna GPay/PhonePe UPI ID yahan dalein
+        // -------------------------
 
         let allProducts = []; 
+        let selectedProduct = null;
 
+        // Fetch Products
         async function fetchProducts() {
             try {
                 const response = await fetch(`${SUPABASE_URL}/rest/v1/${TABLE_NAME}?select=*&order=created_at.desc`, {
                     headers: { 'apikey': API_KEY, 'Authorization': `Bearer ${API_KEY}` }
                 });
-                
                 if (!response.ok) throw new Error("Network error");
-                
                 allProducts = await response.json();
                 renderProducts(allProducts);
             } catch (error) {
-                document.getElementById('productsGrid').innerHTML = `<div class="col-span-full text-center py-10 text-red-500 font-bold">Error loading products. Please check your connection.</div>`;
+                document.getElementById('productsGrid').innerHTML = `<div class="col-span-full text-center text-red-500">Data laane mein error aayi.</div>`;
             }
         }
 
+        // Render UI
         function renderProducts(productsToDisplay) {
             const grid = document.getElementById('productsGrid');
-            const count = document.getElementById('productCount');
-            
-            count.innerText = `${productsToDisplay.length} Design${productsToDisplay.length !== 1 ? 's' : ''}`;
-
             if(productsToDisplay.length === 0) {
-                grid.innerHTML = `<div class="col-span-full text-center py-20 text-gray-500 text-lg">No designs found.</div>`;
+                grid.innerHTML = `<div class="col-span-full text-center py-20 text-gray-500">No designs found.</div>`;
                 return;
             }
 
-            grid.innerHTML = productsToDisplay.map(product => {
-                const msg = encodeURIComponent(`Hello Sajad Printer's! Mujhe ye design banwana hai: \n\nName: ${product.item_name}\nModel: ${product.card_model || 'N/A'}\nPrice: ₹${product.price}\n\nImage: ${product.image_url}`);
+            grid.innerHTML = productsToDisplay.map((product, index) => {
+                // Find actual index in main array to use in Checkout Modal
+                const realIndex = allProducts.findIndex(p => p.id === product.id);
                 
                 return `
-                <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-xl transition-all duration-300 flex flex-col h-full group">
+                <div class="bg-white rounded-3xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-2xl transition-all duration-300 flex flex-col h-full group">
                     <div class="relative overflow-hidden aspect-[4/5] bg-gray-100">
-                        <img src="${product.image_url}" alt="${product.item_name}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                        <div class="absolute top-2 right-2 bg-white/90 backdrop-blur text-gray-900 text-xs font-bold px-2 py-1 rounded shadow-sm border border-gray-100">
+                        <img src="${product.image_url}" alt="${product.item_name}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <div class="absolute top-3 right-3 bg-gradient-to-r from-indigo-600 to-fuchsia-600 text-white text-xs font-black px-3 py-1.5 rounded-full shadow-lg">
                             ₹${product.price}
                         </div>
                     </div>
-                    
-                    <div class="p-4 flex flex-col flex-grow">
-                        <span class="text-[10px] font-black text-blue-600 uppercase tracking-wider mb-1 line-clamp-1">${product.category}</span>
-                        <h4 class="font-bold text-gray-900 mb-1 leading-tight line-clamp-2">${product.item_name}</h4>
-                        <p class="text-xs text-gray-500 mb-4 line-clamp-2">${product.description || 'Premium design card.'}</p>
-                        
-                        <div class="mt-auto pt-3 border-t border-gray-50">
-                            <a href="https://wa.me/${WHATSAPP_NUMBER}?text=${msg}" target="_blank" class="w-full bg-[#25D366] text-white py-2.5 rounded-xl text-sm font-bold shadow-md hover:bg-[#1ebe57] hover:shadow-lg transition-all flex items-center justify-center gap-2">
-                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 00-.57-.015c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-                                Order Now
-                            </a>
+                    <div class="p-5 flex flex-col flex-grow">
+                        <span class="text-[10px] font-black text-indigo-500 uppercase tracking-wider mb-1">${product.category}</span>
+                        <h4 class="font-bold text-gray-900 text-lg mb-1 leading-tight line-clamp-1">${product.item_name}</h4>
+                        <p class="text-xs text-gray-500 mb-4 line-clamp-2">${product.description || 'Premium design card by Delhi Press.'}</p>
+                        <div class="mt-auto">
+                            <!-- Buy Now Button opens Modal -->
+                            <button onclick="openCheckout(${realIndex})" class="w-full bg-gray-900 text-white py-3 rounded-xl text-sm font-bold shadow-md hover:bg-fuchsia-600 transition-all flex items-center justify-center gap-2">
+                                🛒 Buy Now
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -149,15 +255,66 @@
             }).join('');
         }
 
+        // --- CHECKOUT LOGIC ---
+        function openCheckout(index) {
+            selectedProduct = allProducts[index];
+            document.getElementById('checkoutName').innerText = selectedProduct.item_name;
+            document.getElementById('checkoutPrice').innerText = `₹${selectedProduct.price}`;
+            document.getElementById('checkoutImg').src = selectedProduct.image_url;
+            
+            document.getElementById('checkoutModal').classList.remove('hidden');
+        }
+
+        function closeCheckout() {
+            document.getElementById('checkoutModal').classList.add('hidden');
+        }
+
+        function validateForm() {
+            const name = document.getElementById('custName').value;
+            const phone = document.getElementById('custPhone').value;
+            const address = document.getElementById('custAddress').value;
+            if(!name || !phone || !address) {
+                alert("Kripya Apna Naam, Mobile Number aur Pata (Address) zaroor bharein!");
+                return null;
+            }
+            return { name, phone, address };
+        }
+
+        // WhatsApp Order Submit
+        function submitOrderWhatsApp() {
+            const customer = validateForm();
+            if(!customer) return;
+
+            const msg = `*NEW ORDER - DELHI PRESS* 🛍️\n\n*Customer Details:*\n👤 Name: ${customer.name}\n📞 Phone: ${customer.phone}\n📍 Address: ${customer.address}\n\n*Product Details:*\n🔖 Item: ${selectedProduct.item_name}\n🏷️ Category: ${selectedProduct.category}\n💵 Price: ₹${selectedProduct.price}\n\n*Image Link:* ${selectedProduct.image_url}`;
+            
+            window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`, '_blank');
+            closeCheckout();
+        }
+
+        // UPI Payment Intent
+        function payViaUPI() {
+            const customer = validateForm();
+            if(!customer) return;
+            
+            // This will open GPay/PhonePe directly on mobile devices
+            const upiLink = `upi://pay?pa=${UPI_ID}&pn=Delhi Press&am=${selectedProduct.price}&cu=INR&tn=Order_${selectedProduct.item_name.substring(0,10)}`;
+            
+            // Send data to WhatsApp before opening payment (optional but recommended)
+            alert("Iske baad aapki UPI App khulegi. Payment karke Screenshot WhatsApp par bhej dein.");
+            
+            window.location.href = upiLink;
+        }
+
+        // --- FILTER & SEARCH ---
         function filterCategory(categoryName) {
             const buttons = document.querySelectorAll('.category-btn');
             buttons.forEach(btn => {
                 if(btn.innerText.includes(categoryName) || (categoryName === 'All' && btn.innerText === 'All Designs')) {
-                    btn.classList.add('bg-blue-600', 'text-white');
-                    btn.classList.remove('bg-white', 'text-gray-600');
+                    btn.classList.add('from-fuchsia-600', 'to-indigo-600', 'text-white');
+                    btn.classList.remove('bg-white', 'text-gray-700');
                 } else {
-                    btn.classList.remove('bg-blue-600', 'text-white');
-                    btn.classList.add('bg-white', 'text-gray-600');
+                    btn.classList.remove('from-fuchsia-600', 'to-indigo-600', 'text-white');
+                    btn.classList.add('bg-white', 'text-gray-700');
                 }
             });
 
@@ -173,7 +330,6 @@
             const query = document.getElementById('searchInput').value.toLowerCase();
             const filtered = allProducts.filter(p => 
                 p.item_name.toLowerCase().includes(query) || 
-                (p.description && p.description.toLowerCase().includes(query)) ||
                 (p.category && p.category.toLowerCase().includes(query))
             );
             renderProducts(filtered);
