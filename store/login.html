@@ -134,10 +134,19 @@ window.location.href="admin.html";
 
 async function checkSession(){
 
-const { data } = await supabase.auth.getSession();
+const { data, error } = await supabase.auth.signInWithPassword({
+  email,
+  password
+});
 
-if(data.session){
-window.location.href="admin.html";
+if (error) {
+  alert(error.message);
+  return;
+}
+
+alert("SUCCESS");
+
+window.location.href = "admin.html";
 }
 
 }
