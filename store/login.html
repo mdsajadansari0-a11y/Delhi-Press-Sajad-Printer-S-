@@ -1,145 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Admin Login | Sajad Printer'S</title>
-
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-
-<style>
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Arial,sans-serif;
-}
-
-body{
-height:100vh;
-display:flex;
-justify-content:center;
-align-items:center;
-background:linear-gradient(135deg,#0f172a,#1e3a8a);
-}
-
-.login-box{
-width:100%;
-max-width:420px;
-background:#fff;
-padding:30px;
-border-radius:15px;
-box-shadow:0 15px 35px rgba(0,0,0,.25);
-}
-
-h2{
-text-align:center;
-margin-bottom:20px;
-color:#0f172a;
-}
-
-label{
-display:block;
-margin-top:15px;
-font-weight:bold;
-}
-
-input{
-width:100%;
-padding:12px;
-margin-top:6px;
-border:1px solid #ccc;
-border-radius:8px;
-font-size:15px;
-}
-
-button{
-width:100%;
-margin-top:20px;
-padding:13px;
-border:none;
-border-radius:8px;
-background:#0f62fe;
-color:#fff;
-font-size:16px;
-font-weight:bold;
-cursor:pointer;
-}
-
-button:hover{
-background:#0047c7;
-}
-
-#error{
-margin-top:15px;
-color:red;
-text-align:center;
-display:none;
-}
-</style>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Secure Access</title>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
+<body class="bg-gray-50 h-screen flex items-center justify-center font-sans">
 
-<body>
+    <div class="bg-white p-10 rounded-2xl shadow-2xl shadow-gray-200 w-full max-w-md border border-gray-100 relative">
+        <div class="text-center mb-8">
+            <h2 class="text-3xl font-extrabold text-gray-900">Welcome Back</h2>
+            <p class="text-gray-500 mt-2 text-sm">Sign in to your Supabase Dashboard.</p>
+        </div>
 
-<div class="login-box">
+        <!-- Error Message Box (Hidden by default) -->
+        <div id="errorBox" class="hidden mb-4 p-3 bg-red-50 border border-red-200 text-red-600 text-sm rounded-lg text-center"></div>
 
-<h2>Admin Login</h2>
+        <form id="loginForm">
+            <div class="mb-5">
+                <label class="block text-gray-700 text-sm font-semibold mb-2">Email</label>
+                <input type="email" id="email" class="w-full px-4 py-3 rounded-xl bg-gray-50 border border-gray-200 focus:outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 transition-all" required>
+            </div>
+            <div class="mb-6">
+                <label class="block text-gray-700 text-sm font-semibold mb-2">Password</label>
+                <input type="password" id="password" class="w-full px-4 py-3 rounded-xl bg-gray-50 border border-gray-200 focus:outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 transition-all" required>
+            </div>
+            
+            <button type="submit" id="loginBtn" class="w-full bg-indigo-600 text-white font-bold py-3.5 rounded-xl hover:bg-indigo-700 transition-all flex justify-center items-center gap-2">
+                <span>Sign In</span>
+            </button>
+        </form>
+    </div>
 
-<label>Email</label>
-<input type="email" id="email" placeholder="Enter Email">
+    <script>
+        const SUPABASE_URL = 'https://vgblvfpzpxivwafuatcy.supabase.co';
+        const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZnYmx2ZnB6cHhpdndhZnVhdGN5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODU1MjA0MzQsImV4cCI6MjEwMTA5NjQzNH0.YX7aVMsiP5Lj9c29QE1qifjNo_CRiS7nQ1_VMC4hL-c';
 
-<label>Password</label>
-<input type="password" id="password" placeholder="Enter Password">
+        document.getElementById('loginForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const btn = document.getElementById('loginBtn');
+            const errorBox = document.getElementById('errorBox');
+            
+            // UI Loading State
+            btn.innerHTML = `<svg class="animate-spin h-5 w-5 text-white" viewBox="0 0 24 24" fill="none"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"></path></svg> Authenticating...`;
+            btn.disabled = true;
+            errorBox.classList.add('hidden');
 
-<button onclick="login()">Login</button>
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
 
-<div id="error"></div>
+            try {
+                // Connecting to Supabase Auth API
+                const response = await fetch(`${SUPABASE_URL}/auth/v1/token?grant_type=password`, {
+                    method: 'POST',
+                    headers: {
+                        'apikey': SUPABASE_KEY,
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ email, password })
+                });
 
-</div>
+                const data = await response.json();
 
-<script>const supabase = window.supabase.createClient(
-"https://vgblvfpzpxivwafuatcy.supabase.co",
-"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZnYmx2ZnB6cHhpdndhZnVhdGN5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODU1MjA0MzQsImV4cCI6MjEwMTA5NjQzNH0.YX7aVMsiP5Lj9c29QE1qifjNo_CRiS7nQ1_VMC4hL-c"
-);
+                if (!response.ok) throw new Error(data.error_description || 'Login failed');
 
-async function login(){
- alert("Login button clicked");
+                // Save token & redirect on success
+                localStorage.setItem('sb_token', data.access_token);
+                window.location.href = 'admin.html';
 
-const email=document.getElementById("email").value.trim();
-const password=document.getElementById("password").value;
-const errorBox=document.getElementById("error");
-
-errorBox.style.display="none";
-errorBox.innerHTML="";
-
-const { error } = await supabase.auth.signInWithPassword({
-email: email,
-password: password
-});
-
-if(error){
-alert(error.message);
-errorBox.style.display="block";
-errorBox.innerHTML=error.message;
-return;
-}
-
-window.location.href="admin.html";
-
-}async function checkSession(){
-
-const { data } = await supabase.auth.getSession();
-
-if(data.session){
-window.location.href = "admin.html";
-}
-
-}
-
-checkSession();
-
-</script>
-
+            } catch (err) {
+                // Show Error
+                errorBox.textContent = err.message;
+                errorBox.classList.remove('hidden');
+                btn.innerHTML = '<span>Sign In</span>';
+                btn.disabled = false;
+            }
+        });
+    </script>
 </body>
 </html>
