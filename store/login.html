@@ -177,6 +177,13 @@ SUPABASE_KEY
 async function login(){
 
 alert("Login button clicked");
+    const { data, error: loginError } =
+await supabase.auth.signInWithPassword({
+  email,
+  password
+});
+
+alert(JSON.stringify(loginError));
 const email =
 document.getElementById("email").value.trim();
 
