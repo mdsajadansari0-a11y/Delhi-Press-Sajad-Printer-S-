@@ -46,7 +46,13 @@ async function saveProduct(){
   description:document.getElementById('description').value,
   image_url:document.getElementById('image').value
  };
- const {error}=await supabase.from('products').insert([product]);
+ const { data, error } = await supabase
+  .from("products")
+  .insert([product])
+  .select();
+
+console.log(data);
+console.log(error);console.log(error);
  if(error){alert(error.message);}
  else{alert('Product Saved Successfully');}
 }
