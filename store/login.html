@@ -1,16 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Admin Login | Sajad Printer'S</title>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <style>
-
 *{
 margin:0;
 padding:0;
@@ -19,114 +16,66 @@ font-family:Arial,sans-serif;
 }
 
 body{
-
 background:linear-gradient(135deg,#0f172a,#1e3a8a);
-
 height:100vh;
-
 display:flex;
-
 justify-content:center;
-
 align-items:center;
-
 }
 
 .login-box{
-
 width:100%;
 max-width:420px;
-
 background:#fff;
-
 padding:30px;
-
 border-radius:15px;
-
 box-shadow:0 15px 35px rgba(0,0,0,.25);
-
 }
 
 h2{
-
 text-align:center;
-
 margin-bottom:20px;
-
 color:#0f172a;
-
 }
 
 label{
-
 display:block;
-
 margin-top:15px;
-
 font-weight:bold;
-
 }
 
 input{
-
 width:100%;
-
 padding:13px;
-
 margin-top:6px;
-
 border:1px solid #ccc;
-
 border-radius:8px;
-
 font-size:15px;
-
 }
 
 button{
-
 width:100%;
-
 margin-top:25px;
-
 padding:14px;
-
 border:none;
-
 border-radius:8px;
-
 background:#0f62fe;
-
 color:#fff;
-
 font-size:17px;
-
 font-weight:bold;
-
 cursor:pointer;
-
 }
 
 button:hover{
-
 background:#0047c7;
-
 }
 
 #error{
-
 margin-top:15px;
-
 color:red;
-
 text-align:center;
-
-font-size:14px;
-
 display:none;
-
 }
-
 </style>
 
 </head>
@@ -138,75 +87,59 @@ display:none;
 <h2>Admin Login</h2>
 
 <label>Email</label>
-
-<input
-type="email"
-id="email"
-placeholder="admin@example.com">
+<input type="email" id="email" placeholder="admin@example.com">
 
 <label>Password</label>
+<input type="password" id="password" placeholder="********">
 
-<input
-type="password"
-id="password"
-placeholder="********">
-
-<button onclick="alert('OK');login();">
-Login
-</button>
-
-Login
-
-</button>
+<button onclick="login()">Login</button>
 
 <div id="error"></div>
 
-</div><script>
+</div>
 
-const SUPABASE_URL =
-"https://vgblvfpzpxivwafuatcy.supabase.co";
+<script>
 
-const SUPABASE_KEY =
-"sb_publishable_u4PJUGojT-BQfg65WaYTFw_Gdx-MLOH";
+const SUPABASE_URL = "https://vgblvfpzpxivwafuatcy.supabase.co";
 
-const supabase =
-window.supabase.createClient(
+const SUPABASE_KEY = "sb_publishable_u4PJUGojT-BQfg65WaYTFw_Gdx-MLOH";
+
+const supabase = window.supabase.createClient(
 SUPABASE_URL,
 SUPABASE_KEY
 );
-async function login() {
 
-  alert("Step 1");
+async function login(){
 
-  const email = document.getElementById("email").value.trim();
-  const password = document.getElementById("password").value;
+const email=document.getElementById("email").value.trim();
+const password=document.getElementById("password").value;
+const errorBox=document.getElementById("error");
 
-  alert("Step 2");
+errorBox.style.display="none";
 
-  const { data, error } = await supabase.auth.signInWithPassword({
-    email,
-    password
-  });
+const { error } = await supabase.auth.signInWithPassword({
+email:email,
+password:password
+});
 
-  alert("Step 3");
-
-  if (error) {
-    alert(error.message);
-    return;
-  }
-
-  alert("Login Success");
-
-  window.location.href = "admin.html";
+if(error){
+errorBox.style.display="block";
+errorBox.innerHTML=error.message;
+return;
 }
 
+window.location.href="admin.html";
 
-asyconst password = document.getElementById(\"password\").value;nc function checkSession() {
-    const { data } = await supabase.auth.getSession();
+}
 
-    if (data.session) {
-        window.location.href = "admin.html";
-    }
+async function checkSession(){
+
+const { data } = await supabase.auth.getSession();
+
+if(data.session){
+window.location.href="admin.html";
+}
+
 }
 
 checkSession();
