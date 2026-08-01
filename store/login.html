@@ -118,6 +118,7 @@ password: password
 });
 
 if(error){
+alert(error.message);
 errorBox.style.display="block";
 errorBox.innerHTML=error.message;
 return;
