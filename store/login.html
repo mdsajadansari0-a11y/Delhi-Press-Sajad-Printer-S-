@@ -3,77 +3,172 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - Secure Access</title>
+    <title>Authentication - MyStore</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-gray-50 h-screen flex items-center justify-center font-sans">
+<body class="bg-gray-50 h-screen flex items-center justify-center font-sans selection:bg-indigo-200">
 
-    <div class="bg-white p-10 rounded-2xl shadow-2xl shadow-gray-200 w-full max-w-md border border-gray-100 relative">
-        <div class="text-center mb-8">
-            <h2 class="text-3xl font-extrabold text-gray-900">Welcome Back</h2>
-            <p class="text-gray-500 mt-2 text-sm">Sign in to your Supabase Dashboard.</p>
+    <div class="bg-white p-10 rounded-2xl shadow-2xl shadow-gray-200 w-full max-w-md border border-gray-100 relative overflow-hidden">
+        
+        <!-- Error / Success Message Box -->
+        <div id="messageBox" class="hidden mb-4 p-3 border text-sm rounded-lg text-center font-medium"></div>
+
+        <!-- ================= LOGIN SECTION ================= -->
+        <div id="loginSection" class="block transition-all duration-300">
+            <div class="text-center mb-8">
+                <h2 class="text-3xl font-extrabold text-gray-900">Welcome Back</h2>
+                <p class="text-gray-500 mt-2 text-sm">Sign in to your Dashboard.</p>
+            </div>
+
+            <form id="loginForm">
+                <div class="mb-5">
+                    <label class="block text-gray-700 text-sm font-semibold mb-2">Email</label>
+                    <input type="email" id="loginEmail" class="w-full px-4 py-3 rounded-xl bg-gray-50 border border-gray-200 focus:outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 transition-all" required>
+                </div>
+                <div class="mb-6">
+                    <label class="block text-gray-700 text-sm font-semibold mb-2">Password</label>
+                    <input type="password" id="loginPassword" class="w-full px-4 py-3 rounded-xl bg-gray-50 border border-gray-200 focus:outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 transition-all" required>
+                </div>
+                
+                <button type="submit" id="loginBtn" class="w-full bg-indigo-600 text-white font-bold py-3.5 rounded-xl hover:bg-indigo-700 transition-all flex justify-center items-center gap-2 shadow-md shadow-indigo-200">
+                    <span>Sign In</span>
+                </button>
+            </form>
+            
+            <p class="mt-8 text-center text-sm text-gray-500">
+                Don't have an account? <button onclick="toggleForm('signup')" class="text-indigo-600 font-bold hover:underline focus:outline-none">Create one</button>
+            </p>
         </div>
 
-        <!-- Error Message Box (Hidden by default) -->
-        <div id="errorBox" class="hidden mb-4 p-3 bg-red-50 border border-red-200 text-red-600 text-sm rounded-lg text-center"></div>
 
-        <form id="loginForm">
-            <div class="mb-5">
-                <label class="block text-gray-700 text-sm font-semibold mb-2">Email</label>
-                <input type="email" id="email" class="w-full px-4 py-3 rounded-xl bg-gray-50 border border-gray-200 focus:outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 transition-all" required>
+        <!-- ================= SIGN UP SECTION ================= -->
+        <div id="signupSection" class="hidden transition-all duration-300">
+            <div class="text-center mb-8">
+                <h2 class="text-3xl font-extrabold text-gray-900">Create Account</h2>
+                <p class="text-gray-500 mt-2 text-sm">Join us to start uploading designs.</p>
             </div>
-            <div class="mb-6">
-                <label class="block text-gray-700 text-sm font-semibold mb-2">Password</label>
-                <input type="password" id="password" class="w-full px-4 py-3 rounded-xl bg-gray-50 border border-gray-200 focus:outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 transition-all" required>
-            </div>
+
+            <form id="signupForm">
+                <div class="mb-5">
+                    <label class="block text-gray-700 text-sm font-semibold mb-2">Full Name</label>
+                    <input type="text" id="signupName" class="w-full px-4 py-3 rounded-xl bg-gray-50 border border-gray-200 focus:outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 transition-all" required>
+                </div>
+                <div class="mb-5">
+                    <label class="block text-gray-700 text-sm font-semibold mb-2">Email Address</label>
+                    <input type="email" id="signupEmail" class="w-full px-4 py-3 rounded-xl bg-gray-50 border border-gray-200 focus:outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 transition-all" required>
+                </div>
+                <div class="mb-6">
+                    <label class="block text-gray-700 text-sm font-semibold mb-2">Create Password</label>
+                    <input type="password" id="signupPassword" class="w-full px-4 py-3 rounded-xl bg-gray-50 border border-gray-200 focus:outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 transition-all" minlength="6" required placeholder="Minimum 6 characters">
+                </div>
+                
+                <button type="submit" id="signupBtn" class="w-full bg-gray-900 text-white font-bold py-3.5 rounded-xl hover:bg-black transition-all flex justify-center items-center gap-2 shadow-md">
+                    <span>Create Account</span>
+                </button>
+            </form>
             
-            <button type="submit" id="loginBtn" class="w-full bg-indigo-600 text-white font-bold py-3.5 rounded-xl hover:bg-indigo-700 transition-all flex justify-center items-center gap-2">
-                <span>Sign In</span>
-            </button>
-        </form>
+            <p class="mt-8 text-center text-sm text-gray-500">
+                Already have an account? <button onclick="toggleForm('login')" class="text-indigo-600 font-bold hover:underline focus:outline-none">Sign In</button>
+            </p>
+        </div>
+
     </div>
 
     <script>
         const SUPABASE_URL = 'https://vgblvfpzpxivwafuatcy.supabase.co';
         const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZnYmx2ZnB6cHhpdndhZnVhdGN5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODU1MjA0MzQsImV4cCI6MjEwMTA5NjQzNH0.YX7aVMsiP5Lj9c29QE1qifjNo_CRiS7nQ1_VMC4hL-c';
 
+        // --- Toggle Between Login and Signup ---
+        function toggleForm(type) {
+            const loginSec = document.getElementById('loginSection');
+            const signupSec = document.getElementById('signupSection');
+            const msgBox = document.getElementById('messageBox');
+            msgBox.classList.add('hidden'); // clear messages
+
+            if(type === 'signup') {
+                loginSec.classList.add('hidden');
+                signupSec.classList.remove('hidden');
+            } else {
+                signupSec.classList.add('hidden');
+                loginSec.classList.remove('hidden');
+            }
+        }
+
+        // --- Show Messages ---
+        function showMessage(msg, isError = true) {
+            const msgBox = document.getElementById('messageBox');
+            msgBox.textContent = msg;
+            msgBox.className = `mb-4 p-3 border text-sm rounded-lg text-center font-medium ${isError ? 'bg-red-50 text-red-600 border-red-200' : 'bg-green-50 text-green-700 border-green-200'}`;
+            msgBox.classList.remove('hidden');
+        }
+
+        const loadingSvg = `<svg class="animate-spin h-5 w-5 text-white" viewBox="0 0 24 24" fill="none"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"></path></svg>`;
+
+        // ================= LOGIN LOGIC =================
         document.getElementById('loginForm').addEventListener('submit', async (e) => {
             e.preventDefault();
             const btn = document.getElementById('loginBtn');
-            const errorBox = document.getElementById('errorBox');
-            
-            // UI Loading State
-            btn.innerHTML = `<svg class="animate-spin h-5 w-5 text-white" viewBox="0 0 24 24" fill="none"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"></path></svg> Authenticating...`;
+            btn.innerHTML = `${loadingSvg} Authenticating...`;
             btn.disabled = true;
-            errorBox.classList.add('hidden');
 
-            const email = document.getElementById('email').value;
-            const password = document.getElementById('password').value;
+            const email = document.getElementById('loginEmail').value;
+            const password = document.getElementById('loginPassword').value;
 
             try {
-                // Connecting to Supabase Auth API
                 const response = await fetch(`${SUPABASE_URL}/auth/v1/token?grant_type=password`, {
                     method: 'POST',
-                    headers: {
-                        'apikey': SUPABASE_KEY,
-                        'Content-Type': 'application/json'
-                    },
+                    headers: { 'apikey': SUPABASE_KEY, 'Content-Type': 'application/json' },
                     body: JSON.stringify({ email, password })
                 });
 
                 const data = await response.json();
-
                 if (!response.ok) throw new Error(data.error_description || 'Login failed');
 
-                // Save token & redirect on success
                 localStorage.setItem('sb_token', data.access_token);
-                window.location.href = 'admin.html';
+                window.location.href = 'admin.html'; // Redirect to dashboard
+            } catch (err) {
+                showMessage(err.message, true);
+                btn.innerHTML = '<span>Sign In</span>';
+                btn.disabled = false;
+            }
+        });
+
+        // ================= SIGN UP LOGIC =================
+        document.getElementById('signupForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const btn = document.getElementById('signupBtn');
+            btn.innerHTML = `${loadingSvg} Creating...`;
+            btn.disabled = true;
+
+            const name = document.getElementById('signupName').value;
+            const email = document.getElementById('signupEmail').value;
+            const password = document.getElementById('signupPassword').value;
+
+            try {
+                const response = await fetch(`${SUPABASE_URL}/auth/v1/signup`, {
+                    method: 'POST',
+                    headers: { 'apikey': SUPABASE_KEY, 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ 
+                        email, 
+                        password,
+                        data: { full_name: name } // Storing name in metadata
+                    })
+                });
+
+                const data = await response.json();
+                if (!response.ok) throw new Error(data.msg || 'Signup failed');
+
+                // Success Message
+                showMessage("Account created successfully! You can now log in.", false);
+                document.getElementById('signupForm').reset();
+                
+                // Automatically switch back to login tab after 2 seconds
+                setTimeout(() => toggleForm('login'), 2000);
 
             } catch (err) {
-                // Show Error
-                errorBox.textContent = err.message;
-                errorBox.classList.remove('hidden');
-                btn.innerHTML = '<span>Sign In</span>';
+                showMessage(err.message, true);
+            } finally {
+                btn.innerHTML = '<span>Create Account</span>';
                 btn.disabled = false;
             }
         });
