@@ -5,7 +5,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 
-<title>Sajad Printer Admin Panel</title>
+<title>Admin Panel</title>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
@@ -19,16 +19,26 @@ font-family:Arial,sans-serif;
 }
 
 body{
-background:#f4f4f4;
+background:#f5f5f5;
 }
 
 header{
 background:#0f62fe;
 color:#fff;
-padding:18px;
-text-align:center;
-font-size:22px;
-font-weight:bold;
+padding:15px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+header button{
+width:auto;
+padding:10px 18px;
+background:red;
+color:#fff;
+border:none;
+border-radius:6px;
+cursor:pointer;
 }
 
 .container{
@@ -47,30 +57,25 @@ font-weight:bold;
 }
 
 input,
-select,
-textarea{
+textarea,
+select{
 width:100%;
 padding:12px;
 margin-top:5px;
 border:1px solid #ccc;
-border-radius:8px;
-font-size:15px;
+border-radius:6px;
 }
 
 button{
 width:100%;
-padding:14px;
 margin-top:20px;
-border:none;
-border-radius:8px;
+padding:12px;
 background:#0f62fe;
 color:#fff;
+border:none;
+border-radius:6px;
 font-size:16px;
 cursor:pointer;
-}
-
-button:hover{
-background:#0047c7;
 }
 
 #status{
@@ -86,7 +91,11 @@ font-weight:bold;
 <body>
 
 <header>
-Sajad Printer Admin Panel
+
+<h2>Admin Dashboard</h2>
+
+<button onclick="logout()">Logout</button>
+
 </header>
 
 <div class="container">
@@ -100,28 +109,22 @@ Sajad Printer Admin Panel
 <label>Category</label>
 
 <select id="category">
-
 <option>Wedding Card</option>
 <option>Nikah Card</option>
-<option>Muslim Card</option>
-<option>Aqiqah</option>
 <option>Visiting Card</option>
 <option>Flex Banner</option>
-
 </select>
 
 <label>Price</label>
-<input id="price" type="number">
+<input type="number" id="price">
 
 <label>Description</label>
 <textarea id="description"></textarea>
 
-<label>Upload Image</label>
-<input id="imageFile" type="file" accept="image/*">
+<label>Image</label>
+<input type="file" id="imageFile">
 
-<button onclick="saveDesign()">
-Save Design
-</button>
+<button onclick="saveDesign()">Save Design</button>
 
 <div id="status"></div>
 
@@ -137,13 +140,21 @@ async function checkLogin(){
 const { data } = await supabase.auth.getSession();
 
 if(!data.session){
-window.location.href="login.html";
+location.href="login.html";
 return;
 }
 
 }
 
 checkLogin();
+
+async function logout(){
+
+await supabase.auth.signOut();
+
+location.href="login.html";
+
+}
 
 async function saveDesign(){
 
@@ -152,11 +163,8 @@ const status=document.getElementById("status");
 const file=document.getElementById("imageFile").files[0];
 
 if(!file){
-
 status.innerHTML="Please select image";
-
 return;
-
 }
 
 const fileName=Date.now()+"_"+file.name;
@@ -166,11 +174,8 @@ const upload=await supabase.storage
 .upload(fileName,file);
 
 if(upload.error){
-
 status.innerHTML=upload.error.message;
-
 return;
-
 }
 
 const image_url=supabase.storage
@@ -188,17 +193,15 @@ image_url:image_url
 }]);
 
 if(error){
-
 status.innerHTML=error.message;
-
 return;
-
 }
 
 status.innerHTML="✅ Design Saved Successfully";
 
 document.getElementById("title").value="";
 document.getElementById("design_no").value="";
+document.getElementById("category").selectedIndex=0;
 document.getElementById("price").value="";
 document.getElementById("description").value="";
 document.getElementById("imageFile").value="";
