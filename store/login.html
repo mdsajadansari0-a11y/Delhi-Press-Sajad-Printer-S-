@@ -174,47 +174,31 @@ window.supabase.createClient(
 SUPABASE_URL,
 SUPABASE_KEY
 );
-async function login(){
+async function login() {
 
-alert("Login button clicked");
-    const { data, error: loginError } =
-await supabase.auth.signInWithPassword({
-  email,
-  password
-});
+  alert("Step 1");
 
-alert(JSON.stringify(loginError));
-const email =
-document.getElementById("email").value.trim();
+  const email = document.getElementById("email").value.trim();
+  const password = document.getElementById("password").value;
 
-const password =
-document.getElementById("password").value;
+  alert("Step 2");
 
-const error =
-document.getElementById("error");
+  const { data, error } = await supabase.auth.signInWithPassword({
+    email,
+    password
+  });
 
-error.style.display="none";
+  alert("Step 3");
 
-const { data, error: loginError } =
-await supabase.auth.signInWithPassword({
+  if (error) {
+    alert(error.message);
+    return;
+  }
 
-email: email,
+  alert("Login Success");
 
-password: password
-
-});
-
-if(loginError){
-
-error.style.display="block";
-
-error.innerHTML=loginError.message;
-
-return;
-
+  window.location.href = "admin.html";
 }
-
-window.location.href="admin.html";
 
 }// अगर पहले से login है तो सीधे admin.html पर भेज दो
 async function checkSession() {
