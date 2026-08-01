@@ -1,1 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
 
+<title>Admin Panel</title>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<style>
+body{
+margin:0;
+font-family:Arial,sans-serif;
+background:#f4f4f4;
+}
+
+header{
+background:#0f62fe;
+color:#fff;
+padding:15px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+button{
+padding:10px 18px;
+border:none;
+border-radius:6px;
+cursor:pointer;
+background:#0f62fe;
+color:#fff;
+}
+
+.container{
+padding:20px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h2>Admin Dashboard</h2>
+
+<button onclick="logout()">
+Logout
+</button>
+</header>
+
+<div class="container">
+
+<h3>Login Successful ✅</h3>
+
+<p>अब आपका Admin Panel खुल गया है।</p>
+
+</div>
+
+<script>
+
+const supabase = window.supabase.createClient(
+"https://vgblvfpzpxivwafuatcy.supabase.co",
+"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZnYmx2ZnB6cHhpdndhZnVhdGN5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODU1MjA0MzQsImV4cCI6MjEwMTA5NjQzNH0.YX7aVMsiP5Lj9c29QE1qifjNo_CRiS7nQ1_VMC4hL-c"
+);
+
+async function checkLogin(){
+
+const {data}=await supabase.auth.getSession();
+
+if(!data.session){
+
+location.href="login.html";
+
+}
+
+}
+
+checkLogin();
+
+async function logout(){
+
+await supabase.auth.signOut();
+
+location.href="login.html";
+
+}
+
+</script>
+
+</body>
+</html>
