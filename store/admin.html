@@ -1,63 +1,131 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 
-<title>Admin Panel</title>
+<title>Sajad Printer Admin Panel</title>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <style>
-body{
+
+*{
 margin:0;
+padding:0;
+box-sizing:border-box;
 font-family:Arial,sans-serif;
+}
+
+body{
 background:#f4f4f4;
 }
 
 header{
 background:#0f62fe;
 color:#fff;
-padding:15px;
-display:flex;
-justify-content:space-between;
-align-items:center;
-}
-
-button{
-padding:10px 18px;
-border:none;
-border-radius:6px;
-cursor:pointer;
-background:#0f62fe;
-color:#fff;
+padding:18px;
+text-align:center;
+font-size:22px;
+font-weight:bold;
 }
 
 .container{
+max-width:700px;
+margin:20px auto;
+background:#fff;
 padding:20px;
+border-radius:10px;
+box-shadow:0 5px 20px rgba(0,0,0,.15);
 }
+
+label{
+display:block;
+margin-top:15px;
+font-weight:bold;
+}
+
+input,
+select,
+textarea{
+width:100%;
+padding:12px;
+margin-top:5px;
+border:1px solid #ccc;
+border-radius:8px;
+font-size:15px;
+}
+
+button{
+width:100%;
+padding:14px;
+margin-top:20px;
+border:none;
+border-radius:8px;
+background:#0f62fe;
+color:#fff;
+font-size:16px;
+cursor:pointer;
+}
+
+button:hover{
+background:#0047c7;
+}
+
+#status{
+margin-top:15px;
+text-align:center;
+font-weight:bold;
+}
+
 </style>
+
 </head>
 
 <body>
 
 <header>
-<h2>Admin Dashboard</h2>
-
-<button onclick="logout()">
-Logout
-</button>
+Sajad Printer Admin Panel
 </header>
 
 <div class="container">
 
-<h3>Login Successful ✅</h3>
+<label>Design Title</label>
+<input id="title">
 
-<p>अब आपका Admin Panel खुल गया है।</p>
+<label>Design Number</label>
+<input id="design_no">
 
-</div>
+<label>Category</label>
 
-<script>
+<select id="category">
+
+<option>Wedding Card</option>
+<option>Nikah Card</option>
+<option>Muslim Card</option>
+<option>Aqiqah</option>
+<option>Visiting Card</option>
+<option>Flex Banner</option>
+
+</select>
+
+<label>Price</label>
+<input id="price" type="number">
+
+<label>Description</label>
+<textarea id="description"></textarea>
+
+<label>Upload Image</label>
+<input id="imageFile" type="file" accept="image/*">
+
+<button onclick="saveDesign()">
+Save Design
+</button>
+
+<div id="status"></div>
+
+</div><script>
 
 const supabase = window.supabase.createClient(
 "https://vgblvfpzpxivwafuatcy.supabase.co",
@@ -66,23 +134,74 @@ const supabase = window.supabase.createClient(
 
 async function checkLogin(){
 
-const {data}=await supabase.auth.getSession();
+const { data } = await supabase.auth.getSession();
 
 if(!data.session){
-
-location.href="login.html";
-
+window.location.href="login.html";
+return;
 }
 
 }
 
 checkLogin();
 
-async function logout(){
+async function saveDesign(){
 
-await supabase.auth.signOut();
+const status=document.getElementById("status");
 
-location.href="login.html";
+const file=document.getElementById("imageFile").files[0];
+
+if(!file){
+
+status.innerHTML="Please select image";
+
+return;
+
+}
+
+const fileName=Date.now()+"_"+file.name;
+
+const upload=await supabase.storage
+.from("design-images")
+.upload(fileName,file);
+
+if(upload.error){
+
+status.innerHTML=upload.error.message;
+
+return;
+
+}
+
+const image_url=supabase.storage
+.from("design-images")
+.getPublicUrl(fileName)
+.data.publicUrl;const { error } = await supabase
+.from("designs")
+.insert([{
+title:document.getElementById("title").value,
+design_no:document.getElementById("design_no").value,
+category:document.getElementById("category").value,
+price:Number(document.getElementById("price").value),
+description:document.getElementById("description").value,
+image_url:image_url
+}]);
+
+if(error){
+
+status.innerHTML=error.message;
+
+return;
+
+}
+
+status.innerHTML="✅ Design Saved Successfully";
+
+document.getElementById("title").value="";
+document.getElementById("design_no").value="";
+document.getElementById("price").value="";
+document.getElementById("description").value="";
+document.getElementById("imageFile").value="";
 
 }
 
