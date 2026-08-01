@@ -1,214 +1,114 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-
-<title>Admin Panel</title>
-
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-
-<style>
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Arial,sans-serif;
-}
-
-body{
-background:#f5f5f5;
-}
-
-header{
-background:#0f62fe;
-color:#fff;
-padding:15px;
-display:flex;
-justify-content:space-between;
-align-items:center;
-}
-
-header button{
-width:auto;
-padding:10px 18px;
-background:red;
-color:#fff;
-border:none;
-border-radius:6px;
-cursor:pointer;
-}
-
-.container{
-max-width:700px;
-margin:20px auto;
-background:#fff;
-padding:20px;
-border-radius:10px;
-box-shadow:0 5px 20px rgba(0,0,0,.15);
-}
-
-label{
-display:block;
-margin-top:15px;
-font-weight:bold;
-}
-
-input,
-textarea,
-select{
-width:100%;
-padding:12px;
-margin-top:5px;
-border:1px solid #ccc;
-border-radius:6px;
-}
-
-button{
-width:100%;
-margin-top:20px;
-padding:12px;
-background:#0f62fe;
-color:#fff;
-border:none;
-border-radius:6px;
-font-size:16px;
-cursor:pointer;
-}
-
-#status{
-margin-top:15px;
-text-align:center;
-font-weight:bold;
-}
-
-</style>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
+<body class="bg-gray-50 font-sans flex h-screen overflow-hidden">
 
-<body>
+    <!-- Sidebar -->
+    <aside class="w-64 bg-slate-900 text-white flex flex-col shadow-xl z-20">
+        <div class="h-16 flex items-center px-6 border-b border-slate-800">
+            <span class="text-xl font-bold tracking-wide text-white">MyStore <span class="text-indigo-400">Panel</span></span>
+        </div>
+        <nav class="flex-1 px-4 py-6 space-y-1">
+            <a href="#" class="flex items-center px-4 py-3 bg-indigo-600 text-white rounded-xl font-medium shadow-md">Dashboard</a>
+            <a href="#" class="flex items-center px-4 py-3 text-slate-300 hover:bg-slate-800 rounded-xl font-medium transition">Database Data</a>
+        </nav>
+        <div class="p-4 border-t border-slate-800">
+            <a href="index.html" class="flex justify-center w-full px-4 py-2 bg-red-500/10 text-red-500 hover:bg-red-500 hover:text-white rounded-xl transition">Logout</a>
+        </div>
+    </aside>
 
-<header>
+    <!-- Main Content -->
+    <main class="flex-1 flex flex-col relative z-10 overflow-y-auto">
+        <header class="h-16 bg-white shadow-sm flex items-center justify-between px-8 border-b border-gray-100">
+            <h2 class="text-lg font-bold text-gray-800">Live API Data</h2>
+            <div class="flex items-center gap-2 text-sm text-green-600 bg-green-50 px-3 py-1 rounded-full font-medium border border-green-200">
+                <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span> Connected to Supabase
+            </div>
+        </header>
 
-<h2>Admin Dashboard</h2>
+        <div class="p-8">
+            <!-- Data Table Area -->
+            <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
+                <div class="px-6 py-4 border-b border-gray-100 flex justify-between items-center">
+                    <h3 class="font-bold text-gray-800">Recent Records</h3>
+                    <button onclick="fetchData()" class="text-sm bg-indigo-50 text-indigo-600 px-3 py-1.5 rounded-lg hover:bg-indigo-100 transition font-medium">Refresh Data</button>
+                </div>
+                
+                <div class="p-6">
+                    <table class="w-full text-left border-collapse">
+                        <thead>
+                            <tr class="text-gray-400 text-sm border-b border-gray-100">
+                                <th class="pb-3 font-medium">ID</th>
+                                <th class="pb-3 font-medium">Name / Title</th>
+                                <th class="pb-3 font-medium">Status</th>
+                                <th class="pb-3 font-medium text-right">Created At</th>
+                            </tr>
+                        </thead>
+                        <tbody id="dataTableBody">
+                            <!-- Loading Skeleton -->
+                            <tr>
+                                <td colspan="4" class="py-10 text-center text-gray-400">
+                                    Fetching data from Supabase API...
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </main>
 
-<button onclick="logout()">Logout</button>
+    <script>
+        const API_URL = 'https://vgblvfpzpxivwafuatcy.supabase.co/rest/v1';
+        const API_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZnYmx2ZnB6cHhpdndhZnVhdGN5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODU1MjA0MzQsImV4cCI6MjEwMTA5NjQzNH0.YX7aVMsiP5Lj9c29QE1qifjNo_CRiS7nQ1_VMC4hL-c';
+        
+        // Example Table Name - Change 'your_table_name' to your actual Supabase table name
+        const TABLE_NAME = 'your_table_name'; 
 
-</header>
+        async function fetchData() {
+            const tbody = document.getElementById('dataTableBody');
+            tbody.innerHTML = `<tr><td colspan="4" class="py-10 text-center text-gray-400">Loading live data...</td></tr>`;
 
-<div class="container">
+            try {
+                // Fetching from Supabase REST API
+                const response = await fetch(`${API_URL}/${TABLE_NAME}?select=*&limit=5`, {
+                    headers: {
+                        'apikey': API_KEY,
+                        'Authorization': `Bearer ${API_KEY}`,
+                        'Content-Type': 'application/json'
+                    }
+                });
 
-<label>Design Title</label>
-<input id="title">
+                if (!response.ok) throw new Error("Table not found or RLS policy restricting access.");
+                const data = await response.json();
 
-<label>Design Number</label>
-<input id="design_no">
+                if(data.length === 0) {
+                    tbody.innerHTML = `<tr><td colspan="4" class="py-10 text-center text-gray-400">No records found in database.</td></tr>`;
+                    return;
+                }
 
-<label>Category</label>
+                // Render Data
+                tbody.innerHTML = data.map(item => `
+                    <tr class="border-b border-gray-50 hover:bg-gray-50 transition">
+                        <td class="py-4 text-sm font-medium text-gray-900">#${item.id || 'N/A'}</td>
+                        <td class="py-4 text-sm text-gray-600">${item.name || item.title || 'Data Row'}</td>
+                        <td class="py-4 text-sm"><span class="bg-green-100 text-green-700 px-2.5 py-1 rounded-full text-xs font-bold">Active</span></td>
+                        <td class="py-4 text-sm text-gray-500 text-right">${new Date(item.created_at).toLocaleDateString() || 'Today'}</td>
+                    </tr>
+                `).join('');
 
-<select id="category">
-<option>Wedding Card</option>
-<option>Nikah Card</option>
-<option>Visiting Card</option>
-<option>Flex Banner</option>
-</select>
+            } catch (error) {
+                tbody.innerHTML = `<tr><td colspan="4" class="py-10 text-center text-red-500 bg-red-50 rounded-lg">Error: ${error.message}<br><span class="text-sm text-gray-500">Make sure to change 'your_table_name' in the code to your real table name.</span></td></tr>`;
+            }
+        }
 
-<label>Price</label>
-<input type="number" id="price">
-
-<label>Description</label>
-<textarea id="description"></textarea>
-
-<label>Image</label>
-<input type="file" id="imageFile">
-
-<button onclick="saveDesign()">Save Design</button>
-
-<div id="status"></div>
-
-</div><script>
-
-const supabase = window.supabase.createClient(
-"https://vgblvfpzpxivwafuatcy.supabase.co",
-"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZnYmx2ZnB6cHhpdndhZnVhdGN5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODU1MjA0MzQsImV4cCI6MjEwMTA5NjQzNH0.YX7aVMsiP5Lj9c29QE1qifjNo_CRiS7nQ1_VMC4hL-c"
-);
-
-async function checkLogin(){
-
-const { data } = await supabase.auth.getSession();
-
-if(!data.session){
-location.href="login.html";
-return;
-}
-
-}
-
-checkLogin();
-
-async function logout(){
-
-await supabase.auth.signOut();
-
-location.href="login.html";
-
-}
-
-async function saveDesign(){
-
-const status=document.getElementById("status");
-
-const file=document.getElementById("imageFile").files[0];
-
-if(!file){
-status.innerHTML="Please select image";
-return;
-}
-
-const fileName=Date.now()+"_"+file.name;
-
-const upload=await supabase.storage
-.from("design-images")
-.upload(fileName,file);
-
-if(upload.error){
-status.innerHTML=upload.error.message;
-return;
-}
-
-const image_url=supabase.storage
-.from("design-images")
-.getPublicUrl(fileName)
-.data.publicUrl;const { error } = await supabase
-.from("designs")
-.insert([{
-title:document.getElementById("title").value,
-design_no:document.getElementById("design_no").value,
-category:document.getElementById("category").value,
-price:Number(document.getElementById("price").value),
-description:document.getElementById("description").value,
-image_url:image_url
-}]);
-
-if(error){
-status.innerHTML=error.message;
-return;
-}
-
-status.innerHTML="✅ Design Saved Successfully";
-
-document.getElementById("title").value="";
-document.getElementById("design_no").value="";
-document.getElementById("category").selectedIndex=0;
-document.getElementById("price").value="";
-document.getElementById("description").value="";
-document.getElementById("imageFile").value="";
-
-}
-
-</script>
-
+        // Fetch data automatically when page loads
+        window.onload = fetchData;
+    </script>
 </body>
 </html>
