@@ -1,131 +1,235 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hi">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sajad Printer'S Admin Panel</title>
+<title>Delhi Press - Admin Panel</title>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <style>
-body{
-font-family:Arial,sans-serif;
-background:#f5f5f5;
+
+*{
 margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
 }
+
+body{
+background:#f4f7fb;
+}
+
 header{
-background:#6a1b9a;
+background:#06366a;
 color:#fff;
 padding:18px;
 text-align:center;
-}
-main{
-max-width:700px;
-margin:20px auto;
-background:#fff;
-padding:20px;
-border-radius:10px;
-}
-label{
-display:block;
-margin-top:12px;
+font-size:24px;
 font-weight:bold;
 }
-input,select,textarea{
-width:100%;
-padding:10px;
-margin-top:5px;
-box-sizing:border-box;
-}
-button{
-margin-top:18px;
-padding:12px 18px;
-background:#6a1b9a;
-color:#fff;
-border:none;
-border-radius:8px;
-cursor:pointer;
-font-size:16px;
-}
-button:hover{
-background:#4a148c;
-}
-</style>
 
+.container{
+max-width:900px;
+margin:25px auto;
+background:#fff;
+padding:25px;
+border-radius:15px;
+box-shadow:0 10px 30px rgba(0,0,0,.08);
+}
+
+h2{
+margin-bottom:20px;
+color:#06366a;
+}
+
+label{
+display:block;
+margin-top:15px;
+font-weight:bold;
+}
+
+input,
+select,
+textarea{
+width:100%;
+padding:12px;
+margin-top:6px;
+border:1px solid #ddd;
+border-radius:8px;
+font-size:15px;
+}
+
+textarea{
+height:120px;
+resize:vertical;
+}
+
+button{
+margin-top:20px;
+width:100%;
+padding:14px;
+background:#00b95c;
+border:none;
+color:#fff;
+font-size:17px;
+font-weight:bold;
+border-radius:10px;
+cursor:pointer;
+}
+
+button:hover{
+background:#009b4c;
+}
+
+#status{
+margin-top:20px;
+padding:12px;
+border-radius:8px;
+display:none;
+font-weight:bold;
+}
+
+.success{
+background:#d4edda;
+color:#155724;
+}
+
+.error{
+background:#f8d7da;
+color:#721c24;
+}
+
+</style>
 </head>
+
 <body>
 
 <header>
-<h2>Sajad Printer'S Admin Panel</h2>
+
+Delhi Press - Sajad Printer'S
+<br>
+Admin Panel
+
 </header>
 
-<main>
+<div class="container">
 
-<h3>Add Product</h3>
+<h2>Add New Design</h2>
 
-<label>Product Name</label>
-<input id="name">
+<label>Design Title</label>
+<input id="title">
+
+<label>Design Number</label>
+<input id="design_no">
 
 <label>Category</label>
-<select id="category">
-<option>Wedding Card</option>
-<option>Nikah Card</option>
-<option>Muslim Card</option>
-<option>Aqiqah</option>
-<option>Flex Banner</option>
-<option>Visiting Card</option>
-</select>
 
-<label>Price</label>
-<input id="price" type="number">
+<select id="category">
+
+<option>Wedding Card</option>
+
+<option>Nikah Card</option>
+
+<option>Muslim Card</option>
+
+<option>Aqiqah</option>
+
+<option>Visiting Card</option>
+
+<option>Flex Banner</option>
+
+</select><label>Price</label>
+<input type="number" id="price">
+
+<label>Image URL</label>
+<input id="image_url" placeholder="https://...">
 
 <label>Description</label>
 <textarea id="description"></textarea>
 
-<label>Image URL</label>
-<input id="image">
+<button onclick="saveDesign()">
+💾 Save Design
+</button>
 
-<button onclick="saveProduct()">Save Product</button></main>
+<div id="status"></div>
+
+</div>
 
 <script>
-const SUPABASE_URL = "https://vgblvfpzpxivwafuatcy.supabase.co";
-const SUPABASE_KEY = "sb_publishable_u4PJUGojT-BQfg65WaYTFw_Gdx-MLOH";
 
-const supabase = window.supabase.createClient(
-  SUPABASE_URL,
-  SUPABASE_KEY
+const SUPABASE_URL =
+"https://vgblvfpzpxivwafuatcy.supabase.co";
+
+const SUPABASE_KEY =
+"sb_publishable_u4PJUGojT-BQfg65WaYTFw_Gdx-MLOH";
+
+const supabase =
+window.supabase.createClient(
+SUPABASE_URL,
+SUPABASE_KEY
 );
 
-async function saveProduct(){
+async function saveDesign(){
 
-  const product = {
-    name: document.getElementById("name").value,
-    category: document.getElementById("category").value,
-    price: Number(document.getElementById("price").value),
-    description: document.getElementById("description").value,
-    image_url: document.getElementById("image").value
-  };
+const title =
+document.getElementById("title").value.trim();
 
-  const { data, error } = await supabase
-    .from("products")
-    .insert([product])
-    .select();
+const design_no =
+document.getElementById("design_no").value.trim();
 
-  console.log(data);
-  console.log(error);
+const category =
+document.getElementById("category").value;
 
-  if(error){
-    alert("Error: " + error.message);
-    return;
-  }
+const price =
+Number(document.getElementById("price").value);
 
-  alert("✅ Product Saved Successfully");
+const image_url =
+document.getElementById("image_url").value.trim();
 
-  document.getElementById("name").value="";
-  document.getElementById("price").value="";
-  document.getElementById("description").value="";
-  document.getElementById("image").value="";
+const description =
+document.getElementById("description").value.trim();
+
+const status =
+document.getElementById("status");
+
+status.style.display="block";
+
+status.className="";
+
+status.innerHTML="Saving...";const { data, error } = await supabase
+.from("designs")
+.insert([
+{
+title,
+design_no,
+category,
+price,
+image_url,
+description
 }
+]);
+
+if(error){
+
+status.className="error";
+status.innerHTML="❌ "+error.message;
+
+return;
+
+}
+
+status.className="success";
+status.innerHTML="✅ Design Saved Successfully";
+
+document.getElementById("title").value="";
+document.getElementById("design_no").value="";
+document.getElementById("price").value="";
+document.getElementById("image_url").value="";
+document.getElementById("description").value="";
+
+}
+
 </script>
 
 </body>
