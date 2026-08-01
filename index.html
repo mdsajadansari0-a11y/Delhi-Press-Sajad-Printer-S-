@@ -1,1150 +1,185 @@
 <!DOCTYPE html>
-<html lang="hi">
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Delhi Press - Sajad Printer'S | Printing & Graphic Designing</title>
-
-<meta name="description"
-content="Delhi Press - Sajad Printer'S - Wedding Card, Flex Banner, Visiting Card, Calendar, Poster, Handbill and Graphic Designing Services.">
-
-<style>
-
-/* ==============================
-   RESET
-============================== */
-
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-}
-
-html{
-  scroll-behavior:smooth;
-}
-
-body{
-  font-family:Arial, Helvetica, sans-serif;
-  background:#f5f7fb;
-  color:#132238;
-  line-height:1.6;
-}
-
-a{
-  text-decoration:none;
-}
-
-
-/* ==============================
-   HEADER
-============================== */
-
-.header{
-  background:#ffffff;
-  position:sticky;
-  top:0;
-  z-index:1000;
-  box-shadow:0 4px 20px rgba(0,0,0,.08);
-}
-
-.navbar{
-  max-width:1150px;
-  margin:auto;
-  padding:12px 20px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-}
-
-.logo-area{
-  display:flex;
-  align-items:center;
-  gap:12px;
-}
-
-.logo{
-  width:55px;
-  height:55px;
-  border-radius:16px;
-  background:linear-gradient(135deg,#0057b8,#00a7ff);
-  color:white;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  font-size:21px;
-  font-weight:800;
-  box-shadow:0 7px 20px rgba(0,104,200,.25);
-}
-
-.logo-text{
-  display:flex;
-  flex-direction:column;
-}
-
-.logo-text strong{
-  color:#062d58;
-  font-size:20px;
-  line-height:1.1;
-}
-
-.logo-text span{
-  color:#687587;
-  font-size:13px;
-}
-
-.nav-menu{
-  display:flex;
-  align-items:center;
-  gap:27px;
-}
-
-.nav-menu a{
-  color:#172c47;
-  font-size:15px;
-  font-weight:700;
-}
-
-.nav-menu a:hover{
-  color:#0075e8;
-}
-
-.nav-whatsapp{
-  background:#00b95c !important;
-  color:white !important;
-  padding:10px 16px;
-  border-radius:10px;
-}
-
-.menu-btn{
-  display:none;
-  width:44px;
-  height:44px;
-  border:0;
-  border-radius:10px;
-  background:#06366a;
-  color:white;
-  font-size:25px;
-  cursor:pointer;
-}
-
-
-/* ==============================
-   HERO
-============================== */
-
-.hero{
-  position:relative;
-  overflow:hidden;
-  background:
-    radial-gradient(circle at 85% 20%,rgba(0,174,255,.35),transparent 28%),
-    radial-gradient(circle at 10% 80%,rgba(0,135,255,.25),transparent 30%),
-    linear-gradient(135deg,#021b3c,#003b78 55%,#00569c);
-  color:white;
-  padding:90px 20px 105px;
-}
-
-.hero:before{
-  content:"";
-  position:absolute;
-  width:400px;
-  height:400px;
-  border:1px solid rgba(255,255,255,.09);
-  border-radius:50%;
-  right:-170px;
-  top:-130px;
-}
-
-.hero:after{
-  content:"";
-  position:absolute;
-  width:500px;
-  height:500px;
-  border:1px solid rgba(255,255,255,.08);
-  border-radius:50%;
-  left:-280px;
-  bottom:-300px;
-}
-
-.hero-content{
-  max-width:1100px;
-  margin:auto;
-  position:relative;
-  z-index:2;
-}
-
-.hero-badge{
-  display:inline-block;
-  border:1px solid rgba(255,255,255,.25);
-  background:rgba(255,255,255,.08);
-  backdrop-filter:blur(5px);
-  padding:9px 17px;
-  border-radius:50px;
-  font-size:13px;
-  margin-bottom:25px;
-}
-
-.hero h1{
-  max-width:800px;
-  font-size:clamp(43px,8vw,76px);
-  line-height:1.02;
-  letter-spacing:-2px;
-  margin-bottom:20px;
-}
-
-.hero h1 span{
-  display:block;
-  color:#55b9ff;
-  font-size:.52em;
-  letter-spacing:5px;
-  margin-top:13px;
-}
-
-.hero p{
-  max-width:670px;
-  font-size:19px;
-  color:#d5e7f8;
-  margin-bottom:30px;
-}
-
-.hero-buttons{
-  display:flex;
-  flex-wrap:wrap;
-  gap:13px;
-}
-
-.btn{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  padding:14px 23px;
-  border-radius:11px;
-  font-weight:800;
-  font-size:15px;
-}
-
-.whatsapp-btn{
-  background:#00bf60;
-  color:white;
-  box-shadow:0 8px 25px rgba(0,191,96,.25);
-}
-
-.call-btn{
-  background:white;
-  color:#06366a;
-}
-
-
-/* ==============================
-   INTRO
-============================== */
-
-.intro-wrap{
-  max-width:1100px;
-  margin:-42px auto 0;
-  padding:0 20px;
-  position:relative;
-  z-index:10;
-}
-
-.intro{
-  background:white;
-  border-radius:20px;
-  padding:27px;
-  box-shadow:0 12px 35px rgba(6,37,71,.13);
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:10px;
-}
-
-.intro-item{
-  padding:12px 18px;
-  text-align:center;
-  border-right:1px solid #e8edf4;
-}
-
-.intro-item:last-child{
-  border-right:none;
-}
-
-.intro-icon{
-  font-size:28px;
-}
-
-.intro h3{
-  color:#06366a;
-  font-size:17px;
-}
-
-.intro p{
-  color:#728094;
-  font-size:13px;
-}
-
-
-/* ==============================
-   SECTION
-============================== */
-
-.section{
-  max-width:1100px;
-  margin:auto;
-  padding:80px 20px;
-}
-
-.section-heading{
-  text-align:center;
-  max-width:700px;
-  margin:0 auto 40px;
-}
-
-.section-heading span{
-  color:#0084e9;
-  font-size:13px;
-  font-weight:800;
-  letter-spacing:2px;
-}
-
-.section-heading h2{
-  font-size:35px;
-  color:#092b53;
-  margin:7px 0;
-}
-
-.section-heading p{
-  color:#718096;
-}
-
-
-/* ==============================
-   SERVICES
-============================== */
-
-.services-grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:18px;
-}
-
-.service-card{
-  background:white;
-  border-radius:18px;
-  padding:27px 22px;
-  border:1px solid #e7edf4;
-  box-shadow:0 7px 25px rgba(0,0,0,.055);
-  transition:.25s;
-}
-
-.service-card:hover{
-  transform:translateY(-5px);
-  box-shadow:0 13px 32px rgba(0,0,0,.10);
-}
-
-.service-icon{
-  width:57px;
-  height:57px;
-  border-radius:15px;
-  background:#eaf5ff;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  font-size:27px;
-  margin-bottom:18px;
-}
-
-.service-card h3{
-  color:#092d57;
-  margin-bottom:7px;
-  font-size:19px;
-}
-
-.service-card p{
-  color:#718096;
-  font-size:14px;
-}
-
-
-/* ==============================
-   WHY CHOOSE US
-============================== */
-
-.why-section{
-  background:#eaf3fb;
-}
-
-.why-inner{
-  max-width:1100px;
-  margin:auto;
-  padding:75px 20px;
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:45px;
-  align-items:center;
-}
-
-.why-left span{
-  color:#007bd7;
-  font-weight:800;
-  font-size:13px;
-  letter-spacing:2px;
-}
-
-.why-left h2{
-  color:#072d58;
-  font-size:36px;
-  line-height:1.2;
-  margin:8px 0 15px;
-}
-
-.why-left p{
-  color:#66768a;
-}
-
-.why-list{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:13px;
-}
-
-.why-box{
-  background:white;
-  border-radius:14px;
-  padding:18px;
-  box-shadow:0 6px 18px rgba(0,0,0,.05);
-}
-
-.why-box strong{
-  display:block;
-  color:#083363;
-  margin-bottom:3px;
-}
-
-.why-box small{
-  color:#728094;
-}
-
-
-/* ==============================
-   CTA
-============================== */
-
-.cta{
-  max-width:1060px;
-  margin:70px auto;
-  padding:45px 25px;
-  border-radius:25px;
-  background:
-    radial-gradient(circle at right,rgba(0,183,255,.35),transparent 35%),
-    linear-gradient(135deg,#032652,#00549a);
-  color:white;
-  text-align:center;
-  box-shadow:0 15px 40px rgba(0,56,110,.20);
-}
-
-.cta h2{
-  font-size:34px;
-}
-
-.cta p{
-  color:#d5e8f8;
-  margin:8px 0 22px;
-}
-
-
-/* ==============================
-   FOOTER
-============================== */
-
-.footer{
-  background:#06182c;
-  color:#b7c4d3;
-  padding:55px 20px 20px;
-}
-
-.footer-grid{
-  max-width:1100px;
-  margin:auto;
-  display:grid;
-  grid-template-columns:2fr 1fr 1fr;
-  gap:40px;
-}
-
-.footer-brand{
-  display:flex;
-  align-items:center;
-  gap:12px;
-  margin-bottom:15px;
-}
-
-.footer-logo{
-  width:50px;
-  height:50px;
-  background:#0787e8;
-  color:white;
-  border-radius:13px;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  font-weight:bold;
-}
-
-.footer h3{
-  color:white;
-  margin-bottom:12px;
-}
-
-.footer h2{
-  color:white;
-  font-size:20px;
-}
-
-.footer a{
-  display:block;
-  color:#b7c4d3;
-  margin:7px 0;
-}
-
-.footer a:hover{
-  color:white;
-}
-
-.footer-bottom{
-  max-width:1100px;
-  margin:35px auto 0;
-  padding-top:18px;
-  border-top:1px solid #24364a;
-  text-align:center;
-  font-size:13px;
-}
-
-
-/* ==============================
-   MOBILE
-============================== */
-
-@media(max-width:768px){
-
-  .navbar{
-    padding:10px 15px;
-  }
-
-  .logo{
-    width:48px;
-    height:48px;
-  }
-
-  .logo-text strong{
-    font-size:18px;
-  }
-
-  .menu-btn{
-    display:block;
-  }
-
-  .nav-menu{
-    display:none;
-    position:absolute;
-    top:70px;
-    left:14px;
-    right:14px;
-    background:white;
-    padding:10px;
-    border-radius:15px;
-    box-shadow:0 12px 35px rgba(0,0,0,.18);
-  }
-
-  .nav-menu.active{
-    display:block;
-  }
-
-  .nav-menu a{
-    display:block;
-    padding:12px;
-    border-bottom:1px solid #edf0f4;
-  }
-
-  .nav-whatsapp{
-    text-align:center;
-    margin-top:7px;
-  }
-
-  .hero{
-    padding:70px 18px 90px;
-    text-align:center;
-  }
-
-  .hero-badge{
-    font-size:11px;
-  }
-
-  .hero h1{
-    font-size:45px;
-  }
-
-  .hero h1 span{
-    font-size:22px;
-    letter-spacing:3px;
-  }
-
-  .hero p{
-    font-size:16px;
-    margin-left:auto;
-    margin-right:auto;
-  }
-
-  .hero-buttons{
-    justify-content:center;
-  }
-
-  .btn{
-    flex:1;
-    min-width:145px;
-  }
-
-  .intro{
-    grid-template-columns:1fr;
-  }
-
-  .intro-item{
-    border-right:none;
-    border-bottom:1px solid #e8edf4;
-  }
-
-  .intro-item:last-child{
-    border-bottom:none;
-  }
-
-  .section{
-    padding:60px 17px;
-  }
-
-  .section-heading h2{
-    font-size:29px;
-  }
-
-  .services-grid{
-    grid-template-columns:1fr;
-  }
-
-  .why-inner{
-    grid-template-columns:1fr;
-    padding:60px 18px;
-  }
-
-  .why-left h2{
-    font-size:30px;
-  }
-
-  .why-list{
-    grid-template-columns:1fr 1fr;
-  }
-
-  .cta{
-    margin:45px 15px;
-    padding:38px 18px;
-  }
-
-  .cta h2{
-    font-size:28px;
-  }
-
-  .footer-grid{
-    grid-template-columns:1fr;
-    gap:30px;
-  }
-}
-
-
-@media(max-width:430px){
-
-  .hero h1{
-    font-size:39px;
-  }
-
-  .hero-buttons{
-    flex-direction:column;
-  }
-
-  .why-list{
-    grid-template-columns:1fr;
-  }
-}
-
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sajad Printer's - Design Store</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Hide scrollbar for category menu */
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
 </head>
-
-
-<body>
-
-
-<!-- ================= HEADER ================= -->
-
-<header class="header">
-
-<div class="navbar">
-
-  <a href="index.html" class="logo-area">
-
-    <div class="logo">DP</div>
-
-    <div class="logo-text">
-      <strong>DELHI PRESS</strong>
-      <span>Sajad Printer'S</span>
-    </div>
-
-  </a>
-
-
-  <button class="menu-btn"
-          id="menuBtn"
-          onclick="toggleMenu()">
-    ☰
-  </button>
-
-
-  <nav class="nav-menu" id="navMenu">
-
-    <a href="index.html">Home</a>
-    <a href="services.html">Services</a>
-    <a href="gallery.html">Gallery</a>
-    <a href="about.html">About</a>
-    <a href="contact.html">Contact</a>
-     <a href="payment.html">Payment</a>
-
-    <a href="https://wa.me/919304509464"
-       target="_blank"
-       class="nav-whatsapp">
-      WhatsApp
-    </a>
-
-  </nav>
-
-</div>
-
-</header>
-
-
-<!-- ================= HERO ================= -->
-
-<section class="hero">
-
-<div class="hero-content">
-
-  <div class="hero-badge">
-    ✦ DELHI PRESS • SAJAD PRINTER'S
-  </div>
-
-  <h1>
-    PRINTING THAT
-    <br>
-    MAKES AN IMPACT
-
-    <span>DESIGN • PRINT • CREATE</span>
-  </h1>
-
-
-  <p>
-    Wedding Card, Flex Banner, Visiting Card, Calendar,
-    Poster और Graphic Designing — आपकी सभी printing
-    जरूरतों के लिए professional service एक ही जगह।
-  </p>
-
-
-  <div class="hero-buttons">
-
-    <a href="store.html"
-       class="btn store-btn">
-       🛍️ Design Store
-    </a>
-
-    <a href="https://wa.me/919304509464?text=Namaste%20Delhi%20Press,%20mujhe%20printing%20service%20ki%20jankari%20chahiye."
-       target="_blank"
-       class="btn whatsapp-btn">
-       💬 WhatsApp Enquiry
-    </a>
-
-    <a href="tel:+919304509464"
-       class="btn call-btn">
-       ☎ Call Now
-    </a>
-
-  </div>
-
-</div>
-
-</section>
-
-
-<!-- ================= QUICK INFO ================= -->
-
-<div class="intro-wrap">
-
-<div class="intro">
-
-  <div class="intro-item">
-
-    <div class="intro-icon">🎨</div>
-
-    <h3>Professional Design</h3>
-
-    <p>
-      साफ-सुथरा और attractive designing
-    </p>
-
-  </div>
-
-
-  <div class="intro-item">
-
-    <div class="intro-icon">🖨️</div>
-
-    <h3>Quality Printing</h3>
-
-    <p>
-      बेहतर quality printing solutions
-    </p>
-
-  </div>
-
-
-  <div class="intro-item">
-
-    <div class="intro-icon">💬</div>
-
-    <h3>Easy Support</h3>
-
-    <p>
-      Call और WhatsApp पर आसान संपर्क
-    </p>
-
-  </div>
-
-</div>
-
-</div>
-
-
-<!-- ================= SERVICES ================= -->
-
-<section class="section">
-
-<div class="section-heading">
-
-  <span>OUR SERVICES</span>
-
-  <h2>हमारी Printing Services</h2>
-
-  <p>
-    शादी कार्ड से लेकर business printing और
-    graphic designing तक सभी जरूरी services।
-  </p>
-
-</div>
-
-
-<div class="services-grid">
-
-
-  <div class="service-card">
-
-    <div class="service-icon">💌</div>
-
-    <h3>Wedding Card</h3>
-
-    <p>
-      शादी, निकाह और अन्य कार्यक्रमों के लिए
-      आकर्षक invitation card designing और printing।
-    </p>
-
-  </div>
-
-
-  <div class="service-card">
-
-    <div class="service-icon">🖼️</div>
-
-    <h3>Flex Banner</h3>
-
-    <p>
-      Shop, event, function और advertisement के लिए
-      professional flex banner designing।
-    </p>
-
-  </div>
-
-
-  <div class="service-card">
-
-    <div class="service-icon">💳</div>
-
-    <h3>Visiting Card</h3>
-
-    <p>
-      Business और personal use के लिए modern
-      visiting card design और printing।
-    </p>
-
-  </div>
-
-
-  <div class="service-card">
-
-    <div class="service-icon">📅</div>
-
-    <h3>Calendar Printing</h3>
-
-    <p>
-      Business, shop और personal use के लिए
-      customised calendar designing।
-    </p>
-
-  </div>
-
-
-  <div class="service-card">
-
-    <div class="service-icon">📢</div>
-
-    <h3>Poster & Handbill</h3>
-
-    <p>
-      Advertisement, event और promotion के लिए
-      poster एवं handbill designing।
-    </p>
-
-  </div>
-
-
-  <div class="service-card">
-
-    <div class="service-icon">✨</div>
-
-    <h3>Graphic Designing</h3>
-
-    <p>
-      Social media, banner, invitation और
-      business promotion के लिए creative designs।
-    </p>
-
-  </div>
-
-</div>
-
-</section>
-
-
-<!-- ================= WHY US ================= -->
-
-<section class="why-section">
-
-<div class="why-inner">
-
-  <div class="why-left">
-
-    <span>WHY CHOOSE US</span>
-
-    <h2>
-      बेहतर Design,<br>
-      बेहतर Printing
-    </h2>
-
-    <p>
-      Delhi Press - Sajad Printer'S में हमारा लक्ष्य
-      customer को professional design, अच्छी presentation
-      और आसान service देना है।
-    </p>
-
-  </div>
-
-
-  <div class="why-list">
-
-    <div class="why-box">
-      <strong>✓ Creative Design</strong>
-      <small>Modern और attractive designs</small>
-    </div>
-
-    <div class="why-box">
-      <strong>✓ Quality Work</strong>
-      <small>Printing पर विशेष ध्यान</small>
-    </div>
-
-    <div class="why-box">
-      <strong>✓ Fast Support</strong>
-      <small>Call और WhatsApp support</small>
-    </div>
-
-    <div class="why-box">
-      <strong>✓ Multiple Services</strong>
-      <small>एक ही जगह कई printing services</small>
-    </div>
-
-  </div>
-
-</div>
-
-</section>
-
-
-<!-- ================= CTA ================= -->
-
-<section class="cta">
-
-  <h2>आपको Printing करवानी है?</h2>
-
-  <p>
-    अपना design, photo या printing requirement
-    हमें WhatsApp पर भेजें।
-  </p>
-
-
-  <div class="hero-buttons"<a href="store.html"
-   class="btn store-btn">
-   🛍️ Design Store
-  </a>
-       style="justify-content:center;">
-
-    <a href="https://wa.me/919304509464?text=Hello%20Delhi%20Press,%20mujhe%20printing%20karwani%20hai."
-       target="_blank"
-       class="btn whatsapp-btn">
-
-       💬 WhatsApp Now
-
-    </a>
-
-
-    <a href="tel:+919304509464"
-       class="btn call-btn">
-
-       ☎ 9304509464
-
-    </a>
-
-  </div>
-
-</section>
-
-
-<!-- ================= FOOTER ================= -->
-
-<footer class="footer">
-
-<div class="footer-grid">
-
-
-  <div>
-
-    <div class="footer-brand">
-
-      <div class="footer-logo">
-        DP
-      </div>
-
-      <div>
-        <h2>DELHI PRESS</h2>
-        <p>Sajad Printer'S</p>
-      </div>
-
-    </div>
-
-    <p>
-      Professional Printing & Graphic Designing Services.
-      Wedding Card, Flex Banner, Visiting Card, Poster,
-      Calendar और बहुत कुछ।
-    </p>
-
-  </div>
-
-
-  <div>
-
-    <h3>Quick Links</h3>
-
-    <a href="index.html">Home</a>
-<a href="store.html">🛍️ Store</a>
-<a href="services.html">Services</a>
-<a href="gallery.html">Gallery</a>
-  </div>
-
-
-  <div>
-
-    <h3>Contact</h3>
-
-    <a href="tel:+919304509464">
-      ☎ 9304509464
-    </a>
-
-    <a href="https://wa.me/919304509464"
-       target="_blank">
-      💬 WhatsApp
-    </a>
-
-    <a href="contact.html">
-      📍 Get Direction
-    </a>
-
-  </div>
-
-</div>
-
-
-<div class="footer-bottom">
-
-  © 2026 Delhi Press - Sajad Printer'S
-  <br>
-  All Rights Reserved.
-
-</div>
-
-</footer>
-
-
-<!-- ================= SCRIPT ================= -->
-
-<script>
-
-function toggleMenu(){
-
-  const menu =
-  document.getElementById("navMenu");
-
-  const button =
-  document.getElementById("menuBtn");
-
-  menu.classList.toggle("active");
-
-  if(menu.classList.contains("active")){
-    button.innerHTML = "✕";
-  }else{
-    button.innerHTML = "☰";
-  }
-
-}
-
-
-/* Menu link click होने पर mobile menu बंद */
-
-document
-.querySelectorAll(".nav-menu a")
-.forEach(function(link){
-
-  link.addEventListener("click",function(){
-
-    document
-    .getElementById("navMenu")
-    .classList.remove("active");
-
-    document
-    .getElementById("menuBtn")
-    .innerHTML="☰";
-
-  });
-
-});
-
-</script>
-
+<body class="bg-gray-50 font-sans text-gray-800">
+
+    <!-- Top Navbar (Home Left, Login Right) -->
+    <nav class="bg-white shadow-sm py-3 px-4 md:px-6 flex justify-between items-center sticky top-0 z-50">
+        
+        <!-- Left Side: Home Button -->
+        <a href="index.html" class="bg-gray-100 text-gray-700 px-4 py-2 rounded-lg text-sm font-bold hover:bg-gray-200 transition flex items-center gap-2">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
+            Home
+        </a>
+
+        <!-- Right Side: Login Button -->
+        <a href="login.html" class="bg-blue-600 text-white px-5 py-2 rounded-lg text-sm font-bold hover:bg-blue-700 shadow-md transition flex items-center gap-2">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"></path></svg>
+            Login
+        </a>
+    </nav>
+
+    <!-- Main Store Content -->
+    <main class="max-w-6xl mx-auto px-4 py-10">
+        
+        <!-- BIG Header Section -->
+        <div class="text-center mb-10">
+            <span class="bg-blue-100 text-blue-800 text-xs px-4 py-1.5 rounded-full font-bold tracking-widest mb-4 inline-block uppercase">Delhi Press • Sajad Printer's</span>
+            <h1 class="text-4xl md:text-6xl font-extrabold text-gray-900 mb-4 tracking-tight">
+                🛍️ Design Store
+            </h1>
+            <p class="text-gray-500 max-w-lg mx-auto text-sm md:text-base">Apna pasandida design chunein aur sidhe WhatsApp par order karein.</p>
+        </div>
+
+        <!-- Search Bar -->
+        <div class="max-w-3xl mx-auto mb-6">
+            <div class="bg-white p-2 rounded-2xl shadow-sm border border-gray-200 flex items-center">
+                <svg class="w-6 h-6 text-gray-400 ml-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                <input type="text" id="searchInput" placeholder="Design search karein (jaise: Wedding, Poster)..." class="w-full px-4 py-3 outline-none text-gray-700 bg-transparent md:text-lg" onkeyup="searchProducts()">
+            </div>
+        </div>
+
+        <!-- Categories Menu (Scrollable) -->
+        <div class="max-w-4xl mx-auto flex gap-2 overflow-x-auto no-scrollbar justify-start md:justify-center pb-6 px-1 mb-6" id="categoryMenu">
+            <button onclick="filterCategory('All')" class="category-btn active px-6 py-2.5 rounded-full text-sm font-bold whitespace-nowrap bg-blue-600 text-white shadow-md transition-all">All Designs</button>
+            <button onclick="filterCategory('Muslim wedding card design')" class="category-btn px-6 py-2.5 rounded-full text-sm font-semibold whitespace-nowrap bg-white text-gray-600 border border-gray-200 hover:bg-gray-50 transition-all">Muslim Wedding Card</button>
+            <button onclick="filterCategory('Hindu Card Design')" class="category-btn px-6 py-2.5 rounded-full text-sm font-semibold whitespace-nowrap bg-white text-gray-600 border border-gray-200 hover:bg-gray-50 transition-all">Hindu Card</button>
+            <button onclick="filterCategory('Nikah Nama')" class="category-btn px-6 py-2.5 rounded-full text-sm font-semibold whitespace-nowrap bg-white text-gray-600 border border-gray-200 hover:bg-gray-50 transition-all">Nikah Nama</button>
+            <button onclick="filterCategory('Visiting card')" class="category-btn px-6 py-2.5 rounded-full text-sm font-semibold whitespace-nowrap bg-white text-gray-600 border border-gray-200 hover:bg-gray-50 transition-all">Visiting Card</button>
+            <button onclick="filterCategory('Poster')" class="category-btn px-6 py-2.5 rounded-full text-sm font-semibold whitespace-nowrap bg-white text-gray-600 border border-gray-200 hover:bg-gray-50 transition-all">Poster</button>
+        </div>
+
+        <!-- Products List Header -->
+        <div class="mb-6 flex justify-between items-end border-b border-gray-200 pb-3">
+            <h3 class="text-xl md:text-2xl font-bold text-gray-800">Hamare Designs</h3>
+            <span id="productCount" class="text-sm font-medium text-gray-500 bg-gray-200 px-3 py-1 rounded-full">Loading...</span>
+        </div>
+
+        <!-- Product Cards Grid -->
+        <div id="productsGrid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6 min-h-[40vh]">
+            <!-- Loading Message -->
+            <div class="col-span-full flex flex-col items-center justify-center py-20 text-gray-400">
+                <svg class="animate-spin h-10 w-10 mb-4 text-blue-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>
+                <p class="font-medium">Fetching designs from database...</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-center py-8 border-t-4 border-blue-600 mt-10">
+        <h4 class="text-white font-bold text-lg mb-1">Delhi Press - Sajad Printer's</h4>
+        <p class="text-gray-400 text-sm">Professional Printing & Graphic Designing</p>
+        <p class="text-gray-500 text-xs mt-4">© 2026 All Rights Reserved</p>
+    </footer>
+
+    <!-- Database Connection Javascript -->
+    <script>
+        // Supabase configuration
+        const SUPABASE_URL = 'https://vgblvfpzpxivwafuatcy.supabase.co';
+        const API_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZnYmx2ZnB6cHhpdndhZnVhdGN5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODU1MjA0MzQsImV4cCI6MjEwMTA5NjQzNH0.YX7aVMsiP5Lj9c29QE1qifjNo_CRiS7nQ1_VMC4hL-c';
+        const TABLE_NAME = 'products'; 
+        
+        // WhatsApp Number Configuration (Apna number dalein)
+        const WHATSAPP_NUMBER = '919304509464'; 
+
+        let allProducts = []; 
+
+        async function fetchProducts() {
+            try {
+                const response = await fetch(`${SUPABASE_URL}/rest/v1/${TABLE_NAME}?select=*&order=created_at.desc`, {
+                    headers: { 'apikey': API_KEY, 'Authorization': `Bearer ${API_KEY}` }
+                });
+                
+                if (!response.ok) throw new Error("Network error");
+                
+                allProducts = await response.json();
+                renderProducts(allProducts);
+            } catch (error) {
+                document.getElementById('productsGrid').innerHTML = `<div class="col-span-full text-center py-10 text-red-500 font-bold">Error loading products. Please check your connection.</div>`;
+            }
+        }
+
+        function renderProducts(productsToDisplay) {
+            const grid = document.getElementById('productsGrid');
+            const count = document.getElementById('productCount');
+            
+            count.innerText = `${productsToDisplay.length} Design${productsToDisplay.length !== 1 ? 's' : ''}`;
+
+            if(productsToDisplay.length === 0) {
+                grid.innerHTML = `<div class="col-span-full text-center py-20 text-gray-500 text-lg">No designs found.</div>`;
+                return;
+            }
+
+            grid.innerHTML = productsToDisplay.map(product => {
+                const msg = encodeURIComponent(`Hello Sajad Printer's! Mujhe ye design banwana hai: \n\nName: ${product.item_name}\nModel: ${product.card_model || 'N/A'}\nPrice: ₹${product.price}\n\nImage: ${product.image_url}`);
+                
+                return `
+                <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-xl transition-all duration-300 flex flex-col h-full group">
+                    <div class="relative overflow-hidden aspect-[4/5] bg-gray-100">
+                        <img src="${product.image_url}" alt="${product.item_name}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute top-2 right-2 bg-white/90 backdrop-blur text-gray-900 text-xs font-bold px-2 py-1 rounded shadow-sm border border-gray-100">
+                            ₹${product.price}
+                        </div>
+                    </div>
+                    
+                    <div class="p-4 flex flex-col flex-grow">
+                        <span class="text-[10px] font-black text-blue-600 uppercase tracking-wider mb-1 line-clamp-1">${product.category}</span>
+                        <h4 class="font-bold text-gray-900 mb-1 leading-tight line-clamp-2">${product.item_name}</h4>
+                        <p class="text-xs text-gray-500 mb-4 line-clamp-2">${product.description || 'Premium design card.'}</p>
+                        
+                        <div class="mt-auto pt-3 border-t border-gray-50">
+                            <a href="https://wa.me/${WHATSAPP_NUMBER}?text=${msg}" target="_blank" class="w-full bg-[#25D366] text-white py-2.5 rounded-xl text-sm font-bold shadow-md hover:bg-[#1ebe57] hover:shadow-lg transition-all flex items-center justify-center gap-2">
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 00-.57-.015c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                                Order Now
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                `;
+            }).join('');
+        }
+
+        function filterCategory(categoryName) {
+            const buttons = document.querySelectorAll('.category-btn');
+            buttons.forEach(btn => {
+                if(btn.innerText.includes(categoryName) || (categoryName === 'All' && btn.innerText === 'All Designs')) {
+                    btn.classList.add('bg-blue-600', 'text-white');
+                    btn.classList.remove('bg-white', 'text-gray-600');
+                } else {
+                    btn.classList.remove('bg-blue-600', 'text-white');
+                    btn.classList.add('bg-white', 'text-gray-600');
+                }
+            });
+
+            if(categoryName === 'All') {
+                renderProducts(allProducts);
+            } else {
+                const filtered = allProducts.filter(p => p.category === categoryName);
+                renderProducts(filtered);
+            }
+        }
+
+        function searchProducts() {
+            const query = document.getElementById('searchInput').value.toLowerCase();
+            const filtered = allProducts.filter(p => 
+                p.item_name.toLowerCase().includes(query) || 
+                (p.description && p.description.toLowerCase().includes(query)) ||
+                (p.category && p.category.toLowerCase().includes(query))
+            );
+            renderProducts(filtered);
+        }
+
+        window.onload = fetchProducts;
+    </script>
 </body>
 </html>
