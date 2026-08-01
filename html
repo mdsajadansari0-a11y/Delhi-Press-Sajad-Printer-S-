@@ -3,39 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Admin Login</title>
+<title>Admin Login | Sajad Printer'S</title>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <style>
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Arial,sans-serif;
-}
-
-body{
-height:100vh;
-display:flex;
-justify-content:center;
-align-items:center;
-background:linear-gradient(135deg,#0f172a,#1e3a8a);
-}
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Sajad Printer Admin Login</title>
-
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-
-<style>
-
 *{
 margin:0;
 padding:0;
@@ -104,9 +76,7 @@ color:red;
 text-align:center;
 display:none;
 }
-
 </style>
-
 </head>
 
 <body>
@@ -124,43 +94,31 @@ display:none;
 <button onclick="login()">Login</button>
 
 <div id="error"></div>
-</div><script>
 
-const SUPABASE_URL =
-"https://vgblvfpzpxivwafuatcy.supabase.co";
+</div>
 
-const SUPABASE_KEY =
-"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZnYmx2ZnB6cHhpdndhZnVhdGN5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODU1MjA0MzQsImV4cCI6MjEwMTA5NjQzNH0.YX7aVMsiP5Lj9c29QE1qifjNo_CRiS7nQ1_VMC4hL-c";
-
-const supabase = window.supabase.createClient(
-SUPABASE_URL,
-SUPABASE_KEY
+<script>const supabase = window.supabase.createClient(
+"https://vgblvfpzpxivwafuatcy.supabase.co",
+"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZnYmx2ZnB6cHhpdndhZnVhdGN5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODU1MjA0MzQsImV4cCI6MjEwMTA5NjQzNH0.YX7aVMsiP5Lj9c29QE1qifjNo_CRiS7nQ1_VMC4hL-c"
 );
 
 async function login(){
 
 const email=document.getElementById("email").value.trim();
 const password=document.getElementById("password").value;
-const error=document.getElementById("error");
+const errorBox=document.getElementById("error");
 
-error.style.display="none";
+errorBox.style.display="none";
 
-const { error:loginError } =
-await supabase.auth.signInWithPassword({
-
+const { error } = await supabase.auth.signInWithPassword({
 email:email,
-
 password:password
-
 });
 
-if(loginError){
-
-error.style.display="block";
-error.innerHTML=loginError.message;
-
+if(error){
+errorBox.style.display="block";
+errorBox.innerHTML=error.message;
 return;
-
 }
 
 window.location.href="admin.html";
@@ -170,7 +128,7 @@ window.location.href="admin.html";
 const { data } = await supabase.auth.getSession();
 
 if(data.session){
-window.location.href="admin.html";
+window.location.href = "admin.html";
 }
 
 }
