@@ -23,18 +23,47 @@ align-items:center;
 background:linear-gradient(135deg,#0f172a,#1e3a8a);
 }
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Sajad Printer Admin Login</title>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+background:linear-gradient(135deg,#0f172a,#1e3a8a);
+}
+
 .login-box{
 width:100%;
-max-width:400px;
+max-width:420px;
 background:#fff;
 padding:30px;
-border-radius:12px;
-box-shadow:0 10px 30px rgba(0,0,0,.3);
+border-radius:15px;
+box-shadow:0 15px 35px rgba(0,0,0,.25);
 }
 
 h2{
 text-align:center;
 margin-bottom:20px;
+color:#0f172a;
 }
 
 label{
@@ -46,21 +75,27 @@ font-weight:bold;
 input{
 width:100%;
 padding:12px;
-margin-top:5px;
+margin-top:6px;
 border:1px solid #ccc;
-border-radius:6px;
+border-radius:8px;
+font-size:15px;
 }
 
 button{
 width:100%;
 margin-top:20px;
-padding:12px;
+padding:13px;
 border:none;
-border-radius:6px;
+border-radius:8px;
 background:#0f62fe;
 color:#fff;
 font-size:16px;
+font-weight:bold;
 cursor:pointer;
+}
+
+button:hover{
+background:#0047c7;
 }
 
 #error{
@@ -69,9 +104,11 @@ color:red;
 text-align:center;
 display:none;
 }
+
 </style>
 
 </head>
+
 <body>
 
 <div class="login-box">
@@ -79,50 +116,58 @@ display:none;
 <h2>Admin Login</h2>
 
 <label>Email</label>
-<input id="email" type="email">
+<input type="email" id="email" placeholder="Enter Email">
 
 <label>Password</label>
-<input id="password" type="password">
+<input type="password" id="password" placeholder="Enter Password">
 
 <button onclick="login()">Login</button>
 
 <div id="error"></div>
+</div><script>
 
-</div>
+const SUPABASE_URL =
+"https://vgblvfpzpxivwafuatcy.supabase.co";
 
-<script>
+const SUPABASE_KEY =
+"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZnYmx2ZnB6cHhpdndhZnVhdGN5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODU1MjA0MzQsImV4cCI6MjEwMTA5NjQzNH0.YX7aVMsiP5Lj9c29QE1qifjNo_CRiS7nQ1_VMC4hL-c";
 
 const supabase = window.supabase.createClient(
-"https://vgblvfpzpxivwafuatcy.supabase.co",
-"YOUR_SUPABASE_ANON_KEY"
+SUPABASE_URL,
+SUPABASE_KEY
 );
 
 async function login(){
 
-const email=document.getElementById("email").value;
+const email=document.getElementById("email").value.trim();
 const password=document.getElementById("password").value;
 const error=document.getElementById("error");
 
 error.style.display="none";
 
-const { error:loginError } = await supabase.auth.signInWithPassword({
-email,
-password
+const { error:loginError } =
+await supabase.auth.signInWithPassword({
+
+email:email,
+
+password:password
+
 });
 
 if(loginError){
+
 error.style.display="block";
 error.innerHTML=loginError.message;
+
 return;
+
 }
 
 window.location.href="admin.html";
 
-}
+}async function checkSession(){
 
-async function checkSession(){
-
-const { data }=await supabase.auth.getSession();
+const { data } = await supabase.auth.getSession();
 
 if(data.session){
 window.location.href="admin.html";
