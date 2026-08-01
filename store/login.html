@@ -200,8 +200,8 @@ async function login() {
   window.location.href = "admin.html";
 }
 
-}// अगर पहले से login है तो सीधे admin.html पर भेज दो
-async function checkSession() {
+
+asyconst password = document.getElementById(\"password\").value;nc function checkSession() {
     const { data } = await supabase.auth.getSession();
 
     if (data.session) {
