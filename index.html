@@ -1,273 +1,333 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Delhi Press - Sajad Printer's</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Design Store - Premium Printing Services</title>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        .no-scrollbar::-webkit-scrollbar { display: none; }
-        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-        .bg-hero-pattern { background: linear-gradient(135deg, #4f46e5 0%, #d946ef 50%, #f43f5e 100%); }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        body {
+            background-color: #f9f9f9;
+            color: #333;
+        }
+        /* Top Header */
+        .top-header {
+            background-color: #fff;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #ddd;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .menu-btn {
+            font-size: 20px;
+            cursor: pointer;
+            background: none;
+            border: none;
+        }
+        .logo {
+            font-weight: bold;
+            font-size: 18px;
+            color: #b12704;
+        }
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            font-size: 18px;
+            cursor: pointer;
+        }
+        .header-right i {
+            color: #333;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #ff758c 0%, #ff7eb3 100%);
+            text-align: center;
+            padding: 40px 20px;
+            color: white;
+        }
+        .hero h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        .hero p {
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+        .search-box {
+            display: flex;
+            justify-content: center;
+            max-width: 500px;
+            margin: 0 auto;
+            background: white;
+            padding: 5px 15px;
+            border-radius: 25px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .search-box input {
+            width: 100%;
+            border: none;
+            outline: none;
+            padding: 8px;
+            font-size: 14px;
+        }
+        .search-box button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: #777;
+        }
+
+        /* Filter & Sort Bar */
+        .filter-sort-bar {
+            background-color: #8b0000;
+            color: white;
+            text-align: center;
+            padding: 12px;
+            font-weight: bold;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            margin: 15px 0;
+        }
+
+        /* Product Grid */
+        .product-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            padding: 10px;
+        }
+        .product-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .product-badge {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: #e53935;
+            color: white;
+            font-size: 10px;
+            padding: 3px 8px;
+            border-radius: 3px;
+        }
+        .product-badge.sale {
+            background: #ff9800;
+        }
+        .product-img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+        .product-info {
+            padding: 10px;
+        }
+        .product-title {
+            font-size: 13px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
+            height: 35px;
+            overflow: hidden;
+        }
+        .product-price {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+        }
+        .old-price {
+            text-decoration: line-through;
+            color: #888;
+            font-size: 12px;
+        }
+        .new-price {
+            color: #d32f2f;
+            font-weight: bold;
+        }
+        .add-to-cart-btn {
+            background: #b71c1c;
+            color: white;
+            border: none;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            cursor: pointer;
+        }
+
+        /* Floating WhatsApp Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 70px;
+            right: 20px;
+            background-color: #25d366;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            z-index: 100;
+            text-decoration: none;
+        }
+
+        /* Bottom Navigation Bar */
+        .bottom-nav {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: white;
+            display: flex;
+            justify-content: space-around;
+            padding: 10px 0;
+            border-top: 1px solid #ddd;
+            z-index: 99;
+        }
+        .nav-item {
+            text-align: center;
+            color: #555;
+            font-size: 11px;
+            text-decoration: none;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 3px;
+        }
+        .nav-item i {
+            font-size: 18px;
+        }
+        .nav-item.active {
+            color: #b71c1c;
+        }
     </style>
 </head>
-<body class="bg-gray-50 font-sans text-gray-800">
+<body>
 
-    <!-- Top Navbar -->
-    <nav class="bg-white shadow-md py-3 px-4 md:px-6 flex justify-between items-center sticky top-0 z-40 border-b-4 border-fuchsia-500">
-        <a href="#" class="flex items-center gap-2">
-            <div class="w-10 h-10 bg-gradient-to-br from-fuchsia-600 to-indigo-600 text-white rounded-lg flex items-center justify-center font-black text-xl shadow-lg">DP</div>
-            <div>
-                <h1 class="font-extrabold text-gray-900 leading-none text-lg">DELHI PRESS</h1>
-                <p class="text-[10px] text-fuchsia-600 font-bold uppercase tracking-wider">Sajad Printer's</p>
-            </div>
-        </a>
-        <div class="flex gap-3">
-            <a href="#store" class="hidden md:block text-gray-600 hover:text-fuchsia-600 font-bold px-3 py-2">Store</a>
-            <a href="#about" class="hidden md:block text-gray-600 hover:text-fuchsia-600 font-bold px-3 py-2">About</a>
-            <a href="#location" class="hidden md:block text-gray-600 hover:text-fuchsia-600 font-bold px-3 py-2">Location</a>
-            <a href="admin.html" class="bg-indigo-600 text-white px-5 py-2 rounded-xl text-sm font-bold hover:bg-indigo-700 shadow-md transition">Admin Login</a>
+    <!-- Top Header -->
+    <header class="top-header">
+        <div class="header-left">
+            <button class="menu-btn"><i class="fa-solid fa-bars"></i></button>
+            <div class="logo">Delhi Press</div>
         </div>
-    </nav>
+        <div class="header-right">
+            <i class="fa-solid fa-location-dot" style="font-size: 16px;"></i>
+            <i class="fa-solid fa-search"></i>
+            <i class="fa-regular fa-heart"></i>
+            <i class="fa-solid fa-shopping-cart"></i>
+            <i class="fa-regular fa-user"></i>
+        </div>
+    </header>
 
     <!-- Hero Section -->
-    <div class="bg-hero-pattern pt-16 pb-24 px-4 text-center relative z-10 shadow-inner">
-        <span class="bg-white/20 text-white text-xs px-5 py-1.5 rounded-full font-bold tracking-widest mb-6 inline-block uppercase backdrop-blur-sm border border-white/30">Premium Printing Services</span>
-        <h2 class="text-4xl md:text-6xl font-extrabold text-white mb-4 tracking-tight drop-shadow-lg">
-            Welcome to <span class="text-yellow-300">Design Store</span>
-        </h2>
-        <p class="text-indigo-100 max-w-2xl mx-auto text-sm md:text-lg font-medium drop-shadow-md">
-            Wedding Cards, Flex, Banners, and Custom Printing. Apna design chunein aur ghar bethe order karein!
-        </p>
-    </div>
-
-    <!-- Store Section -->
-    <main id="store" class="max-w-6xl mx-auto px-4 py-12 -mt-10 relative z-20">
-        
-        <!-- Search Bar -->
-        <div class="max-w-3xl mx-auto mb-8">
-            <div class="bg-white p-2 rounded-2xl shadow-xl border border-gray-100 flex items-center ring-4 ring-indigo-50">
-                <svg class="w-6 h-6 text-fuchsia-400 ml-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
-                <input type="text" id="searchInput" placeholder="Design search karein (jaise: Wedding, Poster)..." class="w-full px-4 py-3 outline-none text-gray-700 bg-transparent md:text-lg font-medium" onkeyup="filterAndSearchProducts()">
-            </div>
-        </div>
-
-        <!-- Categories Menu -->
-        <div class="max-w-4xl mx-auto flex gap-3 overflow-x-auto no-scrollbar justify-start md:justify-center pb-6 px-1 mb-8" id="categoryMenu">
-            <button onclick="filterCategory('All')" class="category-btn active px-6 py-2.5 rounded-full text-sm font-bold whitespace-nowrap bg-gradient-to-r from-fuchsia-600 to-indigo-600 text-white shadow-lg transition-all transform hover:scale-105">All Designs</button>
-            <button onclick="filterCategory('Wedding Card')" class="category-btn px-6 py-2.5 rounded-full text-sm font-bold whitespace-nowrap bg-white text-gray-700 border border-gray-200 hover:bg-fuchsia-50 hover:text-fuchsia-600 shadow-sm transition-all">Wedding Card</button>
-            <button onclick="filterCategory('Visiting Card')" class="category-btn px-6 py-2.5 rounded-full text-sm font-bold whitespace-nowrap bg-white text-gray-700 border border-gray-200 hover:bg-fuchsia-50 hover:text-fuchsia-600 shadow-sm transition-all">Visiting Card</button>
-            <button onclick="filterCategory('Flex Banner')" class="category-btn px-6 py-2.5 rounded-full text-sm font-bold whitespace-nowrap bg-white text-gray-700 border border-gray-200 hover:bg-fuchsia-50 hover:text-fuchsia-600 shadow-sm transition-all">Flex Banner</button>
-        </div>
-
-        <!-- Products Grid -->
-        <div id="productsGrid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6 min-h-[40vh]">
-            <div class="col-span-full flex flex-col items-center justify-center py-20 text-fuchsia-500">
-                <p class="font-bold text-xl animate-pulse">Designs load ho rahe hain...</p>
-            </div>
-        </div>
-    </main>
-
-    <!-- About Us Section -->
-    <section id="about" class="bg-white py-16 px-4 border-y border-gray-200 mt-10">
-        <div class="max-w-4xl mx-auto text-center">
-            <h2 class="text-3xl font-extrabold text-gray-900 mb-6"><span class="text-fuchsia-600">Humare Baare Mein</span> (About Us)</h2>
-            <p class="text-gray-600 text-lg leading-relaxed mb-8">
-                <strong>Delhi Press (Sajad Printer's)</strong> aapke sabhi printing needs ke liye ek bharosemand naam hai. Hum pichle kai saalon se behtareen quality ke Wedding Cards, Flex Banners, Visiting Cards, aur Posters design aur print kar rahe hain. Hamara maqsad aapke special moments ko apni printing se aur bhi khoobsurat banana hai.
-            </p>
+    <section class="hero">
+        <h1>Welcome to Design Store</h1>
+        <p>Wedding Cards, Flex, Banners, and Custom Printing.</p>
+        <div class="search-box">
+            <input type="text" placeholder="Search wedding cards, poster...">
+            <button><i class="fa-solid fa-search"></i></button>
         </div>
     </section>
 
-    <!-- Location & Contact Section -->
-    <section id="location" class="py-16 px-4 bg-gray-50">
-        <div class="max-w-5xl mx-auto flex flex-col md:flex-row gap-10 bg-white p-6 md:p-8 rounded-3xl shadow-xl border border-gray-100 items-center">
-            <div class="md:w-1/2 flex flex-col justify-center">
-                <h2 class="text-3xl font-extrabold text-gray-900 mb-4">Hamara <span class="text-indigo-600">Location</span></h2>
-                <p class="text-gray-600 mb-6">Apne orders lene ya designs dekhne ke liye aap hamari dukan par bhi aa sakte hain.</p>
-                
-                <div class="flex items-start gap-4 mb-4">
-                    <div class="bg-indigo-100 p-3 rounded-full text-indigo-600">📍</div>
-                    <div>
-                        <h4 class="font-bold text-gray-900">Address</h4>
-                        <p class="text-gray-600 text-sm">Delhi Press, Sajad Printer's, Idgah More, Chhaytar, Phukbandi, Jharkhand 815352</p>
-                    </div>
-                </div>
-                <div class="flex items-start gap-4 mb-6">
-                    <div class="bg-fuchsia-100 p-3 rounded-full text-fuchsia-600">📞</div>
-                    <div>
-                        <h4 class="font-bold text-gray-900">Contact</h4>
-                        <p class="text-gray-600 text-sm">+91-9304509464 (Mon-Sat, 10 AM to 8 PM)</p>
-                    </div>
+    <!-- Filter and Sort Bar -->
+    <div class="filter-sort-bar">
+        <i class="fa-solid fa-sliders"></i> FILTER AND SORT
+    </div>
+
+    <!-- Product Grid -->
+    <div class="product-container">
+        <!-- Product 1 -->
+        <div class="product-card">
+            <span class="product-badge">-50%</span>
+            <img src="https://via.placeholder.com/150" alt="Card" class="product-img">
+            <div class="product-info">
+                <div class="product-title">Lavender Floral Designer Padded Invitation Card</div>
+                <div class="product-price">
+                    <span class="new-price">Rs. 100.00</span>
+                    <span class="old-price">Rs. 200.00</span>
                 </div>
             </div>
-            
-            <!-- Map Action Card -->
-            <div class="md:w-1/2 w-full bg-gradient-to-br from-indigo-50 to-fuchsia-50 p-8 rounded-2xl border border-indigo-100 text-center flex flex-col items-center justify-center">
-                <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center text-3xl shadow-md mb-4 text-fuchsia-600">🗺️</div>
-                <h3 class="font-extrabold text-xl text-gray-900 mb-2">Visit Our Shop</h3>
-                <p class="text-gray-600 text-sm mb-6">Google Maps par direct rasta dekhne ke liye niche diye gaye button par click karein.</p>
-                <a href="https://share.google/6xHdqVgExqIHDIAGF" target="_blank" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3.5 px-6 rounded-xl shadow-lg transition flex items-center justify-center gap-2">
-                    <span>Open in Google Maps</span>
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
-                </a>
-            </div>
+            <button class="add-to-cart-btn"><i class="fa-solid fa-cart-shopping"></i></button>
         </div>
-    </section>
 
-    <!-- Footer -->
-    <footer class="bg-gray-900 text-center py-10 border-t-4 border-indigo-600">
-        <h4 class="text-white font-black text-2xl mb-2">DELHI PRESS</h4>
-        <p class="text-fuchsia-400 font-bold mb-4">Sajad Printer's</p>
-        <p class="text-gray-400 text-sm">Professional Printing & Graphic Designing</p>
-        <p class="text-gray-600 text-xs mt-6">© 2026 All Rights Reserved.</p>
-    </footer>
-
-    <!-- CHECKOUT MODAL -->
-    <div id="checkoutModal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 hidden flex justify-center items-center p-4">
-        <div class="bg-white w-full max-w-md rounded-3xl overflow-hidden shadow-2xl">
-            <div class="bg-gradient-to-r from-indigo-600 to-fuchsia-600 p-4 text-white flex justify-between items-center">
-                <h3 class="font-bold text-lg">🛍️ Complete Your Order</h3>
-                <button onclick="closeCheckout()" class="text-white bg-white/20 p-1.5 rounded-full">✕</button>
-            </div>
-            <div class="p-5 bg-gray-50 border-b border-gray-200 flex gap-4 items-center">
-                <img id="checkoutImg" src="" class="w-16 h-16 object-cover rounded-xl shadow-sm">
-                <div>
-                    <h4 id="checkoutName" class="font-bold text-gray-900">Product Name</h4>
-                    <p id="checkoutPrice" class="text-lg font-black text-fuchsia-600">₹0</p>
+        <!-- Product 2 -->
+        <div class="product-card">
+            <span class="product-badge sale">Sale</span>
+            <img src="https://via.placeholder.com/150" alt="Card" class="product-img">
+            <div class="product-info">
+                <div class="product-title">Cream Floral Single Sheet Invitation Card</div>
+                <div class="product-price">
+                    <span class="new-price">Rs. 13.50</span>
+                    <span class="old-price">Rs. 15.00</span>
                 </div>
             </div>
-            <div class="p-5 space-y-3">
-                <input type="text" id="custName" class="w-full bg-gray-50 border border-gray-300 px-4 py-2 rounded-xl" placeholder="Aapka Naam">
-                <input type="number" id="custPhone" class="w-full bg-gray-50 border border-gray-300 px-4 py-2 rounded-xl" placeholder="Mobile Number">
-                <textarea id="custAddress" rows="2" class="w-full bg-gray-50 border border-gray-300 px-4 py-2 rounded-xl" placeholder="Delivery Pata (Address)"></textarea>
-            </div>
-            <div class="p-5 bg-gray-50">
-                <button onclick="submitOrderWhatsApp()" class="w-full bg-[#25D366] text-white py-3 rounded-xl font-bold shadow-md hover:bg-[#1ebe57] transition">
-                    Send Order on WhatsApp 💬
-                </button>
-            </div>
+            <button class="add-to-cart-btn"><i class="fa-solid fa-cart-shopping"></i></button>
         </div>
     </div>
 
-    <!-- Scripts -->
-    <script>
-        const SUPABASE_URL = 'https://vgblvfpzpxivwafuatcy.supabase.co';
-        const API_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZnYmx2ZnB6cHhpdndhZnVhdGN5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODU1MjA0MzQsImV4cCI6MjEwMTA5NjQzNH0.YX7aVMsiP5Lj9c29QE1qifjNo_CRiS7nQ1_VMC4hL-c';
-        const WHATSAPP_NUMBER = '919304509464';
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/" class="whatsapp-float" target="_blank">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
 
-        let allProducts = [];
-        let currentCategory = 'All';
+    <!-- Bottom Navigation Bar -->
+    <nav class="bottom-nav">
+        <a href="#" class="nav-item active">
+            <i class="fa-solid fa-house"></i>
+            <span>HOME</span>
+        </a>
+        <a href="#" class="nav-item">
+            <i class="fa-solid fa-bars"></i>
+            <span>MENU</span>
+        </a>
+        <a href="#" class="nav-item">
+            <i class="fa-solid fa-search"></i>
+            <span>SEARCH</span>
+        </a>
+        <a href="#" class="nav-item">
+            <i class="fa-solid fa-cart-shopping"></i>
+            <span>CART</span>
+        </a>
+        <a href="#" class="nav-item">
+            <i class="fa-regular fa-user"></i>
+            <span>ACCOUNT</span>
+        </a>
+    </nav>
 
-        async function loadAllProducts() {
-            let supabaseProducts = [];
-            try {
-                const response = await fetch(`${SUPABASE_URL}/rest/v1/products?select=*&order=created_at.desc`, {
-                    headers: { 'apikey': API_KEY, 'Authorization': `Bearer ${API_KEY}` }
-                });
-                if (response.ok) {
-                    supabaseProducts = await response.json();
-                    supabaseProducts = supabaseProducts.map(p => ({
-                        id: p.id,
-                        name: p.item_name,
-                        category: p.category,
-                        price: p.price,
-                        desc: p.description,
-                        image: p.image_url
-                    }));
-                }
-            } catch (e) { console.log("Supabase fetch error"); }
-
-            let localProducts = JSON.parse(localStorage.getItem('adminCards')) || [];
-            allProducts = [...localProducts, ...supabaseProducts];
-            renderProducts(allProducts);
-        }
-
-        function renderProducts(products) {
-            const grid = document.getElementById('productsGrid');
-            if(products.length === 0) {
-                grid.innerHTML = `<div class="col-span-full text-center py-20 text-gray-500 font-bold">No designs found.</div>`;
-                return;
-            }
-
-            grid.innerHTML = products.map((product, index) => `
-                <div class="bg-white rounded-3xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-2xl transition-all duration-300 flex flex-col h-full group">
-                    <div class="relative overflow-hidden aspect-[4/5] bg-gray-100">
-                        <img src="${product.image || 'https://via.placeholder.com/250'}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
-                        <div class="absolute top-3 right-3 bg-gradient-to-r from-indigo-600 to-fuchsia-600 text-white text-xs font-black px-3 py-1.5 rounded-full shadow-lg">
-                            ₹${product.price}
-                        </div>
-                    </div>
-                    <div class="p-5 flex flex-col flex-grow">
-                        <span class="text-[10px] font-black text-indigo-500 uppercase tracking-wider mb-1">${product.category}</span>
-                        <h4 class="font-bold text-gray-900 text-lg mb-1 leading-tight line-clamp-1">${product.name}</h4>
-                        <p class="text-xs text-gray-500 mb-4 line-clamp-2">${product.desc || 'Premium design card.'}</p>
-                        <div class="mt-auto">
-                            <button onclick="openCheckout(${index})" class="w-full bg-gray-900 text-white py-3 rounded-xl text-sm font-bold shadow-md hover:bg-fuchsia-600 transition-all">
-                                🛒 Buy Now
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            `).join('');
-        }
-
-        function filterCategory(category) {
-            currentCategory = category;
-            document.querySelectorAll('.category-btn').forEach(btn => {
-                btn.classList.remove('bg-gradient-to-r', 'from-fuchsia-600', 'to-indigo-600', 'text-white', 'shadow-lg');
-                btn.classList.add('bg-white', 'text-gray-700', 'border');
-            });
-            event.target.classList.add('bg-gradient-to-r', 'from-fuchsia-600', 'to-indigo-600', 'text-white', 'shadow-lg');
-            event.target.classList.remove('bg-white', 'text-gray-700', 'border');
-
-            filterAndSearchProducts();
-        }
-
-        function filterAndSearchProducts() {
-            const query = document.getElementById('searchInput').value.toLowerCase();
-            let filtered = allProducts;
-
-            if (currentCategory !== 'All') {
-                filtered = filtered.filter(p => p.category.toLowerCase() === currentCategory.toLowerCase());
-            }
-
-            if (query) {
-                filtered = filtered.filter(p => p.name.toLowerCase().includes(query) || p.category.toLowerCase().includes(query));
-            }
-
-            renderProducts(filtered);
-        }
-
-        let selectedIndex = null;
-        function openCheckout(index) {
-            selectedIndex = index;
-            const product = allProducts[index];
-            document.getElementById('checkoutName').innerText = product.name;
-            document.getElementById('checkoutPrice').innerText = `₹${product.price}`;
-            document.getElementById('checkoutImg').src = product.image;
-            document.getElementById('checkoutModal').classList.remove('hidden');
-        }
-
-        function closeCheckout() {
-            document.getElementById('checkoutModal').classList.add('hidden');
-        }
-
-        function submitOrderWhatsApp() {
-            const name = document.getElementById('custName').value;
-            const phone = document.getElementById('custPhone').value;
-            const address = document.getElementById('custAddress').value;
-
-            if(!name || !phone || !address) {
-                alert("Kripya sabhi details bharein!");
-                return;
-            }
-
-            const product = allProducts[selectedIndex];
-            const msg = `*NEW ORDER - DELHI PRESS*%0A%0A*Customer:*%0AName: ${name}%0APhone: ${phone}%0AAddress: ${address}%0A%0A*Product:*%0AItem: ${product.name}%0APrice: ₹${product.price}`;
-            window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${msg}`, '_blank');
-        }
-
-        window.onload = loadAllProducts;
-    </script>
 </body>
 </html>
