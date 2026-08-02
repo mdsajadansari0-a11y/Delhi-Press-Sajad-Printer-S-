@@ -59,7 +59,7 @@
         const SUPABASE_URL = 'https://vgblvfpzpxivwafuatcy.supabase.co';
         const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZnYmx2ZnB6cHhpdndhZnVhdGN5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODU1MjA0MzQsImV4cCI6MjEwMTA5NjQzNH0.YX7aVMsiP5Lj9c29QE1qifjNo_CRiS7nQ1_VMC4hL-c';
 
-        // Yahan variable ka naam 'supabase' se badal kar 'dbClient' kar diya hai taaki conflict na ho
+        // Conflict avoid karne ke liye variable ka naam 'dbClient' rakha hai
         const dbClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
         document.getElementById('toSignup').onclick = () => {
