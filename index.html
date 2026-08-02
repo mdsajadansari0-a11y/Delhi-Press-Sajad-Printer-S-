@@ -60,7 +60,7 @@
             text-decoration: none;
         }
 
-        /* Popup Menu Styles */
+        /* Popup Menu Drawer */
         .menu-overlay {
             display: none;
             position: fixed;
@@ -161,7 +161,13 @@
             color: #777;
         }
 
-        /* Filter & Sort Bar */
+        /* Filter & Sort Bar (Interactive Popup/Toggle) */
+        .filter-sort-container {
+            position: relative;
+            max-width: 500px;
+            margin: 15px auto;
+            padding: 0 10px;
+        }
         .filter-sort-bar {
             background-color: #8b0000;
             color: white;
@@ -173,7 +179,41 @@
             justify-content: center;
             align-items: center;
             gap: 10px;
-            margin: 15px 0;
+            border-radius: 4px;
+        }
+        .filter-dropdown {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 10px;
+            right: 10px;
+            background: white;
+            border: 1px solid #ddd;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            z-index: 100;
+            padding: 15px;
+            border-radius: 4px;
+            margin-top: 5px;
+        }
+        .filter-dropdown.active {
+            display: block;
+        }
+        .filter-group {
+            margin-bottom: 10px;
+        }
+        .filter-group label {
+            font-size: 13px;
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+            color: #444;
+        }
+        .filter-group select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 13px;
         }
 
         /* Product Grid */
@@ -336,7 +376,7 @@
         </div>
     </header>
 
-    <!-- Popup Menu Drawer -->
+    <!-- Popup Menu Drawer (Public/Main menu options only) -->
     <div class="menu-overlay" id="menuOverlay"></div>
     <div class="menu-drawer" id="menuDrawer">
         <div class="menu-header">
@@ -349,7 +389,6 @@
             <li><a href="flex-banner.html"><i class="fa-solid fa-image" style="margin-right: 10px;"></i> Flex & Banners</a></li>
             <li><a href="visiting-card.html"><i class="fa-solid fa-id-card" style="margin-right: 10px;"></i> Visiting Cards</a></li>
             <li><a href="all-cards.html"><i class="fa-solid fa-book-open" style="margin-right: 10px;"></i> Nikah Cards</a></li>
-            <li><a href="all-cards.html"><i class="fa-solid fa-star" style="margin-right: 10px;"></i> Aqiqa Cards</a></li>
             <li><a href="store.html"><i class="fa-solid fa-store" style="margin-right: 10px;"></i> Store</a></li>
             <li><a href="contact.html"><i class="fa-solid fa-phone" style="margin-right: 10px;"></i> Contact Us</a></li>
             <li><a href="login.html"><i class="fa-solid fa-right-to-bracket" style="margin-right: 10px;"></i> Login / Account</a></li>
@@ -366,9 +405,30 @@
         </div>
     </section>
 
-    <!-- Filter and Sort Bar -->
-    <div class="filter-sort-bar" onclick="alert('Filter and Sort options will appear here.')">
-        <i class="fa-solid fa-sliders"></i> FILTER AND SORT
+    <!-- Filter and Sort Bar (Working Toggle Dropdown) -->
+    <div class="filter-sort-container">
+        <div class="filter-sort-bar" id="filterBarToggle">
+            <i class="fa-solid fa-sliders"></i> FILTER AND SORT
+        </div>
+        <div class="filter-dropdown" id="filterDropdownMenu">
+            <div class="filter-group">
+                <label>Sort By Price:</label>
+                <select id="sortPrice">
+                    <option value="default">Default</option>
+                    <option value="low-high">Low to High</option>
+                    <option value="high-low">High to Low</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label>Category:</label>
+                <select id="filterCategory">
+                    <option value="all">All Products</option>
+                    <option value="wedding">Wedding Cards</option>
+                    <option value="flex">Flex & Banners</option>
+                    <option value="visiting">Visiting Cards</option>
+                </select>
+            </div>
+        </div>
     </div>
 
     <!-- Product Grid -->
@@ -438,7 +498,7 @@
         </a>
     </nav>
 
-    <!-- JavaScript to handle Popup Menu -->
+    <!-- JavaScript to handle Popup Menu & Filter Toggle -->
     <script>
         const openMenu = document.getElementById('openMenu');
         const bottomMenuBtn = document.getElementById('bottomMenuBtn');
@@ -458,6 +518,14 @@
         });
         closeMenu.addEventListener('click', toggleMenu);
         menuOverlay.addEventListener('click', toggleMenu);
+
+        // Filter and Sort toggle dropdown script
+        const filterBarToggle = document.getElementById('filterBarToggle');
+        const filterDropdownMenu = document.getElementById('filterDropdownMenu');
+
+        filterBarToggle.addEventListener('click', () => {
+            filterDropdownMenu.classList.toggle('active');
+        });
     </script>
 
 </body>
