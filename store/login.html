@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Authentication - MyStore</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Supabase JS CDN Include kiya gaya hai -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 <body class="bg-gray-50 h-screen flex items-center justify-center font-sans selection:bg-indigo-200">
 
@@ -36,7 +38,7 @@
             </form>
             
             <p class="mt-8 text-center text-sm text-gray-500">
-                Don't have an account? <button onclick="toggleForm('signup')" class="text-indigo-600 font-bold hover:underline focus:outline-none">Create one</button>
+                Don't have an account? <button type="button" onclick="toggleForm('signup')" class="text-indigo-600 font-bold hover:underline focus:outline-none">Create one</button>
             </p>
         </div>
 
@@ -68,7 +70,7 @@
             </form>
             
             <p class="mt-8 text-center text-sm text-gray-500">
-                Already have an account? <button onclick="toggleForm('login')" class="text-indigo-600 font-bold hover:underline focus:outline-none">Sign In</button>
+                Already have an account? <button type="button" onclick="toggleForm('login')" class="text-indigo-600 font-bold hover:underline focus:outline-none">Sign In</button>
             </p>
         </div>
 
@@ -78,12 +80,15 @@
         const SUPABASE_URL = 'https://vgblvfpzpxivwafuatcy.supabase.co';
         const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZnYmx2ZnB6cHhpdndhZnVhdGN5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODU1MjA0MzQsImV4cCI6MjEwMTA5NjQzNH0.YX7aVMsiP5Lj9c29QE1qifjNo_CRiS7nQ1_VMC4hL-c';
 
+        // Supabase client properly initialize kiya gaya hai taaki duplicate declaration na ho
+        const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
         // --- Toggle Between Login and Signup ---
         function toggleForm(type) {
             const loginSec = document.getElementById('loginSection');
             const signupSec = document.getElementById('signupSection');
             const msgBox = document.getElementById('messageBox');
-            msgBox.classList.add('hidden'); // clear messages
+            msgBox.classList.add('hidden');
 
             if(type === 'signup') {
                 loginSec.classList.add('hidden');
@@ -115,17 +120,15 @@
             const password = document.getElementById('loginPassword').value;
 
             try {
-                const response = await fetch(`${SUPABASE_URL}/auth/v1/token?grant_type=password`, {
-                    method: 'POST',
-                    headers: { 'apikey': SUPABASE_KEY, 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ email, password })
+                const { data, error } = await supabase.auth.signInWithPassword({
+                    email: email,
+                    password: password,
                 });
 
-                const data = await response.json();
-                if (!response.ok) throw new Error(data.error_description || 'Login failed');
+                if (error) throw error;
 
-                localStorage.setItem('sb_token', data.access_token);
-                window.location.href = 'admin.html'; // Redirect to dashboard
+                localStorage.setItem('sb_token', data.session.access_token);
+                window.location.href = 'admin.html';
             } catch (err) {
                 showMessage(err.message, true);
                 btn.innerHTML = '<span>Sign In</span>';
@@ -145,24 +148,19 @@
             const password = document.getElementById('signupPassword').value;
 
             try {
-                const response = await fetch(`${SUPABASE_URL}/auth/v1/signup`, {
-                    method: 'POST',
-                    headers: { 'apikey': SUPABASE_KEY, 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ 
-                        email, 
-                        password,
-                        data: { full_name: name } // Storing name in metadata
-                    })
+                const { data, error } = await supabase.auth.signUp({
+                    email: email,
+                    password: password,
+                    options: {
+                        data: { full_name: name }
+                    }
                 });
 
-                const data = await response.json();
-                if (!response.ok) throw new Error(data.msg || 'Signup failed');
+                if (error) throw error;
 
-                // Success Message
                 showMessage("Account created successfully! You can now log in.", false);
                 document.getElementById('signupForm').reset();
                 
-                // Automatically switch back to login tab after 2 seconds
                 setTimeout(() => toggleForm('login'), 2000);
 
             } catch (err) {
