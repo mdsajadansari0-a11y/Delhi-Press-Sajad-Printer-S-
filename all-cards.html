@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Cards - Delhi Press Admin</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 font-sans text-gray-800">
+
+    <div class="flex min-h-screen">
+        <!-- Sidebar -->
+        <aside class="w-64 bg-[#0f172a] text-white p-6 hidden md:block">
+            <h2 class="text-xl font-black mb-8 text-fuchsia-500">Sajad Printer's</h2>
+            <nav class="space-y-2">
+                <a href="admin.html" class="block px-4 py-2.5 rounded-xl font-medium text-gray-300 hover:bg-gray-800 transition">Dashboard</a>
+                <a href="all-cards.html" class="block px-4 py-2.5 rounded-xl font-bold bg-fuchsia-600 text-white shadow-lg">All Cards</a>
+                <a href="index.html" class="block px-4 py-2.5 rounded-xl font-medium text-gray-300 hover:bg-gray-800 transition mt-10">Go to Website ↗</a>
+            </nav>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="flex-1 p-6 md:p-10">
+            <div class="flex justify-between items-center mb-8">
+                <div>
+                    <h1 class="text-2xl md:text-3xl font-extrabold text-gray-900">Manage All Cards</h1>
+                    <p class="text-sm text-gray-500">Yahan se aap apne saare uploaded designs dekh aur delete kar sakte hain.</p>
+                </div>
+                <a href="admin.html" class="bg-indigo-600 text-white px-4 py-2 rounded-xl text-sm font-bold hover:bg-indigo-700 transition">+ Add New Design</a>
+            </div>
+
+            <!-- Cards Grid -->
+            <div id="adminCardsGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="col-span-full text-center py-20 text-gray-400 font-bold">
+                    Cards load ho rahe hain...
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Script to Load & Delete Cards -->
+    <script>
+        const SUPABASE_URL = 'https://vgblvfpzpxivwafuatcy.supabase.co';
+        const API_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZnYmx2ZnB6cHhpdndhZnVhdGN5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODU1MjA0MzQsImV4cCI6MjEwMTA5NjQzNH0.YX7aVMsiP5Lj9c29QE1qifjNo_CRiS7nQ1_VMC4hL-c';
+        const TABLE_NAME = 'products';
+
+        async function fetchAdminCards() {
+            try {
+                const response = await fetch(`${SUPABASE_URL}/rest/v1/${TABLE_NAME}?select=*&order=created_at.desc`, {
+                    headers: { 'apikey': API_KEY, 'Authorization': `Bearer ${API_KEY}` }
+                });
+                
+                if (!response.ok) throw new Error("Error fetching data");
+                
+                const products = await response.json();
+                renderAdminCards(products);
+            } catch (error) {
+                document.getElementById('adminCardsGrid').innerHTML = `<div class="col-span-full text-center text-red-500 font-bold">Cards load karne mein error aayi.</div>`;
+            }
+        }
+
+        function renderAdminCards(products) {
+            const grid = document.getElementById('adminCardsGrid');
+            
+            if(products.length === 0) {
+                grid.innerHTML = `<div class="col-span-full text-center py-20 text-gray-500">Koi design available nahi hai.</div>`;
+                return;
+            }
+
+            grid.innerHTML = products.map(product => `
+                <div class="bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden flex flex-col">
+                    <div class="relative aspect-[4/5] bg-gray-100">
+                        <img src="${product.image_url}" alt="${product.item_name}" class="w-full h-full object-cover">
+                        <div class="absolute top-2 right-2 bg-black/70 text-white text-xs px-2.5 py-1 rounded-full font-bold">
+                            ₹${product.price}
+                        </div>
+                    </div>
+                    <div class="p-4 flex flex-col flex-grow">
+                        <span class="text-[10px] font-black text-fuchsia-600 uppercase tracking-wider mb-1">${product.category}</span>
+                        <h3 class="font-bold text-gray-900 text-base mb-1 line-clamp-1">${product.item_name}</h3>
+                        <p class="text-xs text-gray-500 mb-4 line-clamp-2">${product.description || 'No description provided.'}</p>
+                        
+                        <div class="mt-auto">
+                            <button onclick="deleteCard('${product.id}')" class="w-full bg-red-500 text-white py-2 rounded-xl text-sm font-bold hover:bg-red-600 transition shadow-sm flex items-center justify-center gap-2">
+                                🗑️ Delete Design
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Delete Function
+        async function deleteCard(id) {
+            if(!confirm("Kya aap sach mein is design ko delete karna chahte hain?")) return;
+
+            try {
+                const response = await fetch(`${SUPABASE_URL}/rest/v1/${TABLE_NAME}?id=eq.${id}`, {
+                    method: 'DELETE',
+                    headers: { 
+                        'apikey': API_KEY, 
+                        'Authorization': `Bearer ${API_KEY}`,
+                        'Content-Type': 'application/json'
+                    }
+                });
+
+                if(response.ok) {
+                    alert("Design successfully delete ho gaya!");
+                    fetchAdminCards(); // Refresh list
+                } else {
+                    alert("Delete karne mein kuch dikkat aayi.");
+                }
+            } catch (error) {
+                alert("Server connection error.");
+            }
+        }
+
+        window.onload = fetchAdminCards;
+    </script>
+</body>
+</html>
