@@ -6,14 +6,16 @@
     <title>Delhi Press Sajad Printers</title>
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- jsPDF Library for Automatic PDF Generation -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <style>
         :root {
             --primary: #0f172a;
             --secondary: #1e293b;
             --gold: #f59e0b;
             --gold-hover: #d97706;
+            --whatsapp-green: #25d366;
             --bg-light: #f8fafc;
-            --text-main: #334155;
             --border-color: #e2e8f0;
         }
 
@@ -26,11 +28,11 @@
 
         body {
             background-color: var(--bg-light);
-            color: var(--text-main);
+            color: #334155;
             line-height: 1.6;
         }
 
-        /* Top Header Strip */
+        /* Top Bar */
         .top-strip {
             background: #020617;
             color: #94a3b8;
@@ -48,7 +50,7 @@
             font-weight: 600;
         }
 
-        /* Professional Header */
+        /* Header */
         header {
             background: var(--primary);
             padding: 12px 5%;
@@ -99,14 +101,14 @@
         nav ul {
             list-style: none;
             display: flex;
-            gap: 18px;
+            gap: 20px;
             align-items: center;
         }
 
         nav a {
             color: #f1f5f9;
             text-decoration: none;
-            font-size: 14px;
+            font-size: 14.5px;
             font-weight: 500;
             display: flex;
             align-items: center;
@@ -118,7 +120,6 @@
             color: var(--gold);
         }
 
-        /* Dropdown Setup */
         .dropdown {
             position: relative;
         }
@@ -155,21 +156,6 @@
             display: block;
         }
 
-        /* Nav Buttons */
-        .btn-upload-link {
-            background: rgba(245, 158, 11, 0.15);
-            border: 1px solid var(--gold);
-            color: var(--gold) !important;
-            padding: 6px 14px;
-            border-radius: 6px;
-            font-weight: 600;
-        }
-
-        .btn-upload-link:hover {
-            background: var(--gold);
-            color: var(--primary) !important;
-        }
-
         .btn-login-link {
             background: #334155;
             color: #fff !important;
@@ -186,20 +172,20 @@
             cursor: pointer;
         }
 
-        /* Hero Banner */
+        /* Hero */
         .hero {
             background: linear-gradient(rgba(15, 23, 42, 0.88), rgba(15, 23, 42, 0.88)), 
                         url('https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=1200&q=80') center/cover;
             color: #fff;
             text-align: center;
-            padding: 70px 20px;
+            padding: 65px 20px;
         }
 
         .hero h2 {
             font-size: 32px;
             color: var(--gold);
-            font-weight: 800;
             margin-bottom: 10px;
+            font-weight: 800;
         }
 
         .hero p {
@@ -211,12 +197,12 @@
 
         .hero-actions {
             display: flex;
-            justify-content: center;
             gap: 15px;
+            justify-content: center;
             flex-wrap: wrap;
         }
 
-        .btn {
+        .btn-hero {
             padding: 11px 22px;
             border-radius: 6px;
             text-decoration: none;
@@ -225,7 +211,6 @@
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            transition: 0.25s;
         }
 
         .btn-gold {
@@ -233,26 +218,15 @@
             color: var(--primary);
         }
 
-        .btn-gold:hover {
-            background: var(--gold-hover);
-            color: #fff;
-            transform: translateY(-2px);
-        }
-
-        .btn-border {
-            border: 2px solid #fff;
+        .btn-wa-hero {
+            background: var(--whatsapp-green);
             color: #fff;
         }
 
-        .btn-border:hover {
-            background: #fff;
-            color: var(--primary);
-        }
-
-        /* Page Grid */
+        /* Section Layout */
         .container {
             max-width: 1100px;
-            margin: 45px auto;
+            margin: 40px auto;
             padding: 0 20px;
         }
 
@@ -276,34 +250,33 @@
             background: #fff;
             border: 1px solid var(--border-color);
             border-radius: 10px;
-            padding: 25px 20px;
+            padding: 22px 18px;
             text-align: center;
             box-shadow: 0 4px 12px rgba(0,0,0,0.03);
             transition: 0.3s;
         }
 
         .grid-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-4px);
             border-color: var(--gold);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
         }
 
         .grid-icon {
-            font-size: 38px;
+            font-size: 36px;
             color: var(--gold);
-            margin-bottom: 12px;
+            margin-bottom: 10px;
         }
 
         .grid-card h4 {
             font-size: 18px;
             color: var(--primary);
-            margin-bottom: 8px;
+            margin-bottom: 6px;
         }
 
         .grid-card p {
             font-size: 13.5px;
             color: #64748b;
-            margin-bottom: 16px;
+            margin-bottom: 14px;
         }
 
         .grid-link {
@@ -311,34 +284,90 @@
             font-weight: 600;
             color: var(--gold-hover);
             text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
         }
 
-        /* Online Payment Box */
+        /* Direct WhatsApp & PDF Order Box */
+        .order-container {
+            background: #ffffff;
+            border: 2px solid #bbf7d0;
+            border-radius: 14px;
+            max-width: 620px;
+            margin: 45px auto;
+            padding: 30px 25px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.06);
+        }
+
+        .order-container h3 {
+            text-align: center;
+            color: #065f46;
+            margin-bottom: 6px;
+            font-size: 22px;
+        }
+
+        .order-container p.sub {
+            text-align: center;
+            font-size: 13.5px;
+            color: #64748b;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 14px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 5px;
+            color: var(--primary);
+        }
+
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1px solid #cbd5e1;
+            border-radius: 6px;
+            font-size: 14px;
+            outline: none;
+        }
+
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+            border-color: var(--whatsapp-green);
+        }
+
+        .btn-order-wa {
+            background: #16a34a;
+            color: #fff;
+            border: none;
+            width: 100%;
+            padding: 13px;
+            border-radius: 7px;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            transition: 0.25s;
+            margin-top: 10px;
+        }
+
+        .btn-order-wa:hover {
+            background: #15803d;
+        }
+
+        /* Payment Box */
         .payment-box {
             background: #fff;
             border: 1px solid var(--border-color);
-            border-radius: 14px;
+            border-radius: 12px;
             max-width: 460px;
             margin: 40px auto 0;
-            padding: 35px 25px;
+            padding: 30px 20px;
             text-align: center;
-            box-shadow: 0 6px 20px rgba(0,0,0,0.05);
-        }
-
-        .secure-tag {
-            background: #ecfdf5;
-            color: #047857;
-            padding: 5px 12px;
-            border-radius: 20px;
-            font-size: 12px;
-            font-weight: 700;
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            margin-bottom: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.04);
         }
 
         .btn-pay {
@@ -347,14 +376,14 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 10px;
+            gap: 8px;
             width: 100%;
-            padding: 13px;
-            border-radius: 7px;
+            padding: 12px;
+            border-radius: 6px;
             text-decoration: none;
-            font-size: 16px;
+            font-size: 15px;
             font-weight: 700;
-            margin-top: 20px;
+            margin-top: 15px;
         }
 
         /* Footer */
@@ -421,16 +450,20 @@
 </head>
 <body>
 
-    <!-- Contact Top Strip -->
+    <!-- Top Strip with Direct Contact & Google Maps -->
     <div class="top-strip">
-        <div><i class="fa-solid fa-location-dot"></i> Delhi Press Road, City Center</div>
         <div>
-            <i class="fa-solid fa-phone"></i> +91 98765 43210
-            <a href="https://wa.me/919876543210" target="_blank"><i class="fa-brands fa-whatsapp"></i> WhatsApp Order</a>
+            <a href="https://maps.google.com/?q=Delhi+Press+Sajad+Printers" target="_blank">
+                <i class="fa-solid fa-map-location-dot"></i> Google Maps Location
+            </a>
+        </div>
+        <div>
+            <i class="fa-solid fa-phone"></i> +91 93045 09464
+            <a href="https://wa.me/919304509464" target="_blank"><i class="fa-brands fa-whatsapp"></i> Direct WhatsApp</a>
         </div>
     </div>
 
-    <!-- Header Navigation with Page Redirects -->
+    <!-- Header Navigation -->
     <header>
         <a href="index.html" class="logo-box">
             <div class="logo-icon"><i class="fa-solid fa-print"></i></div>
@@ -451,7 +484,7 @@
                 <li class="dropdown">
                     <a href="designs.html"><i class="fa-solid fa-layer-group"></i> Card Designs ▾</a>
                     <ul class="dropdown-menu">
-                        <li><a href="designs.html#muslim"><i class="fa-solid fa-moon"></i> Muslim Cards</a></li>
+                        <li><a href="designs.html#muslim"><i class="fa-solid fa-moon"></i> Muslim Wedding Cards</a></li>
                         <li><a href="designs.html#hindu"><i class="fa-solid fa-om"></i> Hindu Vivah Cards</a></li>
                         <li><a href="designs.html#visiting"><i class="fa-solid fa-id-card"></i> Visiting Cards</a></li>
                         <li><a href="designs.html#flex"><i class="fa-solid fa-image"></i> Flex & Banner</a></li>
@@ -460,7 +493,6 @@
 
                 <li><a href="about.html"><i class="fa-solid fa-circle-info"></i> About</a></li>
                 <li><a href="contact.html"><i class="fa-solid fa-address-book"></i> Contact</a></li>
-                <li><a href="upload.html" class="btn-upload-link"><i class="fa-solid fa-cloud-arrow-up"></i> Upload Sample</a></li>
                 <li><a href="login.html" class="btn-login-link"><i class="fa-solid fa-user"></i> Login</a></li>
             </ul>
         </nav>
@@ -469,67 +501,109 @@
     <!-- Hero Section -->
     <div class="hero">
         <h2>Delhi Press Sajad Printers</h2>
-        <p>Premium Wedding Cards, Flex Printing, Visiting Cards aur Graphic Designing ka sabse behtareen center.</p>
+        <p>Premium Wedding Cards, Flex Printing, Visiting Cards aur Complete Designing Center.</p>
         <div class="hero-actions">
-            <a href="designs.html" class="btn btn-gold"><i class="fa-solid fa-eye"></i> Sabhi Designs Dekhein</a>
-            <a href="upload.html" class="btn btn-border"><i class="fa-solid fa-cloud-arrow-up"></i> Sample Upload Karein</a>
+            <a href="#orderBox" class="btn-hero btn-wa-hero"><i class="fa-brands fa-whatsapp"></i> Order On WhatsApp</a>
+            <a href="designs.html" class="btn-hero btn-gold"><i class="fa-solid fa-eye"></i> Sabhi Designs Dekhein</a>
         </div>
     </div>
 
     <!-- Quick Page Redirects Section -->
     <div class="container">
         <div class="heading">
-            <h3>Hamare Shaadi Cards Aur Printing Samples</h3>
-            <p>Page open karne ke liye kisi bhi category par click karein</p>
+            <h3>Hamare Shaadi Cards Aur Printing Services</h3>
+            <p>Design dekhne ya order details ke liye category chunein</p>
         </div>
 
         <div class="grid">
             <div class="grid-card">
                 <div class="grid-icon">☪</div>
                 <h4>Muslim Wedding Cards</h4>
-                <p>Nikah nama, Walima cards, Bismillah logos aur royal patterns.</p>
+                <p>Nikah Nama, Walima Box Cards aur Urdu calligraphy designs.</p>
                 <a href="designs.html#muslim" class="grid-link">Designs Dekhein <i class="fa-solid fa-arrow-right"></i></a>
             </div>
 
             <div class="grid-card">
                 <div class="grid-icon">卐</div>
                 <h4>Hindu Vivah Cards</h4>
-                <p>Shubh Vivah, Tilak patra aur traditional designer patterns.</p>
+                <p>Shubh Vivah, Tilak Patra aur Royal red/gold cards.</p>
                 <a href="designs.html#hindu" class="grid-link">Designs Dekhein <i class="fa-solid fa-arrow-right"></i></a>
             </div>
 
             <div class="grid-card">
-                <div class="grid-icon"><i class="fa-solid fa-cloud-arrow-up"></i></div>
-                <h4>Upload Sample Design</h4>
-                <p>Aapke paas koi custom design ya photo hai toh yahan se upload karein.</p>
-                <a href="upload.html" class="grid-link">Upload Karein <i class="fa-solid fa-arrow-right"></i></a>
+                <div class="grid-icon"><i class="fa-solid fa-id-card"></i></div>
+                <h4>Visiting & Business Cards</h4>
+                <p>Glossy, Matt, UV embossed multi-color cards.</p>
+                <a href="designs.html#visiting" class="grid-link">Designs Dekhein <i class="fa-solid fa-arrow-right"></i></a>
             </div>
 
             <div class="grid-card">
                 <div class="grid-icon"><i class="fa-solid fa-print"></i></div>
                 <h4>Printing Services</h4>
-                <p>Flex banners, visiting cards, bill books aur posters.</p>
+                <p>Flex banners, bill books, pamphlets aur posters.</p>
                 <a href="services.html" class="grid-link">Services Dekhein <i class="fa-solid fa-arrow-right"></i></a>
             </div>
+        </div>
+    </div>
+
+    <!-- Direct WhatsApp Order & Auto PDF Download Box -->
+    <div class="container" id="orderBox">
+        <div class="order-container">
+            <h3><i class="fa-brands fa-whatsapp"></i> Direct WhatsApp Order Form</h3>
+            <p class="sub">Yahan details likhein; submit karte hi aapka Order PDF download ho jayega aur WhatsApp open hoga.</p>
+
+            <form id="waOrderForm" onsubmit="handleOrderSubmission(event)">
+                <div class="form-group">
+                    <label>Aapka Naam (Customer Name) *</label>
+                    <input type="text" id="custName" placeholder="Apna pura naam likhein" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Mobile Number *</label>
+                    <input type="tel" id="custPhone" placeholder="Mobile Number likhein" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Kaun Sa Item Chahiye? *</label>
+                    <select id="itemType" required>
+                        <option value="Muslim Wedding Card">☪ Muslim Wedding Card</option>
+                        <option value="Hindu Vivah Card">卐 Hindu Shubh Vivah Card</option>
+                        <option value="Visiting Card">💳 Visiting / Business Card</option>
+                        <option value="Flex Banner">🖼 Flex Banner Board</option>
+                        <option value="Bill Book / Pamphlet">📄 Bill Book / Pamphlet</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Kitna Quantity Chahiye (Approx)?</label>
+                    <input type="text" id="custQty" placeholder="e.g. 200 Cards / 1 Banner">
+                </div>
+
+                <div class="form-group">
+                    <label>Card me Likha Jaane Wala Matter / Details *</label>
+                    <textarea id="orderDetails" rows="4" placeholder="Dulha-Dulhan ka naam, tareekh, pata ya koi special requirement yahan type karein..." required></textarea>
+                </div>
+
+                <button type="submit" class="btn-order-wa">
+                    <i class="fa-solid fa-file-pdf"></i> Download PDF Slip & Send to WhatsApp
+                </button>
+            </form>
         </div>
     </div>
 
     <!-- Online Payment Section -->
     <div class="container">
         <div class="payment-box">
-            <span class="secure-tag"><i class="fa-solid fa-shield-halved"></i> 100% Safe & Secure Payment</span>
-            <h3 style="color: var(--primary);">ऑनलाइन पेमेंट करें</h3>
+            <span style="background:#ecfdf5; color:#047857; padding:4px 12px; border-radius:20px; font-size:12px; font-weight:700;">
+                <i class="fa-solid fa-shield-halved"></i> 100% Safe & Secure Payment
+            </span>
+            <h3 style="margin-top:10px; color:var(--primary);">ऑनलाइन पेमेंट करें</h3>
             <p style="font-size: 13.5px; color: #64748b; margin-top: 6px;">
-                Apne order aur card design finalize karne ke baad payment pura karein.
+                Order finalize hone ke baad direct Cashfree se secure payment karein.
             </p>
-
             <a href="https://cashfree.com" target="_blank" class="btn-pay">
                 <i class="fa-solid fa-lock"></i> Pay Now (Cashfree)
             </a>
-
-            <p style="font-size: 12px; color: #94a3b8; margin-top: 12px;">
-                UPI, Google Pay, PhonePe, Debit/Credit Card Supported
-            </p>
         </div>
     </div>
 
@@ -538,7 +612,7 @@
         <div class="footer-grid">
             <div class="footer-col">
                 <h4>Delhi Press Sajad Printers</h4>
-                <p>Quality printing aur creative designs ke liye vishwasniya center. Shaadi card se lekar commercial printing tak sab uplabdh hai.</p>
+                <p>Shaadi card, flex printing aur graphics ka bharosemand center.</p>
             </div>
 
             <div class="footer-col">
@@ -546,7 +620,6 @@
                 <a href="index.html">Home</a>
                 <a href="services.html">Services</a>
                 <a href="designs.html">Card Designs</a>
-                <a href="upload.html">Upload Sample</a>
                 <a href="about.html">About Us</a>
                 <a href="contact.html">Contact Us</a>
             </div>
@@ -558,10 +631,12 @@
             </div>
 
             <div class="footer-col">
-                <h4>Contact Details</h4>
-                <p><i class="fa-solid fa-map-marker-alt"></i> Delhi Press Road, City</p>
-                <p><i class="fa-solid fa-phone"></i> +91 98765 43210</p>
+                <h4>Contact Info</h4>
+                <p><i class="fa-solid fa-phone"></i> +91 93045 09464</p>
                 <p><i class="fa-solid fa-envelope"></i> sajadprinters@gmail.com</p>
+                <a href="https://maps.google.com/?q=Delhi+Press+Sajad+Printers" target="_blank" style="color:var(--gold);">
+                    <i class="fa-solid fa-location-dot"></i> View on Google Maps
+                </a>
             </div>
         </div>
 
@@ -570,10 +645,62 @@
         </div>
     </footer>
 
-    <!-- Mobile Nav Toggle Script -->
+    <!-- Scripts for WhatsApp & PDF Generation -->
     <script>
         function toggleNav() {
             document.getElementById('navbar').classList.toggle('active');
+        }
+
+        function handleOrderSubmission(e) {
+            e.preventDefault();
+
+            const name = document.getElementById('custName').value;
+            const phone = document.getElementById('custPhone').value;
+            const item = document.getElementById('itemType').value;
+            const qty = document.getElementById('custQty').value || "Not Mentioned";
+            const details = document.getElementById('orderDetails').value;
+            const date = new Date().toLocaleDateString('hi-IN');
+
+            // 1. Generate & Download PDF on Client device
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF();
+
+            doc.setFontSize(18);
+            doc.text("DELHI PRESS SAJAD PRINTERS", 105, 20, { align: "center" });
+            doc.setFontSize(11);
+            doc.text("Mobile: +91 93045 09464 | Order Slip", 105, 28, { align: "center" });
+            doc.line(15, 32, 195, 32);
+
+            doc.setFontSize(12);
+            doc.text(`Date: ${date}`, 15, 42);
+            doc.text(`Customer Name: ${name}`, 15, 52);
+            doc.text(`Contact: ${phone}`, 15, 62);
+            doc.text(`Selected Item: ${item}`, 15, 72);
+            doc.text(`Quantity: ${qty}`, 15, 82);
+
+            doc.line(15, 90, 195, 90);
+            doc.text("Order Matter / Written Details:", 15, 100);
+            
+            // Multiline text wrap
+            const splitDetails = doc.splitTextToSize(details, 175);
+            doc.text(splitDetails, 15, 110);
+
+            doc.save(`Order_${name.replace(/\s+/g, '_')}.pdf`);
+
+            // 2. Direct Redirect to WhatsApp with filled message
+            const waMessage = `*--- NAYA PRINTING ORDER ---*%0A` +
+                              `*Naam:* ${encodeURIComponent(name)}%0A` +
+                              `*Mobile:* ${encodeURIComponent(phone)}%0A` +
+                              `*Item:* ${encodeURIComponent(item)}%0A` +
+                              `*Quantity:* ${encodeURIComponent(qty)}%0A` +
+                              `*Matter / Details:* ${encodeURIComponent(details)}%0A%0A` +
+                              `_(Note: Maine Order Slip PDF download kar li hai, main wo PDF yahan attach kar raha hu.)_`;
+
+            const waURL = `https://wa.me/919304509464?text=${waMessage}`;
+            
+            setTimeout(() => {
+                window.open(waURL, '_blank');
+            }, 1000);
         }
     </script>
 </body>
