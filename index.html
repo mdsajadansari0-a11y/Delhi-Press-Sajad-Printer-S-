@@ -334,12 +334,18 @@
 
         .row-3 {
             display: grid;
-            grid-template-columns: 2fr 1fr 1fr;
+            grid-template-columns: 1fr 1fr 1fr;
             gap: 12px;
         }
 
+        .row-4 {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            gap: 10px;
+        }
+
         @media (max-width: 700px) {
-            .row-2, .row-3 {
+            .row-2, .row-3, .row-4 {
                 grid-template-columns: 1fr;
             }
         }
@@ -369,29 +375,25 @@
             border-color: var(--gold);
         }
 
-        /* Upload Container Styling */
+        /* Upload Container */
         .upload-field {
             border: 2px dashed #f59e0b;
             background: #fffbeb;
-            padding: 20px;
+            padding: 15px;
             text-align: center;
             border-radius: 8px;
             cursor: pointer;
-            transition: 0.3s;
-        }
-
-        .upload-field:hover {
-            background: #fef3c7;
         }
 
         .upload-preview {
             display: none;
-            margin-top: 12px;
-            max-height: 150px;
+            margin-top: 10px;
+            max-height: 120px;
             border-radius: 6px;
             border: 1px solid #cbd5e1;
         }
 
+        /* Dynamic Boxes */
         .dynamic-box {
             background: #f8fafc;
             border: 1px dashed #94a3b8;
@@ -415,10 +417,6 @@
             gap: 6px;
         }
 
-        .btn-add:hover {
-            background: #0369a1;
-        }
-
         .btn-remove {
             background: #ef4444;
             color: #fff;
@@ -430,6 +428,20 @@
             position: absolute;
             top: 10px;
             right: 10px;
+        }
+
+        /* Calculation Highlight Box */
+        .calc-summary {
+            background: #fffbeb;
+            border: 1px solid #fde68a;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 10px;
+            font-size: 14px;
+            display: flex;
+            justify-content: space-around;
+            font-weight: 600;
+            color: #92400e;
         }
 
         .btn-order-wa {
@@ -454,31 +466,46 @@
             background: #1eb954;
         }
 
-        .payment-box {
-            background: #fff;
-            border: 1px solid #cbd5e1;
+        /* Custom Cashfree Integration Box */
+        .payment-modal {
+            display: none;
+            background: #f0fdf4;
+            border: 2px solid #86efac;
+            padding: 20px;
             border-radius: 12px;
-            max-width: 460px;
-            margin: 40px auto 0;
-            padding: 30px 20px;
+            margin-top: 20px;
             text-align: center;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.04);
         }
 
-        .btn-pay {
-            background: #000;
-            color: #fff;
+        .button-container {
+            border: 1px solid black;
+            border-radius: 15px;
             display: flex;
+            padding: 10px;
+            width: fit-content;
+            cursor: pointer;
+            margin: 15px auto 0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .text-container {
+            display: flex;
+            flex-direction: column;
             align-items: center;
+            margin-left: 10px;
             justify-content: center;
-            gap: 8px;
-            width: 100%;
-            padding: 12px;
-            border-radius: 6px;
-            text-decoration: none;
-            font-size: 15px;
-            font-weight: 700;
-            margin-top: 15px;
+            margin-right: 10px;
+        }
+
+        .logo-container {
+            width: 40px;
+            height: 40px;
+        }
+
+        .seconday-logo-container {
+            width: 16px;
+            height: 16px;
+            vertical-align: middle;
         }
 
         footer {
@@ -635,11 +662,11 @@
         </div>
     </div>
 
-    <!-- Complete Dynamic Order Box With Card Image Upload -->
+    <!-- Complete Dynamic Order Box With Automatic Rate & Advance Calculation -->
     <div class="container" id="orderBox">
         <div class="order-container">
-            <h3><i class="fa-brands fa-whatsapp" style="color:var(--whatsapp-green);"></i> Shaadi Card WhatsApp Order Form</h3>
-            <p class="sub">Details bharein, Sample Card Photo upload karein. PDF generate hogi aur WhatsApp par direct order bhej sakte hain.</p>
+            <h3><i class="fa-brands fa-whatsapp" style="color:var(--whatsapp-green);"></i> Shaadi Card WhatsApp Order & Billing Form</h3>
+            <p class="sub">Quantity aur Piece ka Rate likhein; Total aur Advance payment amount automatic calculate ho jayega.</p>
 
             <form id="weddingOrderForm" onsubmit="handleWeddingOrder(event)">
                 
@@ -667,18 +694,46 @@
                         </select>
                     </div>
                     <div class="form-group">
-                        <label>Total Cards Quantity *</label>
-                        <input type="text" id="cardQty" placeholder="e.g. 250 Cards" required>
+                        <label>Card Model / Code (Optional)</label>
+                        <input type="text" id="cardModel" placeholder="e.g. DP-105 Gold Foil">
                     </div>
                 </div>
 
+                <!-- Price & Quantity Section -->
+                <div class="form-section-header">
+                    <div class="form-section-title"><i class="fa-solid fa-calculator"></i> Price & Advance Calculation</div>
+                </div>
+                <div class="row-4">
+                    <div class="form-group">
+                        <label>Card Quantity (Total Piece) *</label>
+                        <input type="number" id="cardQty" placeholder="e.g. 250" oninput="calculateBilling()" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Rate Per Piece (₹) *</label>
+                        <input type="number" id="ratePerPiece" placeholder="e.g. 15" oninput="calculateBilling()" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Total Amount (Kul Rashi ₹)</label>
+                        <input type="number" id="totalAmount" placeholder="0" readonly style="background:#f1f5f9; font-weight:700;">
+                    </div>
+                    <div class="form-group">
+                        <label>Advance Payment (₹) *</label>
+                        <input type="number" id="advanceAmount" placeholder="e.g. 500" oninput="calculateBilling()" required>
+                    </div>
+                </div>
+
+                <div class="calc-summary" id="calcSummary">
+                    <span>Total Amount: ₹<span id="sumTotal">0</span></span>
+                    <span>Advance Payment: ₹<span id="sumAdvance">0</span></span>
+                    <span>Remaining (Baki): ₹<span id="sumRemaining">0</span></span>
+                </div>
+
                 <!-- Card Sample Image Upload Field -->
-                <div class="form-group">
-                    <label><i class="fa-solid fa-camera"></i> Card Sample Photo / Design Image (Upload)</label>
+                <div class="form-group" style="margin-top:15px;">
+                    <label><i class="fa-solid fa-camera"></i> Card Sample Photo / Design Image (Optional Upload)</label>
                     <div class="upload-field" onclick="document.getElementById('cardSampleFile').click()">
-                        <i class="fa-solid fa-cloud-arrow-up" style="font-size:28px; color:var(--gold);"></i>
-                        <p style="font-size:14px; font-weight:600; margin-top:5px;">Card ki Photo Select Karein (Click Here)</p>
-                        <span style="font-size:12px; color:#64748b;">(JPG, PNG Photo Upload Karein)</span>
+                        <i class="fa-solid fa-cloud-arrow-up" style="font-size:26px; color:var(--gold);"></i>
+                        <p style="font-size:13.5px; font-weight:600; margin-top:4px;">Card ki Photo Select Karein (Click Here)</p>
                         <input type="file" id="cardSampleFile" accept="image/*" style="display:none;" onchange="previewCardImage(event)">
                     </div>
                     <center><img id="cardImagePreview" class="upload-preview" alt="Selected Card Preview"></center>
@@ -718,30 +773,41 @@
                     </div>
                 </div>
 
-                <div class="form-group">
-                    <label>Design Code / Extra Note (Optional)</label>
-                    <input type="text" id="extraNotes" placeholder="Design code, foil color, Bismillah/Ganesh logo etc.">
-                </div>
-
                 <button type="submit" class="btn-order-wa">
-                    <i class="fa-solid fa-file-pdf"></i> Generate Table PDF & Send to WhatsApp
+                    <i class="fa-solid fa-file-pdf"></i> Generate Bill Slip & Proceed to Payment
                 </button>
             </form>
-        </div>
-    </div>
 
-    <div class="container">
-        <div class="payment-box">
-            <span style="background:#ecfdf5; color:#047857; padding:4px 12px; border-radius:20px; font-size:12px; font-weight:700;">
-                <i class="fa-solid fa-shield-halved"></i> 100% Safe & Secure Payment
-            </span>
-            <h3 style="margin-top:10px; color:var(--primary);">ऑनलाइन पेमेंट करें</h3>
-            <p style="font-size: 13.5px; color: #64748b; margin-top: 6px;">
-                Order finalize hone ke baad direct Cashfree se secure payment karein.
-            </p>
-            <a href="https://cashfree.com" target="_blank" class="btn-pay">
-                <i class="fa-solid fa-lock"></i> Pay Now (Cashfree)
-            </a>
+            <!-- Embedded Cashfree Payment Card (Shows upon submitting order) -->
+            <div id="paymentArea" class="payment-modal">
+                <h4 style="color:#15803d; font-size:18px; margin-bottom:5px;">
+                    <i class="fa-solid fa-circle-check"></i> Slip Download Ho Gayi Hai!
+                </h4>
+                <p style="font-size:14px; color:#334155;">
+                    Apna Advance Payment (₹<span id="payPromptAdvance">0</span>) complete karne ke liye niche click karein:
+                </p>
+
+                <!-- Official Cashfree Button Component -->
+                <form>
+                    <a href="https://payments.cashfree.com/forms/delhi-press-sajad-pr" target="_blank">
+                        <div class="button-container" style="background: #000">
+                            <div>
+                                <img src="https://cashfree-checkoutcartimages-prod.cashfree.com/1000346936oastv05vttt0_prod.png" alt="logo" class="logo-container">
+                            </div>
+                            <div class="text-container">
+                                <div style="font-family: Verdana; color: #fff; margin-bottom: 5px; font-size: 14px;">
+                                    Pay Now
+                                </div>
+                                <div style="font-family: Verdana; color: #fff; font-size: 10px;">
+                                    <span>Powered By Cashfree</span>
+                                    <img src="https://cashfreelogo.cashfree.com/cashfreepayments/logosvgs/Group_4355.svg" alt="logo" class="seconday-logo-container">
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </form>
+            </div>
+
         </div>
     </div>
 
@@ -791,7 +857,22 @@
         let eventCount = 0;
         let cardImageBase64 = null;
 
-        // Preview and save base64 of selected image
+        // Auto Price Calculation
+        function calculateBilling() {
+            const qty = parseFloat(document.getElementById('cardQty').value) || 0;
+            const rate = parseFloat(document.getElementById('ratePerPiece').value) || 0;
+            const advance = parseFloat(document.getElementById('advanceAmount').value) || 0;
+
+            const total = qty * rate;
+            const remaining = Math.max(0, total - advance);
+
+            document.getElementById('totalAmount').value = total;
+            document.getElementById('sumTotal').innerText = total;
+            document.getElementById('sumAdvance').innerText = advance;
+            document.getElementById('sumRemaining').innerText = remaining;
+            document.getElementById('payPromptAdvance').innerText = advance;
+        }
+
         function previewCardImage(event) {
             const file = event.target.files[0];
             if (file) {
@@ -883,14 +964,19 @@
             const custName = document.getElementById('custName').value;
             const custPhone = document.getElementById('custPhone').value;
             const cardType = document.getElementById('cardType').value;
+            const cardModel = document.getElementById('cardModel').value || "Standard";
             const cardQty = document.getElementById('cardQty').value;
+            const rate = document.getElementById('ratePerPiece').value;
+            const total = document.getElementById('totalAmount').value;
+            const advance = document.getElementById('advanceAmount').value;
+            const remaining = Math.max(0, total - advance);
+
             const venue = document.getElementById('venue').value || "Ghar Par / As per details";
             const rsvpText = document.getElementById('rsvpText').value;
             const fromText = document.getElementById('fromText').value;
-            const extraNotes = document.getElementById('extraNotes').value || "None";
             const orderDate = new Date().toLocaleDateString('hi-IN');
 
-            // Persons
+            // Collect Persons
             const personBoxes = document.querySelectorAll('#personsContainer .dynamic-box');
             let personsList = [];
             let personsWAText = "";
@@ -906,7 +992,7 @@
                                  `  _Address:_ ${encodeURIComponent(address)}%0A`;
             });
 
-            // Events
+            // Collect Events
             const eventBoxes = document.querySelectorAll('#eventsContainer .dynamic-box');
             let eventsList = [];
             let eventsWAText = "";
@@ -919,7 +1005,7 @@
                 eventsWAText += `• *${encodeURIComponent(name)}:* ${encodeURIComponent(date)} (${encodeURIComponent(time)})%0A`;
             });
 
-            // PDF Generation
+            // Generate Professional Invoice PDF
             const { jsPDF } = window.jspdf;
             const doc = new jsPDF();
 
@@ -933,15 +1019,19 @@
             doc.setTextColor(255, 255, 255);
             doc.setFontSize(10);
             doc.setFont(undefined, 'normal');
-            doc.text("Mobile: +91 93045 09464 | Shaadi Card Booking Slip", 105, 19, { align: "center" });
+            doc.text("Mobile: +91 93045 09464 | Booking Slip & Advance Invoice", 105, 19, { align: "center" });
 
             let tableRows = [
-                [{ content: "Order Details", colSpan: 2, styles: { fillColor: [245, 158, 11], textColor: [15, 23, 42], fontStyle: 'bold' } }],
+                [{ content: "Billing & Order Summary", colSpan: 2, styles: { fillColor: [245, 158, 11], textColor: [15, 23, 42], fontStyle: 'bold' } }],
                 ["Customer Name", custName],
                 ["Mobile Number", custPhone],
-                ["Card Category", cardType],
-                ["Total Quantity", cardQty],
+                ["Card Category & Model", `${cardType} (${cardModel})`],
+                ["Quantity (Pieces)", `${cardQty} Piece @ Rs.${rate}/piece`],
+                ["Total Bill Amount", `Rs. ${total}`],
+                ["Advance Payment Amount", `Rs. ${advance}`],
+                ["Remaining Balance Amount", `Rs. ${remaining}`],
                 ["Booking Date", orderDate],
+
                 [{ content: "Ladka / Ladki Details", colSpan: 2, styles: { fillColor: [241, 245, 249], textColor: [15, 23, 42], fontStyle: 'bold' } }]
             ];
 
@@ -957,9 +1047,8 @@
             tableRows.push(
                 ["Venue (Sthan)", venue],
                 [{ content: "RSVP & From Details", colSpan: 2, styles: { fillColor: [241, 245, 249], textColor: [15, 23, 42], fontStyle: 'bold' } }],
-                ["RSVP", rsvpText],
-                ["From / Nivedak", fromText],
-                ["Notes / Design Code", extraNotes]
+                ["RSVP / Contacts", rsvpText],
+                ["From / Nivedak", fromText]
             );
 
             doc.autoTable({
@@ -972,7 +1061,6 @@
                 columnStyles: { 0: { fontStyle: 'bold', cellWidth: 55 } }
             });
 
-            // If user uploaded a card image, attach to PDF
             if (cardImageBase64) {
                 let finalY = doc.lastAutoTable.finalY + 10;
                 if (finalY > 220) {
@@ -987,14 +1075,20 @@
 
             doc.save(`ShaadiCard_${custName.replace(/\s+/g, '_')}.pdf`);
 
-            // WhatsApp Message
-            let sampleUploadedNote = cardImageBase64 ? "%0A📸 *Sample Photo:* Attached in PDF & Gallery" : "";
+            // Reveal Cashfree Button Box
+            document.getElementById('paymentArea').style.display = 'block';
 
-            const waMsg = `*--- SHAADI CARD NEW ORDER ---*%0A` +
+            // Open WhatsApp with detailed message
+            let sampleUploadedNote = cardImageBase64 ? "%0A📸 *Sample Photo:* Attached in PDF" : "";
+
+            const waMsg = `*--- SHAADI CARD BOOKING & ADVANCE ORDER ---*%0A` +
                           `*Booking Date:* ${orderDate}%0A%0A` +
                           `*Customer:* ${encodeURIComponent(custName)} (${encodeURIComponent(custPhone)})%0A` +
-                          `*Card Type:* ${encodeURIComponent(cardType)}%0A` +
-                          `*Quantity:* ${encodeURIComponent(cardQty)}%0A` +
+                          `*Card:* ${encodeURIComponent(cardType)} (${encodeURIComponent(cardModel)})%0A` +
+                          `*Quantity:* ${encodeURIComponent(cardQty)} Piece (Rate: Rs. ${encodeURIComponent(rate)})%0A` +
+                          `*Total Bill:* Rs. ${encodeURIComponent(total)}%0A` +
+                          `*Advance Amount:* Rs. ${encodeURIComponent(advance)}%0A` +
+                          `*Balance Baki:* Rs. ${encodeURIComponent(remaining)}%0A` +
                           sampleUploadedNote + `%0A%0A` +
                           `*--- LADKA / LADKI DETAILS ---*` +
                           `${personsWAText}%0A` +
@@ -1002,15 +1096,14 @@
                           `${eventsWAText}%0A` +
                           `*Venue:* ${encodeURIComponent(venue)}%0A%0A` +
                           `*RSVP:* ${encodeURIComponent(rsvpText)}%0A` +
-                          `*From / Nivedak:* ${encodeURIComponent(fromText)}%0A` +
-                          `*Notes:* ${encodeURIComponent(extraNotes)}%0A%0A` +
-                          `_(Maine is order ki slip PDF download kar li hai, wo PDF aur Sample photo main yahan chat me attach kar raha hu.)_`;
+                          `*From / Nivedak:* ${encodeURIComponent(fromText)}%0A%0A` +
+                          `_(Main Cashfree se Advance Payment complete kar raha hu aur PDF slip chat me send kar raha hu.)_`;
 
             const waURL = `https://wa.me/919304509464?text=${waMsg}`;
 
             setTimeout(() => {
                 window.open(waURL, '_blank');
-            }, 1000);
+            }, 1200);
         }
     </script>
 </body>
