@@ -1,532 +1,215 @@
 <!DOCTYPE html>
 <html lang="hi">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Delhi Press - Design Store</title>
-    <!-- FontAwesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: Arial, sans-serif;
-        }
-        body {
-            background-color: #f9f9f9;
-            color: #333;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-        }
-        /* Top Header */
-        .top-header {
-            background-color: #fff;
-            padding: 10px 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px solid #ddd;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-        .header-left {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-        .menu-btn {
-            font-size: 20px;
-            cursor: pointer;
-            background: none;
-            border: none;
-        }
-        .logo {
-            font-weight: bold;
-            font-size: 18px;
-            color: #b12704;
-        }
-        .header-right {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            font-size: 18px;
-            cursor: pointer;
-        }
-        .header-right a {
-            color: inherit;
-            text-decoration: none;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Delhi Press Sajad Printers - Payment Gateway</title>
+  
+  <style>
+    /* Global Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
 
-        /* Popup Menu Drawer */
-        .menu-overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            z-index: 2000;
-        }
-        .menu-drawer {
-            position: fixed;
-            top: 0;
-            left: -280px;
-            width: 280px;
-            height: 100%;
-            background: white;
-            z-index: 2001;
-            box-shadow: 2px 0 5px rgba(0,0,0,0.3);
-            transition: left 0.3s ease;
-            display: flex;
-            flex-direction: column;
-        }
-        .menu-drawer.active {
-            left: 0;
-        }
-        .menu-header {
-            background: #8b0000;
-            color: white;
-            padding: 15px;
-            font-weight: bold;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .menu-close-btn {
-            background: none;
-            border: none;
-            color: white;
-            font-size: 20px;
-            cursor: pointer;
-        }
-        .menu-links {
-            list-style: none;
-            padding: 10px 0;
-            overflow-y: auto;
-            flex: 1;
-        }
-        .menu-links li a {
-            display: block;
-            padding: 12px 20px;
-            color: #333;
-            text-decoration: none;
-            border-bottom: 1px solid #eee;
-            font-size: 14px;
-        }
-        .menu-links li a:hover {
-            background: #f1f1f1;
-            color: #b71c1c;
-        }
-        
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(135deg, #ff758c 0%, #ff7eb3 100%);
-            text-align: center;
-            padding: 40px 20px;
-            color: white;
-        }
-        .hero h1 {
-            font-size: 24px;
-            margin-bottom: 10px;
-        }
-        .hero p {
-            font-size: 14px;
-            margin-bottom: 20px;
-        }
-        .search-box {
-            display: flex;
-            justify-content: center;
-            max-width: 500px;
-            margin: 0 auto;
-            background: white;
-            padding: 5px 15px;
-            border-radius: 25px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-        .search-box input {
-            width: 100%;
-            border: none;
-            outline: none;
-            padding: 8px;
-            font-size: 14px;
-        }
-        .search-box button {
-            background: none;
-            border: none;
-            cursor: pointer;
-            color: #777;
-        }
+    body {
+      background-color: #f4f6f9;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
 
-        /* Filter & Sort Bar (Interactive Popup/Toggle) */
-        .filter-sort-container {
-            position: relative;
-            max-width: 500px;
-            margin: 15px auto;
-            padding: 0 10px;
-        }
-        .filter-sort-bar {
-            background-color: #8b0000;
-            color: white;
-            text-align: center;
-            padding: 12px;
-            font-weight: bold;
-            cursor: pointer;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 10px;
-            border-radius: 4px;
-        }
-        .filter-dropdown {
-            display: none;
-            position: absolute;
-            top: 100%;
-            left: 10px;
-            right: 10px;
-            background: white;
-            border: 1px solid #ddd;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            z-index: 100;
-            padding: 15px;
-            border-radius: 4px;
-            margin-top: 5px;
-        }
-        .filter-dropdown.active {
-            display: block;
-        }
-        .filter-group {
-            margin-bottom: 10px;
-        }
-        .filter-group label {
-            font-size: 13px;
-            font-weight: bold;
-            display: block;
-            margin-bottom: 5px;
-            color: #444;
-        }
-        .filter-group select {
-            width: 100%;
-            padding: 8px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            font-size: 13px;
-        }
+    /* Navbar / Header */
+    header {
+      background-color: #1a1a1a;
+      color: #ffffff;
+      padding: 15px 25px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
 
-        /* Product Grid */
-        .product-container {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 15px;
-            padding: 10px;
-            flex: 1;
-        }
-        .product-card {
-            background: white;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-        .product-badge {
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            background: #e53935;
-            color: white;
-            font-size: 10px;
-            padding: 3px 8px;
-            border-radius: 3px;
-        }
-        .product-badge.sale {
-            background: #ff9800;
-        }
-        .product-img {
-            width: 100%;
-            height: 180px;
-            object-fit: cover;
-        }
-        .product-info {
-            padding: 10px;
-        }
-        .product-title {
-            font-size: 13px;
-            font-weight: bold;
-            color: #333;
-            margin-bottom: 5px;
-            height: 35px;
-            overflow: hidden;
-        }
-        .product-price {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 14px;
-        }
-        .old-price {
-            text-decoration: line-through;
-            color: #888;
-            font-size: 12px;
-        }
-        .new-price {
-            color: #d32f2f;
-            font-weight: bold;
-        }
-        .add-to-cart-btn {
-            background: #b71c1c;
-            color: white;
-            border: none;
-            width: 35px;
-            height: 35px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: absolute;
-            bottom: 10px;
-            right: 10px;
-            cursor: pointer;
-            text-decoration: none;
-        }
+    .brand-name {
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      color: #ffcc00;
+    }
 
-        /* Floating WhatsApp Button */
-        .whatsapp-float {
-            position: fixed;
-            bottom: 70px;
-            right: 20px;
-            background-color: #25d366;
-            color: white;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 28px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-            z-index: 100;
-            text-decoration: none;
-        }
+    nav a {
+      color: #ffffff;
+      text-decoration: none;
+      margin-left: 20px;
+      font-size: 14px;
+      transition: color 0.3s;
+    }
 
-        /* Footer Section */
-        .site-footer {
-            background-color: #1a1a1a;
-            color: #fff;
-            text-align: center;
-            padding: 20px 10px;
-            font-size: 13px;
-            margin-top: 30px;
-            margin-bottom: 55px;
-        }
-        .site-footer p {
-            margin-bottom: 5px;
-        }
+    nav a:hover {
+      color: #ffcc00;
+    }
 
-        /* Bottom Navigation Bar */
-        .bottom-nav {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            background: white;
-            display: flex;
-            justify-content: space-around;
-            padding: 10px 0;
-            border-top: 1px solid #ddd;
-            z-index: 99;
-        }
-        .nav-item {
-            text-align: center;
-            color: #555;
-            font-size: 11px;
-            text-decoration: none;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 3px;
-        }
-        .nav-item i {
-            font-size: 18px;
-        }
-        .nav-item.active {
-            color: #b71c1c;
-        }
-    </style>
+    /* Main Container */
+    .container {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 30px 15px;
+    }
+
+    /* Payment Card */
+    .payment-card {
+      background: #ffffff;
+      max-width: 480px;
+      width: 100%;
+      padding: 35px 25px;
+      border-radius: 16px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+      text-align: center;
+      border: 1px solid #eaeaea;
+    }
+
+    .badge {
+      display: inline-block;
+      background: #e6f4ea;
+      color: #137333;
+      padding: 5px 12px;
+      font-size: 12px;
+      font-weight: 600;
+      border-radius: 20px;
+      margin-bottom: 15px;
+    }
+
+    .payment-card h2 {
+      font-size: 22px;
+      color: #1a1a1a;
+      margin-bottom: 8px;
+    }
+
+    .payment-card p {
+      font-size: 14px;
+      color: #666;
+      margin-bottom: 25px;
+      line-height: 1.5;
+    }
+
+    .divider {
+      height: 1px;
+      background: #eee;
+      margin: 20px 0;
+    }
+
+    /* Provided Payment Button Styling */
+    .payment-btn-wrapper {
+      display: flex;
+      justify-content: center;
+      margin-top: 10px;
+    }
+
+    .button-container {
+      border: 1px solid #000;
+      border-radius: 12px;
+      display: flex;
+      padding: 10px 18px;
+      width: fit-content;
+      cursor: pointer;
+      background: #000000;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .button-container:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.25);
+    }
+
+    .text-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-left: 12px;
+      justify-content: center;
+      margin-right: 5px;
+    }
+
+    .logo-container {
+      width: 40px;
+      height: 40px;
+      object-fit: contain;
+    }
+
+    .seconday-logo-container {
+      width: 16px;
+      height: 16px;
+      vertical-align: middle;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 15px;
+      font-size: 12px;
+      color: #888;
+      background: #ffffff;
+      border-top: 1px solid #eaeaea;
+    }
+  </style>
 </head>
 <body>
 
-    <!-- Top Header -->
-    <header class="top-header">
-        <div class="header-left">
-            <button class="menu-btn" id="openMenu"><i class="fa-solid fa-bars"></i></button>
-            <div class="logo">Delhi Press</div>
-        </div>
-        <div class="header-right">
-            <a href="contact.html"><i class="fa-solid fa-location-dot" style="font-size: 16px;"></i></a>
-            <a href="store.html"><i class="fa-solid fa-search"></i></a>
-            <a href="all-cards.html"><i class="fa-regular fa-heart"></i></a>
-            <a href="store.html"><i class="fa-solid fa-shopping-cart"></i></a>
-            <a href="login.html"><i class="fa-regular fa-user"></i></a>
-        </div>
-    </header>
-
-    <!-- Popup Menu Drawer (Public/Main menu options only) -->
-    <div class="menu-overlay" id="menuOverlay"></div>
-    <div class="menu-drawer" id="menuDrawer">
-        <div class="menu-header">
-            <span>Categories & Menu</span>
-            <button class="menu-close-btn" id="closeMenu">&times;</button>
-        </div>
-        <ul class="menu-links">
-            <li><a href="index.html"><i class="fa-solid fa-house" style="margin-right: 10px;"></i> Home</a></li>
-            <li><a href="wedding-card.html"><i class="fa-solid fa-heart" style="margin-right: 10px;"></i> Wedding Cards</a></li>
-            <li><a href="flex-banner.html"><i class="fa-solid fa-image" style="margin-right: 10px;"></i> Flex & Banners</a></li>
-            <li><a href="visiting-card.html"><i class="fa-solid fa-id-card" style="margin-right: 10px;"></i> Visiting Cards</a></li>
-            <li><a href="all-cards.html"><i class="fa-solid fa-book-open" style="margin-right: 10px;"></i> Nikah Cards</a></li>
-            <li><a href="store.html"><i class="fa-solid fa-store" style="margin-right: 10px;"></i> Store</a></li>
-            <li><a href="contact.html"><i class="fa-solid fa-phone" style="margin-right: 10px;"></i> Contact Us</a></li>
-            <li><a href="login.html"><i class="fa-solid fa-right-to-bracket" style="margin-right: 10px;"></i> Login / Account</a></li>
-        </ul>
-    </div>
-
-    <!-- Hero Section -->
-    <section class="hero">
-        <h1>Welcome to Design Store</h1>
-        <p>Wedding Cards, Flex, Banners, and Custom Printing.</p>
-        <div class="search-box">
-            <input type="text" placeholder="Search wedding cards, poster...">
-            <button><i class="fa-solid fa-search"></i></button>
-        </div>
-    </section>
-
-    <!-- Filter and Sort Bar (Working Toggle Dropdown) -->
-    <div class="filter-sort-container">
-        <div class="filter-sort-bar" id="filterBarToggle">
-            <i class="fa-solid fa-sliders"></i> FILTER AND SORT
-        </div>
-        <div class="filter-dropdown" id="filterDropdownMenu">
-            <div class="filter-group">
-                <label>Sort By Price:</label>
-                <select id="sortPrice">
-                    <option value="default">Default</option>
-                    <option value="low-high">Low to High</option>
-                    <option value="high-low">High to Low</option>
-                </select>
-            </div>
-            <div class="filter-group">
-                <label>Category:</label>
-                <select id="filterCategory">
-                    <option value="all">All Products</option>
-                    <option value="wedding">Wedding Cards</option>
-                    <option value="flex">Flex & Banners</option>
-                    <option value="visiting">Visiting Cards</option>
-                </select>
-            </div>
-        </div>
-    </div>
-
-    <!-- Product Grid -->
-    <div class="product-container">
-        <!-- Product 1 -->
-        <div class="product-card">
-            <span class="product-badge">-50%</span>
-            <img src="https://via.placeholder.com/150" alt="Card" class="product-img">
-            <div class="product-info">
-                <div class="product-title">Lavender Floral Designer Padded Invitation Card</div>
-                <div class="product-price">
-                    <span class="new-price">Rs. 100.00</span>
-                    <span class="old-price">Rs. 200.00</span>
-                </div>
-            </div>
-            <a href="store.html" class="add-to-cart-btn"><i class="fa-solid fa-cart-shopping"></i></a>
-        </div>
-
-        <!-- Product 2 -->
-        <div class="product-card">
-            <span class="product-badge sale">Sale</span>
-            <img src="https://via.placeholder.com/150" alt="Card" class="product-img">
-            <div class="product-info">
-                <div class="product-title">Cream Floral Single Sheet Invitation Card</div>
-                <div class="product-price">
-                    <span class="new-price">Rs. 13.50</span>
-                    <span class="old-price">Rs. 15.00</span>
-                </div>
-            </div>
-            <a href="store.html" class="add-to-cart-btn"><i class="fa-solid fa-cart-shopping"></i></a>
-        </div>
-    </div>
-
-    <!-- Footer Section -->
-    <footer class="site-footer">
-        <p><strong>Delhi Press - Sajaad Printer'S</strong></p>
-        <p>Professional Printing & Graphic Designing Services</p>
-        <p style="margin-top: 10px; font-size: 11px; color: #aaa;">© 2026 Delhi Press - All Rights Reserved.</p>
-    </footer>
-
-    <!-- Floating WhatsApp Button -->
-    <a href="https://wa.me/919304509464" class="whatsapp-float" target="_blank">
-        <i class="fa-brands fa-whatsapp"></i>
-    </a>
-
-    <!-- Bottom Navigation Bar -->
-    <nav class="bottom-nav">
-        <a href="index.html" class="nav-item active">
-            <i class="fa-solid fa-house"></i>
-            <span>HOME</span>
-        </a>
-        <a href="#" class="nav-item" id="bottomMenuBtn">
-            <i class="fa-solid fa-bars"></i>
-            <span>MENU</span>
-        </a>
-        <a href="store.html" class="nav-item">
-            <i class="fa-solid fa-search"></i>
-            <span>SEARCH</span>
-        </a>
-        <a href="store.html" class="nav-item">
-            <i class="fa-solid fa-shopping-cart"></i>
-            <span>CART</span>
-        </a>
-        <a href="login.html" class="nav-item">
-            <i class="fa-regular fa-user"></i>
-            <span>ACCOUNT</span>
-        </a>
+  <header>
+    <div class="brand-name">Delhi Press Sajad Printers</div>
+    <nav>
+      <a href="#services">Services</a>
+      <a href="#contact">Contact</a>
     </nav>
+  </header>
 
-    <!-- JavaScript to handle Popup Menu & Filter Toggle -->
-    <script>
-        const openMenu = document.getElementById('openMenu');
-        const bottomMenuBtn = document.getElementById('bottomMenuBtn');
-        const closeMenu = document.getElementById('closeMenu');
-        const menuDrawer = document.getElementById('menuDrawer');
-        const menuOverlay = document.getElementById('menuOverlay');
+  <main class="container">
+    <div class="payment-card">
+      <span class="badge">🔒 100% Safe & Secure Payment</span>
+      <h2>ऑनलाइन पेमेंट करें</h2>
+      <p>अपने प्रिंटिंग ऑर्डर और सेवाओं के लिए नीचे दिए गए बटन पर क्लिक करके सुरक्षित रूप से भुगतान पूरा करें।</p>
+      
+      <div class="divider"></div>
 
-        function toggleMenu() {
-            menuDrawer.classList.toggle('active');
-            menuOverlay.style.display = menuDrawer.classList.contains('active') ? 'block' : 'none';
-        }
+      <div class="payment-btn-wrapper">
+        <form>
+          <a href="https://payments.cashfree.com/forms/delhi-press-sajad-pr" target="_blank" rel="noopener noreferrer">
+            <div class="button-container">
+              <div>
+                <img src="https://cashfree-checkoutcartimages-prod.cashfree.com/1000346936oastv05vttt0_prod.png" alt="logo" class="logo-container">
+              </div>
+              <div class="text-container">
+                <div style="font-family: Verdana; color: #fff; margin-bottom: 5px; font-size: 14px; font-weight: bold;">
+                  Pay Now
+                </div>
+                <div style="font-family: Verdana; color: #fff; font-size: 10px;">
+                    <span>Powered By Cashfree</span>
+                    <img src="https://cashfreelogo.cashfree.com/cashfreepayments/logosvgs/Group_4355.svg" alt="logo" class="seconday-logo-container">
+                </div>
+              </div>
+            </div>
+          </a>
+        </form>
+      </div>
 
-        openMenu.addEventListener('click', toggleMenu);
-        bottomMenuBtn.addEventListener('click', (e) => {
-            e.preventDefault();
-            toggleMenu();
-        });
-        closeMenu.addEventListener('click', toggleMenu);
-        menuOverlay.addEventListener('click', toggleMenu);
+      <div class="divider"></div>
+      <p style="font-size: 12px; color: #999; margin-bottom: 0;">UPI, Credit/Debit Card, Net Banking सपोर्टेड</p>
+    </div>
+  </main>
 
-        // Filter and Sort toggle dropdown script
-        const filterBarToggle = document.getElementById('filterBarToggle');
-        const filterDropdownMenu = document.getElementById('filterDropdownMenu');
-
-        filterBarToggle.addEventListener('click', () => {
-            filterDropdownMenu.classList.toggle('active');
-        });
-    </script>
+  <footer>
+    &copy; Delhi Press Sajad Printers. All rights reserved.
+  </footer>
 
 </body>
 </html>
