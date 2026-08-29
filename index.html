@@ -375,62 +375,6 @@
             border-color: var(--gold);
         }
 
-        /* Upload Container */
-        .upload-field {
-            border: 2px dashed #f59e0b;
-            background: #fffbeb;
-            padding: 15px;
-            text-align: center;
-            border-radius: 8px;
-            cursor: pointer;
-        }
-
-        .upload-preview {
-            display: none;
-            margin-top: 10px;
-            max-height: 120px;
-            border-radius: 6px;
-            border: 1px solid #cbd5e1;
-        }
-
-        /* Dynamic Boxes */
-        .dynamic-box {
-            background: #f8fafc;
-            border: 1px dashed #94a3b8;
-            padding: 15px;
-            border-radius: 8px;
-            margin-bottom: 15px;
-            position: relative;
-        }
-
-        .btn-add {
-            background: #0284c7;
-            color: #fff;
-            border: none;
-            padding: 6px 14px;
-            border-radius: 6px;
-            font-size: 13px;
-            font-weight: 600;
-            cursor: pointer;
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        .btn-remove {
-            background: #ef4444;
-            color: #fff;
-            border: none;
-            padding: 4px 10px;
-            border-radius: 4px;
-            font-size: 12px;
-            cursor: pointer;
-            position: absolute;
-            top: 10px;
-            right: 10px;
-        }
-
-        /* Calculation Summary */
         .calc-summary {
             background: #fffbeb;
             border: 1px solid #fde68a;
@@ -487,6 +431,7 @@
             margin: 15px auto 0;
             box-shadow: 0 4px 12px rgba(0,0,0,0.15);
             text-decoration: none;
+            background: #000;
         }
 
         .text-container {
@@ -599,7 +544,6 @@
             <ul>
                 <li><a href="index.html" class="active"><i class="fa-solid fa-house"></i> Home</a></li>
                 <li><a href="services.html"><i class="fa-solid fa-briefcase"></i> Services</a></li>
-                
                 <li class="dropdown">
                     <a href="designs.html"><i class="fa-solid fa-layer-group"></i> Card Designs ▾</a>
                     <ul class="dropdown-menu">
@@ -609,7 +553,6 @@
                         <li><a href="designs.html#flex"><i class="fa-solid fa-image"></i> Flex & Banner</a></li>
                     </ul>
                 </li>
-
                 <li><a href="about.html"><i class="fa-solid fa-circle-info"></i> About</a></li>
                 <li><a href="contact.html"><i class="fa-solid fa-address-book"></i> Contact</a></li>
                 <li><a href="login.html" class="btn-login-link"><i class="fa-solid fa-user"></i> Login</a></li>
@@ -623,43 +566,6 @@
         <div class="hero-actions">
             <a href="#orderBox" class="btn-hero btn-wa-hero"><i class="fa-brands fa-whatsapp"></i> Shaadi Card Order Karein</a>
             <a href="designs.html" class="btn-hero btn-gold"><i class="fa-solid fa-eye"></i> Sabhi Designs Dekhein</a>
-        </div>
-    </div>
-
-    <div class="container">
-        <div class="heading">
-            <h3>Hamare Shaadi Cards Aur Printing Services</h3>
-            <p>Design dekhne ya order details ke liye category chunein</p>
-        </div>
-
-        <div class="grid">
-            <div class="grid-card">
-                <div class="grid-icon">☪</div>
-                <h4>Muslim Wedding Cards</h4>
-                <p>Nikah Nama, Walima Box Cards aur Urdu calligraphy designs.</p>
-                <a href="designs.html#muslim" class="grid-link">Designs Dekhein <i class="fa-solid fa-arrow-right"></i></a>
-            </div>
-
-            <div class="grid-card">
-                <div class="grid-icon">卐</div>
-                <h4>Hindu Vivah Cards</h4>
-                <p>Shubh Vivah, Tilak Patra aur Royal red/gold cards.</p>
-                <a href="designs.html#hindu" class="grid-link">Designs Dekhein <i class="fa-solid fa-arrow-right"></i></a>
-            </div>
-
-            <div class="grid-card">
-                <div class="grid-icon"><i class="fa-solid fa-id-card"></i></div>
-                <h4>Visiting & Business Cards</h4>
-                <p>Glossy, Matt, UV embossed multi-color cards.</p>
-                <a href="designs.html#visiting" class="grid-link">Designs Dekhein <i class="fa-solid fa-arrow-right"></i></a>
-            </div>
-
-            <div class="grid-card">
-                <div class="grid-icon"><i class="fa-solid fa-print"></i></div>
-                <h4>Printing Services</h4>
-                <p>Flex banners, bill books, pamphlets aur posters.</p>
-                <a href="services.html" class="grid-link">Services Dekhein <i class="fa-solid fa-arrow-right"></i></a>
-            </div>
         </div>
     </div>
 
@@ -678,128 +584,61 @@
                 <div class="row-2">
                     <div class="form-group">
                         <label>Customer Name *</label>
-                        <input type="text" id="custName" placeholder="Apna pura naam" required>
+                        <input type="text" id="custName" placeholder="Enter customer name" required>
                     </div>
                     <div class="form-group">
                         <label>Mobile Number *</label>
-                        <input type="tel" id="custPhone" placeholder="10 Digit Number" required>
-                    </div>
-                </div>
-                <div class="row-2">
-                    <div class="form-group">
-                        <label>Card Type *</label>
-                        <select id="cardType" required>
-                            <option value="Muslim Wedding Card">☪ Muslim Wedding Card (Nikah/Walima)</option>
-                            <option value="Hindu Shubh Vivah Card">卐 Hindu Shubh Vivah Card</option>
-                            <option value="Combined Multi-Marriage Card">👨‍👩‍👧‍👦 Multi-Marriage Family Card</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label>Card Model / Code (Optional)</label>
-                        <input type="text" id="cardModel" placeholder="e.g. DP-105 Gold Foil">
+                        <input type="tel" id="custPhone" placeholder="Enter mobile number" required>
                     </div>
                 </div>
 
-                <!-- Price & Quantity Section -->
+                <!-- 2. Price & Advance Calculation -->
                 <div class="form-section-header">
-                    <div class="form-section-title"><i class="fa-solid fa-calculator"></i> Price & Advance Calculation</div>
+                    <div class="form-section-title"><i class="fa-solid fa-calculator"></i> 2. Price & Advance Calculation</div>
                 </div>
                 <div class="row-4">
                     <div class="form-group">
-                        <label>Card Quantity (Total Piece) *</label>
-                        <input type="number" id="cardQty" placeholder="e.g. 250" oninput="calculateBilling()" required>
+                        <label>Card Quantity (Total Pieces) *</label>
+                        <input type="number" id="cardQty" placeholder="e.g. 200" oninput="calculatePrice()" required>
                     </div>
                     <div class="form-group">
-                        <label>Rate Per Piece (₹) *</label>
-                        <input type="number" id="ratePerPiece" placeholder="e.g. 15" oninput="calculateBilling()" required>
+                        <label>Rate Per Piece (Rs.) *</label>
+                        <input type="number" id="cardRate" placeholder="e.g. 10" oninput="calculatePrice()" required>
                     </div>
                     <div class="form-group">
-                        <label>Total Amount (Kul Rashi ₹)</label>
-                        <input type="number" id="totalAmount" placeholder="0" readonly style="background:#f1f5f9; font-weight:700;">
+                        <label>Total Amount (Card Bill)</label>
+                        <input type="text" id="totalBillAmount" value="₹0" readonly style="background:#f1f5f9; font-weight:700;">
                     </div>
                     <div class="form-group">
-                        <label>Advance Payment (₹) *</label>
-                        <input type="number" id="advanceAmount" placeholder="e.g. 500" oninput="calculateBilling()" required>
+                        <label>Advance Payment (Rs.) *</label>
+                        <input type="number" id="advancePayment" placeholder="e.g. 500" oninput="updateAdvancePayment()" required>
                     </div>
                 </div>
 
-                <div class="calc-summary" id="calcSummary">
-                    <span>Total Amount: ₹<span id="sumTotal">0</span></span>
-                    <span>Advance Payment: ₹<span id="sumAdvance">0</span></span>
-                    <span>Remaining (Baki): ₹<span id="sumRemaining">0</span></span>
-                </div>
-
-                <!-- Card Sample Image Upload Field -->
-                <div class="form-group" style="margin-top:15px;">
-                    <label><i class="fa-solid fa-camera"></i> Card Sample Photo / Design Image (Optional Upload)</label>
-                    <div class="upload-field" onclick="document.getElementById('cardSampleFile').click()">
-                        <i class="fa-solid fa-cloud-arrow-up" style="font-size:26px; color:var(--gold);"></i>
-                        <p style="font-size:13.5px; font-weight:600; margin-top:4px;">Card ki Photo Select Karein (Click Here)</p>
-                        <input type="file" id="cardSampleFile" accept="image/*" style="display:none;" onchange="previewCardImage(event)">
-                    </div>
-                    <center><img id="cardImagePreview" class="upload-preview" alt="Selected Card Preview"></center>
-                </div>
-
-                <!-- 2. Dynamic Persons Section -->
-                <div class="form-section-header">
-                    <div class="form-section-title"><i class="fa-solid fa-users"></i> 2. Ladka / Ladki Vivaran (Multiple Add Karein)</div>
-                    <button type="button" class="btn-add" onclick="addPersonBox()"><i class="fa-solid fa-plus"></i> Aur Ladka / Ladki Jodein</button>
-                </div>
-                <div id="personsContainer"></div>
-
-                <!-- 3. Dynamic Events Section -->
-                <div class="form-section-header">
-                    <div class="form-section-title"><i class="fa-solid fa-calendar-days"></i> 3. Rasme-Riwaz, Tarikh & Time (Events)</div>
-                    <button type="button" class="btn-add" onclick="addEventBox()"><i class="fa-solid fa-plus"></i> Aur Karyakram Jodein</button>
-                </div>
-                <div id="eventsContainer"></div>
-
-                <div class="form-group">
-                    <label>Karyakram Ka Sthan (Event Venue / Address)</label>
-                    <input type="text" id="venue" placeholder="Marriage Hall, Hotel ya Ghar ka pura pata">
-                </div>
-
-                <!-- 4. RSVP & From -->
-                <div class="form-section-header">
-                    <div class="form-section-title"><i class="fa-solid fa-handshake"></i> 4. RSVP & From (Nivedak / Swagatakshuk)</div>
-                </div>
-                <div class="row-2">
-                    <div class="form-group">
-                        <label>RSVP / Swagatakshuk (Contacts & Names) *</label>
-                        <textarea id="rsvpText" rows="2" placeholder="e.g. Chacha, Bhai ke naam aur phone number" required></textarea>
-                    </div>
-                    <div class="form-group">
-                        <label>From / Nivedak (Bhejne Wale Parivar Ka Naam) *</label>
-                        <textarea id="fromText" rows="2" placeholder="e.g. Samast Ansari Parivar / Sharma Parivar" required></textarea>
-                    </div>
+                <div class="calc-summary">
+                    <div>Total Amount: <span id="summaryTotal">₹0</span></div>
+                    <div>Advance Payment: <span id="summaryAdvance">₹0</span></div>
+                    <div>Remaining (Baki): <span id="summaryRemaining">₹0</span></div>
                 </div>
 
                 <button type="submit" class="btn-order-wa">
-                    <i class="fa-solid fa-file-pdf"></i> Generate Bill Slip & Proceed to Payment
+                    <i class="fa-solid fa-file-invoice"></i> Generate Bill Slip & Proceed to Payment
                 </button>
             </form>
 
-            <!-- Embedded Cashfree Payment Card (Shows upon submitting order with dynamic amount) -->
-            <div id="paymentArea" class="payment-modal">
-                <h4 style="color:#15803d; font-size:18px; margin-bottom:5px;">
-                    <i class="fa-solid fa-circle-check"></i> Slip Download Ho Gayi Hai!
-                </h4>
-                <p style="font-size:14px; color:#334155;">
-                    Apna Advance Payment (₹<span id="payPromptAdvance">0</span>) direct pay karne ke liye button dabayein:
-                </p>
+            <!-- Cashfree Payment Box -->
+            <div id="paymentBox" class="payment-modal">
+                <h4 style="color:#166534; margin-bottom: 6px;"><i class="fa-solid fa-circle-check"></i> Slip Download Ho Gayi Hai!</h4>
+                <p style="font-size:14px; color:#15803d; margin-bottom:12px;">Apna Advance Payment (<span id="payAmountBadge" style="font-weight:700;">₹0</span>) complete karne ke liye niche button dabayein:</p>
 
-                <!-- Dynamic Cashfree Form/Link Button -->
-                <a id="cashfreeDynamicBtn" href="https://payments.cashfree.com/forms/delhi-press-sajad-pr" target="_blank" class="button-container" style="background: #000">
-                    <div>
-                        <img src="https://cashfree-checkoutcartimages-prod.cashfree.com/1000346936oastv05vttt0_prod.png" alt="logo" class="logo-container">
+                <a id="cashfreePayBtn" class="button-container" href="https://payments.cashfree.com/forms/delhi-press-sajad-pr" target="_blank">
+                    <div class="logo-container">
+                        <img class="logo-container" alt="cashfree logo" src="https://cashfreelogo.cashfree.com/cashfreepayments/checkout/cashfree-icon.png">
                     </div>
                     <div class="text-container">
-                        <div style="font-family: Verdana; color: #fff; margin-bottom: 5px; font-size: 14px; font-weight: bold;">
-                            Pay Advance (₹<span id="payBtnAmount">0</span>)
-                        </div>
-                        <div style="font-family: Verdana; color: #fff; font-size: 10px;">
-                            <span>Powered By Cashfree</span>
-                            <img src="https://cashfreelogo.cashfree.com/cashfreepayments/logosvgs/Group_4355.svg" alt="logo" class="seconday-logo-container">
+                        <div style="font-family: Verdana; color: #FFF; margin-bottom: 2px; font-size: 14px; font-weight: 700;">Pay Now</div>
+                        <div style="font-family: Verdana; color: #FFF; font-size: 10px;">
+                            Powered by <span style="font-weight: 700;">Cashfree Payments</span>
                         </div>
                     </div>
                 </a>
@@ -812,312 +651,71 @@
         <div class="footer-grid">
             <div class="footer-col">
                 <h4>Delhi Press Sajad Printers</h4>
-                <p>Shaadi card, flex printing aur graphics ka bharosemand center.</p>
+                <p>Wedding cards, flex banners, and offset printing services.</p>
             </div>
-
-            <div class="footer-col">
-                <h4>Sabhi Pages</h4>
-                <a href="index.html">Home</a>
-                <a href="services.html">Services</a>
-                <a href="designs.html">Card Designs</a>
-                <a href="about.html">About Us</a>
-                <a href="contact.html">Contact Us</a>
-            </div>
-
-            <div class="footer-col">
-                <h4>Admin Panel</h4>
-                <a href="login.html">Login Page</a>
-                <a href="admin.html">Admin Dashboard</a>
-            </div>
-
             <div class="footer-col">
                 <h4>Contact Info</h4>
-                <p><i class="fa-solid fa-phone"></i> +91 93045 09464</p>
-                <p><i class="fa-solid fa-envelope"></i> sajadprinters@gmail.com</p>
-                <a href="https://maps.google.com/?q=Delhi+Press+Sajad+Printers" target="_blank" style="color:var(--gold);">
-                    <i class="fa-solid fa-location-dot"></i> View on Google Maps
-                </a>
+                <p>Phone: +91 93045 09464</p>
+                <p>Email: msajadrockstar@gmail.com</p>
             </div>
         </div>
-
         <div class="footer-bottom">
-            © 2026 Delhi Press Sajad Printers. All rights reserved.
+            <p>&copy; 2026 Delhi Press Sajad Printers. All rights reserved.</p>
         </div>
     </footer>
 
     <script>
-        function toggleNav() {
-            document.getElementById('navbar').classList.toggle('active');
+        const BASE_CASHFREE_URL = "https://payments.cashfree.com/forms/delhi-press-sajad-pr";
+
+        function calculatePrice() {
+            const qty = parseFloat(document.getElementById('cardQty').value) || 0;
+            const rate = parseFloat(document.getElementById('cardRate').value) || 0;
+            const total = qty * rate;
+
+            document.getElementById('totalBillAmount').value = "₹" + total;
+            document.getElementById('summaryTotal').innerText = "₹" + total;
+
+            updateAdvancePayment();
         }
 
-        let personCount = 0;
-        let eventCount = 0;
-        let cardImageBase64 = null;
-
-        // Auto Price Calculation
-        function calculateBilling() {
+        function updateAdvancePayment() {
             const qty = parseFloat(document.getElementById('cardQty').value) || 0;
-            const rate = parseFloat(document.getElementById('ratePerPiece').value) || 0;
-            const advance = parseFloat(document.getElementById('advanceAmount').value) || 0;
-
+            const rate = parseFloat(document.getElementById('cardRate').value) || 0;
             const total = qty * rate;
+            const advance = parseFloat(document.getElementById('advancePayment').value) || 0;
             const remaining = Math.max(0, total - advance);
 
-            document.getElementById('totalAmount').value = total;
-            document.getElementById('sumTotal').innerText = total;
-            document.getElementById('sumAdvance').innerText = advance;
-            document.getElementById('sumRemaining').innerText = remaining;
-            document.getElementById('payPromptAdvance').innerText = advance;
-            document.getElementById('payBtnAmount').innerText = advance;
+            document.getElementById('summaryAdvance').innerText = "₹" + advance;
+            document.getElementById('summaryRemaining').innerText = "₹" + remaining;
+            document.getElementById('payAmountBadge').innerText = "₹" + advance;
 
-            // Update Cashfree link with advance amount parameter
-            const baseUrl = "https://payments.cashfree.com/forms/delhi-press-sajad-pr";
-            const dynamicUrl = `${baseUrl}?amount=${encodeURIComponent(advance)}&order_amount=${encodeURIComponent(advance)}`;
-            const payBtn = document.getElementById('cashfreeDynamicBtn');
-            if (payBtn) {
-                payBtn.href = dynamicUrl;
+            // Update Cashfree Button URL dynamically
+            const payBtn = document.getElementById('cashfreePayBtn');
+            if (advance > 0) {
+                payBtn.href = BASE_CASHFREE_URL + "?amount=" + encodeURIComponent(advance);
+            } else {
+                payBtn.href = BASE_CASHFREE_URL;
             }
         }
-
-        function previewCardImage(event) {
-            const file = event.target.files[0];
-            if (file) {
-                const reader = new FileReader();
-                reader.onload = function(e) {
-                    cardImageBase64 = e.target.result;
-                    const preview = document.getElementById('cardImagePreview');
-                    preview.src = cardImageBase64;
-                    preview.style.display = 'block';
-                }
-                reader.readAsDataURL(file);
-            }
-        }
-
-        function addPersonBox() {
-            personCount++;
-            const container = document.getElementById('personsContainer');
-            const div = document.createElement('div');
-            div.className = 'dynamic-box';
-            div.id = `personBox_${personCount}`;
-            div.innerHTML = `
-                ${personCount > 1 ? `<button type="button" class="btn-remove" onclick="removeBox('personBox_${personCount}')"><i class="fa-solid fa-trash"></i> Hatao</button>` : ''}
-                <div class="row-2">
-                    <div class="form-group">
-                        <label>Parchay (Role) *</label>
-                        <select class="person-role" required>
-                            <option value="Dulha (Groom)">Dulha (Groom / Ladka)</option>
-                            <option value="Dulhan (Bride)">Dulhan (Bride / Ladki)</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label>Naam (Candidate Name) *</label>
-                        <input type="text" class="person-name" placeholder="Ladka / Ladki ka naam" required>
-                    </div>
-                </div>
-                <div class="row-2">
-                    <div class="form-group">
-                        <label>Pita / Walid Ka Naam *</label>
-                        <input type="text" class="person-father" placeholder="Father's Name" required>
-                    </div>
-                    <div class="form-group">
-                        <label>Pata (Address / Gaon / Shehar) *</label>
-                        <input type="text" class="person-address" placeholder="Pura pata" required>
-                    </div>
-                </div>
-            `;
-            container.appendChild(div);
-        }
-
-        function addEventBox(defaultName = '') {
-            eventCount++;
-            const container = document.getElementById('eventsContainer');
-            const div = document.createElement('div');
-            div.className = 'dynamic-box';
-            div.id = `eventBox_${eventCount}`;
-            div.innerHTML = `
-                ${eventCount > 1 ? `<button type="button" class="btn-remove" onclick="removeBox('eventBox_${eventCount}')"><i class="fa-solid fa-trash"></i> Hatao</button>` : ''}
-                <div class="row-3">
-                    <div class="form-group">
-                        <label>Rasme / Karyakram Ka Naam *</label>
-                        <input type="text" class="event-name" value="${defaultName}" placeholder="e.g. Shaadi, Walima, Barat" required>
-                    </div>
-                    <div class="form-group">
-                        <label>Tarikh (Date) *</label>
-                        <input type="date" class="event-date" required>
-                    </div>
-                    <div class="form-group">
-                        <label>Samay (Time) *</label>
-                        <input type="time" class="event-time" required>
-                    </div>
-                </div>
-            `;
-            container.appendChild(div);
-        }
-
-        function removeBox(id) {
-            const el = document.getElementById(id);
-            if (el) el.remove();
-        }
-
-        window.addEventListener('DOMContentLoaded', () => {
-            addPersonBox();
-            addEventBox('Nikah / Shaadi');
-        });
 
         function handleWeddingOrder(e) {
             e.preventDefault();
 
-            const custName = document.getElementById('custName').value;
-            const custPhone = document.getElementById('custPhone').value;
-            const cardType = document.getElementById('cardType').value;
-            const cardModel = document.getElementById('cardModel').value || "Standard";
-            const cardQty = document.getElementById('cardQty').value;
-            const rate = document.getElementById('ratePerPiece').value;
-            const total = document.getElementById('totalAmount').value;
-            const advance = document.getElementById('advanceAmount').value;
-            const remaining = Math.max(0, total - advance);
+            const advance = parseFloat(document.getElementById('advancePayment').value) || 0;
+            const payBtn = document.getElementById('cashfreePayBtn');
 
-            const venue = document.getElementById('venue').value || "Ghar Par / As per details";
-            const rsvpText = document.getElementById('rsvpText').value;
-            const fromText = document.getElementById('fromText').value;
-            const orderDate = new Date().toLocaleDateString('hi-IN');
-
-            // Collect Persons
-            const personBoxes = document.querySelectorAll('#personsContainer .dynamic-box');
-            let personsList = [];
-            let personsWAText = "";
-            personBoxes.forEach((box, i) => {
-                const role = box.querySelector('.person-role').value;
-                const name = box.querySelector('.person-name').value;
-                const father = box.querySelector('.person-father').value;
-                const address = box.querySelector('.person-address').value;
-                personsList.push({ role, name, father, address });
-
-                personsWAText += `%0A*${i+1}. ${role}:* ${encodeURIComponent(name)}%0A` +
-                                 `  _Father:_ ${encodeURIComponent(father)}%0A` +
-                                 `  _Address:_ ${encodeURIComponent(address)}%0A`;
-            });
-
-            // Collect Events
-            const eventBoxes = document.querySelectorAll('#eventsContainer .dynamic-box');
-            let eventsList = [];
-            let eventsWAText = "";
-            eventBoxes.forEach((box) => {
-                const name = box.querySelector('.event-name').value;
-                const date = box.querySelector('.event-date').value;
-                const time = box.querySelector('.event-time').value;
-                eventsList.push({ name, date, time });
-
-                eventsWAText += `• *${encodeURIComponent(name)}:* ${encodeURIComponent(date)} (${encodeURIComponent(time)})%0A`;
-            });
-
-            // Generate Professional Invoice PDF
-            const { jsPDF } = window.jspdf;
-            const doc = new jsPDF();
-
-            doc.setFillColor(15, 23, 42);
-            doc.rect(0, 0, 210, 26, 'F');
-            doc.setTextColor(245, 158, 11);
-            doc.setFontSize(17);
-            doc.setFont(undefined, 'bold');
-            doc.text("DELHI PRESS SAJAD PRINTERS", 105, 12, { align: "center" });
-
-            doc.setTextColor(255, 255, 255);
-            doc.setFontSize(10);
-            doc.setFont(undefined, 'normal');
-            doc.text("Mobile: +91 93045 09464 | Booking Slip & Advance Invoice", 105, 19, { align: "center" });
-
-            let tableRows = [
-                [{ content: "Billing & Order Summary", colSpan: 2, styles: { fillColor: [245, 158, 11], textColor: [15, 23, 42], fontStyle: 'bold' } }],
-                ["Customer Name", custName],
-                ["Mobile Number", custPhone],
-                ["Card Category & Model", `${cardType} (${cardModel})`],
-                ["Quantity (Pieces)", `${cardQty} Piece @ Rs.${rate}/piece`],
-                ["Total Bill Amount", `Rs. ${total}`],
-                ["Advance Payment Amount", `Rs. ${advance}`],
-                ["Remaining Balance Amount", `Rs. ${remaining}`],
-                ["Booking Date", orderDate],
-
-                [{ content: "Ladka / Ladki Details", colSpan: 2, styles: { fillColor: [241, 245, 249], textColor: [15, 23, 42], fontStyle: 'bold' } }]
-            ];
-
-            personsList.forEach((p, index) => {
-                tableRows.push([`${index + 1}. ${p.role}`, `${p.name}\n(Pita/Walid: ${p.father})\nPata: ${p.address}`]);
-            });
-
-            tableRows.push([{ content: "Rasme-Riwaz & Event Dates", colSpan: 2, styles: { fillColor: [241, 245, 249], textColor: [15, 23, 42], fontStyle: 'bold' } }]);
-            eventsList.forEach((ev) => {
-                tableRows.push([ev.name, `Tarikh: ${ev.date} | Samay: ${ev.time}`]);
-            });
-
-            tableRows.push(
-                ["Venue (Sthan)", venue],
-                [{ content: "RSVP & From Details", colSpan: 2, styles: { fillColor: [241, 245, 249], textColor: [15, 23, 42], fontStyle: 'bold' } }],
-                ["RSVP / Contacts", rsvpText],
-                ["From / Nivedak", fromText]
-            );
-
-            doc.autoTable({
-                startY: 32,
-                head: [['Field', 'Details']],
-                body: tableRows,
-                theme: 'grid',
-                headStyles: { fillColor: [15, 23, 42], textColor: [255, 255, 255], fontStyle: 'bold' },
-                styles: { fontSize: 9, cellPadding: 2.8 },
-                columnStyles: { 0: { fontStyle: 'bold', cellWidth: 55 } }
-            });
-
-            if (cardImageBase64) {
-                let finalY = doc.lastAutoTable.finalY + 10;
-                if (finalY > 220) {
-                    doc.addPage();
-                    finalY = 20;
-                }
-                doc.setFontSize(11);
-                doc.setFont(undefined, 'bold');
-                doc.text("Attached Card Sample Photo:", 15, finalY);
-                doc.addImage(cardImageBase64, 'JPEG', 15, finalY + 5, 60, 60);
+            // Set final amount URL
+            if (advance > 0) {
+                payBtn.href = BASE_CASHFREE_URL + "?amount=" + encodeURIComponent(advance);
             }
 
-            doc.save(`ShaadiCard_${custName.replace(/\s+/g, '_')}.pdf`);
+            // Show Payment Button Box
+            document.getElementById('paymentBox').style.display = 'block';
+            document.getElementById('paymentBox').scrollIntoView({ behavior: 'smooth' });
+        }
 
-            // Reveal Cashfree Button Box with direct URL
-            const paymentModal = document.getElementById('paymentArea');
-            paymentModal.style.display = 'block';
-
-            const cashfreeUrl = `https://payments.cashfree.com/forms/delhi-press-sajad-pr?amount=${encodeURIComponent(advance)}&order_amount=${encodeURIComponent(advance)}`;
-
-            // WhatsApp Message
-            let sampleUploadedNote = cardImageBase64 ? "%0A📸 *Sample Photo:* Attached in PDF" : "";
-
-            const waMsg = `*--- SHAADI CARD BOOKING & ADVANCE ORDER ---*%0A` +
-                          `*Booking Date:* ${orderDate}%0A%0A` +
-                          `*Customer:* ${encodeURIComponent(custName)} (${encodeURIComponent(custPhone)})%0A` +
-                          `*Card:* ${encodeURIComponent(cardType)} (${encodeURIComponent(cardModel)})%0A` +
-                          `*Quantity:* ${encodeURIComponent(cardQty)} Piece (Rate: Rs. ${encodeURIComponent(rate)})%0A` +
-                          `*Total Bill:* Rs. ${encodeURIComponent(total)}%0A` +
-                          `*Advance Amount:* Rs. ${encodeURIComponent(advance)}%0A` +
-                          `*Balance Baki:* Rs. ${encodeURIComponent(remaining)}%0A` +
-                          sampleUploadedNote + `%0A%0A` +
-                          `*--- LADKA / LADKI DETAILS ---*` +
-                          `${personsWAText}%0A` +
-                          `*--- RASME-RIWAZ & DATES ---*%0A` +
-                          `${eventsWAText}%0A` +
-                          `*Venue:* ${encodeURIComponent(venue)}%0A%0A` +
-                          `*RSVP:* ${encodeURIComponent(rsvpText)}%0A` +
-                          `*From / Nivedak:* ${encodeURIComponent(fromText)}%0A%0A` +
-                          `_(Main Advance Payment Rs.${encodeURIComponent(advance)} Cashfree dwara complete kar raha hu aur PDF slip attach kar raha hu.)_`;
-
-            const waURL = `https://wa.me/919304509464?text=${waMsg}`;
-
-            // Automatic window open for Payment & WhatsApp
-            setTimeout(() => {
-                window.open(cashfreeUrl, '_blank');
-            }, 800);
-
-            setTimeout(() => {
-                window.open(waURL, '_blank');
-            }, 1800);
+        function toggleNav() {
+            document.getElementById('navbar').classList.toggle('active');
         }
     </script>
 </body>
