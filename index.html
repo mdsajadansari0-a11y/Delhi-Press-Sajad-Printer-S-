@@ -6,8 +6,9 @@
     <title>Delhi Press Sajad Printers</title>
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- jsPDF Library for Automatic PDF Generation -->
+    <!-- jsPDF Library & AutoTable Plugin -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.31/jspdf.plugin.autotable.min.js"></script>
     <style>
         :root {
             --primary: #0f172a;
@@ -16,7 +17,7 @@
             --gold-hover: #d97706;
             --whatsapp-green: #25d366;
             --bg-light: #f8fafc;
-            --border-color: #e2e8f0;
+            --border-color: #cbd5e1;
         }
 
         * {
@@ -286,29 +287,54 @@
             text-decoration: none;
         }
 
-        /* Direct WhatsApp & PDF Order Box */
+        /* Wedding Card Order Box */
         .order-container {
             background: #ffffff;
-            border: 2px solid #bbf7d0;
+            border: 2px solid #cbd5e1;
+            border-top: 5px solid var(--gold);
             border-radius: 14px;
-            max-width: 620px;
+            max-width: 800px;
             margin: 45px auto;
-            padding: 30px 25px;
+            padding: 35px 25px;
             box-shadow: 0 8px 30px rgba(0,0,0,0.06);
         }
 
         .order-container h3 {
             text-align: center;
-            color: #065f46;
+            color: var(--primary);
             margin-bottom: 6px;
-            font-size: 22px;
+            font-size: 24px;
         }
 
         .order-container p.sub {
             text-align: center;
-            font-size: 13.5px;
+            font-size: 14px;
             color: #64748b;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
+        }
+
+        .form-section-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--primary);
+            border-bottom: 2px solid #f1f5f9;
+            padding-bottom: 6px;
+            margin: 20px 0 14px 0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .row-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        @media (max-width: 650px) {
+            .row-2 {
+                grid-template-columns: 1fr;
+            }
         }
 
         .form-group {
@@ -326,22 +352,22 @@
         .form-group input, .form-group select, .form-group textarea {
             width: 100%;
             padding: 10px 12px;
-            border: 1px solid #cbd5e1;
+            border: 1px solid var(--border-color);
             border-radius: 6px;
             font-size: 14px;
             outline: none;
         }
 
         .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
-            border-color: var(--whatsapp-green);
+            border-color: var(--gold);
         }
 
         .btn-order-wa {
-            background: #16a34a;
+            background: var(--whatsapp-green);
             color: #fff;
             border: none;
             width: 100%;
-            padding: 13px;
+            padding: 14px;
             border-radius: 7px;
             font-size: 16px;
             font-weight: 700;
@@ -351,11 +377,11 @@
             justify-content: center;
             gap: 10px;
             transition: 0.25s;
-            margin-top: 10px;
+            margin-top: 15px;
         }
 
         .btn-order-wa:hover {
-            background: #15803d;
+            background: #1eb954;
         }
 
         /* Payment Box */
@@ -450,7 +476,7 @@
 </head>
 <body>
 
-    <!-- Top Strip with Direct Contact & Google Maps -->
+    <!-- Top Strip -->
     <div class="top-strip">
         <div>
             <a href="https://maps.google.com/?q=Delhi+Press+Sajad+Printers" target="_blank">
@@ -480,7 +506,6 @@
                 <li><a href="index.html" class="active"><i class="fa-solid fa-house"></i> Home</a></li>
                 <li><a href="services.html"><i class="fa-solid fa-briefcase"></i> Services</a></li>
                 
-                <!-- Designs Dropdown -->
                 <li class="dropdown">
                     <a href="designs.html"><i class="fa-solid fa-layer-group"></i> Card Designs ▾</a>
                     <ul class="dropdown-menu">
@@ -503,7 +528,7 @@
         <h2>Delhi Press Sajad Printers</h2>
         <p>Premium Wedding Cards, Flex Printing, Visiting Cards aur Complete Designing Center.</p>
         <div class="hero-actions">
-            <a href="#orderBox" class="btn-hero btn-wa-hero"><i class="fa-brands fa-whatsapp"></i> Order On WhatsApp</a>
+            <a href="#orderBox" class="btn-hero btn-wa-hero"><i class="fa-brands fa-whatsapp"></i> Shaadi Card Order Karein</a>
             <a href="designs.html" class="btn-hero btn-gold"><i class="fa-solid fa-eye"></i> Sabhi Designs Dekhein</a>
         </div>
     </div>
@@ -546,46 +571,112 @@
         </div>
     </div>
 
-    <!-- Direct WhatsApp Order & Auto PDF Download Box -->
+    <!-- Complete Wedding Card Order Box -->
     <div class="container" id="orderBox">
         <div class="order-container">
-            <h3><i class="fa-brands fa-whatsapp"></i> Direct WhatsApp Order Form</h3>
-            <p class="sub">Yahan details likhein; submit karte hi aapka Order PDF download ho jayega aur WhatsApp open hoga.</p>
+            <h3><i class="fa-brands fa-whatsapp" style="color:var(--whatsapp-green);"></i> Shaadi Card WhatsApp Order Form</h3>
+            <p class="sub">Niche di gayi details bharein. Ek sunder PDF table download ho jayegi aur WhatsApp par pura vivaran send ho jayega.</p>
 
-            <form id="waOrderForm" onsubmit="handleOrderSubmission(event)">
+            <form id="weddingOrderForm" onsubmit="handleWeddingOrder(event)">
+                
+                <!-- Order Basics -->
+                <div class="form-section-title"><i class="fa-solid fa-clipboard-list"></i> 1. Basic Details</div>
+                <div class="row-2">
+                    <div class="form-group">
+                        <label>Customer Name (Order Karne Wale Ka Naam) *</label>
+                        <input type="text" id="custName" placeholder="Apna naam likhein" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Mobile Number *</label>
+                        <input type="tel" id="custPhone" placeholder="Mobile number likhein" required>
+                    </div>
+                </div>
+                <div class="row-2">
+                    <div class="form-group">
+                        <label>Card Type *</label>
+                        <select id="cardType" required>
+                            <option value="Muslim Wedding Card (Nikah/Walima)">☪ Muslim Wedding Card (Nikah/Walima)</option>
+                            <option value="Hindu Shubh Vivah Card">卐 Hindu Shubh Vivah Card</option>
+                            <option value="Engagement / Tilak Card">💍 Engagement / Tilak Card</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Total Cards Quantity *</label>
+                        <input type="text" id="cardQty" placeholder="e.g. 200, 500 Cards" required>
+                    </div>
+                </div>
+
+                <!-- Groom Details -->
+                <div class="form-section-title"><i class="fa-solid fa-user-tie"></i> 2. Dulha (Groom) Details</div>
+                <div class="row-2">
+                    <div class="form-group">
+                        <label>Dulha Ka Naam (Groom Name) *</label>
+                        <input type="text" id="groomName" placeholder="Dulha ka naam" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Pita / Walid Ka Naam (Father's Name) *</label>
+                        <input type="text" id="groomFather" placeholder="Pita ka naam" required>
+                    </div>
+                </div>
                 <div class="form-group">
-                    <label>Aapka Naam (Customer Name) *</label>
-                    <input type="text" id="custName" placeholder="Apna pura naam likhein" required>
+                    <label>Pata (Groom Address / Gaon / Shehar) *</label>
+                    <input type="text" id="groomAddress" placeholder="Pura pata likhein" required>
+                </div>
+
+                <!-- Bride Details -->
+                <div class="form-section-title"><i class="fa-solid fa-person-dress"></i> 3. Dulhan (Bride) Details</div>
+                <div class="row-2">
+                    <div class="form-group">
+                        <label>Dulhan Ka Naam (Bride Name) *</label>
+                        <input type="text" id="brideName" placeholder="Dulhan ka naam" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Pita / Walid Ka Naam (Father's Name) *</label>
+                        <input type="text" id="brideFather" placeholder="Pita ka naam" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Pata (Bride Address / Gaon / Shehar) *</label>
+                    <input type="text" id="brideAddress" placeholder="Pura pata likhein" required>
+                </div>
+
+                <!-- Dates & Functions -->
+                <div class="form-section-title"><i class="fa-solid fa-calendar-days"></i> 4. Date & Events (Tarikh & Karyakram)</div>
+                <div class="row-2">
+                    <div class="form-group">
+                        <label>Shaadi / Nikah Ki Tarikh (Marriage Date) *</label>
+                        <input type="date" id="eventDate" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Baraat / Walima / Reception Tarikh</label>
+                        <input type="text" id="receptionDate" placeholder="e.g. 24 Oct ko Walima / Barat">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Karyakram Ka Sthan (Event Venue / Address)</label>
+                    <input type="text" id="venue" placeholder="Marriage Hall, Hotel ya Ghar ka pata">
+                </div>
+
+                <!-- RSVP & From -->
+                <div class="form-section-title"><i class="fa-solid fa-handshake"></i> 5. RSVP & From (Nivedak & Swagatakshuk)</div>
+                <div class="row-2">
+                    <div class="form-group">
+                        <label>RSVP / Swagatakshuk (Contact Persons & Numbers) *</label>
+                        <textarea id="rsvpText" rows="2" placeholder="e.g. Chacha, Bhai ke naam aur phone numbers" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>From / Nivedak (Bhejne Wale Parivar Ka Naam) *</label>
+                        <textarea id="fromText" rows="2" placeholder="e.g. Samast Ansari Parivar / Sharma Parivar" required></textarea>
+                    </div>
                 </div>
 
                 <div class="form-group">
-                    <label>Mobile Number *</label>
-                    <input type="tel" id="custPhone" placeholder="Mobile Number likhein" required>
-                </div>
-
-                <div class="form-group">
-                    <label>Kaun Sa Item Chahiye? *</label>
-                    <select id="itemType" required>
-                        <option value="Muslim Wedding Card">☪ Muslim Wedding Card</option>
-                        <option value="Hindu Vivah Card">卐 Hindu Shubh Vivah Card</option>
-                        <option value="Visiting Card">💳 Visiting / Business Card</option>
-                        <option value="Flex Banner">🖼 Flex Banner Board</option>
-                        <option value="Bill Book / Pamphlet">📄 Bill Book / Pamphlet</option>
-                    </select>
-                </div>
-
-                <div class="form-group">
-                    <label>Kitna Quantity Chahiye (Approx)?</label>
-                    <input type="text" id="custQty" placeholder="e.g. 200 Cards / 1 Banner">
-                </div>
-
-                <div class="form-group">
-                    <label>Card me Likha Jaane Wala Matter / Details *</label>
-                    <textarea id="orderDetails" rows="4" placeholder="Dulha-Dulhan ka naam, tareekh, pata ya koi special requirement yahan type karein..." required></textarea>
+                    <label>Any Extra Details / Design Code (Optional)</label>
+                    <input type="text" id="extraNotes" placeholder="Design code, foil color, bismillah logo etc.">
                 </div>
 
                 <button type="submit" class="btn-order-wa">
-                    <i class="fa-solid fa-file-pdf"></i> Download PDF Slip & Send to WhatsApp
+                    <i class="fa-solid fa-file-pdf"></i> Generate Table PDF & Send to WhatsApp
                 </button>
             </form>
         </div>
@@ -645,59 +736,122 @@
         </div>
     </footer>
 
-    <!-- Scripts for WhatsApp & PDF Generation -->
+    <!-- Scripts for WhatsApp & Professional Table PDF Generation -->
     <script>
         function toggleNav() {
             document.getElementById('navbar').classList.toggle('active');
         }
 
-        function handleOrderSubmission(e) {
+        function handleWeddingOrder(e) {
             e.preventDefault();
 
-            const name = document.getElementById('custName').value;
-            const phone = document.getElementById('custPhone').value;
-            const item = document.getElementById('itemType').value;
-            const qty = document.getElementById('custQty').value || "Not Mentioned";
-            const details = document.getElementById('orderDetails').value;
-            const date = new Date().toLocaleDateString('hi-IN');
+            // Form Values
+            const custName = document.getElementById('custName').value;
+            const custPhone = document.getElementById('custPhone').value;
+            const cardType = document.getElementById('cardType').value;
+            const cardQty = document.getElementById('cardQty').value;
 
-            // 1. Generate & Download PDF on Client device
+            const groomName = document.getElementById('groomName').value;
+            const groomFather = document.getElementById('groomFather').value;
+            const groomAddress = document.getElementById('groomAddress').value;
+
+            const brideName = document.getElementById('brideName').value;
+            const brideFather = document.getElementById('brideFather').value;
+            const brideAddress = document.getElementById('brideAddress').value;
+
+            const eventDate = document.getElementById('eventDate').value;
+            const receptionDate = document.getElementById('receptionDate').value || "N/A";
+            const venue = document.getElementById('venue').value || "Ghar Par";
+
+            const rsvpText = document.getElementById('rsvpText').value;
+            const fromText = document.getElementById('fromText').value;
+            const extraNotes = document.getElementById('extraNotes').value || "None";
+            const orderDate = new Date().toLocaleDateString('hi-IN');
+
+            // 1. Generate Clean Table PDF using jsPDF AutoTable
             const { jsPDF } = window.jspdf;
             const doc = new jsPDF();
 
+            // Header Banner in PDF
+            doc.setFillColor(15, 23, 42); // Navy
+            doc.rect(0, 0, 210, 28, 'F');
+            doc.setTextColor(245, 158, 11); // Gold
             doc.setFontSize(18);
-            doc.text("DELHI PRESS SAJAD PRINTERS", 105, 20, { align: "center" });
-            doc.setFontSize(11);
-            doc.text("Mobile: +91 93045 09464 | Order Slip", 105, 28, { align: "center" });
-            doc.line(15, 32, 195, 32);
+            doc.setFont(undefined, 'bold');
+            doc.text("DELHI PRESS SAJAD PRINTERS", 105, 12, { align: "center" });
 
-            doc.setFontSize(12);
-            doc.text(`Date: ${date}`, 15, 42);
-            doc.text(`Customer Name: ${name}`, 15, 52);
-            doc.text(`Contact: ${phone}`, 15, 62);
-            doc.text(`Selected Item: ${item}`, 15, 72);
-            doc.text(`Quantity: ${qty}`, 15, 82);
+            doc.setTextColor(255, 255, 255);
+            doc.setFontSize(10);
+            doc.setFont(undefined, 'normal');
+            doc.text("Mobile: +91 93045 09464 | Wedding Card Booking Slip", 105, 20, { align: "center" });
 
-            doc.line(15, 90, 195, 90);
-            doc.text("Order Matter / Written Details:", 15, 100);
-            
-            // Multiline text wrap
-            const splitDetails = doc.splitTextToSize(details, 175);
-            doc.text(splitDetails, 15, 110);
+            // Table Data Array
+            const tableRows = [
+                [{ content: "Order Details", colSpan: 2, styles: { fillColor: [245, 158, 11], textColor: [15, 23, 42], fontStyle: 'bold' } }],
+                ["Customer Name", custName],
+                ["Customer Contact", custPhone],
+                ["Card Category", cardType],
+                ["Total Quantity", cardQty],
+                ["Order Booking Date", orderDate],
 
-            doc.save(`Order_${name.replace(/\s+/g, '_')}.pdf`);
+                [{ content: "Groom (Dulha) Details", colSpan: 2, styles: { fillColor: [241, 245, 249], textColor: [15, 23, 42], fontStyle: 'bold' } }],
+                ["Dulha Ka Naam (Groom)", groomName],
+                ["Pita / Walid Ka Naam", groomFather],
+                ["Pata (Address)", groomAddress],
 
-            // 2. Direct Redirect to WhatsApp with filled message
-            const waMessage = `*--- NAYA PRINTING ORDER ---*%0A` +
-                              `*Naam:* ${encodeURIComponent(name)}%0A` +
-                              `*Mobile:* ${encodeURIComponent(phone)}%0A` +
-                              `*Item:* ${encodeURIComponent(item)}%0A` +
-                              `*Quantity:* ${encodeURIComponent(qty)}%0A` +
-                              `*Matter / Details:* ${encodeURIComponent(details)}%0A%0A` +
-                              `_(Note: Maine Order Slip PDF download kar li hai, main wo PDF yahan attach kar raha hu.)_`;
+                [{ content: "Bride (Dulhan) Details", colSpan: 2, styles: { fillColor: [241, 245, 249], textColor: [15, 23, 42], fontStyle: 'bold' } }],
+                ["Dulhan Ka Naam (Bride)", brideName],
+                ["Pita / Walid Ka Naam", brideFather],
+                ["Pata (Address)", brideAddress],
 
-            const waURL = `https://wa.me/919304509464?text=${waMessage}`;
-            
+                [{ content: "Dates & Venue Details", colSpan: 2, styles: { fillColor: [241, 245, 249], textColor: [15, 23, 42], fontStyle: 'bold' } }],
+                ["Shaadi / Nikah Tarikh", eventDate],
+                ["Walima / Barat / Reception", receptionDate],
+                ["Karyakram Sthan (Venue)", venue],
+
+                [{ content: "RSVP & From Details", colSpan: 2, styles: { fillColor: [241, 245, 249], textColor: [15, 23, 42], fontStyle: 'bold' } }],
+                ["RSVP / Swagatakshuk", rsvpText],
+                ["From / Nivedak", fromText],
+                ["Extra Notes", extraNotes]
+            ];
+
+            doc.autoTable({
+                startY: 34,
+                head: [['Field', 'Details']],
+                body: tableRows,
+                theme: 'grid',
+                headStyles: { fillColor: [15, 23, 42], textColor: [255, 255, 255], fontStyle: 'bold' },
+                styles: { fontSize: 9.5, cellPadding: 3.5 },
+                columnStyles: {
+                    0: { fontStyle: 'bold', cellWidth: 60 }
+                }
+            });
+
+            // Save PDF
+            doc.save(`WeddingCard_${custName.replace(/\s+/g, '_')}.pdf`);
+
+            // 2. Structured WhatsApp Message
+            const waMsg = `*--- SHAADI CARD NEW ORDER ---*%0A` +
+                          `*Booking Date:* ${orderDate}%0A%0A` +
+                          `*Customer:* ${encodeURIComponent(custName)} (${encodeURIComponent(custPhone)})%0A` +
+                          `*Card Type:* ${encodeURIComponent(cardType)}%0A` +
+                          `*Quantity:* ${encodeURIComponent(cardQty)}%0A%0A` +
+                          `*DULHA (GROOM):* ${encodeURIComponent(groomName)}%0A` +
+                          `*Father:* ${encodeURIComponent(groomFather)}%0A` +
+                          `*Address:* ${encodeURIComponent(groomAddress)}%0A%0A` +
+                          `*DULHAN (BRIDE):* ${encodeURIComponent(brideName)}%0A` +
+                          `*Father:* ${encodeURIComponent(brideFather)}%0A` +
+                          `*Address:* ${encodeURIComponent(brideAddress)}%0A%0A` +
+                          `*Tarikh (Event Date):* ${encodeURIComponent(eventDate)}%0A` +
+                          `*Barat/Walima:* ${encodeURIComponent(receptionDate)}%0A` +
+                          `*Venue:* ${encodeURIComponent(venue)}%0A%0A` +
+                          `*RSVP:* ${encodeURIComponent(rsvpText)}%0A` +
+                          `*From / Nivedak:* ${encodeURIComponent(fromText)}%0A` +
+                          `*Notes:* ${encodeURIComponent(extraNotes)}%0A%0A` +
+                          `_(Maine is order ki slip PDF download kar li hai, wo PDF sath me attach kar raha hu.)_`;
+
+            const waURL = `https://wa.me/919304509464?text=${waMsg}`;
+
             setTimeout(() => {
                 window.open(waURL, '_blank');
             }, 1000);
