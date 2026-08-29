@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Card Samples - Delhi Press</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * { margin:0; padding:0; box-sizing:border-box; font-family:'Segoe UI',sans-serif; }
+        body { background:#f8fafc; color:#1e293b; }
+        header { background:#0f172a; padding:15px 5%; display:flex; justify-content:space-between; align-items:center; }
+        header a { color:#fff; text-decoration:none; margin-left:15px; font-weight:500; }
+        .logo { font-size:20px; font-weight:bold; color:#f59e0b; }
+        .container { max-width:650px; margin:40px auto; padding:0 20px; }
+        .upload-card { background:#fff; border-radius:12px; padding:30px; box-shadow:0 4px 20px rgba(0,0,0,0.08); border:1px solid #e2e8f0; }
+        .form-group { margin-bottom:18px; }
+        label { display:block; font-size:14px; font-weight:600; margin-bottom:6px; }
+        input, select, textarea { width:100%; padding:10px; border:1px solid #cbd5e1; border-radius:6px; font-size:14px; }
+        .dropzone { border:2px dashed #f59e0b; background:#fffbeb; padding:30px; text-align:center; border-radius:8px; cursor:pointer; }
+        .dropzone i { font-size:40px; color:#d97706; margin-bottom:10px; }
+        .btn-upload { background:#f59e0b; color:#0f172a; border:none; padding:12px; width:100%; border-radius:6px; font-size:16px; font-weight:700; cursor:pointer; margin-top:10px; }
+        .btn-upload:hover { background:#d97706; color:#fff; }
+        .preview-box { display:flex; gap:10px; margin-top:15px; flex-wrap:wrap; }
+        .preview-box img { width:80px; height:80px; object-fit:cover; border-radius:6px; border:1px solid #cbd5e1; }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">Delhi Press Sajad Printers</div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="designs.html">Designs</a>
+            <a href="upload.html" style="color:#f59e0b;">Upload</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="upload-card">
+            <h2 style="margin-bottom:8px; text-align:center;">Card Sample Upload Form</h2>
+            <p style="text-align:center; font-size:14px; color:#64748b; margin-bottom:25px;">Naye card ke design aur sample photos yahan se upload karein</p>
+
+            <form id="uploadForm">
+                <div class="form-group">
+                    <label>Card Category</label>
+                    <select required>
+                        <option value="">-- Select Category --</option>
+                        <option>☪ Muslim Wedding Card (Walima/Nikah)</option>
+                        <option>卐 Hindu Shubh Vivah Card</option>
+                        <option>💳 Visiting / Business Card</option>
+                        <option>🖼 Flex / Banner Sample</option>
+                        <option>📄 Bill Book & Pamphlet</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Card Title / Design Code</label>
+                    <input type="text" placeholder="e.g. MC-105 Golden Velvet Box" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Estimated Price / Range (Optional)</label>
+                    <input type="text" placeholder="e.g. ₹25 per piece">
+                </div>
+
+                <div class="form-group">
+                    <label>Card Image / Sample Photo</label>
+                    <div class="dropzone" onclick="document.getElementById('fileInput').click()">
+                        <i class="fa-solid fa-cloud-arrow-up"></i>
+                        <p style="font-weight:600;">Photos select karne ke liye click karein</p>
+                        <span style="font-size:12px; color:#64748b;">PNG, JPG, PDF supported</span>
+                        <input type="file" id="fileInput" multiple style="display:none;" onchange="showPreview(event)">
+                    </div>
+                    <div class="preview-box" id="previewContainer"></div>
+                </div>
+
+                <div class="form-group">
+                    <label>Special Instructions / Details</label>
+                    <textarea rows="3" placeholder="Card size, paper thickness, foil color etc."></textarea>
+                </div>
+
+                <button type="button" class="btn-upload" onclick="alert('Sample Photo successfully save ho gayi!')">
+                    <i class="fa-solid fa-check"></i> Upload Sample Now
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function showPreview(event) {
+            const container = document.getElementById('previewContainer');
+            container.innerHTML = '';
+            const files = event.target.files;
+            for(let i=0; i<files.length; i++) {
+                const img = document.createElement('img');
+                img.src = URL.createObjectURL(files[i]);
+                container.appendChild(img);
+            }
+        }
+    </script>
+</body>
+</html>
