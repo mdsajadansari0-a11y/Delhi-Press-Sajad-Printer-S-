@@ -3,264 +3,475 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Delhi Press Sajad Printers</title>
+    <title>Delhi Press Sajad Printers - Premium Printing Solutions</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <style>
+        :root {
+            --primary: #0f172a;
+            --accent: #d97706;
+            --accent-hover: #b45309;
+            --gold: #f59e0b;
+            --light-bg: #f8fafc;
+            --card-bg: #ffffff;
+            --text-dark: #1e293b;
+            --text-muted: #64748b;
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
+
         body {
-            background-color: #f4f6f9;
-            color: #333;
+            background-color: var(--light-bg);
+            color: var(--text-dark);
+            line-height: 1.6;
         }
-        /* Header & Navigation */
+
+        /* Top Bar */
+        .top-bar {
+            background: #020617;
+            color: #94a3b8;
+            padding: 8px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 13px;
+        }
+
+        .top-bar a {
+            color: var(--gold);
+            text-decoration: none;
+            margin-left: 15px;
+        }
+
+        /* Professional Header */
         header {
-            background-color: #111827;
-            padding: 15px 5%;
+            background: rgba(15, 23, 42, 0.96);
+            backdrop-filter: blur(10px);
+            padding: 12px 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
             position: sticky;
             top: 0;
             z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+            border-bottom: 2px solid var(--accent);
         }
-        .logo {
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-icon {
+            background: linear-gradient(135deg, var(--gold), #ea580c);
+            width: 44px;
+            height: 44px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 22px;
+            box-shadow: 0 2px 10px rgba(245, 158, 11, 0.4);
+        }
+
+        .logo-text h1 {
             font-size: 20px;
-            font-weight: 700;
-            color: #f59e0b;
-            line-height: 1.2;
+            font-weight: 800;
+            color: #ffffff;
+            letter-spacing: 0.5px;
+            line-height: 1.1;
         }
+
+        .logo-text span {
+            font-size: 12px;
+            color: var(--gold);
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
         nav ul {
             list-style: none;
             display: flex;
-            gap: 20px;
+            gap: 24px;
             align-items: center;
         }
+
         nav a {
-            color: #ffffff;
+            color: #e2e8f0;
             text-decoration: none;
             font-size: 15px;
-            transition: color 0.3s;
+            font-weight: 500;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 6px;
         }
-        nav a:hover {
-            color: #f59e0b;
+
+        nav a:hover, nav a.active {
+            color: var(--gold);
         }
-        /* Dropdown Menu */
+
+        /* Dropdown Navigation */
         .dropdown {
             position: relative;
         }
+
         .dropdown-menu {
             display: none;
             position: absolute;
             top: 100%;
             left: 0;
-            background-color: #1f2937;
+            background: #1e293b;
             list-style: none;
             padding: 10px 0;
-            border-radius: 6px;
-            min-width: 200px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+            border-radius: 8px;
+            min-width: 230px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            border: 1px solid #334155;
+            margin-top: 10px;
         }
+
         .dropdown-menu li a {
-            display: block;
-            padding: 8px 16px;
+            padding: 10px 18px;
             font-size: 14px;
+            color: #cbd5e1;
+            display: block;
         }
+
         .dropdown-menu li a:hover {
-            background-color: #374151;
-            color: #f59e0b;
+            background: #334155;
+            color: var(--gold);
+            padding-left: 22px;
         }
+
         .dropdown:hover .dropdown-menu {
             display: block;
         }
+
+        .nav-btn-upload {
+            background: rgba(245, 158, 11, 0.15);
+            border: 1px solid var(--gold);
+            color: var(--gold) !important;
+            padding: 7px 16px;
+            border-radius: 6px;
+            font-weight: 600;
+        }
+
+        .nav-btn-upload:hover {
+            background: var(--gold);
+            color: #0f172a !important;
+        }
+
         /* Hero Banner */
         .hero {
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), #1f2937;
+            background: linear-gradient(rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.85)), url('https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=1200&q=80') center/cover;
             color: #fff;
             text-align: center;
-            padding: 50px 20px;
+            padding: 80px 20px;
         }
-        .hero h1 {
-            font-size: 32px;
-            margin-bottom: 10px;
-            color: #f59e0b;
+
+        .hero h2 {
+            font-size: 38px;
+            color: var(--gold);
+            margin-bottom: 12px;
+            font-weight: 800;
         }
-        /* Services & Designs Section */
+
+        .hero p {
+            font-size: 18px;
+            max-width: 650px;
+            margin: 0 auto 25px;
+            color: #cbd5e1;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 12px 26px;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s;
+        }
+
+        .btn-gold {
+            background: var(--gold);
+            color: #0f172a;
+        }
+
+        .btn-gold:hover {
+            background: #d97706;
+            color: #fff;
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            border: 2px solid #fff;
+            color: #fff;
+        }
+
+        .btn-outline:hover {
+            background: #fff;
+            color: #0f172a;
+        }
+
+        /* Container & Sections */
         .container {
-            max-width: 1100px;
-            margin: 40px auto;
+            max-width: 1150px;
+            margin: 50px auto;
             padding: 0 20px;
         }
+
         .section-title {
             text-align: center;
-            font-size: 24px;
-            margin-bottom: 25px;
-            color: #111827;
+            margin-bottom: 40px;
         }
-        .grid {
+
+        .section-title h3 {
+            font-size: 28px;
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        .section-title p {
+            color: var(--text-muted);
+        }
+
+        .grid-3 {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
         }
-        .card {
-            background: #fff;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            text-align: center;
-            padding: 20px;
-        }
-        .card-symbol {
-            font-size: 40px;
-            margin-bottom: 10px;
-            color: #f59e0b;
-        }
-        .card h3 {
-            margin-bottom: 8px;
-            font-size: 18px;
-        }
-        .card p {
-            font-size: 14px;
-            color: #666;
-        }
-        /* Payment Box (Cashfree Integration) */
-        .payment-box {
-            background: #fff;
+
+        .service-card {
+            background: var(--card-bg);
             border-radius: 12px;
-            padding: 30px;
-            max-width: 450px;
-            margin: 40px auto;
+            padding: 30px 20px;
             text-align: center;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border: 1px solid #e2e8f0;
+            transition: 0.3s;
         }
-        .badge {
-            background-color: #ecfdf5;
-            color: #047857;
-            padding: 6px 14px;
-            border-radius: 20px;
-            font-size: 12px;
-            font-weight: bold;
-            display: inline-block;
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .card-icon {
+            font-size: 40px;
+            color: var(--accent);
             margin-bottom: 15px;
         }
+
+        /* Payment Box */
+        .payment-section {
+            background: #fff;
+            border-radius: 16px;
+            padding: 40px;
+            max-width: 500px;
+            margin: 0 auto;
+            text-align: center;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+            border: 1px solid #e2e8f0;
+        }
+
+        .payment-badge {
+            background: #dcfce7;
+            color: #15803d;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            margin-bottom: 15px;
+        }
+
         .btn-pay {
-            background-color: #000;
+            background: #000;
             color: #fff;
             display: block;
             width: 100%;
-            padding: 12px;
+            padding: 14px;
             border-radius: 8px;
             text-decoration: none;
-            font-weight: 600;
+            font-size: 16px;
+            font-weight: 700;
             margin-top: 20px;
+            transition: 0.3s;
         }
-        /* Footer & Contact */
+
+        .btn-pay:hover {
+            background: #222;
+        }
+
+        /* Footer */
         footer {
-            background-color: #111827;
-            color: #9ca3af;
-            padding: 40px 20px;
-            text-align: center;
-            margin-top: 40px;
+            background: #0f172a;
+            color: #94a3b8;
+            padding: 45px 20px 20px;
+            margin-top: 60px;
         }
-        .contact-details {
-            margin: 15px 0;
-            line-height: 1.8;
-            font-size: 15px;
+
+        .footer-grid {
+            max-width: 1150px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
         }
-        .contact-details a {
-            color: #f59e0b;
+
+        .footer-col h4 {
+            color: #fff;
+            font-size: 16px;
+            margin-bottom: 15px;
+            border-left: 3px solid var(--gold);
+            padding-left: 8px;
+        }
+
+        .footer-col p, .footer-col a {
+            color: #94a3b8;
+            font-size: 14px;
             text-decoration: none;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .footer-col a:hover {
+            color: var(--gold);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            border-top: 1px solid #334155;
+            padding-top: 15px;
+            font-size: 13px;
         }
     </style>
 </head>
 <body>
 
-    <!-- Header -->
+    <div class="top-bar">
+        <div><i class="fa-solid fa-location-dot"></i> Delhi Press Road, City Center</div>
+        <div>
+            <i class="fa-solid fa-phone"></i> +91 98765 43210
+            <a href="https://wa.me/919876543210" target="_blank"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+        </div>
+    </div>
+
     <header>
-        <div class="logo">
-            Delhi Press<br>Sajad Printers
+        <div class="logo-container">
+            <div class="logo-icon"><i class="fa-solid fa-print"></i></div>
+            <div class="logo-text">
+                <h1>Delhi Press</h1>
+                <span>Sajad Printers</span>
+            </div>
         </div>
         <nav>
             <ul>
-                <li><a href="#home">Home</a></li>
+                <li><a href="index.html" class="active"><i class="fa-solid fa-house"></i> Home</a></li>
                 <li class="dropdown">
-                    <a href="#designs">Card Designs ▾</a>
+                    <a href="designs.html"><i class="fa-solid fa-layer-group"></i> Card Designs ▾</a>
                     <ul class="dropdown-menu">
-                        <li><a href="#muslim-cards">☪ Muslim Wedding Cards</a></li>
-                        <li><a href="#hindu-cards">卐 Hindu Wedding Cards</a></li>
-                        <li><a href="#visiting-cards">💳 Visiting / Business Cards</a></li>
-                        <li><a href="#flex-banner">🖼 Flex & Banners</a></li>
-                        <li><a href="#bill-book">📄 Bill Books & Pamphlets</a></li>
+                        <li><a href="designs.html#muslim"><i class="fa-solid fa-moon"></i> Muslim Wedding Cards</a></li>
+                        <li><a href="designs.html#hindu"><i class="fa-solid fa-om"></i> Hindu Vivah Cards</a></li>
+                        <li><a href="designs.html#visiting"><i class="fa-solid fa-id-card"></i> Visiting Cards</a></li>
+                        <li><a href="designs.html#flex"><i class="fa-solid fa-image"></i> Flex & Banners</a></li>
                     </ul>
                 </li>
-                <li><a href="#payment">Payment</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="contact.html"><i class="fa-solid fa-address-book"></i> Contact</a></li>
+                <li><a href="upload.html" class="nav-btn-upload"><i class="fa-solid fa-cloud-arrow-up"></i> Upload Sample</a></li>
             </ul>
         </nav>
     </header>
 
-    <!-- Hero Section -->
-    <div class="hero" id="home">
-        <h1>Delhi Press Sajad Printers</h1>
-        <p>Shaadi Card, Flex Banner, Bill Book aur Graphic Designing ka behtareen center</p>
+    <div class="hero">
+        <h2>Shaadi Cards & High-Quality Printing</h2>
+        <p>Aapke khushiyon ke har mauke ke liye shandar designs, premium card stock aur fast delivery.</p>
+        <div class="hero-buttons">
+            <a href="designs.html" class="btn btn-gold"><i class="fa-solid fa-eye"></i> Card Designs Dekhein</a>
+            <a href="upload.html" class="btn btn-outline"><i class="fa-solid fa-upload"></i> Apna Design Upload Karein</a>
+        </div>
     </div>
 
-    <!-- Card Categories / Design Showcase -->
-    <div class="container" id="designs">
-        <h2 class="section-title">Hamari Card Services & Designs</h2>
-        <div class="grid">
-            <div class="card" id="muslim-cards">
-                <div class="card-symbol">☪</div>
-                <h3>Muslim Wedding Cards</h3>
-                <p>Nikah nama, Walima cards, Bismillah logos aur Urdu/English/Hindi calligraphy designs.</p>
+    <div class="container">
+        <div class="section-title">
+            <h3>Hamari Special Services</h3>
+            <p>Har tarah ke cards aur printing work ke behtareen designs</p>
+        </div>
+        <div class="grid-3">
+            <div class="service-card">
+                <div class="card-icon">☪</div>
+                <h4>Muslim Wedding & Walima</h4>
+                <p>Urdu, English aur Hindi me Bismillah, Nikahnama aur box design cards.</p>
             </div>
-            <div class="card" id="hindu-cards">
-                <div class="card-symbol">卐</div>
-                <h3>Hindu Wedding Cards</h3>
-                <p>Shubh Vivah, Tilak, Ganesh stuti symbol aur traditional box-pattern cards.</p>
+            <div class="service-card">
+                <div class="card-icon">卐</div>
+                <h4>Hindu Shubh Vivah</h4>
+                <p>Ganesh Stuti, Shlok, Tilak aur Royal card patterns.</p>
             </div>
-            <div class="card" id="visiting-cards">
-                <div class="card-symbol">💼</div>
-                <h3>Visiting Cards</h3>
-                <p>Glossy, Matt finish, UV print aur embossed business cards.</p>
-            </div>
-            <div class="card" id="flex-banner">
-                <div class="card-symbol">🖨</div>
-                <h3>Flex & Posters</h3>
-                <p>Shop boards, political banners, glow sign boards aur promotional flyers.</p>
+            <div class="service-card">
+                <div class="card-icon"><i class="fa-solid fa-scroll"></i></div>
+                <h4>Flex, Bill Book & Pamphlet</h4>
+                <p>Shop flex board, multi-color visiting cards aur commercial printing.</p>
             </div>
         </div>
     </div>
 
-    <!-- Online Payment Section -->
-    <div class="container" id="payment">
-        <div class="payment-box">
-            <div class="badge">🔒 100% Safe & Secure Payment</div>
-            <h2>ऑनलाइन पेमेंट करें</h2>
-            <p style="font-size: 14px; color: #666; margin-top: 8px;">
-                Apne printing order aur designs finalize karne ke baad payment pura karein.
+    <div class="container">
+        <div class="payment-section">
+            <div class="payment-badge"><i class="fa-solid fa-shield-halved"></i> 100% Safe Payment Gateway</div>
+            <h3>Online Order Payment</h3>
+            <p style="color: var(--text-muted); font-size: 14px; margin-top: 8px;">
+                Card finalize hone ke baad token ya full payment yahan se karein.
             </p>
-            <!-- Cashfree / Payment Gateway Link -->
-            <a href="https://cashfree.com" class="btn-pay">Pay Now (Cashfree)</a>
-            <p style="font-size: 12px; color: #888; margin-top: 15px;">
-                UPI, Credit/Debit Card, Net Banking Supported
-            </p>
+            <a href="https://cashfree.com" target="_blank" class="btn-pay"><i class="fa-solid fa-lock"></i> Pay Now (Cashfree)</a>
+            <p style="font-size: 12px; color: #94a3b8; margin-top: 12px;">UPI / QR Code / Net Banking Supported</p>
         </div>
     </div>
 
-    <!-- Footer & Contact -->
-    <footer id="contact">
-        <h3 style="color: #fff;">Delhi Press Sajad Printers</h3>
-        <div class="contact-details">
-            <p><strong>Address:</strong> [Apni Dukan ka Address Yahan Likhein, City, State]</p>
-            <p><strong>Mobile/WhatsApp:</strong> <a href="tel:+919876543210">+91 98765 43210</a></p>
-            <p><strong>Email:</strong> contact@sajadprinters.com</p>
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>Delhi Press Sajad Printers</h4>
+                <p>Aapki har printing jarurat ka one-stop destination. Best quality guaranteed.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <a href="index.html">Home</a>
+                <a href="designs.html">Card Designs</a>
+                <a href="upload.html">Upload Sample</a>
+                <a href="contact.html">Contact Us</a>
+            </div>
+            <div class="footer-col">
+                <h4>Contact Info</h4>
+                <p><i class="fa-solid fa-phone"></i> +91 98765 43210</p>
+                <p><i class="fa-solid fa-envelope"></i> contact@sajadprinters.com</p>
+                <p><i class="fa-solid fa-map-pin"></i> Delhi Press Road, City</p>
+            </div>
         </div>
-        <p style="font-size: 13px; border-top: 1px solid #374151; padding-top: 15px;">
-            © 2026 Delhi Press Sajad Printers. All Rights Reserved.
-        </p>
+        <div class="footer-bottom">
+            © 2026 Delhi Press Sajad Printers. All rights reserved.
+        </div>
     </footer>
 
 </body>
