@@ -430,7 +430,7 @@
             right: 10px;
         }
 
-        /* Calculation Highlight Box */
+        /* Calculation Summary */
         .calc-summary {
             background: #fffbeb;
             border: 1px solid #fde68a;
@@ -466,12 +466,12 @@
             background: #1eb954;
         }
 
-        /* Custom Cashfree Integration Box */
+        /* Cashfree Payment Container */
         .payment-modal {
             display: none;
             background: #f0fdf4;
             border: 2px solid #86efac;
-            padding: 20px;
+            padding: 25px 20px;
             border-radius: 12px;
             margin-top: 20px;
             text-align: center;
@@ -481,11 +481,12 @@
             border: 1px solid black;
             border-radius: 15px;
             display: flex;
-            padding: 10px;
+            padding: 10px 18px;
             width: fit-content;
             cursor: pointer;
             margin: 15px auto 0;
             box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            text-decoration: none;
         }
 
         .text-container {
@@ -778,34 +779,30 @@
                 </button>
             </form>
 
-            <!-- Embedded Cashfree Payment Card (Shows upon submitting order) -->
+            <!-- Embedded Cashfree Payment Card (Shows upon submitting order with dynamic amount) -->
             <div id="paymentArea" class="payment-modal">
                 <h4 style="color:#15803d; font-size:18px; margin-bottom:5px;">
                     <i class="fa-solid fa-circle-check"></i> Slip Download Ho Gayi Hai!
                 </h4>
                 <p style="font-size:14px; color:#334155;">
-                    Apna Advance Payment (₹<span id="payPromptAdvance">0</span>) complete karne ke liye niche click karein:
+                    Apna Advance Payment (₹<span id="payPromptAdvance">0</span>) direct pay karne ke liye button dabayein:
                 </p>
 
-                <!-- Official Cashfree Button Component -->
-                <form>
-                    <a href="https://payments.cashfree.com/forms/delhi-press-sajad-pr" target="_blank">
-                        <div class="button-container" style="background: #000">
-                            <div>
-                                <img src="https://cashfree-checkoutcartimages-prod.cashfree.com/1000346936oastv05vttt0_prod.png" alt="logo" class="logo-container">
-                            </div>
-                            <div class="text-container">
-                                <div style="font-family: Verdana; color: #fff; margin-bottom: 5px; font-size: 14px;">
-                                    Pay Now
-                                </div>
-                                <div style="font-family: Verdana; color: #fff; font-size: 10px;">
-                                    <span>Powered By Cashfree</span>
-                                    <img src="https://cashfreelogo.cashfree.com/cashfreepayments/logosvgs/Group_4355.svg" alt="logo" class="seconday-logo-container">
-                                </div>
-                            </div>
+                <!-- Dynamic Cashfree Form/Link Button -->
+                <a id="cashfreeDynamicBtn" href="https://payments.cashfree.com/forms/delhi-press-sajad-pr" target="_blank" class="button-container" style="background: #000">
+                    <div>
+                        <img src="https://cashfree-checkoutcartimages-prod.cashfree.com/1000346936oastv05vttt0_prod.png" alt="logo" class="logo-container">
+                    </div>
+                    <div class="text-container">
+                        <div style="font-family: Verdana; color: #fff; margin-bottom: 5px; font-size: 14px; font-weight: bold;">
+                            Pay Advance (₹<span id="payBtnAmount">0</span>)
                         </div>
-                    </a>
-                </form>
+                        <div style="font-family: Verdana; color: #fff; font-size: 10px;">
+                            <span>Powered By Cashfree</span>
+                            <img src="https://cashfreelogo.cashfree.com/cashfreepayments/logosvgs/Group_4355.svg" alt="logo" class="seconday-logo-container">
+                        </div>
+                    </div>
+                </a>
             </div>
 
         </div>
@@ -871,6 +868,15 @@
             document.getElementById('sumAdvance').innerText = advance;
             document.getElementById('sumRemaining').innerText = remaining;
             document.getElementById('payPromptAdvance').innerText = advance;
+            document.getElementById('payBtnAmount').innerText = advance;
+
+            // Update Cashfree link with advance amount parameter
+            const baseUrl = "https://payments.cashfree.com/forms/delhi-press-sajad-pr";
+            const dynamicUrl = `${baseUrl}?amount=${encodeURIComponent(advance)}&order_amount=${encodeURIComponent(advance)}`;
+            const payBtn = document.getElementById('cashfreeDynamicBtn');
+            if (payBtn) {
+                payBtn.href = dynamicUrl;
+            }
         }
 
         function previewCardImage(event) {
@@ -1075,10 +1081,13 @@
 
             doc.save(`ShaadiCard_${custName.replace(/\s+/g, '_')}.pdf`);
 
-            // Reveal Cashfree Button Box
-            document.getElementById('paymentArea').style.display = 'block';
+            // Reveal Cashfree Button Box with direct URL
+            const paymentModal = document.getElementById('paymentArea');
+            paymentModal.style.display = 'block';
 
-            // Open WhatsApp with detailed message
+            const cashfreeUrl = `https://payments.cashfree.com/forms/delhi-press-sajad-pr?amount=${encodeURIComponent(advance)}&order_amount=${encodeURIComponent(advance)}`;
+
+            // WhatsApp Message
             let sampleUploadedNote = cardImageBase64 ? "%0A📸 *Sample Photo:* Attached in PDF" : "";
 
             const waMsg = `*--- SHAADI CARD BOOKING & ADVANCE ORDER ---*%0A` +
@@ -1097,13 +1106,18 @@
                           `*Venue:* ${encodeURIComponent(venue)}%0A%0A` +
                           `*RSVP:* ${encodeURIComponent(rsvpText)}%0A` +
                           `*From / Nivedak:* ${encodeURIComponent(fromText)}%0A%0A` +
-                          `_(Main Cashfree se Advance Payment complete kar raha hu aur PDF slip chat me send kar raha hu.)_`;
+                          `_(Main Advance Payment Rs.${encodeURIComponent(advance)} Cashfree dwara complete kar raha hu aur PDF slip attach kar raha hu.)_`;
 
             const waURL = `https://wa.me/919304509464?text=${waMsg}`;
 
+            // Automatic window open for Payment & WhatsApp
+            setTimeout(() => {
+                window.open(cashfreeUrl, '_blank');
+            }, 800);
+
             setTimeout(() => {
                 window.open(waURL, '_blank');
-            }, 1200);
+            }, 1800);
         }
     </script>
 </body>
