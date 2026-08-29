@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Delhi Press Sajad Printers</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * { margin:0; padding:0; box-sizing:border-box; font-family:'Segoe UI',sans-serif; }
+        body { background:#f8fafc; color:#1e293b; }
+        header { background:#0f172a; padding:15px 5%; display:flex; justify-content:space-between; align-items:center; }
+        header a { color:#fff; text-decoration:none; margin-left:15px; font-weight:500; }
+        .logo { font-size:20px; font-weight:bold; color:#f59e0b; }
+        .container { max-width:900px; margin:40px auto; padding:0 20px; }
+        .contact-box { background:#fff; border-radius:12px; padding:35px; box-shadow:0 4px 20px rgba(0,0,0,0.08); display:grid; grid-template-columns:1fr 1fr; gap:30px; }
+        @media(max-width:700px){ .contact-box { grid-template-columns:1fr; } }
+        .info-item { display:flex; gap:12px; margin-bottom:20px; }
+        .info-item i { font-size:20px; color:#f59e0b; margin-top:3px; }
+        .btn-wa { background:#22c55e; color:#fff; padding:12px; border-radius:6px; text-decoration:none; display:inline-flex; align-items:center; gap:8px; font-weight:600; justify-content:center; }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">Delhi Press Sajad Printers</div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="designs.html">Designs</a>
+            <a href="upload.html">Upload</a>
+            <a href="contact.html" style="color:#f59e0b;">Contact</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h2 style="text-align:center; margin-bottom:25px;">Contact & Shop Address</h2>
+        <div class="contact-box">
+            <div>
+                <h3>Delhi Press Sajad Printers</h3>
+                <p style="color:#64748b; font-size:14px; margin-bottom:20px;">Shaadi Card, Graphic Designing & Flex Printing</p>
+
+                <div class="info-item">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <div>
+                        <strong>Address:</strong>
+                        <p style="font-size:14px; color:#475569;">[Aapka Shop Number, Chowk/Road, District/City, State]</p>
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <i class="fa-solid fa-phone"></i>
+                    <div>
+                        <strong>Call Us:</strong>
+                        <p style="font-size:14px; color:#475569;">+91 9304509464</p>
+                    </div>
+                </div>
+
+                <a href="https://wa.me/919876543210" target="_blank" class="btn-wa" style="width:100%;">
+                    <i class="fa-brands fa-whatsapp"></i> Chat on WhatsApp
+                </a>
+            </div>
+
+            <div>
+                <h3>Quick Message</h3>
+                <form onsubmit="alert('Message Send ho gaya!'); return false;">
+                    <input type="text" placeholder="Aapka Naam" required style="width:100%; padding:10px; margin-bottom:10px; border:1px solid #cbd5e1; border-radius:6px;">
+                    <input type="tel" placeholder="Mobile Number" required style="width:100%; padding:10px; margin-bottom:10px; border:1px solid #cbd5e1; border-radius:6px;">
+                    <textarea rows="4" placeholder="Aapko kaun sa card ya flex banwana hai?" style="width:100%; padding:10px; margin-bottom:10px; border:1px solid #cbd5e1; border-radius:6px;"></textarea>
+                    <button type="submit" style="background:#0f172a; color:#fff; border:none; padding:10px 20px; border-radius:6px; font-weight:600; cursor:pointer; width:100%;">Message Bhejein</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
