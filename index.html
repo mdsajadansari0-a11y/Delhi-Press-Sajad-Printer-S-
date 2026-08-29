@@ -6,7 +6,7 @@
     <title>Delhi Press Sajad Printers</title>
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- jsPDF Library & AutoTable Plugin -->
+    <!-- jsPDF & AutoTable -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.31/jspdf.plugin.autotable.min.js"></script>
     <style>
@@ -33,7 +33,6 @@
             line-height: 1.6;
         }
 
-        /* Top Bar */
         .top-strip {
             background: #020617;
             color: #94a3b8;
@@ -51,7 +50,6 @@
             font-weight: 600;
         }
 
-        /* Header */
         header {
             background: var(--primary);
             padding: 12px 5%;
@@ -98,7 +96,6 @@
             text-transform: uppercase;
         }
 
-        /* Navigation */
         nav ul {
             list-style: none;
             display: flex;
@@ -173,7 +170,6 @@
             cursor: pointer;
         }
 
-        /* Hero */
         .hero {
             background: linear-gradient(rgba(15, 23, 42, 0.88), rgba(15, 23, 42, 0.88)), 
                         url('https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=1200&q=80') center/cover;
@@ -224,7 +220,6 @@
             color: #fff;
         }
 
-        /* Section Layout */
         .container {
             max-width: 1100px;
             margin: 40px auto;
@@ -249,7 +244,7 @@
 
         .grid-card {
             background: #fff;
-            border: 1px solid var(--border-color);
+            border: 1px solid #cbd5e1;
             border-radius: 10px;
             padding: 22px 18px;
             text-align: center;
@@ -287,13 +282,13 @@
             text-decoration: none;
         }
 
-        /* Wedding Card Order Box */
+        /* Order Box */
         .order-container {
             background: #ffffff;
             border: 2px solid #cbd5e1;
             border-top: 5px solid var(--gold);
             border-radius: 14px;
-            max-width: 800px;
+            max-width: 850px;
             margin: 45px auto;
             padding: 35px 25px;
             box-shadow: 0 8px 30px rgba(0,0,0,0.06);
@@ -313,13 +308,19 @@
             margin-bottom: 25px;
         }
 
+        .form-section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 6px;
+            margin: 25px 0 14px 0;
+        }
+
         .form-section-title {
             font-size: 16px;
             font-weight: 700;
             color: var(--primary);
-            border-bottom: 2px solid #f1f5f9;
-            padding-bottom: 6px;
-            margin: 20px 0 14px 0;
             display: flex;
             align-items: center;
             gap: 8px;
@@ -331,28 +332,34 @@
             gap: 15px;
         }
 
-        @media (max-width: 650px) {
-            .row-2 {
+        .row-3 {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 12px;
+        }
+
+        @media (max-width: 700px) {
+            .row-2, .row-3 {
                 grid-template-columns: 1fr;
             }
         }
 
         .form-group {
-            margin-bottom: 14px;
+            margin-bottom: 12px;
         }
 
         .form-group label {
             display: block;
             font-size: 13px;
             font-weight: 600;
-            margin-bottom: 5px;
+            margin-bottom: 4px;
             color: var(--primary);
         }
 
         .form-group input, .form-group select, .form-group textarea {
             width: 100%;
             padding: 10px 12px;
-            border: 1px solid var(--border-color);
+            border: 1px solid #cbd5e1;
             border-radius: 6px;
             font-size: 14px;
             outline: none;
@@ -360,6 +367,69 @@
 
         .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
             border-color: var(--gold);
+        }
+
+        /* Upload Container Styling */
+        .upload-field {
+            border: 2px dashed #f59e0b;
+            background: #fffbeb;
+            padding: 20px;
+            text-align: center;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .upload-field:hover {
+            background: #fef3c7;
+        }
+
+        .upload-preview {
+            display: none;
+            margin-top: 12px;
+            max-height: 150px;
+            border-radius: 6px;
+            border: 1px solid #cbd5e1;
+        }
+
+        .dynamic-box {
+            background: #f8fafc;
+            border: 1px dashed #94a3b8;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            position: relative;
+        }
+
+        .btn-add {
+            background: #0284c7;
+            color: #fff;
+            border: none;
+            padding: 6px 14px;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .btn-add:hover {
+            background: #0369a1;
+        }
+
+        .btn-remove {
+            background: #ef4444;
+            color: #fff;
+            border: none;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 12px;
+            cursor: pointer;
+            position: absolute;
+            top: 10px;
+            right: 10px;
         }
 
         .btn-order-wa {
@@ -377,17 +447,16 @@
             justify-content: center;
             gap: 10px;
             transition: 0.25s;
-            margin-top: 15px;
+            margin-top: 20px;
         }
 
         .btn-order-wa:hover {
             background: #1eb954;
         }
 
-        /* Payment Box */
         .payment-box {
             background: #fff;
-            border: 1px solid var(--border-color);
+            border: 1px solid #cbd5e1;
             border-radius: 12px;
             max-width: 460px;
             margin: 40px auto 0;
@@ -412,7 +481,6 @@
             margin-top: 15px;
         }
 
-        /* Footer */
         footer {
             background: var(--primary);
             color: #94a3b8;
@@ -476,7 +544,6 @@
 </head>
 <body>
 
-    <!-- Top Strip -->
     <div class="top-strip">
         <div>
             <a href="https://maps.google.com/?q=Delhi+Press+Sajad+Printers" target="_blank">
@@ -489,7 +556,6 @@
         </div>
     </div>
 
-    <!-- Header Navigation -->
     <header>
         <a href="index.html" class="logo-box">
             <div class="logo-icon"><i class="fa-solid fa-print"></i></div>
@@ -523,7 +589,6 @@
         </nav>
     </header>
 
-    <!-- Hero Section -->
     <div class="hero">
         <h2>Delhi Press Sajad Printers</h2>
         <p>Premium Wedding Cards, Flex Printing, Visiting Cards aur Complete Designing Center.</p>
@@ -533,7 +598,6 @@
         </div>
     </div>
 
-    <!-- Quick Page Redirects Section -->
     <div class="container">
         <div class="heading">
             <h3>Hamare Shaadi Cards Aur Printing Services</h3>
@@ -571,98 +635,82 @@
         </div>
     </div>
 
-    <!-- Complete Wedding Card Order Box -->
+    <!-- Complete Dynamic Order Box With Card Image Upload -->
     <div class="container" id="orderBox">
         <div class="order-container">
             <h3><i class="fa-brands fa-whatsapp" style="color:var(--whatsapp-green);"></i> Shaadi Card WhatsApp Order Form</h3>
-            <p class="sub">Niche di gayi details bharein. Ek sunder PDF table download ho jayegi aur WhatsApp par pura vivaran send ho jayega.</p>
+            <p class="sub">Details bharein, Sample Card Photo upload karein. PDF generate hogi aur WhatsApp par direct order bhej sakte hain.</p>
 
             <form id="weddingOrderForm" onsubmit="handleWeddingOrder(event)">
                 
-                <!-- Order Basics -->
-                <div class="form-section-title"><i class="fa-solid fa-clipboard-list"></i> 1. Basic Details</div>
+                <!-- 1. Order Basics -->
+                <div class="form-section-header">
+                    <div class="form-section-title"><i class="fa-solid fa-clipboard-list"></i> 1. Customer & Order Details</div>
+                </div>
                 <div class="row-2">
                     <div class="form-group">
-                        <label>Customer Name (Order Karne Wale Ka Naam) *</label>
-                        <input type="text" id="custName" placeholder="Apna naam likhein" required>
+                        <label>Customer Name *</label>
+                        <input type="text" id="custName" placeholder="Apna pura naam" required>
                     </div>
                     <div class="form-group">
                         <label>Mobile Number *</label>
-                        <input type="tel" id="custPhone" placeholder="Mobile number likhein" required>
+                        <input type="tel" id="custPhone" placeholder="10 Digit Number" required>
                     </div>
                 </div>
                 <div class="row-2">
                     <div class="form-group">
                         <label>Card Type *</label>
                         <select id="cardType" required>
-                            <option value="Muslim Wedding Card (Nikah/Walima)">☪ Muslim Wedding Card (Nikah/Walima)</option>
+                            <option value="Muslim Wedding Card">☪ Muslim Wedding Card (Nikah/Walima)</option>
                             <option value="Hindu Shubh Vivah Card">卐 Hindu Shubh Vivah Card</option>
-                            <option value="Engagement / Tilak Card">💍 Engagement / Tilak Card</option>
+                            <option value="Combined Multi-Marriage Card">👨‍👩‍👧‍👦 Multi-Marriage Family Card</option>
                         </select>
                     </div>
                     <div class="form-group">
                         <label>Total Cards Quantity *</label>
-                        <input type="text" id="cardQty" placeholder="e.g. 200, 500 Cards" required>
+                        <input type="text" id="cardQty" placeholder="e.g. 250 Cards" required>
                     </div>
                 </div>
 
-                <!-- Groom Details -->
-                <div class="form-section-title"><i class="fa-solid fa-user-tie"></i> 2. Dulha (Groom) Details</div>
-                <div class="row-2">
-                    <div class="form-group">
-                        <label>Dulha Ka Naam (Groom Name) *</label>
-                        <input type="text" id="groomName" placeholder="Dulha ka naam" required>
-                    </div>
-                    <div class="form-group">
-                        <label>Pita / Walid Ka Naam (Father's Name) *</label>
-                        <input type="text" id="groomFather" placeholder="Pita ka naam" required>
-                    </div>
-                </div>
+                <!-- Card Sample Image Upload Field -->
                 <div class="form-group">
-                    <label>Pata (Groom Address / Gaon / Shehar) *</label>
-                    <input type="text" id="groomAddress" placeholder="Pura pata likhein" required>
+                    <label><i class="fa-solid fa-camera"></i> Card Sample Photo / Design Image (Upload)</label>
+                    <div class="upload-field" onclick="document.getElementById('cardSampleFile').click()">
+                        <i class="fa-solid fa-cloud-arrow-up" style="font-size:28px; color:var(--gold);"></i>
+                        <p style="font-size:14px; font-weight:600; margin-top:5px;">Card ki Photo Select Karein (Click Here)</p>
+                        <span style="font-size:12px; color:#64748b;">(JPG, PNG Photo Upload Karein)</span>
+                        <input type="file" id="cardSampleFile" accept="image/*" style="display:none;" onchange="previewCardImage(event)">
+                    </div>
+                    <center><img id="cardImagePreview" class="upload-preview" alt="Selected Card Preview"></center>
                 </div>
 
-                <!-- Bride Details -->
-                <div class="form-section-title"><i class="fa-solid fa-person-dress"></i> 3. Dulhan (Bride) Details</div>
-                <div class="row-2">
-                    <div class="form-group">
-                        <label>Dulhan Ka Naam (Bride Name) *</label>
-                        <input type="text" id="brideName" placeholder="Dulhan ka naam" required>
-                    </div>
-                    <div class="form-group">
-                        <label>Pita / Walid Ka Naam (Father's Name) *</label>
-                        <input type="text" id="brideFather" placeholder="Pita ka naam" required>
-                    </div>
+                <!-- 2. Dynamic Persons Section -->
+                <div class="form-section-header">
+                    <div class="form-section-title"><i class="fa-solid fa-users"></i> 2. Ladka / Ladki Vivaran (Multiple Add Karein)</div>
+                    <button type="button" class="btn-add" onclick="addPersonBox()"><i class="fa-solid fa-plus"></i> Aur Ladka / Ladki Jodein</button>
                 </div>
-                <div class="form-group">
-                    <label>Pata (Bride Address / Gaon / Shehar) *</label>
-                    <input type="text" id="brideAddress" placeholder="Pura pata likhein" required>
-                </div>
+                <div id="personsContainer"></div>
 
-                <!-- Dates & Functions -->
-                <div class="form-section-title"><i class="fa-solid fa-calendar-days"></i> 4. Date & Events (Tarikh & Karyakram)</div>
-                <div class="row-2">
-                    <div class="form-group">
-                        <label>Shaadi / Nikah Ki Tarikh (Marriage Date) *</label>
-                        <input type="date" id="eventDate" required>
-                    </div>
-                    <div class="form-group">
-                        <label>Baraat / Walima / Reception Tarikh</label>
-                        <input type="text" id="receptionDate" placeholder="e.g. 24 Oct ko Walima / Barat">
-                    </div>
+                <!-- 3. Dynamic Events Section -->
+                <div class="form-section-header">
+                    <div class="form-section-title"><i class="fa-solid fa-calendar-days"></i> 3. Rasme-Riwaz, Tarikh & Time (Events)</div>
+                    <button type="button" class="btn-add" onclick="addEventBox()"><i class="fa-solid fa-plus"></i> Aur Karyakram Jodein</button>
                 </div>
+                <div id="eventsContainer"></div>
+
                 <div class="form-group">
                     <label>Karyakram Ka Sthan (Event Venue / Address)</label>
-                    <input type="text" id="venue" placeholder="Marriage Hall, Hotel ya Ghar ka pata">
+                    <input type="text" id="venue" placeholder="Marriage Hall, Hotel ya Ghar ka pura pata">
                 </div>
 
-                <!-- RSVP & From -->
-                <div class="form-section-title"><i class="fa-solid fa-handshake"></i> 5. RSVP & From (Nivedak & Swagatakshuk)</div>
+                <!-- 4. RSVP & From -->
+                <div class="form-section-header">
+                    <div class="form-section-title"><i class="fa-solid fa-handshake"></i> 4. RSVP & From (Nivedak / Swagatakshuk)</div>
+                </div>
                 <div class="row-2">
                     <div class="form-group">
-                        <label>RSVP / Swagatakshuk (Contact Persons & Numbers) *</label>
-                        <textarea id="rsvpText" rows="2" placeholder="e.g. Chacha, Bhai ke naam aur phone numbers" required></textarea>
+                        <label>RSVP / Swagatakshuk (Contacts & Names) *</label>
+                        <textarea id="rsvpText" rows="2" placeholder="e.g. Chacha, Bhai ke naam aur phone number" required></textarea>
                     </div>
                     <div class="form-group">
                         <label>From / Nivedak (Bhejne Wale Parivar Ka Naam) *</label>
@@ -671,8 +719,8 @@
                 </div>
 
                 <div class="form-group">
-                    <label>Any Extra Details / Design Code (Optional)</label>
-                    <input type="text" id="extraNotes" placeholder="Design code, foil color, bismillah logo etc.">
+                    <label>Design Code / Extra Note (Optional)</label>
+                    <input type="text" id="extraNotes" placeholder="Design code, foil color, Bismillah/Ganesh logo etc.">
                 </div>
 
                 <button type="submit" class="btn-order-wa">
@@ -682,7 +730,6 @@
         </div>
     </div>
 
-    <!-- Online Payment Section -->
     <div class="container">
         <div class="payment-box">
             <span style="background:#ecfdf5; color:#047857; padding:4px 12px; border-radius:20px; font-size:12px; font-weight:700;">
@@ -698,7 +745,6 @@
         </div>
     </div>
 
-    <!-- Footer -->
     <footer>
         <div class="footer-grid">
             <div class="footer-col">
@@ -736,119 +782,229 @@
         </div>
     </footer>
 
-    <!-- Scripts for WhatsApp & Professional Table PDF Generation -->
     <script>
         function toggleNav() {
             document.getElementById('navbar').classList.toggle('active');
         }
 
+        let personCount = 0;
+        let eventCount = 0;
+        let cardImageBase64 = null;
+
+        // Preview and save base64 of selected image
+        function previewCardImage(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    cardImageBase64 = e.target.result;
+                    const preview = document.getElementById('cardImagePreview');
+                    preview.src = cardImageBase64;
+                    preview.style.display = 'block';
+                }
+                reader.readAsDataURL(file);
+            }
+        }
+
+        function addPersonBox() {
+            personCount++;
+            const container = document.getElementById('personsContainer');
+            const div = document.createElement('div');
+            div.className = 'dynamic-box';
+            div.id = `personBox_${personCount}`;
+            div.innerHTML = `
+                ${personCount > 1 ? `<button type="button" class="btn-remove" onclick="removeBox('personBox_${personCount}')"><i class="fa-solid fa-trash"></i> Hatao</button>` : ''}
+                <div class="row-2">
+                    <div class="form-group">
+                        <label>Parchay (Role) *</label>
+                        <select class="person-role" required>
+                            <option value="Dulha (Groom)">Dulha (Groom / Ladka)</option>
+                            <option value="Dulhan (Bride)">Dulhan (Bride / Ladki)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Naam (Candidate Name) *</label>
+                        <input type="text" class="person-name" placeholder="Ladka / Ladki ka naam" required>
+                    </div>
+                </div>
+                <div class="row-2">
+                    <div class="form-group">
+                        <label>Pita / Walid Ka Naam *</label>
+                        <input type="text" class="person-father" placeholder="Father's Name" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Pata (Address / Gaon / Shehar) *</label>
+                        <input type="text" class="person-address" placeholder="Pura pata" required>
+                    </div>
+                </div>
+            `;
+            container.appendChild(div);
+        }
+
+        function addEventBox(defaultName = '') {
+            eventCount++;
+            const container = document.getElementById('eventsContainer');
+            const div = document.createElement('div');
+            div.className = 'dynamic-box';
+            div.id = `eventBox_${eventCount}`;
+            div.innerHTML = `
+                ${eventCount > 1 ? `<button type="button" class="btn-remove" onclick="removeBox('eventBox_${eventCount}')"><i class="fa-solid fa-trash"></i> Hatao</button>` : ''}
+                <div class="row-3">
+                    <div class="form-group">
+                        <label>Rasme / Karyakram Ka Naam *</label>
+                        <input type="text" class="event-name" value="${defaultName}" placeholder="e.g. Shaadi, Walima, Barat" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Tarikh (Date) *</label>
+                        <input type="date" class="event-date" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Samay (Time) *</label>
+                        <input type="time" class="event-time" required>
+                    </div>
+                </div>
+            `;
+            container.appendChild(div);
+        }
+
+        function removeBox(id) {
+            const el = document.getElementById(id);
+            if (el) el.remove();
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            addPersonBox();
+            addEventBox('Nikah / Shaadi');
+        });
+
         function handleWeddingOrder(e) {
             e.preventDefault();
 
-            // Form Values
             const custName = document.getElementById('custName').value;
             const custPhone = document.getElementById('custPhone').value;
             const cardType = document.getElementById('cardType').value;
             const cardQty = document.getElementById('cardQty').value;
-
-            const groomName = document.getElementById('groomName').value;
-            const groomFather = document.getElementById('groomFather').value;
-            const groomAddress = document.getElementById('groomAddress').value;
-
-            const brideName = document.getElementById('brideName').value;
-            const brideFather = document.getElementById('brideFather').value;
-            const brideAddress = document.getElementById('brideAddress').value;
-
-            const eventDate = document.getElementById('eventDate').value;
-            const receptionDate = document.getElementById('receptionDate').value || "N/A";
-            const venue = document.getElementById('venue').value || "Ghar Par";
-
+            const venue = document.getElementById('venue').value || "Ghar Par / As per details";
             const rsvpText = document.getElementById('rsvpText').value;
             const fromText = document.getElementById('fromText').value;
             const extraNotes = document.getElementById('extraNotes').value || "None";
             const orderDate = new Date().toLocaleDateString('hi-IN');
 
-            // 1. Generate Clean Table PDF using jsPDF AutoTable
+            // Persons
+            const personBoxes = document.querySelectorAll('#personsContainer .dynamic-box');
+            let personsList = [];
+            let personsWAText = "";
+            personBoxes.forEach((box, i) => {
+                const role = box.querySelector('.person-role').value;
+                const name = box.querySelector('.person-name').value;
+                const father = box.querySelector('.person-father').value;
+                const address = box.querySelector('.person-address').value;
+                personsList.push({ role, name, father, address });
+
+                personsWAText += `%0A*${i+1}. ${role}:* ${encodeURIComponent(name)}%0A` +
+                                 `  _Father:_ ${encodeURIComponent(father)}%0A` +
+                                 `  _Address:_ ${encodeURIComponent(address)}%0A`;
+            });
+
+            // Events
+            const eventBoxes = document.querySelectorAll('#eventsContainer .dynamic-box');
+            let eventsList = [];
+            let eventsWAText = "";
+            eventBoxes.forEach((box) => {
+                const name = box.querySelector('.event-name').value;
+                const date = box.querySelector('.event-date').value;
+                const time = box.querySelector('.event-time').value;
+                eventsList.push({ name, date, time });
+
+                eventsWAText += `• *${encodeURIComponent(name)}:* ${encodeURIComponent(date)} (${encodeURIComponent(time)})%0A`;
+            });
+
+            // PDF Generation
             const { jsPDF } = window.jspdf;
             const doc = new jsPDF();
 
-            // Header Banner in PDF
-            doc.setFillColor(15, 23, 42); // Navy
-            doc.rect(0, 0, 210, 28, 'F');
-            doc.setTextColor(245, 158, 11); // Gold
-            doc.setFontSize(18);
+            doc.setFillColor(15, 23, 42);
+            doc.rect(0, 0, 210, 26, 'F');
+            doc.setTextColor(245, 158, 11);
+            doc.setFontSize(17);
             doc.setFont(undefined, 'bold');
             doc.text("DELHI PRESS SAJAD PRINTERS", 105, 12, { align: "center" });
 
             doc.setTextColor(255, 255, 255);
             doc.setFontSize(10);
             doc.setFont(undefined, 'normal');
-            doc.text("Mobile: +91 93045 09464 | Wedding Card Booking Slip", 105, 20, { align: "center" });
+            doc.text("Mobile: +91 93045 09464 | Shaadi Card Booking Slip", 105, 19, { align: "center" });
 
-            // Table Data Array
-            const tableRows = [
+            let tableRows = [
                 [{ content: "Order Details", colSpan: 2, styles: { fillColor: [245, 158, 11], textColor: [15, 23, 42], fontStyle: 'bold' } }],
                 ["Customer Name", custName],
-                ["Customer Contact", custPhone],
+                ["Mobile Number", custPhone],
                 ["Card Category", cardType],
                 ["Total Quantity", cardQty],
-                ["Order Booking Date", orderDate],
-
-                [{ content: "Groom (Dulha) Details", colSpan: 2, styles: { fillColor: [241, 245, 249], textColor: [15, 23, 42], fontStyle: 'bold' } }],
-                ["Dulha Ka Naam (Groom)", groomName],
-                ["Pita / Walid Ka Naam", groomFather],
-                ["Pata (Address)", groomAddress],
-
-                [{ content: "Bride (Dulhan) Details", colSpan: 2, styles: { fillColor: [241, 245, 249], textColor: [15, 23, 42], fontStyle: 'bold' } }],
-                ["Dulhan Ka Naam (Bride)", brideName],
-                ["Pita / Walid Ka Naam", brideFather],
-                ["Pata (Address)", brideAddress],
-
-                [{ content: "Dates & Venue Details", colSpan: 2, styles: { fillColor: [241, 245, 249], textColor: [15, 23, 42], fontStyle: 'bold' } }],
-                ["Shaadi / Nikah Tarikh", eventDate],
-                ["Walima / Barat / Reception", receptionDate],
-                ["Karyakram Sthan (Venue)", venue],
-
-                [{ content: "RSVP & From Details", colSpan: 2, styles: { fillColor: [241, 245, 249], textColor: [15, 23, 42], fontStyle: 'bold' } }],
-                ["RSVP / Swagatakshuk", rsvpText],
-                ["From / Nivedak", fromText],
-                ["Extra Notes", extraNotes]
+                ["Booking Date", orderDate],
+                [{ content: "Ladka / Ladki Details", colSpan: 2, styles: { fillColor: [241, 245, 249], textColor: [15, 23, 42], fontStyle: 'bold' } }]
             ];
 
+            personsList.forEach((p, index) => {
+                tableRows.push([`${index + 1}. ${p.role}`, `${p.name}\n(Pita/Walid: ${p.father})\nPata: ${p.address}`]);
+            });
+
+            tableRows.push([{ content: "Rasme-Riwaz & Event Dates", colSpan: 2, styles: { fillColor: [241, 245, 249], textColor: [15, 23, 42], fontStyle: 'bold' } }]);
+            eventsList.forEach((ev) => {
+                tableRows.push([ev.name, `Tarikh: ${ev.date} | Samay: ${ev.time}`]);
+            });
+
+            tableRows.push(
+                ["Venue (Sthan)", venue],
+                [{ content: "RSVP & From Details", colSpan: 2, styles: { fillColor: [241, 245, 249], textColor: [15, 23, 42], fontStyle: 'bold' } }],
+                ["RSVP", rsvpText],
+                ["From / Nivedak", fromText],
+                ["Notes / Design Code", extraNotes]
+            );
+
             doc.autoTable({
-                startY: 34,
+                startY: 32,
                 head: [['Field', 'Details']],
                 body: tableRows,
                 theme: 'grid',
                 headStyles: { fillColor: [15, 23, 42], textColor: [255, 255, 255], fontStyle: 'bold' },
-                styles: { fontSize: 9.5, cellPadding: 3.5 },
-                columnStyles: {
-                    0: { fontStyle: 'bold', cellWidth: 60 }
-                }
+                styles: { fontSize: 9, cellPadding: 2.8 },
+                columnStyles: { 0: { fontStyle: 'bold', cellWidth: 55 } }
             });
 
-            // Save PDF
-            doc.save(`WeddingCard_${custName.replace(/\s+/g, '_')}.pdf`);
+            // If user uploaded a card image, attach to PDF
+            if (cardImageBase64) {
+                let finalY = doc.lastAutoTable.finalY + 10;
+                if (finalY > 220) {
+                    doc.addPage();
+                    finalY = 20;
+                }
+                doc.setFontSize(11);
+                doc.setFont(undefined, 'bold');
+                doc.text("Attached Card Sample Photo:", 15, finalY);
+                doc.addImage(cardImageBase64, 'JPEG', 15, finalY + 5, 60, 60);
+            }
 
-            // 2. Structured WhatsApp Message
+            doc.save(`ShaadiCard_${custName.replace(/\s+/g, '_')}.pdf`);
+
+            // WhatsApp Message
+            let sampleUploadedNote = cardImageBase64 ? "%0A📸 *Sample Photo:* Attached in PDF & Gallery" : "";
+
             const waMsg = `*--- SHAADI CARD NEW ORDER ---*%0A` +
                           `*Booking Date:* ${orderDate}%0A%0A` +
                           `*Customer:* ${encodeURIComponent(custName)} (${encodeURIComponent(custPhone)})%0A` +
                           `*Card Type:* ${encodeURIComponent(cardType)}%0A` +
-                          `*Quantity:* ${encodeURIComponent(cardQty)}%0A%0A` +
-                          `*DULHA (GROOM):* ${encodeURIComponent(groomName)}%0A` +
-                          `*Father:* ${encodeURIComponent(groomFather)}%0A` +
-                          `*Address:* ${encodeURIComponent(groomAddress)}%0A%0A` +
-                          `*DULHAN (BRIDE):* ${encodeURIComponent(brideName)}%0A` +
-                          `*Father:* ${encodeURIComponent(brideFather)}%0A` +
-                          `*Address:* ${encodeURIComponent(brideAddress)}%0A%0A` +
-                          `*Tarikh (Event Date):* ${encodeURIComponent(eventDate)}%0A` +
-                          `*Barat/Walima:* ${encodeURIComponent(receptionDate)}%0A` +
+                          `*Quantity:* ${encodeURIComponent(cardQty)}%0A` +
+                          sampleUploadedNote + `%0A%0A` +
+                          `*--- LADKA / LADKI DETAILS ---*` +
+                          `${personsWAText}%0A` +
+                          `*--- RASME-RIWAZ & DATES ---*%0A` +
+                          `${eventsWAText}%0A` +
                           `*Venue:* ${encodeURIComponent(venue)}%0A%0A` +
                           `*RSVP:* ${encodeURIComponent(rsvpText)}%0A` +
                           `*From / Nivedak:* ${encodeURIComponent(fromText)}%0A` +
                           `*Notes:* ${encodeURIComponent(extraNotes)}%0A%0A` +
-                          `_(Maine is order ki slip PDF download kar li hai, wo PDF sath me attach kar raha hu.)_`;
+                          `_(Maine is order ki slip PDF download kar li hai, wo PDF aur Sample photo main yahan chat me attach kar raha hu.)_`;
 
             const waURL = `https://wa.me/919304509464?text=${waMsg}`;
 
